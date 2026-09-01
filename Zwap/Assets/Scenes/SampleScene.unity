@@ -223,6 +223,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fish
       objectReference: {fileID: 0}
+    - target: {fileID: 2511196548380628927, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: m_Color.b
+      value: 0.20258236
+      objectReference: {fileID: 0}
+    - target: {fileID: 2511196548380628927, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2511196548380628927, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6699625963249174140, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.03943
@@ -280,6 +292,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock
       objectReference: {fileID: 0}
+    - target: {fileID: 2071982782084722513, guid: eaf7c7f11abcbb541a6c460522c164ff, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 3791264335194620505, guid: eaf7c7f11abcbb541a6c460522c164ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.47
