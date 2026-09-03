@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerStart : MonoBehaviour
@@ -8,6 +9,7 @@ public class PlayerStart : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     
     private Vector3 startPos;
+    private Vector2 moveInput;
     private PlayerControls controls;
     private Rigidbody2D rb;
     
@@ -21,18 +23,23 @@ public class PlayerStart : MonoBehaviour
 
     private void OnEnable()
     {
-        throw new NotImplementedException();
+        controls.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        controls.Player.Move.canceled += ctx =>  moveInput = Vector2.zero;
+        controls.Player.Enable();
     }
 
-
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        controls.Player.Move.performed -= ctx => moveInput = ctx.ReadValue<Vector2>();
+        controls.Player.Move.canceled -= ctx =>  moveInput = Vector2.zero;
+        controls.Player.Disable();
     }
-
+    
+    
+    // Update once every frame on set timer
     private void FixedUpdate()
     {
-        throw new NotImplementedException();
+        Vector3 move = new Vector3(moveInput.x, moveInput.y, 0f) * moveSpeed;
+        rb.MovePosition(transform.position + move);
     }
 }
