@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3349836577431482934}
   - component: {fileID: 9177993626437679230}
   m_Layer: 0
-  m_Name: object Spawner
+  m_Name: ObjectSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RockSpawner
   itemPrefabs:
   - {fileID: 1223877303238547685, guid: eaf7c7f11abcbb541a6c460522c164ff, type: 3}
-  - {fileID: 1161412674535546430, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
   spawnPoint: {fileID: 3349836577431482934}
   spawnInterval: 2
   lanePositions:
