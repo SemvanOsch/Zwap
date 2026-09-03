@@ -10,10 +10,13 @@ public class PlayerStart : MonoBehaviour
     
     private Vector3 startPos;
     private Vector2 moveInput;
+    private Vector2 keyboardInput;
     private PlayerControls controls;
     private Rigidbody2D rb;
+
+    public void AddInput(Vector2 dir)    { moveInput += dir; }
+    public void RemoveInput(Vector2 dir) { moveInput -= dir; }
     
-    // Loads values when object is created
     private void Awake()
     {
         startPos = transform.position;
@@ -23,23 +26,32 @@ public class PlayerStart : MonoBehaviour
 
     private void OnEnable()
     {
-        controls.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
-        controls.Player.Move.canceled += ctx =>  moveInput = Vector2.zero;
+        controls.Player.Move.performed += OnKeyboardMove;
+        controls.Player.Move.canceled  += OnKeyboardStop;
         controls.Player.Enable();
     }
 
     private void OnDisable()
     {
-        controls.Player.Move.performed -= ctx => moveInput = ctx.ReadValue<Vector2>();
-        controls.Player.Move.canceled -= ctx =>  moveInput = Vector2.zero;
+        controls.Player.Move.performed -= OnKeyboardMove;
+        controls.Player.Move.canceled  -= OnKeyboardStop;
         controls.Player.Disable();
     }
+
+    private void OnKeyboardMove(InputAction.CallbackContext ctx)
+    {
+        keyboardInput = ctx.ReadValue<Vector2>();
+    }
+
+    private void OnKeyboardStop(InputAction.CallbackContext ctx)
+    {
+        keyboardInput = Vector2.zero;
+    }
     
-    
-    // Update once every frame on set timer
     private void FixedUpdate()
     {
-        Vector3 move = new Vector3(moveInput.x, moveInput.y, 0f) * moveSpeed;
+        Vector2 combined = moveInput + keyboardInput;
+        Vector3 move = new Vector3(combined.x, combined.y, 0f) * moveSpeed;
         rb.MovePosition(transform.position + move);
     }
 }
