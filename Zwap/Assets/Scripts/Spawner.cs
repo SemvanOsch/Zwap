@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RockSpawner : MonoBehaviour
 {
-    public GameObject rockPrefab;      // the Rock prefab
+    public GameObject[] itemPrefabs;   // prefabs to spawn
     public Transform spawnPoint;       // the SpawnPoint object
     public float spawnInterval = 2f;   // seconds between spawns
 
@@ -16,13 +16,16 @@ public class RockSpawner : MonoBehaviour
 
         if (timer >= spawnInterval)
         {
-            SpawnRock();
+            SpawnEntity();
             timer = 0f;
         }
     }
 
-    void SpawnRock()
+    void SpawnEntity()
     {
+        
+        int itemIndex = Random.Range(0, itemPrefabs.Length);
+        GameObject chosenItem = itemPrefabs[itemIndex];
         // pick a random lane
         int laneIndex = Random.Range(0, lanePositions.Length);
         float laneX = lanePositions[laneIndex];
@@ -31,6 +34,6 @@ public class RockSpawner : MonoBehaviour
         Vector3 spawnPos = new Vector3(laneX, spawnPoint.position.y, spawnPoint.position.z);
 
         // create the rock
-        Instantiate(rockPrefab, spawnPos, Quaternion.identity);
+        Instantiate(chosenItem, spawnPos, Quaternion.identity);
     }
 }
