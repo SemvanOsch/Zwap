@@ -529,6 +529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2437424666647485169, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+    - {fileID: -2319729927926959263, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -564,6 +565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStart
   moveSpeed: 0.3
   _animator: {fileID: 702984367}
+  touchControls: {fileID: 702984366}
 --- !u!50 &702984359
 Rigidbody2D:
   serializedVersion: 5

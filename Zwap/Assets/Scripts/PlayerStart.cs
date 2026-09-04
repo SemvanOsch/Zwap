@@ -8,6 +8,10 @@ public class PlayerStart : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
 
     [SerializeField] private Animator _animator;
+    
+    [Header("Inverse")]
+    [SerializeField] private TouchControls touchControls;
+    // To inverse control do touchControls.ToggleInverse();
 
     private Vector2 moveInput;
     private Vector2 keyboardInput;
@@ -18,6 +22,7 @@ public class PlayerStart : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         controls = new PlayerControls();
+
     }
 
     private void OnEnable()

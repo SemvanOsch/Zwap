@@ -5,16 +5,28 @@ using UnityEngine.UI;
 public class TouchControls : MonoBehaviour
 {
     public PlayerStart playerStart;
+    private bool isInversed = false;
 
-    public void OnUpPress()    { Debug.Log("Up pressed"); playerStart.AddInput(Vector2.up); }
-    public void OnUpRelease()  { Debug.Log("Up released"); playerStart.RemoveInput(Vector2.up); }
+    public void ToggleInverse()
+    {
+        isInversed = !isInversed;
+    }
 
-    public void OnDownPress()    { Debug.Log("Down pressed"); playerStart.AddInput(Vector2.down); }
-    public void OnDownRelease()  { Debug.Log("Down released"); playerStart.RemoveInput(Vector2.down); }
+    private Vector2 ApplyInverse(Vector2 dir)
+    {
+        return isInversed ? -dir : dir;
+    }
+    
 
-    public void OnLeftPress()    { Debug.Log("Left pressed"); playerStart.AddInput(Vector2.left); }
-    public void OnLeftRelease()  { Debug.Log("Left released"); playerStart.RemoveInput(Vector2.left); }
+    public void OnUpPress()      { playerStart.AddInput(ApplyInverse(Vector2.up)); }
+    public void OnUpRelease()    { playerStart.RemoveInput(ApplyInverse(Vector2.up)); }
 
-    public void OnRightPress()    { Debug.Log("Right pressed"); playerStart.AddInput(Vector2.right); }
-    public void OnRightRelease()  { Debug.Log("Right released"); playerStart.RemoveInput(Vector2.right); }
+    public void OnDownPress()    { playerStart.AddInput(ApplyInverse(Vector2.down)); }
+    public void OnDownRelease()  { playerStart.RemoveInput(ApplyInverse(Vector2.down)); }
+
+    public void OnLeftPress()    { playerStart.AddInput(ApplyInverse(Vector2.left)); }
+    public void OnLeftRelease()  { playerStart.RemoveInput(ApplyInverse(Vector2.left)); }
+
+    public void OnRightPress()   { playerStart.AddInput(ApplyInverse(Vector2.right)); }
+    public void OnRightRelease() { playerStart.RemoveInput(ApplyInverse(Vector2.right)); }
 }
