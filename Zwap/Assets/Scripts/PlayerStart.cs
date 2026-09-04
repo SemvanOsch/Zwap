@@ -21,7 +21,6 @@ public class PlayerStart : MonoBehaviour
 
     private void Awake()
     {
-        touchControls.ToggleInverse();
         rb = GetComponent<Rigidbody2D>();
         controls = new PlayerControls();
     }
