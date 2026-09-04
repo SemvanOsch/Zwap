@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4490623139351188290, guid: 1899a0be2e6de69418f1a33cb238f9e4, type: 3}
+      propertyPath: y
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 5470245685772642610, guid: 1899a0be2e6de69418f1a33cb238f9e4, type: 3}
       propertyPath: m_Name
       value: WaterBackground Variant
