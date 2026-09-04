@@ -4,12 +4,22 @@ using UnityEngine.UI;
 
 public class TouchControls : MonoBehaviour
 {
+    [SerializeField] private Transform upTransform;
+    [SerializeField] private Transform downTransform;
+    [SerializeField] private Transform leftTransform;
+    [SerializeField] private Transform rightTransform;
+    
     public PlayerStart playerStart;
     private bool isInversed = false;
 
     public void ToggleInverse()
     {
         isInversed = !isInversed;
+
+        upTransform.rotation    = Quaternion.Euler(0, 0, isInversed ? 180 : 0);
+        downTransform.rotation  = Quaternion.Euler(0, 0, isInversed ? 0 : 180);
+        leftTransform.rotation  = Quaternion.Euler(0, 0, isInversed ? 270 : 90);
+        rightTransform.rotation = Quaternion.Euler(0, 0, isInversed ? 90 : 270);
     }
 
     private Vector2 ApplyInverse(Vector2 dir)

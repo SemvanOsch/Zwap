@@ -451,6 +451,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1899a0be2e6de69418f1a33cb238f9e4, type: 3}
+--- !u!224 &646884696 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8666542673599229777, guid: cfe8d2bae4cf18a4ea2b2fe08198d63f, type: 3}
+  m_PrefabInstance: {fileID: 271408567}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &702984356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -642,11 +647,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef85708d6b9fa419d77b239497274c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TouchControls
+  upTransform: {fileID: 794691627}
+  downTransform: {fileID: 841909512}
+  leftTransform: {fileID: 750876889}
+  rightTransform: {fileID: 646884696}
   playerStart: {fileID: 702984358}
 --- !u!95 &702984367 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6376809572622171141, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
   m_PrefabInstance: {fileID: 702984356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &750876889 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8396487539122184163, guid: cfe8d2bae4cf18a4ea2b2fe08198d63f, type: 3}
+  m_PrefabInstance: {fileID: 271408567}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &794691627 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9010457882302226439, guid: cfe8d2bae4cf18a4ea2b2fe08198d63f, type: 3}
+  m_PrefabInstance: {fileID: 271408567}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &841909512 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3234540391644232918, guid: cfe8d2bae4cf18a4ea2b2fe08198d63f, type: 3}
+  m_PrefabInstance: {fileID: 271408567}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1520277521
 GameObject:

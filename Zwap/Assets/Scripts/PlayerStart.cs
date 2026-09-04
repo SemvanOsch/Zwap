@@ -22,7 +22,6 @@ public class PlayerStart : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         controls = new PlayerControls();
-
     }
 
     private void OnEnable()
