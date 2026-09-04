@@ -39,6 +39,9 @@ public class PlayerStart : MonoBehaviour
         controls.Player.Move.performed += OnKeyboardMove;
         controls.Player.Move.canceled += OnKeyboardStop;
         controls.Player.Enable();
+
+        if (Accelerometer.current != null)
+            InputSystem.EnableDevice(Accelerometer.current);
     }
 
     private void OnDisable()
@@ -46,6 +49,9 @@ public class PlayerStart : MonoBehaviour
         controls.Player.Move.performed -= OnKeyboardMove;
         controls.Player.Move.canceled -= OnKeyboardStop;
         controls.Player.Disable();
+
+        if (Accelerometer.current != null)
+            InputSystem.DisableDevice(Accelerometer.current);
 
         _animator.SetBool("IsMoving", false);
     }
@@ -60,6 +66,16 @@ public class PlayerStart : MonoBehaviour
         keyboardInput = Vector2.zero;
     }
 
+
+    private Vector2 GetTiltInput()
+    {
+        if (Accelerometer.current == null)
+            return Vector2.zero;
+
+        Vector3 accel = Accelerometer.current.acceleration.ReadValue();
+        return new Vector2(accel.x, accel.y);
+    }
+
     private void FixedUpdate()
     {
         Vector2 combined = moveInput + keyboardInput;
@@ -67,6 +83,8 @@ public class PlayerStart : MonoBehaviour
         bool isMoving = combined.magnitude > 0.01f;
         _animator.SetBool("IsMoving", isMoving);
 
+        Vector2 tiltInput = GetTiltInput();
+        Vector2 combined = moveInput + keyboardInput + tiltInput;
         Vector3 move = new Vector3(combined.x, combined.y, 0f) * moveSpeed;
         rb.MovePosition(transform.position + move);
     }
@@ -77,8 +95,8 @@ public class PlayerStart : MonoBehaviour
 
         if (other.gameObject.CompareTag("Entity"))
         {
-            Debug.Log("Tag matched, loading scene");
-            SceneManager.LoadScene("Home-Screen");
+             Debug.Log("Tag matched");
+            // SceneManager.LoadScene("Home-Screen");
         }
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6699625963249174140}
   - component: {fileID: 2511196548380628927}
   - component: {fileID: 2437424666647485169}
+  - component: {fileID: -2319729927926959263}
   - component: {fileID: 6376809572622171141}
   m_Layer: 0
   m_Name: Fish
@@ -129,6 +130,19 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.50000006
+--- !u!114 &-2319729927926959263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161412674535546430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef85708d6b9fa419d77b239497274c, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::TouchControls
+  playerStart: {fileID: 0}
 --- !u!95 &6376809572622171141
 Animator:
   serializedVersion: 7
@@ -146,7 +160,7 @@ Animator:
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
