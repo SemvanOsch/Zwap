@@ -54,18 +54,16 @@ public class PlayerStart : MonoBehaviour
         Vector3 move = new Vector3(combined.x, combined.y, 0f) * moveSpeed;
         rb.MovePosition(transform.position + move);
     }
-}
-
-public class PlayerCollision : MonoBehaviour
-{
-    void OnCollisionEnter2D(Collision2D collision)
+    
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collided with: " + collision.gameObject.name);
+        Debug.Log("Collided with: " + other.gameObject.name);
 
-        if (collision.gameObject.CompareTag("Rock"))
+        if (other.gameObject.CompareTag("Entity"))
         {
             Debug.Log("Tag matched, loading scene");
             SceneManager.LoadScene("Home-Screen");
         }
     }
 }
+
