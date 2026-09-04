@@ -8,10 +8,6 @@ public class PlayerStart : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
 
     [SerializeField] private Animator _animator;
-    
-    [Header("Inverse")]
-    [SerializeField] private TouchControls touchControls;
-    // To inverse control do touchControls.ToggleInverse();
 
     private Vector2 moveInput;
     private Vector2 keyboardInput;
@@ -21,8 +17,16 @@ public class PlayerStart : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        controls = new PlayerControls();
 
+        try
+        {
+            controls = new PlayerControls();
+            Debug.Log("PlayerControls created successfully");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError("Failed to create PlayerControls: " + e);
+        }
     }
 
     private void OnEnable()
@@ -68,22 +72,42 @@ public class PlayerStart : MonoBehaviour
         return new Vector2(accel.x, accel.y);
     }
 
+    private Vector2 GetActiveInput()
+    {
+        if (ControlSwitcher.Instance == null)
+        {
+            Debug.LogWarning("ControlSwitcher.Instance is null — is ControlSwitcher in the scene?");
+            return Vector2.zero;
+        }
+
+        ControlType current = ControlSwitcher.Instance.CurrentControl;
+
+        switch (current)
+        {
+            case ControlType.Keyboard:
+                return keyboardInput;
+
+            case ControlType.Tilt:
+                return GetTiltInput();
+
+            case ControlType.Touch:
+                return moveInput; // already reflects inversion, since TouchControls applies its own flip internally
+
+            default:
+                return Vector2.zero;
+        }
+    }
+
     private void FixedUpdate()
     {
-        // BELANGRIJK: eerst tiltInput maken
-        Vector2 tiltInput = GetTiltInput();
+        Vector2 activeInput = GetActiveInput();
 
-        // Input combineren
-        Vector2 combined = moveInput + keyboardInput + tiltInput;
-
-        // Animatie
-        bool isMoving = combined.magnitude > 0.01f;
+        bool isMoving = activeInput.magnitude > 0.01f;
 
         if (_animator != null)
             _animator.SetBool("IsMoving", isMoving);
 
-        // Beweging
-        Vector3 move = new Vector3(combined.x, combined.y, 0f) * moveSpeed;
+        Vector3 move = new Vector3(activeInput.x, activeInput.y, 0f) * moveSpeed;
 
         rb.MovePosition(transform.position + move);
     }
@@ -105,8 +129,6 @@ public class PlayerStart : MonoBehaviour
         if (other.CompareTag("Entity"))
         {
             Debug.Log("Tag matched");
-
-            // SceneManager.LoadScene("Home-Screen");
         }
     }
 }
