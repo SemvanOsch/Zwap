@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerStart : MonoBehaviour
@@ -11,25 +9,13 @@ public class PlayerStart : MonoBehaviour
 
     [SerializeField] private Animator _animator;
 
-    private Vector3 startPos;
     private Vector2 moveInput;
     private Vector2 keyboardInput;
     private PlayerControls controls;
     private Rigidbody2D rb;
 
-    public void AddInput(Vector2 dir)
-    {
-        moveInput += dir;
-    }
-
-    public void RemoveInput(Vector2 dir)
-    {
-        moveInput -= dir;
-    }
-
     private void Awake()
     {
-        startPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
         controls = new PlayerControls();
     }
@@ -53,7 +39,8 @@ public class PlayerStart : MonoBehaviour
         if (Accelerometer.current != null)
             InputSystem.DisableDevice(Accelerometer.current);
 
-        _animator.SetBool("IsMoving", false);
+        if (_animator != null)
+            _animator.SetBool("IsMoving", false);
     }
 
     private void OnKeyboardMove(InputAction.CallbackContext ctx)
@@ -66,36 +53,54 @@ public class PlayerStart : MonoBehaviour
         keyboardInput = Vector2.zero;
     }
 
-
     private Vector2 GetTiltInput()
     {
         if (Accelerometer.current == null)
             return Vector2.zero;
 
         Vector3 accel = Accelerometer.current.acceleration.ReadValue();
+
         return new Vector2(accel.x, accel.y);
     }
 
     private void FixedUpdate()
     {
-        Vector2 combined = moveInput + keyboardInput;
-
-        bool isMoving = combined.magnitude > 0.01f;
-        _animator.SetBool("IsMoving", isMoving);
-
+        // BELANGRIJK: eerst tiltInput maken
         Vector2 tiltInput = GetTiltInput();
+
+        // Input combineren
         Vector2 combined = moveInput + keyboardInput + tiltInput;
+
+        // Animatie
+        bool isMoving = combined.magnitude > 0.01f;
+
+        if (_animator != null)
+            _animator.SetBool("IsMoving", isMoving);
+
+        // Beweging
         Vector3 move = new Vector3(combined.x, combined.y, 0f) * moveSpeed;
+
         rb.MovePosition(transform.position + move);
+    }
+
+    public void AddInput(Vector2 dir)
+    {
+        moveInput += dir;
+    }
+
+    public void RemoveInput(Vector2 dir)
+    {
+        moveInput -= dir;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Collided with: " + other.gameObject.name);
 
-        if (other.gameObject.CompareTag("Entity"))
+        if (other.CompareTag("Entity"))
         {
-             Debug.Log("Tag matched");
+            Debug.Log("Tag matched");
+
             // SceneManager.LoadScene("Home-Screen");
         }
     }

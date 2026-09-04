@@ -478,22 +478,22 @@ PrefabInstance:
     - target: {fileID: 2511196548380628927, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1768679433190182986, guid: e31173243bee91748b550f2dacfc4ff7, type: 3}
+      objectReference: {fileID: -7014884864912180425, guid: 87eb9f640739b4a8e9be5cc757878209, type: 3}
     - target: {fileID: 6699625963249174140, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.2884624
+      value: 0.5698869
       objectReference: {fileID: 0}
     - target: {fileID: 6699625963249174140, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.0321681
+      value: 0.49564582
       objectReference: {fileID: 0}
     - target: {fileID: 6699625963249174140, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 6699625963249174140, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8
+      value: -5.39
       objectReference: {fileID: 0}
     - target: {fileID: 6699625963249174140, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -563,6 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStart
   moveSpeed: 0.3
+  _animator: {fileID: 702984367}
 --- !u!50 &702984359
 Rigidbody2D:
   serializedVersion: 5
@@ -640,6 +641,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TouchControls
   playerStart: {fileID: 702984358}
+--- !u!95 &702984367 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6376809572622171141, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+  m_PrefabInstance: {fileID: 702984356}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1520277521
 GameObject:
   m_ObjectHideFlags: 0
