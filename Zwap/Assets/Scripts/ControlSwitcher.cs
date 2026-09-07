@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum ControlType
 {
@@ -15,7 +16,13 @@ public class ControlSwitcher : MonoBehaviour
     [SerializeField] private TouchControls touchControls;
 
     [Header("Touch UI")]
-    [SerializeField] private GameObject touchUIPanel; // the parent of the 4 arrow pieces
+    [SerializeField] private GameObject touchUIPanel;
+
+    [Header("Next Control Icon")]
+    [SerializeField] private Image nextControlIcon;
+    [SerializeField] private Sprite tiltSprite;
+    [SerializeField] private Sprite touchSprite;
+    [SerializeField] private Sprite invertedSprite;
 
     [Header("Inverse")]
     [Range(0f, 1f)]
@@ -25,6 +32,7 @@ public class ControlSwitcher : MonoBehaviour
     public ControlType CurrentControl { get; private set; } = ControlType.Touch;
     public ControlType NextControl { get; private set; }
     public bool IsInverted { get; private set; }
+    public bool NextIsInverted { get; private set; }
 
     public event System.Action<ControlType> OnControlChanged;
 
@@ -39,12 +47,16 @@ public class ControlSwitcher : MonoBehaviour
         }
 
         Instance = this;
+
         NextControl = RollNextControl();
+        NextIsInverted = RollInverted(NextControl);
+
+        UpdateNextControlIcon();
     }
 
     private void Start()
     {
-        UpdateTouchUIVisibility(); // sync immediately on scene start
+        UpdateTouchUIVisibility();
     }
 
     private void Update()
@@ -61,30 +73,55 @@ public class ControlSwitcher : MonoBehaviour
     private void SwitchControl()
     {
         CurrentControl = NextControl;
-        NextControl = RollNextControl();
 
-        bool canInvert = System.Array.IndexOf(invertibleControls, CurrentControl) >= 0;
-        bool shouldInvert = canInvert && Random.value < inverseChance;
-
-        if (shouldInvert != IsInverted)
+        if (NextIsInverted != IsInverted)
         {
-            IsInverted = shouldInvert;
+            IsInverted = NextIsInverted;
 
             if (touchControls != null)
                 touchControls.ToggleInverse();
         }
 
-        UpdateTouchUIVisibility();
+        NextControl = RollNextControl();
+        NextIsInverted = RollInverted(NextControl);
 
-        Debug.Log("Current: " + CurrentControl + " | Next: " + NextControl + " | Inverted: " + IsInverted);
+        UpdateTouchUIVisibility();
+        UpdateNextControlIcon();
+
+        Debug.Log("Current: " + CurrentControl + " (Inverted: " + IsInverted + ")" +
+                   " | Next: " + NextControl + " (Inverted: " + NextIsInverted + ")");
 
         OnControlChanged?.Invoke(CurrentControl);
+    }
+
+    private bool RollInverted(ControlType type)
+    {
+        bool canInvert = System.Array.IndexOf(invertibleControls, type) >= 0;
+        return canInvert && Random.value < inverseChance;
     }
 
     private void UpdateTouchUIVisibility()
     {
         if (touchUIPanel != null)
             touchUIPanel.SetActive(CurrentControl == ControlType.Touch);
+    }
+
+    private void UpdateNextControlIcon()
+    {
+        if (nextControlIcon == null)
+            return;
+
+        nextControlIcon.sprite = NextIsInverted ? invertedSprite : GetSpriteFor(NextControl);
+    }
+
+    private Sprite GetSpriteFor(ControlType type)
+    {
+        switch (type)
+        {
+            case ControlType.Tilt:  return tiltSprite;
+            case ControlType.Touch: return touchSprite;
+            default: return null;
+        }
     }
 
     private ControlType RollNextControl()
