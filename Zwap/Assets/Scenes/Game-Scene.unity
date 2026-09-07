@@ -600,6 +600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStart
   moveSpeed: 0.3
+  touchSensitivity: 0.5
   cam: {fileID: 0}
   padding: 2
   _animator: {fileID: 702984367}
