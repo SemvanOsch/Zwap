@@ -136,6 +136,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow Keys
       objectReference: {fileID: 0}
+    - target: {fileID: 796587332722932401, guid: cfe8d2bae4cf18a4ea2b2fe08198d63f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2069898712062946521, guid: cfe8d2bae4cf18a4ea2b2fe08198d63f, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -574,6 +578,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1161412674535546430, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 702984366}
+    - targetCorrespondingSourceObject: {fileID: 1161412674535546430, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 702984370}
   m_SourcePrefab: {fileID: 100100000, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
 --- !u!1 &702984357 stripped
 GameObject:
@@ -596,7 +603,6 @@ MonoBehaviour:
   cam: {fileID: 0}
   padding: 2
   _animator: {fileID: 702984367}
-  touchControls: {fileID: 702984366}
 --- !u!50 &702984359
 Rigidbody2D:
   serializedVersion: 5
@@ -658,8 +664,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.67, y: 1.6}
+  m_Offset: {x: 0.7260512, y: 0.69890785}
+  m_Size: {x: 1.8519431, y: 11.540013}
   m_Direction: 0
 --- !u!114 &702984366
 MonoBehaviour:
@@ -683,6 +689,22 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 6376809572622171141, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
   m_PrefabInstance: {fileID: 702984356}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &702984370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702984357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10e8bb6060fadf8469f244536ef8833f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControlSwitcher
+  switchInterval: 10
+  touchControls: {fileID: 702984366}
+  inverseChance: 0.3
+  invertibleControls: 02000000
 --- !u!224 &750876889 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8396487539122184163, guid: cfe8d2bae4cf18a4ea2b2fe08198d63f, type: 3}
@@ -768,7 +790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1685158965979681207, guid: e846a8a2ec60b0d4e959a44f4038a6e9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1685158965979681207, guid: e846a8a2ec60b0d4e959a44f4038a6e9, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1360,7 +1382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1685158965979681207, guid: e846a8a2ec60b0d4e959a44f4038a6e9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1685158965979681207, guid: e846a8a2ec60b0d4e959a44f4038a6e9, type: 3}
       propertyPath: m_AnchoredPosition.y
