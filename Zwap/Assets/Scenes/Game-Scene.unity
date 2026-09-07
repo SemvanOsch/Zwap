@@ -664,8 +664,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.7260512, y: 0.69890785}
-  m_Size: {x: 1.8519431, y: 11.540013}
+  m_Offset: {x: 0.25481, y: 0.69890785}
+  m_Size: {x: 1.9108477, y: 11.540017}
   m_Direction: 0
 --- !u!114 &702984366
 MonoBehaviour:
@@ -683,6 +683,7 @@ MonoBehaviour:
   downTransform: {fileID: 841909512}
   leftTransform: {fileID: 750876889}
   rightTransform: {fileID: 646884696}
+  touchUIPanel: {fileID: 1825197174}
   playerStart: {fileID: 702984358}
 --- !u!95 &702984367 stripped
 Animator:
@@ -1112,6 +1113,11 @@ Transform:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1685158965979681207, guid: e846a8a2ec60b0d4e959a44f4038a6e9, type: 3}
   m_PrefabInstance: {fileID: 893699505}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1825197174 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 796587332722932401, guid: cfe8d2bae4cf18a4ea2b2fe08198d63f, type: 3}
+  m_PrefabInstance: {fileID: 271408567}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &353906436778286791
 PrefabInstance:

@@ -15,6 +15,9 @@ public class ControlSwitcher : MonoBehaviour
     [SerializeField] private float switchInterval = 10f;
     [SerializeField] private TouchControls touchControls;
 
+    [Header("Touch UI")]
+    [SerializeField] private GameObject touchUIPanel; // the parent of the 4 arrow pieces
+
     [Header("Inverse")]
     [Range(0f, 1f)]
     [SerializeField] private float inverseChance = 0.3f;
@@ -38,6 +41,11 @@ public class ControlSwitcher : MonoBehaviour
 
         Instance = this;
         NextControl = RollNextControl();
+    }
+
+    private void Start()
+    {
+        UpdateTouchUIVisibility(); // sync immediately on scene start
     }
 
     private void Update()
@@ -67,9 +75,17 @@ public class ControlSwitcher : MonoBehaviour
                 touchControls.ToggleInverse();
         }
 
+        UpdateTouchUIVisibility();
+
         Debug.Log("Current: " + CurrentControl + " | Next: " + NextControl + " | Inverted: " + IsInverted);
 
         OnControlChanged?.Invoke(CurrentControl);
+    }
+
+    private void UpdateTouchUIVisibility()
+    {
+        if (touchUIPanel != null)
+            touchUIPanel.SetActive(CurrentControl == ControlType.Touch);
     }
 
     private ControlType RollNextControl()
