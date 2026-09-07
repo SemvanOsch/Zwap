@@ -705,7 +705,7 @@ MonoBehaviour:
   touchControls: {fileID: 702984366}
   touchUIPanel: {fileID: 1825197174}
   inverseChance: 0.3
-  invertibleControls: 02000000
+  invertibleControls: 01000000
 --- !u!224 &750876889 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8396487539122184163, guid: cfe8d2bae4cf18a4ea2b2fe08198d63f, type: 3}

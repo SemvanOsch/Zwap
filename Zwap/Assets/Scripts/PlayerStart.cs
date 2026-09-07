@@ -7,6 +7,9 @@ public class PlayerStart : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
 
+    [Range(0f, 1f)]
+    [SerializeField] private float touchSensitivity = 0.5f; // 1 = full speed, lower = slower touch movement
+
     [Header("Bounds")] [SerializeField] private Camera cam;
     [SerializeField] private float padding = 0.5f; // keeps the sprite fully on scree
 
@@ -24,6 +27,8 @@ public class PlayerStart : MonoBehaviour
         if (cam == null) cam = Camera.main;
     }
 
+    private bool subscribed;
+
     private void OnEnable()
     {
         controls.Player.Move.performed += OnKeyboardMove;
@@ -33,8 +38,23 @@ public class PlayerStart : MonoBehaviour
         if (Accelerometer.current != null)
             InputSystem.EnableDevice(Accelerometer.current);
 
-        if (ControlSwitcher.Instance != null)
-            ControlSwitcher.Instance.OnControlChanged += HandleControlChanged;
+        TrySubscribe();
+    }
+
+    private void Start()
+    {
+        // Safety net: if ControlSwitcher.Instance wasn't set yet during OnEnable
+        // (script init order), subscribe now that every Awake has run.
+        TrySubscribe();
+    }
+
+    private void TrySubscribe()
+    {
+        if (subscribed || ControlSwitcher.Instance == null)
+            return;
+
+        ControlSwitcher.Instance.OnControlChanged += HandleControlChanged;
+        subscribed = true;
     }
 
     private void OnDisable()
@@ -49,8 +69,9 @@ public class PlayerStart : MonoBehaviour
         if (_animator != null)
             _animator.SetBool("IsMoving", false);
 
-        if (ControlSwitcher.Instance != null)
+        if (subscribed && ControlSwitcher.Instance != null)
             ControlSwitcher.Instance.OnControlChanged -= HandleControlChanged;
+        subscribed = false;
     }
 
     private void HandleControlChanged(ControlType newControl)
@@ -58,6 +79,7 @@ public class PlayerStart : MonoBehaviour
         // clear every input source on switch, so nothing carries over
         keyboardInput = Vector2.zero;
         moveInput = Vector2.zero;
+        rb.linearVelocity = Vector2.zero; // stop any coasting carried over from the previous mode
     }
 
     private void OnKeyboardMove(InputAction.CallbackContext ctx)
@@ -98,7 +120,8 @@ public class PlayerStart : MonoBehaviour
                 return GetTiltInput();
 
             case ControlType.Touch:
-                return moveInput; // already reflects inversion, since TouchControls applies its own flip internally
+                // already reflects inversion, since TouchControls applies its own flip internally
+                return moveInput * touchSensitivity;
 
             default:
                 return Vector2.zero;
@@ -129,16 +152,23 @@ public class PlayerStart : MonoBehaviour
         }
 
         rb.MovePosition(target);
+
+        // Position is fully driven by MovePosition, so never let the dynamic body
+        // build up momentum — otherwise it coasts when input stops.
+        rb.linearVelocity = Vector2.zero;
     }
 
-    public void AddInput(Vector2 dir)
+    // Touch controls push the fully-resolved direction here (recomputed from the
+    // set of currently-held arrows), so a lost press/release can't leave a stuck
+    // residual the way the old += / -= accumulator could.
+    public void SetTouchInput(Vector2 dir)
     {
-        moveInput += dir;
+        moveInput = dir;
     }
 
-    public void RemoveInput(Vector2 dir)
+    public void ResetInput()
     {
-        moveInput -= dir;
+        moveInput = Vector2.zero;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
