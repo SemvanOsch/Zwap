@@ -2,7 +2,6 @@ using UnityEngine;
 
 public enum ControlType
 {
-    Keyboard,
     Tilt,
     Touch
 }
@@ -23,7 +22,7 @@ public class ControlSwitcher : MonoBehaviour
     [SerializeField] private float inverseChance = 0.3f;
     [SerializeField] private ControlType[] invertibleControls = { ControlType.Touch };
 
-    public ControlType CurrentControl { get; private set; } = ControlType.Keyboard;
+    public ControlType CurrentControl { get; private set; } = ControlType.Touch;
     public ControlType NextControl { get; private set; }
     public bool IsInverted { get; private set; }
 

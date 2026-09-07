@@ -92,8 +92,7 @@ public class PlayerStart : MonoBehaviour
 
         switch (current)
         {
-            case ControlType.Keyboard:
-                return keyboardInput;
+
 
             case ControlType.Tilt:
                 return GetTiltInput();
