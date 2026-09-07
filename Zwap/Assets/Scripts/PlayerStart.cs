@@ -7,6 +7,9 @@ public class PlayerStart : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
 
+    [Header("Bounds")] [SerializeField] private Camera cam;
+    [SerializeField] private float padding = 0.5f; // keeps the sprite fully on scree
+
     [SerializeField] private Animator _animator;
     
     [Header("Inverse")]
@@ -23,6 +26,7 @@ public class PlayerStart : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         controls = new PlayerControls();
+        if (cam == null) cam = Camera.main;
     }
 
     private void OnEnable()
@@ -85,7 +89,19 @@ public class PlayerStart : MonoBehaviour
         // Beweging
         Vector3 move = new Vector3(combined.x, combined.y, 0f) * moveSpeed;
 
-        rb.MovePosition(transform.position + move);
+        Vector3 target = transform.position + move;
+
+        if (cam != null && cam.orthographic)
+        {
+            float halfH = cam.orthographicSize;
+            float halfW = halfH * cam.aspect;
+            Vector3 c = cam.transform.position;
+
+            target.x = Mathf.Clamp(target.x, c.x - halfW + padding, c.x + halfW - padding);
+            target.y = Mathf.Clamp(target.y, c.y - halfH + padding, c.y + halfH - padding);
+        }
+
+        rb.MovePosition(target);
     }
 
     public void AddInput(Vector2 dir)
