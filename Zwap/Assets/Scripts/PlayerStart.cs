@@ -8,11 +8,6 @@ public class PlayerStart : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
 
     [SerializeField] private Animator _animator;
-    
-    [Header("Inverse")]
-    [SerializeField] private TouchControls touchControls;
-    // To inverse control do touchControls.ToggleInverse();
-    // To set back to normal do touchControls.SetNormal();
 
     private Vector2 moveInput;
     private Vector2 keyboardInput;
@@ -22,16 +17,7 @@ public class PlayerStart : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        try
-        {
-            controls = new PlayerControls();
-            Debug.Log("PlayerControls created successfully");
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogError("Failed to create PlayerControls: " + e);
-        }
+        controls = new PlayerControls();
     }
 
     private void OnEnable()
@@ -42,6 +28,9 @@ public class PlayerStart : MonoBehaviour
 
         if (Accelerometer.current != null)
             InputSystem.EnableDevice(Accelerometer.current);
+
+        if (ControlSwitcher.Instance != null)
+            ControlSwitcher.Instance.OnControlChanged += HandleControlChanged;
     }
 
     private void OnDisable()
@@ -55,6 +44,16 @@ public class PlayerStart : MonoBehaviour
 
         if (_animator != null)
             _animator.SetBool("IsMoving", false);
+
+        if (ControlSwitcher.Instance != null)
+            ControlSwitcher.Instance.OnControlChanged -= HandleControlChanged;
+    }
+
+    private void HandleControlChanged(ControlType newControl)
+    {
+        // clear every input source on switch, so nothing carries over
+        keyboardInput = Vector2.zero;
+        moveInput = Vector2.zero;
     }
 
     private void OnKeyboardMove(InputAction.CallbackContext ctx)
