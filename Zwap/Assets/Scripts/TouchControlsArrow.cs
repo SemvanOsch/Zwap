@@ -4,11 +4,9 @@ using UnityEngine.UI;
 
 public class TouchControls : MonoBehaviour
 {
-    [SerializeField] private Transform upTransform;
-    [SerializeField] private Transform downTransform;
-    [SerializeField] private Transform leftTransform;
-    [SerializeField] private Transform rightTransform;
-    
+    [SerializeField] private GameObject arrowKeysNormal;
+    [SerializeField] private GameObject arrowKeysInverted;
+
     public PlayerStart playerStart;
     private bool isInversed = false;
 
@@ -68,26 +66,29 @@ public class TouchControls : MonoBehaviour
 
     public void ToggleInverse()
     {
+        // Clear before swapping: a finger held on the outgoing panel won't fire its
+        // release once that panel is hidden, so wipe held state (and the player's
+        // input) so no flag carries over into the incoming panel.
+        ClearHeld();
+
         isInversed = !isInversed;
-
-        upTransform.rotation    = Quaternion.Euler(0, 0, isInversed ? 180 : 0);
-        downTransform.rotation  = Quaternion.Euler(0, 0, isInversed ? 0 : 180);
-        leftTransform.rotation  = Quaternion.Euler(0, 0, isInversed ? 270 : 90);
-        rightTransform.rotation = Quaternion.Euler(0, 0, isInversed ? 90 : 270);
-
-        PushInput();
+        ApplyPanels();
     }
 
     public void SetNormal()
     {
+        ClearHeld();
+
         isInversed = false;
+        ApplyPanels();
+    }
 
-        upTransform.rotation    = Quaternion.Euler(0, 0, 0);
-        downTransform.rotation  = Quaternion.Euler(0, 0, 180);
-        leftTransform.rotation  = Quaternion.Euler(0, 0, 90);
-        rightTransform.rotation = Quaternion.Euler(0, 0, 270);
-
-        PushInput();
+    private void ApplyPanels()
+    {
+        if (arrowKeysNormal != null)
+            arrowKeysNormal.SetActive(!isInversed);
+        if (arrowKeysInverted != null)
+            arrowKeysInverted.SetActive(isInversed);
     }
 
     private void PushInput()
@@ -101,7 +102,10 @@ public class TouchControls : MonoBehaviour
         if (leftHeld)  dir += Vector2.left;
         if (rightHeld) dir += Vector2.right;
 
-        playerStart.SetTouchInput(isInversed ? -dir : dir);
+        // Each panel's buttons are bound to the logically-correct handler (the
+        // inverted panel's down-pointing arrow calls OnDownPress, etc.), so the
+        // inversion is already encoded in the wiring — no negation needed here.
+        playerStart.SetTouchInput(dir);
     }
 
     public void OnUpPress()      { upHeld = true;     PushInput(); }
