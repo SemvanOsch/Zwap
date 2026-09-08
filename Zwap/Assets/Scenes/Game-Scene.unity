@@ -560,6 +560,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 240394248357503559, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: speedPerScore
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 240394248357503559, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: maxSpeedMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1161412674535546430, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: m_Name
       value: Fish
@@ -640,6 +648,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef85708d6b9fa419d77b239497274c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TouchControls
+--- !u!114 &766565853 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8707153102352243344, guid: c3053b4a622b240429bf1e7b39296eb9, type: 3}
+  m_PrefabInstance: {fileID: 1345416755}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b8d942e47a9d448a5f044eb6d7f87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
 --- !u!1001 &893699505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1077,6 +1096,10 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1139750688}
+    - target: {fileID: 8707153102352243344, guid: c3053b4a622b240429bf1e7b39296eb9, type: 3}
+      propertyPath: maxMultiplier
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1747,6 +1770,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9177993626437679230, guid: 814ae1a89f5adac42a4bd73b2057f9e2, type: 3}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 766565853}
     - target: {fileID: 9177993626437679230, guid: 814ae1a89f5adac42a4bd73b2057f9e2, type: 3}
       propertyPath: itemPrefabs.Array.size
       value: 1

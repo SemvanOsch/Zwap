@@ -8,8 +8,15 @@ public class BackgroundScroller : MonoBehaviour
     public float x;
     public float y;
 
+    [SerializeField] private float speedPerScore = 0.002f;
+    
     private void Update()
     {
-        img.uvRect = new Rect(img.uvRect.position + new Vector2(x, y) * Time.deltaTime, img.uvRect.size);
+        float multiplier = 1f;
+        if (ScoreManager.Instance != null)
+            multiplier = 1f + speedPerScore * ScoreManager.Instance.GetScore();
+
+        Vector2 scroll = new Vector2(x, y) * multiplier * Time.deltaTime;
+        img.uvRect = new Rect(img.uvRect.position + scroll, img.uvRect.size);
     }
 }

@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveDown
   speed: 10
+  speedPerScore: 0.002
   despawnY: -20
 --- !u!58 &6509395576919743581
 CircleCollider2D:

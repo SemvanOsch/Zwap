@@ -6,9 +6,9 @@ public class RockSpawner : MonoBehaviour
 {
     public GameObject[] itemPrefabs;   // prefabs to spawn
     public Transform spawnPoint;       // the SpawnPoint object
-    public float spawnInterval = 2f;   // seconds between spawns
-
-    public float[] lanePositions = { -3f, 0f, 3f }; // left, middle, right lane X positions
+    [SerializeField] private float spawnInterval = 2f;   // seconds between spawns
+    [SerializeField] private float spawnSpeedPerScore = 0.002f;
+    [SerializeField] private float[] lanePositions = { -3f, 0f, 3f }; // left, middle, right lane X positions
 
     private float timer;
 
@@ -16,7 +16,13 @@ public class RockSpawner : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= spawnInterval)
+        float multiplier = 1f;
+        if (ScoreManager.Instance != null)
+            multiplier = 1f + spawnSpeedPerScore * ScoreManager.Instance.GetScore();
+
+        float effectiveInterval = spawnInterval / multiplier;
+
+        if (timer >= effectiveInterval)
         {
             SpawnEntity();
             timer = 0f;
@@ -25,7 +31,6 @@ public class RockSpawner : MonoBehaviour
 
     void SpawnEntity()
     {
-        
         int itemIndex = Random.Range(0, itemPrefabs.Length);
         GameObject chosenItem = itemPrefabs[itemIndex];
         // pick a random lane
