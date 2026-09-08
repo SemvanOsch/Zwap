@@ -12,9 +12,12 @@ public class PlayerStart : MonoBehaviour
     [SerializeField] private float touchSensitivity = 0.5f; // 1 = full speed, lower = slower touch movement
 
     [Header("Bounds")] [SerializeField] private Camera cam;
-    [SerializeField] private float padding = 0.5f; // keeps the sprite fully on scree
+    [SerializeField] private float padding = 0.5f; // keeps the sprite fully on screen
 
     [SerializeField] private Animator _animator;
+    
+    [SerializeField] private float speedPerScore = 0.002f; // +0.2% move speed per point
+    [SerializeField] private float maxSpeedMultiplier = 3f;
 
     [Header("Game Over")]
     [SerializeField] private SceneField gameOverScene;
@@ -24,6 +27,8 @@ public class PlayerStart : MonoBehaviour
     private PlayerControls controls;
     private Rigidbody2D rb;
     private bool isGameOver = false;
+    
+    private float multiplier = 1f;
 
     private void Awake()
     {
@@ -139,8 +144,11 @@ public class PlayerStart : MonoBehaviour
 
         if (_animator != null)
             _animator.SetBool("IsMoving", isMoving);
+        
+        if (ScoreManager.Instance != null)
+            multiplier = Mathf.Min(1f + speedPerScore * ScoreManager.Instance.GetScore(), maxSpeedMultiplier);
 
-        Vector3 move = new Vector3(activeInput.x, activeInput.y, 0f) * moveSpeed;
+        Vector3 move = new Vector3(activeInput.x, activeInput.y, 0f) * moveSpeed * multiplier;
 
         Vector3 target = transform.position + move;
 

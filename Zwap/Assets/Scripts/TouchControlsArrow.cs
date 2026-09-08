@@ -4,13 +4,7 @@ using UnityEngine.UI;
 
 public class TouchControls : MonoBehaviour
 {
-    [SerializeField] private Transform upTransform;
-    [SerializeField] private Transform downTransform;
-    [SerializeField] private Transform leftTransform;
-    [SerializeField] private Transform rightTransform;
-    
     public PlayerStart playerStart;
-    private bool isInversed = false;
 
     // Which arrows are currently held. The active movement vector is recomputed
     // from these every change, so a missed press/release (e.g. a finger held while
@@ -66,30 +60,6 @@ public class TouchControls : MonoBehaviour
             playerStart.ResetInput();
     }
 
-    public void ToggleInverse()
-    {
-        isInversed = !isInversed;
-
-        upTransform.rotation    = Quaternion.Euler(0, 0, isInversed ? 180 : 0);
-        downTransform.rotation  = Quaternion.Euler(0, 0, isInversed ? 0 : 180);
-        leftTransform.rotation  = Quaternion.Euler(0, 0, isInversed ? 270 : 90);
-        rightTransform.rotation = Quaternion.Euler(0, 0, isInversed ? 90 : 270);
-
-        PushInput();
-    }
-
-    public void SetNormal()
-    {
-        isInversed = false;
-
-        upTransform.rotation    = Quaternion.Euler(0, 0, 0);
-        downTransform.rotation  = Quaternion.Euler(0, 0, 180);
-        leftTransform.rotation  = Quaternion.Euler(0, 0, 90);
-        rightTransform.rotation = Quaternion.Euler(0, 0, 270);
-
-        PushInput();
-    }
-
     private void PushInput()
     {
         if (playerStart == null)
@@ -101,7 +71,10 @@ public class TouchControls : MonoBehaviour
         if (leftHeld)  dir += Vector2.left;
         if (rightHeld) dir += Vector2.right;
 
-        playerStart.SetTouchInput(isInversed ? -dir : dir);
+        // Each panel's buttons are bound to the logically-correct handler (the
+        // inverted panel's down-pointing arrow calls OnDownPress, etc.), so the
+        // inversion is already encoded in the wiring — no negation needed here.
+        playerStart.SetTouchInput(dir);
     }
 
     public void OnUpPress()      { upHeld = true;     PushInput(); }
