@@ -7,16 +7,23 @@ public enum ControlType
     Touch
 }
 
+[System.Serializable]
+public class ControlPanel
+{
+    public ControlType type;
+    public GameObject normalPanel;
+    public GameObject invertedPanel;   // optional; leave null if this control can't invert
+}
+
 public class ControlSwitcher : MonoBehaviour
 {
     public static ControlSwitcher Instance;
 
     [Header("Switching")]
     [SerializeField] private float switchInterval = 10f;
-    [SerializeField] private TouchControls touchControls;
 
-    [Header("Touch UI")]
-    [SerializeField] private GameObject touchUIPanel;
+    [Header("Control Panels")]
+    [SerializeField] private ControlPanel[] controlPanels;
 
     [Header("Next Control Icon")]
     [SerializeField] private Image nextControlIcon;
@@ -56,7 +63,7 @@ public class ControlSwitcher : MonoBehaviour
 
     private void Start()
     {
-        UpdateTouchUIVisibility();
+        UpdatePanels();
     }
 
     private void Update()
@@ -73,19 +80,12 @@ public class ControlSwitcher : MonoBehaviour
     private void SwitchControl()
     {
         CurrentControl = NextControl;
-
-        if (NextIsInverted != IsInverted)
-        {
-            IsInverted = NextIsInverted;
-
-            if (touchControls != null)
-                touchControls.ToggleInverse();
-        }
+        IsInverted = NextIsInverted;
 
         NextControl = RollNextControl();
         NextIsInverted = RollInverted(NextControl);
 
-        UpdateTouchUIVisibility();
+        UpdatePanels();
         UpdateNextControlIcon();
 
         Debug.Log("Current: " + CurrentControl + " (Inverted: " + IsInverted + ")" +
@@ -100,10 +100,28 @@ public class ControlSwitcher : MonoBehaviour
         return canInvert && Random.value < inverseChance;
     }
 
-    private void UpdateTouchUIVisibility()
+    // Single source of truth for which control panel is visible. Computed purely
+    // from state, so exactly one panel (the current control's, in its normal or
+    // inverted variant) is active and everything else is off.
+    private void UpdatePanels()
     {
-        if (touchUIPanel != null)
-            touchUIPanel.SetActive(CurrentControl == ControlType.Touch);
+        if (controlPanels == null)
+            return;
+
+        foreach (var panel in controlPanels)
+        {
+            if (panel == null)
+                continue;
+
+            bool isCurrent = panel.type == CurrentControl;
+            // Fall back to the normal panel when this control has no inverted variant.
+            bool showInverted = isCurrent && IsInverted && panel.invertedPanel != null;
+
+            if (panel.normalPanel != null)
+                panel.normalPanel.SetActive(isCurrent && !showInverted);
+            if (panel.invertedPanel != null)
+                panel.invertedPanel.SetActive(showInverted);
+        }
     }
 
     private void UpdateNextControlIcon()

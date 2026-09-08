@@ -4,11 +4,7 @@ using UnityEngine.UI;
 
 public class TouchControls : MonoBehaviour
 {
-    [SerializeField] private GameObject arrowKeysNormal;
-    [SerializeField] private GameObject arrowKeysInverted;
-
     public PlayerStart playerStart;
-    private bool isInversed = false;
 
     // Which arrows are currently held. The active movement vector is recomputed
     // from these every change, so a missed press/release (e.g. a finger held while
@@ -62,33 +58,6 @@ public class TouchControls : MonoBehaviour
         upHeld = downHeld = leftHeld = rightHeld = false;
         if (playerStart != null)
             playerStart.ResetInput();
-    }
-
-    public void ToggleInverse()
-    {
-        // Clear before swapping: a finger held on the outgoing panel won't fire its
-        // release once that panel is hidden, so wipe held state (and the player's
-        // input) so no flag carries over into the incoming panel.
-        ClearHeld();
-
-        isInversed = !isInversed;
-        ApplyPanels();
-    }
-
-    public void SetNormal()
-    {
-        ClearHeld();
-
-        isInversed = false;
-        ApplyPanels();
-    }
-
-    private void ApplyPanels()
-    {
-        if (arrowKeysNormal != null)
-            arrowKeysNormal.SetActive(!isInversed);
-        if (arrowKeysInverted != null)
-            arrowKeysInverted.SetActive(isInversed);
     }
 
     private void PushInput()
