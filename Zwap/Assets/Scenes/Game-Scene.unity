@@ -471,6 +471,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8579035696156347547, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: shockEffectPrefab
+      value: 
+      objectReference: {fileID: 2689088838736693599, guid: aa47a6f0a98da3d4bbc1b66f3465fdc6, type: 3}
+    - target: {fileID: 8579035696156347547, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: controlPanels.Array.data[0].normalPanel
       value: 
       objectReference: {fileID: 979600094}
