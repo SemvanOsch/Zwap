@@ -617,6 +617,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8579035696156347547, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: inverseChance
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579035696156347547, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: controlPanels.Array.data[0].normalPanel
       value: 
       objectReference: {fileID: 979600094}
