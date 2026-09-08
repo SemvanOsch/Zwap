@@ -691,6 +691,9 @@ MonoBehaviour:
   cam: {fileID: 0}
   padding: 2
   _animator: {fileID: 702984367}
+  gameOverScene:
+    sceneAsset: {fileID: 102900000, guid: 9f6a4676ec70f24488a265edf8d3e4c7, type: 3}
+    sceneName: Game-over
 --- !u!50 &702984359
 Rigidbody2D:
   serializedVersion: 5

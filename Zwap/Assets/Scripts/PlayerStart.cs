@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerStart : MonoBehaviour
@@ -15,10 +16,14 @@ public class PlayerStart : MonoBehaviour
 
     [SerializeField] private Animator _animator;
 
+    [Header("Game Over")]
+    [SerializeField] private SceneField gameOverScene;
+
     private Vector2 moveInput;
     private Vector2 keyboardInput;
     private PlayerControls controls;
     private Rigidbody2D rb;
+    private bool isGameOver = false;
 
     private void Awake()
     {
@@ -114,8 +119,6 @@ public class PlayerStart : MonoBehaviour
 
         switch (current)
         {
-
-
             case ControlType.Tilt:
                 return GetTiltInput();
 
@@ -173,11 +176,26 @@ public class PlayerStart : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (isGameOver) return; // guard against multiple triggers in the same frame
+
         Debug.Log("Collided with: " + other.gameObject.name);
 
         if (other.CompareTag("Entity"))
         {
             Debug.Log("Tag matched");
+            isGameOver = true;
+            HandleGameOver();
         }
+    }
+
+    private void HandleGameOver()
+    {
+        rb.linearVelocity = Vector2.zero;
+        enabled = false; // stops FixedUpdate from running again on this component
+
+        if (_animator != null)
+            _animator.SetBool("IsMoving", false);
+
+        SceneManager.LoadScene(gameOverScene);
     }
 }

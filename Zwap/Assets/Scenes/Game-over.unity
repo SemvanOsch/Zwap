@@ -647,7 +647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreDisplay
   scoreText: {fileID: 271963187}
-  nameText: {fileID: 1224679755}
+  HighscoreText: {fileID: 1224679755}
 --- !u!1 &451158253
 GameObject:
   m_ObjectHideFlags: 0
