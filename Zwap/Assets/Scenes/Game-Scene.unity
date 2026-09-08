@@ -793,7 +793,7 @@ MonoBehaviour:
   touchControls: {fileID: 702984366}
   touchUIPanel: {fileID: 1825197174}
   nextControlIcon: {fileID: 1582574263}
-  tiltSprite: {fileID: -6880484568193892221, guid: 3bcd2da12bffdb047ab9b40cfac4599b, type: 3}
+  tiltSprite: {fileID: 7825453866717813237, guid: fe2b306f89ce0c54d8bfea940d3f7c9a, type: 3}
   touchSprite: {fileID: 1446098369628453845, guid: 652300e21288eea418968d44b5253756, type: 3}
   invertedSprite: {fileID: -7002430021844421038, guid: 00436ff0ce78b094a9c4732d242f7495, type: 3}
   inverseChance: 0.3
