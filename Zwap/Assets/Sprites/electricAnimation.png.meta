@@ -1,0 +1,312 @@
+fileFormatVersion: 2
+guid: c8d023d664a7ec5499171c5dc3f64119
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3944592979030859372
+    second: electricAnimation_0
+  - first:
+      213: -3390060935134291014
+    second: electricAnimation_1
+  - first:
+      213: -7802319120565702118
+    second: electricAnimation_2
+  - first:
+      213: 6051155370187361181
+    second: electricAnimation_3
+  - first:
+      213: 3221489490352373485
+    second: electricAnimation_4
+  - first:
+      213: 2794859237452953171
+    second: electricAnimation_5
+  - first:
+      213: -5581545967495700715
+    second: electricAnimation_6
+  - first:
+      213: 2880583161786746916
+    second: electricAnimation_7
+  - first:
+      213: -927164663427290022
+    second: electricAnimation_8
+  - first:
+      213: -984049608128663119
+    second: electricAnimation_9
+  - first:
+      213: 7476880458884512078
+    second: electricAnimation_10
+  - first:
+      213: 6573608192040618939
+    second: electricAnimation_11
+  - first:
+      213: -3148868372690629891
+    second: electricAnimation_12
+  - first:
+      213: -8131921855191459429
+    second: electricAnimation_13
+  - first:
+      213: -2507932443256279521
+    second: electricAnimation_14
+  - first:
+      213: 7896426131896976162
+    second: electricAnimation_15
+  - first:
+      213: -8810503462248295438
+    second: electricAnimation_16
+  - first:
+      213: 8150003994407520385
+    second: electricAnimation_17
+  - first:
+      213: 5586358277919716440
+    second: electricAnimation_18
+  - first:
+      213: -8507755409001897274
+    second: electricAnimation_19
+  - first:
+      213: -2560105518832880069
+    second: electricAnimation_20
+  - first:
+      213: -8250000124640910659
+    second: electricAnimation_21
+  - first:
+      213: -1690558520675753736
+    second: electricAnimation_22
+  - first:
+      213: 6465248742822890136
+    second: electricAnimation_23
+  - first:
+      213: -8818405370282551110
+    second: electricAnimation_24
+  - first:
+      213: 2337373901856180348
+    second: electricAnimation_25
+  - first:
+      213: -7950991481305573277
+    second: electricAnimation_26
+  - first:
+      213: 5934619688004272463
+    second: electricAnimation_27
+  - first:
+      213: -2979071695679738373
+    second: electricAnimation_28
+  - first:
+      213: -1384861650624501951
+    second: electricAnimation_29
+  - first:
+      213: -2413061860466536105
+    second: electricAnimation_30
+  - first:
+      213: 8136332440114694714
+    second: electricAnimation_31
+  - first:
+      213: -4375073311093526741
+    second: electricAnimation_32
+  - first:
+      213: 2729515145815350072
+    second: electricAnimation_33
+  - first:
+      213: 9077197545669161221
+    second: electricAnimation_34
+  - first:
+      213: -2957867539454797697
+    second: electricAnimation_35
+  - first:
+      213: 4712501273178156606
+    second: electricAnimation_36
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: electricAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6e52a24a620eb630800000000000000
+      internalID: 3944592979030859372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electricAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abb54627a8514f0d0800000000000000
+      internalID: -3390060935134291014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electricAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1000
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.5523755, y: 0.4588478}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a12717a291898b390800000000000000
+      internalID: -7802319120565702118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 217412c6d180015429fc630b9ae91665
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":1000.0,"y":3000.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      electricAnimation_0: 3944592979030859372
+      electricAnimation_1: -3390060935134291014
+      electricAnimation_2: -7802319120565702118
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
