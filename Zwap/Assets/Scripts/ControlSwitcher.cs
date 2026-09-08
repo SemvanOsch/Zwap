@@ -22,6 +22,15 @@ public class ControlSwitcher : MonoBehaviour
     [Header("Switching")]
     [SerializeField] private float switchInterval = 10f;
 
+    [Header("Shock Effect")]
+    [SerializeField] private GameObject shockEffectPrefab;
+
+    // Time from the start of the shock animation to the power-10 "bang" frame:
+    // 2 frames (0.16s) + pause (1.3s) + 3 frames (0.24s) + pause (1.3s)
+    // + 3 frames before the power-10 frame (0.24s) = 3.24s.
+    // Tweak this by ear if you retime the animation/audio.
+    [SerializeField] private float shockBangDelay = 3.24f;
+
     [Header("Control Panels")]
     [SerializeField] private ControlPanel[] controlPanels;
 
@@ -44,6 +53,7 @@ public class ControlSwitcher : MonoBehaviour
     public event System.Action<ControlType> OnControlChanged;
 
     private float switchTimer;
+    private bool shockSpawnedThisCycle;
 
     private void Awake()
     {
@@ -60,6 +70,9 @@ public class ControlSwitcher : MonoBehaviour
         NextIsInverted = RollInverted(NextControl);
 
         UpdateNextControlIcon();
+
+        if (shockBangDelay > switchInterval)
+            Debug.LogWarning("shockBangDelay is larger than switchInterval — the shock effect will spawn immediately every cycle. Lower shockBangDelay or raise switchInterval.");
     }
 
     private void Start()
@@ -71,11 +84,38 @@ public class ControlSwitcher : MonoBehaviour
     {
         switchTimer += Time.deltaTime;
 
+        // Spawn the shock effect early enough that its bang frame lands exactly
+        // when the switch happens below.
+        if (!shockSpawnedThisCycle && switchTimer >= switchInterval - shockBangDelay)
+        {
+            SpawnShockEffect();
+            shockSpawnedThisCycle = true;
+        }
+
         if (switchTimer >= switchInterval)
         {
             SwitchControl();
             switchTimer = 0f;
+            shockSpawnedThisCycle = false;
         }
+    }
+
+    private void SpawnShockEffect()
+    {
+        if (shockEffectPrefab == null)
+            return;
+
+        // Parented to this transform (the player), so it tracks the player's
+        // position automatically for the whole lifetime of the effect.
+        GameObject fx = Instantiate(shockEffectPrefab, transform.position, Quaternion.identity, transform);
+
+        // Calls a parameterless "Play" method on whatever script sits on the
+        // prefab's root, without needing to know its exact class name here.
+        // If your prefab's script method is named differently, change "Play"
+        // below to match (or tell me the script name and I'll wire it directly
+        // with GetComponent<YourScript>().YourMethod() instead, which is a bit
+        // faster and gives a clearer error if it's missing).
+        fx.SendMessage("Play", SendMessageOptions.DontRequireReceiver);
     }
 
     private void SwitchControl()
