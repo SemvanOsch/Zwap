@@ -93,9 +93,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 8911823864152393170, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
           m_TargetAssemblyTypeName: TouchControls, Assembly-CSharp
-          m_MethodName: OnDownPress
+          m_MethodName: OnUpPress
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -109,9 +109,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 8911823864152393170, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
           m_TargetAssemblyTypeName: TouchControls, Assembly-CSharp
-          m_MethodName: OnDownRelease
+          m_MethodName: OnUpRelease
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -253,7 +253,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 8911823864152393170, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
           m_TargetAssemblyTypeName: TouchControls, Assembly-CSharp
           m_MethodName: OnLeftPress
           m_Mode: 1
@@ -269,7 +269,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 8911823864152393170, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
           m_TargetAssemblyTypeName: TouchControls, Assembly-CSharp
           m_MethodName: OnLeftRelease
           m_Mode: 1
@@ -374,7 +374,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 8911823864152393170, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
           m_TargetAssemblyTypeName: TouchControls, Assembly-CSharp
           m_MethodName: OnUpPress
           m_Mode: 1
@@ -390,7 +390,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 8911823864152393170, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
           m_TargetAssemblyTypeName: TouchControls, Assembly-CSharp
           m_MethodName: OnUpRelease
           m_Mode: 1
@@ -495,7 +495,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 8911823864152393170, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
           m_TargetAssemblyTypeName: TouchControls, Assembly-CSharp
           m_MethodName: OnRightPress
           m_Mode: 1
@@ -511,9 +511,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 8911823864152393170, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
           m_TargetAssemblyTypeName: TouchControls, Assembly-CSharp
-          m_MethodName: OnRightRelease
+          m_MethodName: OnUpRelease
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
