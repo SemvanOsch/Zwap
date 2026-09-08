@@ -564,42 +564,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fish
       objectReference: {fileID: 0}
-    - target: {fileID: 2437424666647485169, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-      propertyPath: m_Radius
-      value: 0.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 2437424666647485169, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2437424666647485169, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511196548380628927, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-      propertyPath: m_Sprite
+    - target: {fileID: 6352434718933735328, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: nextControlIcon
       value: 
-      objectReference: {fileID: -7014884864912180425, guid: 87eb9f640739b4a8e9be5cc757878209, type: 3}
-    - target: {fileID: 2511196548380628927, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-      propertyPath: m_Color.b
-      value: 0.38443395
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511196548380628927, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-      propertyPath: m_Color.g
-      value: 0.38443395
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511196548380628927, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-      propertyPath: m_Color.r
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6699625963249174140, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5698869
-      objectReference: {fileID: 0}
-    - target: {fileID: 6699625963249174140, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.49564582
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1582574263}
+    - target: {fileID: 6352434718933735328, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: controlPanels.Array.data[0].normalPanel
+      value: 
+      objectReference: {fileID: 1825197174}
+    - target: {fileID: 6352434718933735328, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: controlPanels.Array.data[0].invertedPanel
+      value: 
+      objectReference: {fileID: 275483674}
     - target: {fileID: 6699625963249174140, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.07
@@ -640,155 +616,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2437424666647485169, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-    - {fileID: -2319729927926959263, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+    - target: {fileID: 8579035696156347547, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: controlPanels.Array.data[0].normalPanel
+      value: 
+      objectReference: {fileID: 1825197174}
+    - target: {fileID: 8579035696156347547, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: controlPanels.Array.data[0].invertedPanel
+      value: 
+      objectReference: {fileID: 275483674}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1161412674535546430, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 702984359}
-    - targetCorrespondingSourceObject: {fileID: 1161412674535546430, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 702984363}
-    - targetCorrespondingSourceObject: {fileID: 1161412674535546430, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 702984358}
-    - targetCorrespondingSourceObject: {fileID: 1161412674535546430, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 702984366}
-    - targetCorrespondingSourceObject: {fileID: 1161412674535546430, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 702984370}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
---- !u!1 &702984357 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1161412674535546430, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+--- !u!114 &702984366 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8911823864152393170, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
   m_PrefabInstance: {fileID: 702984356}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &702984358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702984357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c5e6df99ebf8484b84f26f12c521a64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerStart
-  moveSpeed: 0.3
-  touchSensitivity: 0.5
-  cam: {fileID: 0}
-  padding: 2
-  _animator: {fileID: 702984367}
---- !u!50 &702984359
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702984357}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!70 &702984363
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702984357}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0.25481, y: 0.69890785}
-  m_Size: {x: 1.9108477, y: 11.540017}
-  m_Direction: 0
---- !u!114 &702984366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702984357}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bef85708d6b9fa419d77b239497274c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TouchControls
-  playerStart: {fileID: 702984358}
---- !u!95 &702984367 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6376809572622171141, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-  m_PrefabInstance: {fileID: 702984356}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &702984370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702984357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10e8bb6060fadf8469f244536ef8833f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ControlSwitcher
-  switchInterval: 10
-  controlPanels:
-  - type: 1
-    normalPanel: {fileID: 1825197174}
-    invertedPanel: {fileID: 275483674}
-  nextControlIcon: {fileID: 1582574263}
-  tiltSprite: {fileID: 7825453866717813237, guid: fe2b306f89ce0c54d8bfea940d3f7c9a, type: 3}
-  touchSprite: {fileID: 1446098369628453845, guid: 652300e21288eea418968d44b5253756, type: 3}
-  invertedSprite: {fileID: -7002430021844421038, guid: 00436ff0ce78b094a9c4732d242f7495, type: 3}
-  inverseChance: 0.3
-  invertibleControls: 01000000
 --- !u!1001 &893699505
 PrefabInstance:
   m_ObjectHideFlags: 0

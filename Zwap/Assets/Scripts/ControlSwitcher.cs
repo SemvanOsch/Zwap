@@ -47,11 +47,12 @@ public class ControlSwitcher : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        // if (Instance != null && Instance != this)
+        // {
+        //     Debug.LogWarning("Duplicate ControlSwitcher — destroying " + gameObject.name, gameObject);
+        //     Destroy(gameObject);
+        //     return;
+        // }
 
         Instance = this;
 
