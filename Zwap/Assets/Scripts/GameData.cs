@@ -14,6 +14,8 @@ public class GameData : MonoBehaviour
             Destroy(gameObject);            return;
         }
 
+        Highscore = SaveManager.Instance.Data.highScore;
+        
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
