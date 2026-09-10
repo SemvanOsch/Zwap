@@ -9,7 +9,7 @@ public class HomeScreenUI : MonoBehaviour
     {
         if (SaveManager.Instance != null && highScoreText != null)
         {
-            highScoreText.text = SaveManager.Instance.Data.highScore + "M";
+            highScoreText.text = SaveManager.Instance.Data.highScore + " M";
         }
     }
 }

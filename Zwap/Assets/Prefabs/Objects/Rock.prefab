@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3791264335194620505}
   - component: {fileID: 2071982782084722513}
   - component: {fileID: 5625870249454440949}
-  - component: {fileID: 6509395576919743581}
+  - component: {fileID: 862086326993458479}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Entity
@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.47, y: 0.19, z: 1}
-  m_LocalScale: {x: 20, y: 20, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.024999999}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 2831186660323490502, guid: e7a81cfa642264049a0ed2a45a422353, type: 3}
+  m_Sprite: {fileID: 6898035379108858973, guid: 4d8681ff287fe5a4d9be71f693139f01, type: 3}
   m_Color: {r: 0.90188676, g: 0.90188676, b: 0.90188676, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,8 +108,8 @@ MonoBehaviour:
   speed: 10
   speedPerScore: 0.002
   despawnY: -20
---- !u!58 &6509395576919743581
-CircleCollider2D:
+--- !u!70 &862086326993458479
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -142,5 +142,6 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.07916622
+  m_Offset: {x: 0.09047127, y: 0}
+  m_Size: {x: 0.0001, y: 8.06}
+  m_Direction: 1
