@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerStart : MonoBehaviour
@@ -199,7 +200,18 @@ public class PlayerStart : MonoBehaviour
     private void HandleGameOver()
     {
         rb.linearVelocity = Vector2.zero;
-        enabled = false; // stops FixedUpdate from running again on this component
+        enabled = false;
+
+        int CurrentScore = ScoreManager.Instance.GetScore();
+
+        if ( CurrentScore > SaveManager.Instance.Data.highScore)
+        {
+            SaveManager.Instance.Data.highScore = CurrentScore;
+            GameData.Instance.Highscore = CurrentScore;
+        }
+        
+        SaveManager.Instance.Data.runs++;
+        SaveManager.Instance.Save();
 
         if (_animator != null)
             _animator.SetBool("IsMoving", false);
