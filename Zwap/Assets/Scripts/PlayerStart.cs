@@ -19,6 +19,9 @@ public class PlayerStart : MonoBehaviour
     [SerializeField] private float speedPerScore = 0.002f; // +0.2% move speed per point
     [SerializeField] private float maxSpeedMultiplier = 3f;
 
+    [Header("Follow")]
+    [SerializeField] private float followDeadzone = 0.1f; // finger this close to the fish = hold still (kills jitter)
+
     [Header("Game Over")]
     [SerializeField] private SceneField gameOverScene;
 
@@ -138,19 +141,34 @@ public class PlayerStart : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 activeInput = GetActiveInput();
-
-        bool isMoving = activeInput.magnitude > 0.01f;
-
-        if (_animator != null)
-            _animator.SetBool("IsMoving", isMoving);
-        
+        // Update the score-based speed ramp first so every control mode uses it.
         if (ScoreManager.Instance != null)
             multiplier = Mathf.Min(1f + speedPerScore * ScoreManager.Instance.GetScore(), maxSpeedMultiplier);
 
-        Vector3 move = new Vector3(activeInput.x, activeInput.y, 0f) * moveSpeed * multiplier;
+        ControlType current = ControlSwitcher.Instance != null
+            ? ControlSwitcher.Instance.CurrentControl
+            : ControlType.Touch;
 
-        Vector3 target = transform.position + move;
+        Vector3 target;
+        bool isMoving;
+
+        if (current == ControlType.Follow)
+        {
+            // Follow mode drives an absolute destination (the finger), not a
+            // per-step direction, so it computes its own target.
+            target = GetFollowTarget(out isMoving);
+        }
+        else
+        {
+            Vector2 activeInput = GetActiveInput();
+            isMoving = activeInput.magnitude > 0.01f;
+
+            Vector3 move = new Vector3(activeInput.x, activeInput.y, 0f) * moveSpeed * multiplier;
+            target = transform.position + move;
+        }
+
+        if (_animator != null)
+            _animator.SetBool("IsMoving", isMoving);
 
         if (cam != null && cam.orthographic)
         {
@@ -167,6 +185,58 @@ public class PlayerStart : MonoBehaviour
         // Position is fully driven by MovePosition, so never let the dynamic body
         // build up momentum — otherwise it coasts when input stops.
         rb.linearVelocity = Vector2.zero;
+    }
+
+    // Where the fish should move to this step in Follow mode. It only moves while
+    // a finger is actually pressed (a mouse press stands in for a finger in the
+    // Editor); with nothing pressed it stays exactly where it is.
+    private Vector3 GetFollowTarget(out bool isMoving)
+    {
+        isMoving = false;
+        Vector3 pos = transform.position;
+
+        if (cam == null)
+            return pos;
+
+        Vector2 screenPos;
+        bool pressed;
+
+        if (Touchscreen.current != null)
+        {
+            pressed = Touchscreen.current.primaryTouch.press.isPressed;
+            screenPos = Touchscreen.current.primaryTouch.position.ReadValue();
+        }
+        else if (Pointer.current != null) // mouse fallback so it's testable in the Editor
+        {
+            pressed = Pointer.current.press.isPressed;
+            screenPos = Pointer.current.position.ReadValue();
+        }
+        else
+        {
+            return pos; // no touchscreen or pointer present
+        }
+
+        // Finger up -> don't move at all.
+        if (!pressed)
+            return pos;
+
+        // Screen pixels -> world position. Depth along the view doesn't matter for
+        // an orthographic 2D camera, but keep the fish's own z so it stays on plane.
+        Vector3 world = cam.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, 0f));
+        world.z = pos.z;
+
+        // Deadzone: if the finger is basically on top of the fish, hold still so it
+        // doesn't jitter back and forth across the touch point.
+        if (Vector2.Distance(pos, world) <= followDeadzone)
+            return pos;
+
+        isMoving = true;
+
+        // Step toward the finger, capped at the same per-step distance the other
+        // modes use (moveSpeed * multiplier), so the score speed-ramp still applies
+        // and the fish glides instead of teleporting onto the finger.
+        float maxStep = moveSpeed * multiplier;
+        return Vector3.MoveTowards(pos, world, maxStep);
     }
 
     // Touch controls push the fully-resolved direction here (recomputed from the
