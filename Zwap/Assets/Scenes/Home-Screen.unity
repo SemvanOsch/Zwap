@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameData
   score: 0
-  playerName: 
+  Highscore: 0
 --- !u!4 &1126349084
 Transform:
   m_ObjectHideFlags: 0
