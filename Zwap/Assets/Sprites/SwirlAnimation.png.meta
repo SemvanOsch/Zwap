@@ -1,0 +1,524 @@
+fileFormatVersion: 2
+guid: 39518b92d7647934d95a32afa85f2b5e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5981220814139544559
+    second: SwirlAnimation_0
+  - first:
+      213: -3060332026670545224
+    second: SwirlAnimation_1
+  - first:
+      213: -361327560217558303
+    second: SwirlAnimation_2
+  - first:
+      213: 4673095099424879132
+    second: SwirlAnimation_3
+  - first:
+      213: 574904659267479805
+    second: SwirlAnimation_4
+  - first:
+      213: 5014877313717678879
+    second: SwirlAnimation_5
+  - first:
+      213: -1389978209466193020
+    second: SwirlAnimation_6
+  - first:
+      213: 8041334239224835754
+    second: SwirlAnimation_7
+  - first:
+      213: 4275264204689139619
+    second: SwirlAnimation_8
+  - first:
+      213: 2883025649225598219
+    second: SwirlAnimation_9
+  - first:
+      213: 2763849948501973107
+    second: SwirlAnimation_10
+  - first:
+      213: 7775553672470001685
+    second: SwirlAnimation_11
+  - first:
+      213: -5065992919134359220
+    second: SwirlAnimation_12
+  - first:
+      213: 1372966588424477702
+    second: SwirlAnimation_13
+  - first:
+      213: -7365464162064398030
+    second: SwirlAnimation_14
+  - first:
+      213: 6427803619370318374
+    second: SwirlAnimation_15
+  - first:
+      213: 6946315040043503731
+    second: SwirlAnimation_16
+  - first:
+      213: 4709190122084006631
+    second: SwirlAnimation_17
+  - first:
+      213: -1016110034772144924
+    second: SwirlAnimation_18
+  - first:
+      213: 6257676065865188901
+    second: SwirlAnimation_19
+  - first:
+      213: 423981098830824613
+    second: SwirlAnimation_20
+  - first:
+      213: -1603780924114750478
+    second: SwirlAnimation_21
+  - first:
+      213: -6878639099140387757
+    second: SwirlAnimation_22
+  - first:
+      213: -5291985827612414774
+    second: SwirlAnimation_23
+  - first:
+      213: 4841431623160305701
+    second: SwirlAnimation_24
+  - first:
+      213: -1453822501814548337
+    second: SwirlAnimation_25
+  - first:
+      213: 8227336053122552762
+    second: SwirlAnimation_26
+  - first:
+      213: -2279099452346276805
+    second: SwirlAnimation_27
+  - first:
+      213: 4876776694966196592
+    second: SwirlAnimation_28
+  - first:
+      213: -7383565291597540307
+    second: SwirlAnimation_29
+  - first:
+      213: -2313652136471649871
+    second: SwirlAnimation_30
+  - first:
+      213: -7318042912739826168
+    second: SwirlAnimation_31
+  - first:
+      213: -4356582322081517245
+    second: SwirlAnimation_32
+  - first:
+      213: 6949434949927282707
+    second: SwirlAnimation_33
+  - first:
+      213: 210473952907256383
+    second: SwirlAnimation_34
+  - first:
+      213: 54842909447968612
+    second: SwirlAnimation_35
+  - first:
+      213: 4830342782620629245
+    second: SwirlAnimation_36
+  - first:
+      213: 6392257819149624812
+    second: SwirlAnimation_37
+  - first:
+      213: -3561500504458089971
+    second: SwirlAnimation_38
+  - first:
+      213: 5342940431212376738
+    second: SwirlAnimation_39
+  - first:
+      213: 3211667892770440671
+    second: SwirlAnimation_40
+  - first:
+      213: 1782415524096567369
+    second: SwirlAnimation_41
+  - first:
+      213: -8903334015046990918
+    second: SwirlAnimation_42
+  - first:
+      213: -6605113829620545685
+    second: SwirlAnimation_43
+  - first:
+      213: -5498908162640443081
+    second: SwirlAnimation_44
+  - first:
+      213: 8664942812649943328
+    second: SwirlAnimation_45
+  - first:
+      213: 6732466896863001779
+    second: SwirlAnimation_46
+  - first:
+      213: -2690143832483369609
+    second: SwirlAnimation_47
+  - first:
+      213: -4422397918804194982
+    second: SwirlAnimation_48
+  - first:
+      213: -8954754964805740402
+    second: SwirlAnimation_49
+  - first:
+      213: -2985573530944584101
+    second: SwirlAnimation_50
+  - first:
+      213: -3555446290961005992
+    second: SwirlAnimation_51
+  - first:
+      213: -1032633444711855
+    second: SwirlAnimation_52
+  - first:
+      213: 227861798183148917
+    second: SwirlAnimation_53
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 40
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SwirlAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11c2a020c5f6efca0800000000000000
+      internalID: -5981220814139544559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwirlAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b60d8f6c348785d0800000000000000
+      internalID: -3060332026670545224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwirlAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e28ca59f7e4cfaf0800000000000000
+      internalID: -361327560217558303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwirlAnimation_3
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c12b6dadb3b2ad040800000000000000
+      internalID: 4673095099424879132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwirlAnimation_4
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df8ea5bddb87af700800000000000000
+      internalID: 574904659267479805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwirlAnimation_5
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f13be4cc85c689540800000000000000
+      internalID: 5014877313717678879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwirlAnimation_6
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48beb33de2ec5bce0800000000000000
+      internalID: -1389978209466193020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwirlAnimation_7
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaeae21c2ee889f60800000000000000
+      internalID: 8041334239224835754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwirlAnimation_8
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a76071942ac45b30800000000000000
+      internalID: 4275264204689139619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwirlAnimation_9
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b058e649d80920820800000000000000
+      internalID: 2883025649225598219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b607a36c0f9238b4e9b740f82a5a3766
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":10.0,"y":1.0},"gridSpriteSize":{"x":1000.0,"y":2000.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SwirlAnimation_0: -5981220814139544559
+      SwirlAnimation_1: -3060332026670545224
+      SwirlAnimation_2: -361327560217558303
+      SwirlAnimation_3: 4673095099424879132
+      SwirlAnimation_4: 574904659267479805
+      SwirlAnimation_5: 5014877313717678879
+      SwirlAnimation_6: -1389978209466193020
+      SwirlAnimation_7: 8041334239224835754
+      SwirlAnimation_8: 4275264204689139619
+      SwirlAnimation_9: 2883025649225598219
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
