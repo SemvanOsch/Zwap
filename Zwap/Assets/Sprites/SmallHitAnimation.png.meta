@@ -1,88 +1,82 @@
 fileFormatVersion: 2
-guid: 9a86a304a8c17064f9e95b3dd82f7ad5
+guid: bbc48ad737d1fe14bb3acc07ad2eef93
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2265641372151919886
-    second: HitAnimation_0
+      213: -1406369263830624049
+    second: SmallHitAnimation_0
   - first:
-      213: 4402710828267575687
-    second: HitAnimation_1
+      213: 1514733709569861521
+    second: SmallHitAnimation_1
   - first:
-      213: 4066851777452040215
-    second: HitAnimation_2
+      213: -6185419184951043727
+    second: SmallHitAnimation_2
   - first:
-      213: -6967673241793596577
-    second: HitAnimation_3
+      213: 3816256423833671754
+    second: SmallHitAnimation_3
   - first:
-      213: 5038062033956090
-    second: HitAnimation_4
+      213: 6796201958576585876
+    second: SmallHitAnimation_4
   - first:
-      213: 3966165475153880419
-    second: HitAnimation_5
+      213: 6903181807007915888
+    second: SmallHitAnimation_5
   - first:
-      213: -7173133105380795984
-    second: HitAnimation_6
+      213: -8623849887187709045
+    second: SmallHitAnimation_6
   - first:
-      213: 869844507557702775
-    second: HitAnimation_7
+      213: -1107505347430950433
+    second: SmallHitAnimation_7
   - first:
-      213: -1802130435869094449
-    second: HitAnimation_8
+      213: -5981911374885435883
+    second: SmallHitAnimation_8
   - first:
-      213: -3316455490857394485
-    second: HitAnimation_9
+      213: -8514074892713017042
+    second: SmallHitAnimation_9
   - first:
-      213: 6243136295567255356
-    second: HitAnimation_10
+      213: -5632138814337291373
+    second: SmallHitAnimation_10
   - first:
-      213: 7589742401389877856
-    second: HitAnimation_11
+      213: -4162257567093727058
+    second: SmallHitAnimation_11
   - first:
-      213: -1983162161177852290
-    second: HitAnimation_12
+      213: -4987938159417018413
+    second: SmallHitAnimation_12
   - first:
-      213: -3766605819102751546
-    second: HitAnimation_13
+      213: -5635623579608546430
+    second: SmallHitAnimation_13
   - first:
-      213: -6242118344197141775
-    second: HitAnimation_14
+      213: 2016923943196495099
+    second: SmallHitAnimation_14
   - first:
-      213: -7105039754068092608
-    second: HitAnimation_15
+      213: 491277058311678621
+    second: SmallHitAnimation_15
   - first:
-      213: 8999218774906239647
-    second: HitAnimation_16
+      213: 3370265717280638911
+    second: SmallHitAnimation_16
   - first:
-      213: -7216850824951928001
-    second: HitAnimation_17
+      213: -6527435202630758262
+    second: SmallHitAnimation_17
   - first:
-      213: 509407755208585738
-    second: HitAnimation_18
+      213: 8526931471516115102
+    second: SmallHitAnimation_18
   - first:
-      213: 1166146249209456590
-    second: HitAnimation_19
+      213: -2263336043002462039
+    second: SmallHitAnimation_19
   - first:
-      213: -8405240896113626669
-    second: HitAnimation_20
+      213: -9130289946370064679
+    second: SmallHitAnimation_20
   - first:
-      213: 647776551279857757
-    second: HitAnimation_21
+      213: -5667803304835293403
+    second: SmallHitAnimation_21
   - first:
-      213: 1243514093255314922
-    second: HitAnimation_22
+      213: -1056765294106179759
+    second: SmallHitAnimation_22
   - first:
-      213: -5431898409168339994
-    second: HitAnimation_23
+      213: 4344689818156068017
+    second: SmallHitAnimation_23
   - first:
-      213: -4110388141247253106
-    second: HitAnimation_24
-  - first:
-      213: -1752772188029895936
-    second: HitAnimation_25
-  - first:
-      213: -4924280083532610736
-    second: HitAnimation_26
+      213: 1409742795432341109
+    second: SmallHitAnimation_24
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -191,7 +185,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HitAnimation_0
+      name: SmallHitAnimation_0
       rect:
         serializedVersion: 2
         x: 0
@@ -199,59 +193,59 @@ TextureImporter:
         width: 1000
         height: 2000
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2fac4780d23de80e0800000000000000
-      internalID: -2265641372151919886
+      spriteID: fc819561b929b7ce0800000000000000
+      internalID: -1406369263830624049
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HitAnimation_1
+      name: SmallHitAnimation_1
       rect:
         serializedVersion: 2
-        x: 1000
+        x: 995
         y: 0
         width: 1000
         height: 2000
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 78997a7fb22991d30800000000000000
-      internalID: 4402710828267575687
+      spriteID: 197a830984a650510800000000000000
+      internalID: 1514733709569861521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HitAnimation_2
+      name: SmallHitAnimation_2
       rect:
         serializedVersion: 2
-        x: 2000
+        x: 1991
         y: 0
         width: 1000
         height: 2000
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 710e13df42c507830800000000000000
-      internalID: 4066851777452040215
+      spriteID: 1795b16e50af82aa0800000000000000
+      internalID: -6185419184951043727
       vertices: []
       indices: 
       edges: []
@@ -260,7 +254,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 944743f7d2490734daf2d2fb0f863a82
+    spriteID: 819b460d65eeba74b8da185e9494a9ed
     internalID: 0
     vertices: []
     indices: 
@@ -270,11 +264,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":1000.0,"y":2000.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":10.0,"y":1.0},"gridSpriteSize":{"x":1000.0,"y":2000.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      HitAnimation_0: -2265641372151919886
-      HitAnimation_1: 4402710828267575687
-      HitAnimation_2: 4066851777452040215
+      SmallHitAnimation_0: -1406369263830624049
+      SmallHitAnimation_1: 1514733709569861521
+      SmallHitAnimation_2: -6185419184951043727
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

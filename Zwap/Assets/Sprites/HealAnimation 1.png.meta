@@ -934,7 +934,7 @@ TextureImporter:
         width: 1000
         height: 2000
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5330164, y: 0.286318}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -951,12 +951,12 @@ TextureImporter:
       name: HealAnimation 1_1
       rect:
         serializedVersion: 2
-        x: 1000
+        x: 1018
         y: 0
         width: 1000
         height: 2000
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.52201086, y: 0.27971464}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -978,7 +978,7 @@ TextureImporter:
         width: 1000
         height: 2000
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5308152, y: 0.30172557}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1000,7 +1000,7 @@ TextureImporter:
         width: 1000
         height: 2000
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.49999976, y: 0.3171333}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1022,7 +1022,7 @@ TextureImporter:
         width: 1000
         height: 2000
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.5286143, y: 0.29732344}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []

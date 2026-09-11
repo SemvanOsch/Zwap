@@ -769,15 +769,15 @@ PrefabInstance:
     - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: 'firstHitSprites.Array.data[0]'
       value: 
-      objectReference: {fileID: -2265641372151919886, guid: 9a86a304a8c17064f9e95b3dd82f7ad5, type: 3}
+      objectReference: {fileID: -1406369263830624049, guid: bbc48ad737d1fe14bb3acc07ad2eef93, type: 3}
     - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: 'firstHitSprites.Array.data[1]'
       value: 
-      objectReference: {fileID: 4402710828267575687, guid: 9a86a304a8c17064f9e95b3dd82f7ad5, type: 3}
+      objectReference: {fileID: 1514733709569861521, guid: bbc48ad737d1fe14bb3acc07ad2eef93, type: 3}
     - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: 'firstHitSprites.Array.data[2]'
       value: 
-      objectReference: {fileID: 4066851777452040215, guid: 9a86a304a8c17064f9e95b3dd82f7ad5, type: 3}
+      objectReference: {fileID: -6185419184951043727, guid: bbc48ad737d1fe14bb3acc07ad2eef93, type: 3}
     - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: 'recoverySprites.Array.data[0]'
       value: 

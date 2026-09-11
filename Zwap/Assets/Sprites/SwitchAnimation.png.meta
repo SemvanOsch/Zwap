@@ -1,0 +1,599 @@
+fileFormatVersion: 2
+guid: fcd62ca1efb135e4cb0d46cf908373b8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6560152301193448456
+    second: SwitchAnimation_0
+  - first:
+      213: 3834536560578672165
+    second: SwitchAnimation_1
+  - first:
+      213: 8377294889139696604
+    second: SwitchAnimation_2
+  - first:
+      213: -5495805076428435446
+    second: SwitchAnimation_3
+  - first:
+      213: -1623663311249106777
+    second: SwitchAnimation_4
+  - first:
+      213: -6420276013547963468
+    second: SwitchAnimation_5
+  - first:
+      213: -6123776038124860700
+    second: SwitchAnimation_6
+  - first:
+      213: 1839989885008403358
+    second: SwitchAnimation_7
+  - first:
+      213: -3479167869816798647
+    second: SwitchAnimation_8
+  - first:
+      213: -8269018182373693676
+    second: SwitchAnimation_9
+  - first:
+      213: -4373262583271255035
+    second: SwitchAnimation_10
+  - first:
+      213: 4616849895477837831
+    second: SwitchAnimation_11
+  - first:
+      213: 7303485014630987024
+    second: SwitchAnimation_12
+  - first:
+      213: 6447556518227563225
+    second: SwitchAnimation_13
+  - first:
+      213: 4125814281503428701
+    second: SwitchAnimation_14
+  - first:
+      213: -1089884236010960917
+    second: SwitchAnimation_15
+  - first:
+      213: -4828072962888675874
+    second: SwitchAnimation_16
+  - first:
+      213: 3719197855341359981
+    second: SwitchAnimation_17
+  - first:
+      213: -8756577559748169282
+    second: SwitchAnimation_18
+  - first:
+      213: 2442192593798493128
+    second: SwitchAnimation_19
+  - first:
+      213: -314731244070193393
+    second: SwitchAnimation_20
+  - first:
+      213: -3075977717810403884
+    second: SwitchAnimation_21
+  - first:
+      213: -1507730084871232326
+    second: SwitchAnimation_22
+  - first:
+      213: 7514468415820441272
+    second: SwitchAnimation_23
+  - first:
+      213: -6210968282739255816
+    second: SwitchAnimation_24
+  - first:
+      213: -3354954779455467755
+    second: SwitchAnimation_25
+  - first:
+      213: 6362845548174475409
+    second: SwitchAnimation_26
+  - first:
+      213: 5327081700318199362
+    second: SwitchAnimation_27
+  - first:
+      213: -2015082259891373940
+    second: SwitchAnimation_28
+  - first:
+      213: 8969915585770377323
+    second: SwitchAnimation_29
+  - first:
+      213: -2763413047001427151
+    second: SwitchAnimation_30
+  - first:
+      213: -7800279660013357928
+    second: SwitchAnimation_31
+  - first:
+      213: 1018459498347988725
+    second: SwitchAnimation_32
+  - first:
+      213: 4104974540402124574
+    second: SwitchAnimation_33
+  - first:
+      213: 6891097116068218924
+    second: SwitchAnimation_34
+  - first:
+      213: 7644424851523666845
+    second: SwitchAnimation_35
+  - first:
+      213: -8658463894473227246
+    second: SwitchAnimation_36
+  - first:
+      213: 1999467706780916381
+    second: SwitchAnimation_37
+  - first:
+      213: -7328414749084276980
+    second: SwitchAnimation_38
+  - first:
+      213: -3135185961160585868
+    second: SwitchAnimation_39
+  - first:
+      213: 5964646261916907018
+    second: SwitchAnimation_40
+  - first:
+      213: -6846319822742083995
+    second: SwitchAnimation_41
+  - first:
+      213: -4243101859717410654
+    second: SwitchAnimation_42
+  - first:
+      213: -3902314453196264782
+    second: SwitchAnimation_43
+  - first:
+      213: -1411404232016303603
+    second: SwitchAnimation_44
+  - first:
+      213: 7515657306449965552
+    second: SwitchAnimation_45
+  - first:
+      213: -3944742508141070185
+    second: SwitchAnimation_46
+  - first:
+      213: -3258870551481520697
+    second: SwitchAnimation_47
+  - first:
+      213: -7405589726023688653
+    second: SwitchAnimation_48
+  - first:
+      213: -832396059074459509
+    second: SwitchAnimation_49
+  - first:
+      213: -5664548677188659546
+    second: SwitchAnimation_50
+  - first:
+      213: -5740038741833976008
+    second: SwitchAnimation_51
+  - first:
+      213: -1671710246545486491
+    second: SwitchAnimation_52
+  - first:
+      213: -5762556728156552579
+    second: SwitchAnimation_53
+  - first:
+      213: 7855049908760949827
+    second: SwitchAnimation_54
+  - first:
+      213: 7670918454329876575
+    second: SwitchAnimation_55
+  - first:
+      213: -7941844162359689732
+    second: SwitchAnimation_56
+  - first:
+      213: 6729414769919672871
+    second: SwitchAnimation_57
+  - first:
+      213: 2008407096268228430
+    second: SwitchAnimation_58
+  - first:
+      213: 6142478131501664892
+    second: SwitchAnimation_59
+  - first:
+      213: -6383341861855322945
+    second: SwitchAnimation_60
+  - first:
+      213: -8090704958811979572
+    second: SwitchAnimation_61
+  - first:
+      213: -7874288765868491735
+    second: SwitchAnimation_62
+  - first:
+      213: 4238496121842907414
+    second: SwitchAnimation_63
+  - first:
+      213: 860909627537719565
+    second: SwitchAnimation_64
+  - first:
+      213: -8927190346952366038
+    second: SwitchAnimation_65
+  - first:
+      213: -5530979504787980118
+    second: SwitchAnimation_66
+  - first:
+      213: -87112717753129981
+    second: SwitchAnimation_67
+  - first:
+      213: -2339230249190316159
+    second: SwitchAnimation_68
+  - first:
+      213: -5684588139078556870
+    second: SwitchAnimation_69
+  - first:
+      213: 5635317843454005330
+    second: SwitchAnimation_70
+  - first:
+      213: 7265526054281189901
+    second: SwitchAnimation_71
+  - first:
+      213: 2850710678015582821
+    second: SwitchAnimation_72
+  - first:
+      213: 1617853516368011933
+    second: SwitchAnimation_73
+  - first:
+      213: -3648376838876250513
+    second: SwitchAnimation_74
+  - first:
+      213: 3109820780723164144
+    second: SwitchAnimation_75
+  - first:
+      213: -6166258462409186619
+    second: SwitchAnimation_76
+  - first:
+      213: -1226581746963506590
+    second: SwitchAnimation_77
+  - first:
+      213: -5124196531804645840
+    second: SwitchAnimation_78
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SwitchAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.4868756, y: 0.43700287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80cc811c2c75a0b50800000000000000
+      internalID: 6560152301193448456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwitchAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4186288}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5263a838fa2073530800000000000000
+      internalID: 3834536560578672165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwitchAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.49212548, y: 0.41600397}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd3fddd1151224470800000000000000
+      internalID: 8377294889139696604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwitchAnimation_3
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.50262475, y: 0.42519093}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a00d1b8a66afab3b0800000000000000
+      internalID: -5495805076428435446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwitchAnimation_4
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.5, y: 0.41075408}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a8992a22d69779e0800000000000000
+      internalID: -1623663311249106777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwitchAnimation_5
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.5, y: 0.479001}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bb33845bf896e6a0800000000000000
+      internalID: -6420276013547963468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwitchAnimation_6
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.46587697, y: 0.5157493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eac483732af30ba0800000000000000
+      internalID: -6123776038124860700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwitchAnimation_7
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.51574904, y: 0.47768858}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9bdc3e3d05f88910800000000000000
+      internalID: 1839989885008403358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwitchAnimation_8
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.48687598, y: 0.49868757}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9420e9d714387bfc0800000000000000
+      internalID: -3479167869816798647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwitchAnimation_9
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.51574904, y: 0.48556316}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 417ae5636cb8e3d80800000000000000
+      internalID: -8269018182373693676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 348588aff729ee9409301e0608b6ef61
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":10.0,"y":1.0},"gridSpriteSize":{"x":1000.0,"y":2000.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SwitchAnimation_0: 6560152301193448456
+      SwitchAnimation_1: 3834536560578672165
+      SwitchAnimation_2: 8377294889139696604
+      SwitchAnimation_3: -5495805076428435446
+      SwitchAnimation_4: -1623663311249106777
+      SwitchAnimation_5: -6420276013547963468
+      SwitchAnimation_6: -6123776038124860700
+      SwitchAnimation_7: 1839989885008403358
+      SwitchAnimation_8: -3479167869816798647
+      SwitchAnimation_9: -8269018182373693676
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
