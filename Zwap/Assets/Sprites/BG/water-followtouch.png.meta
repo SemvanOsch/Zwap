@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 81dc021ce306c5d49855f2ee89792508
+guid: d5820ffbe8be9e2408511557383e853e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8451208686066812967
-    second: Rockside_0
+      213: -6431332606415713880
+    second: water-followtouch_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rockside_0
+      name: water-followtouch_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 431
-        height: 3508
+        width: 1080
+        height: 3840
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d7ba48f97647ba80800000000000000
-      internalID: -8451208686066812967
+      spriteID: 8a94432b1115fb6a0800000000000000
+      internalID: -6431332606415713880
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Rockside_0: -8451208686066812967
+      water-followtouch_0: -6431332606415713880
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
