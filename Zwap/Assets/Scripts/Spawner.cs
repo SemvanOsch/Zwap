@@ -1,21 +1,41 @@
-
+using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class RockSpawner : MonoBehaviour
+public enum SpawnZone
 {
-    public GameObject[] itemPrefabs;   // Prefabs van de stenen/items
-    public Transform spawnPoint;       // Het SpawnPoint object
+    Anywhere,    // full width, any X
+    EdgesOnly,   // left band OR right band, never the middle
+    LeftOnly,    // left band only
+    RightOnly,   // right band only
+    CenterOnly   // middle band only
+}
 
+[Serializable]
+public class SpawnableItem
+{
+    public GameObject prefab;
+    public SpawnZone spawnZone = SpawnZone.Anywhere;
+}
+
+public class Spawner : MonoBehaviour
+{
+    [Header("Spawnables")]
+    public SpawnableItem[] items;      // each item now carries its own spawn rule
+    public Transform spawnPoint;
+
+    [Header("Timing")]
     [SerializeField] private float spawnInterval = 2f;
     [SerializeField] private float spawnSpeedPerScore = 0.002f;
-    [SerializeField] private float[] lanePositions = { -3f, 0f, 3f };
 
-    [Header("Sprite Animatie")]
-    [SerializeField] private Sprite[] effectSprites;  // Sprites achter elkaar
-    [SerializeField] private float effectFrameTime = 0.08f;
-    [SerializeField] private int effectSortingOrder = 10;
+    [Header("Spawn Area (X range)")]
+    [SerializeField] private float minX = -3f;
+    [SerializeField] private float maxX = 3f;
+
+    [Header("Center Band (used by CenterOnly / EdgesOnly)")]
+    [SerializeField] private float centerMinX = -1f;
+    [SerializeField] private float centerMaxX = 1f;
 
     private float timer;
 
@@ -39,62 +59,39 @@ public class RockSpawner : MonoBehaviour
 
     void SpawnEntity()
     {
-        // Kies een willekeurige steen
-        int itemIndex = Random.Range(0, itemPrefabs.Length);
-        GameObject chosenItem = itemPrefabs[itemIndex];
+        if (items == null || items.Length == 0) return;
 
-        // Kies een willekeurige lane
-        int laneIndex = Random.Range(0, lanePositions.Length);
-        float laneX = lanePositions[laneIndex];
+        SpawnableItem chosen = items[Random.Range(0, items.Length)];
+        if (chosen.prefab == null) return;
 
-        // Bereken de spawnpositie
-        Vector3 spawnPos = new Vector3(
-            laneX,
-            spawnPoint.position.y,
-            spawnPoint.position.z
-        );
+        float x = GetRandomX(chosen.spawnZone);
+        Vector3 spawnPos = new Vector3(x, spawnPoint.position.y, spawnPoint.position.z);
 
-        GameObject spawnedItem = Instantiate(
-            chosenItem,
-            spawnPos,
-            Quaternion.identity
-        );
-
-    if (effectSprites != null && effectSprites.Length > 0)
-        {
-            StartCoroutine(PlaySpriteAnimation(spawnedItem.transform));
-        }
+        Instantiate(chosen.prefab, spawnPos, Quaternion.identity);
     }
 
-    IEnumerator PlaySpriteAnimation(Transform parent)
+    private float GetRandomX(SpawnZone zone)
     {
-    GameObject effectObject = new GameObject("SpawnEffect");
-
-    // Maak de animatie een child van de steen
-    effectObject.transform.SetParent(parent);
-
-    // Positie relatief aan de steen
-    effectObject.transform.localPosition = Vector3.zero;
-    effectObject.transform.localRotation = Quaternion.identity;
-    effectObject.transform.localScale = Vector3.one;
-
-    SpriteRenderer renderer = effectObject.AddComponent<SpriteRenderer>();
-    renderer.sortingOrder = effectSortingOrder;
-
-    while (parent != null) 
-    { 
-        for (int i = 0; i < effectSprites.Length; i++)
+        switch (zone)
         {
-            renderer.sprite = effectSprites[i];
+            case SpawnZone.LeftOnly:
+                return Random.Range(minX, centerMinX);
 
-            yield return new WaitForSeconds(effectFrameTime);
-            // Controleer of de steen ondertussen is vernietigd
-            if (parent == null)
-            break;
+            case SpawnZone.RightOnly:
+                return Random.Range(centerMaxX, maxX);
+
+            case SpawnZone.CenterOnly:
+                return Random.Range(centerMinX, centerMaxX);
+
+            case SpawnZone.EdgesOnly:
+                // pick left band or right band, never the middle
+                return Random.value < 0.5f
+                    ? Random.Range(minX, centerMinX)
+                    : Random.Range(centerMaxX, maxX);
+
+            case SpawnZone.Anywhere:
+            default:
+                return Random.Range(minX, maxX);
         }
-    } // Verwijder de animatie
-
-    if (effectObject != null)
-        Destroy(effectObject);
     }
 }
