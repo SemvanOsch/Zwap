@@ -22,6 +22,9 @@ public class ControlBackground : MonoBehaviour
     [Tooltip("One entry per control. invertedBackground is optional and only used when that control is in its inverted variant.")]
     [SerializeField] private BackgroundEntry[] backgrounds;
 
+    [Tooltip("Optional. If assigned, control switches play the growing-circle reveal instead of an instant swap. The very first background (at startup) is always instant.")]
+    [SerializeField] private BackgroundReveal reveal;
+
     private bool subscribed;
 
     private void OnEnable()
@@ -35,9 +38,10 @@ public class ControlBackground : MonoBehaviour
         TrySubscribe();
 
         // OnControlChanged only fires on a *switch*, never for the starting control,
-        // so apply the current control's background once at startup.
+        // so apply the current control's background once at startup — instantly, since
+        // there's no "previous" map to reveal from.
         if (ControlSwitcher.Instance != null)
-            ApplyFor(ControlSwitcher.Instance.CurrentControl, ControlSwitcher.Instance.IsInverted);
+            ApplyFor(ControlSwitcher.Instance.CurrentControl, ControlSwitcher.Instance.IsInverted, animate: false);
     }
 
     private void TrySubscribe()
@@ -61,14 +65,14 @@ public class ControlBackground : MonoBehaviour
         // The event only carries the ControlType, so read the inverted flag straight
         // from the switcher (it's already updated by the time this fires).
         bool inverted = ControlSwitcher.Instance != null && ControlSwitcher.Instance.IsInverted;
-        ApplyFor(newControl, inverted);
+        ApplyFor(newControl, inverted, animate: true);
     }
 
-    private void ApplyFor(ControlType type, bool inverted)
+    private void ApplyFor(ControlType type, bool inverted, bool animate)
     {
         Texture tex = GetTextureFor(type, inverted);
         if (tex != null)
-            ApplyBackground(tex);
+            ApplyBackground(tex, animate);
     }
 
     private Texture GetTextureFor(ControlType type, bool inverted)
@@ -91,12 +95,17 @@ public class ControlBackground : MonoBehaviour
         return null;
     }
 
-    // Single choke point for changing the visible background. Today it's an instant
-    // swap; the planned circle-reveal transition (a growing circle from the fish that
-    // replaces the map inside it) will extend/replace only this method, so nothing
-    // else has to change.
-    private void ApplyBackground(Texture tex)
+    // Single choke point for changing the visible background. With a BackgroundReveal
+    // assigned, a switch plays the growing-circle transition; otherwise (or for the
+    // startup application) it's an instant texture swap.
+    private void ApplyBackground(Texture tex, bool animate)
     {
+        if (animate && reveal != null)
+        {
+            reveal.Reveal(tex);
+            return;
+        }
+
         if (img != null)
             img.texture = tex;
     }
