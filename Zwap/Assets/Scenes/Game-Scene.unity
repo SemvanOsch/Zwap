@@ -564,6 +564,18 @@ PrefabInstance:
       value: Fish
       objectReference: {fileID: 0}
     - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: paddingFractionX
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: paddingFractionY
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: touchSensitivity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: gameOverScene.sceneName
       value: Game-over
       objectReference: {fileID: 0}
