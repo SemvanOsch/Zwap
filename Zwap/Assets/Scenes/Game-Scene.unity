@@ -727,6 +727,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1520277525}
     m_Modifications:
+    - target: {fileID: 1298756792638632566, guid: e846a8a2ec60b0d4e959a44f4038a6e9, type: 3}
+      propertyPath: y
+      value: 0.23
+      objectReference: {fileID: 0}
     - target: {fileID: 1685158965979681207, guid: e846a8a2ec60b0d4e959a44f4038a6e9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1470,6 +1474,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1520277525}
     m_Modifications:
+    - target: {fileID: 1298756792638632566, guid: e846a8a2ec60b0d4e959a44f4038a6e9, type: 3}
+      propertyPath: y
+      value: 0.23
+      objectReference: {fileID: 0}
     - target: {fileID: 1685158965979681207, guid: e846a8a2ec60b0d4e959a44f4038a6e9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1767,6 +1775,10 @@ PrefabInstance:
     - target: {fileID: 3346236363544935417, guid: d40a896a7640bbe418609dc9eb1ce1f3, type: 3}
       propertyPath: m_Name
       value: WaterBackground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614638563653648777, guid: d40a896a7640bbe418609dc9eb1ce1f3, type: 3}
+      propertyPath: y
+      value: 0.26
       objectReference: {fileID: 0}
     - target: {fileID: 6614638563653648777, guid: d40a896a7640bbe418609dc9eb1ce1f3, type: 3}
       propertyPath: m_Enabled
