@@ -1,0 +1,542 @@
+fileFormatVersion: 2
+guid: 97fbc4443918a3640a89f048aaf0e63f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1116285609385462369
+    second: MegaHitAnimation_0
+  - first:
+      213: 3790518965646698876
+    second: MegaHitAnimation_1
+  - first:
+      213: -8852228774408660075
+    second: MegaHitAnimation_2
+  - first:
+      213: -8237100011581386553
+    second: MegaHitAnimation_3
+  - first:
+      213: 32893237259480202
+    second: MegaHitAnimation_4
+  - first:
+      213: -4085440114446207813
+    second: MegaHitAnimation_5
+  - first:
+      213: -7217869524579280045
+    second: MegaHitAnimation_6
+  - first:
+      213: -3529257971168133473
+    second: MegaHitAnimation_7
+  - first:
+      213: 4243485814001743029
+    second: MegaHitAnimation_8
+  - first:
+      213: -5792328639405483881
+    second: MegaHitAnimation_9
+  - first:
+      213: 3136426338223811895
+    second: MegaHitAnimation_10
+  - first:
+      213: 6977267723154536547
+    second: MegaHitAnimation_11
+  - first:
+      213: -1997000947515282114
+    second: MegaHitAnimation_12
+  - first:
+      213: -3865986045902286728
+    second: MegaHitAnimation_13
+  - first:
+      213: -2864104678978461969
+    second: MegaHitAnimation_14
+  - first:
+      213: 1457014424228584808
+    second: MegaHitAnimation_15
+  - first:
+      213: -6161187249897062187
+    second: MegaHitAnimation_16
+  - first:
+      213: -6930675120769985650
+    second: MegaHitAnimation_17
+  - first:
+      213: -3685341913399659329
+    second: MegaHitAnimation_18
+  - first:
+      213: -3186907902366459051
+    second: MegaHitAnimation_19
+  - first:
+      213: 649776448041084120
+    second: MegaHitAnimation_20
+  - first:
+      213: -8152371615966872747
+    second: MegaHitAnimation_21
+  - first:
+      213: 6278148649514798450
+    second: MegaHitAnimation_22
+  - first:
+      213: 7863818203218523042
+    second: MegaHitAnimation_23
+  - first:
+      213: 2325638355417580784
+    second: MegaHitAnimation_24
+  - first:
+      213: 879526830845678260
+    second: MegaHitAnimation_25
+  - first:
+      213: -6409203905024398505
+    second: MegaHitAnimation_26
+  - first:
+      213: -1954977881199326183
+    second: MegaHitAnimation_27
+  - first:
+      213: -8358806141111005625
+    second: MegaHitAnimation_28
+  - first:
+      213: -2249600027995322099
+    second: MegaHitAnimation_29
+  - first:
+      213: -4818987820696848745
+    second: MegaHitAnimation_30
+  - first:
+      213: 5376966623295997070
+    second: MegaHitAnimation_31
+  - first:
+      213: -2010157907332248098
+    second: MegaHitAnimation_32
+  - first:
+      213: 7239966392727655472
+    second: MegaHitAnimation_33
+  - first:
+      213: 9160561316543200035
+    second: MegaHitAnimation_34
+  - first:
+      213: 5641568441858274362
+    second: MegaHitAnimation_35
+  - first:
+      213: -8245516547377378525
+    second: MegaHitAnimation_36
+  - first:
+      213: 8505961874306672761
+    second: MegaHitAnimation_37
+  - first:
+      213: 1017555015978026379
+    second: MegaHitAnimation_38
+  - first:
+      213: 1870913035327525846
+    second: MegaHitAnimation_39
+  - first:
+      213: -1152087503611594183
+    second: MegaHitAnimation_40
+  - first:
+      213: -5726614585217242111
+    second: MegaHitAnimation_41
+  - first:
+      213: -6249421574741388093
+    second: MegaHitAnimation_42
+  - first:
+      213: 3440208916032153839
+    second: MegaHitAnimation_43
+  - first:
+      213: -1470625366648559583
+    second: MegaHitAnimation_44
+  - first:
+      213: -8184827633228487295
+    second: MegaHitAnimation_45
+  - first:
+      213: 5808561153663560560
+    second: MegaHitAnimation_46
+  - first:
+      213: 6689061961556618959
+    second: MegaHitAnimation_47
+  - first:
+      213: 5616099064781730841
+    second: MegaHitAnimation_48
+  - first:
+      213: -3204879394646361894
+    second: MegaHitAnimation_49
+  - first:
+      213: 1884464009759977238
+    second: MegaHitAnimation_50
+  - first:
+      213: -4271771962666863066
+    second: MegaHitAnimation_51
+  - first:
+      213: 9213365992204438109
+    second: MegaHitAnimation_52
+  - first:
+      213: -8939302278244599239
+    second: MegaHitAnimation_53
+  - first:
+      213: 1592223973428706380
+    second: MegaHitAnimation_54
+  - first:
+      213: 4966330037529317401
+    second: MegaHitAnimation_55
+  - first:
+      213: -2165458530057155971
+    second: MegaHitAnimation_56
+  - first:
+      213: -3503685270565963673
+    second: MegaHitAnimation_57
+  - first:
+      213: -5101089921676425964
+    second: MegaHitAnimation_58
+  - first:
+      213: 6970322547074251972
+    second: MegaHitAnimation_59
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 75
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MegaHitAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f95f2b017282280f0800000000000000
+      internalID: -1116285609385462369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MegaHitAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c79a0cd8ae0aa9430800000000000000
+      internalID: 3790518965646698876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MegaHitAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59b51eea4d0962580800000000000000
+      internalID: -8852228774408660075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MegaHitAnimation_3
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c053567e21ffad80800000000000000
+      internalID: -8237100011581386553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MegaHitAnimation_4
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8c2d5a993cd47000800000000000000
+      internalID: 32893237259480202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MegaHitAnimation_5
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb47d4b8cd99d47c0800000000000000
+      internalID: -4085440114446207813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MegaHitAnimation_6
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35b9558c8e9f4db90800000000000000
+      internalID: -7217869524579280045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MegaHitAnimation_7
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9ebec3f29e850fc0800000000000000
+      internalID: -3529257971168133473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MegaHitAnimation_8
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b4bbf86dd3e3ea30800000000000000
+      internalID: 4243485814001743029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MegaHitAnimation_9
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7981ae1aac38d9fa0800000000000000
+      internalID: -5792328639405483881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 52f6ce52c1a334f4788d3de4230bdf4b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":10.0,"y":1.0},"gridSpriteSize":{"x":1000.0,"y":2000.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      MegaHitAnimation_0: -1116285609385462369
+      MegaHitAnimation_1: 3790518965646698876
+      MegaHitAnimation_2: -8852228774408660075
+      MegaHitAnimation_3: -8237100011581386553
+      MegaHitAnimation_4: 32893237259480202
+      MegaHitAnimation_5: -4085440114446207813
+      MegaHitAnimation_6: -7217869524579280045
+      MegaHitAnimation_7: -3529257971168133473
+      MegaHitAnimation_8: 4243485814001743029
+      MegaHitAnimation_9: -5792328639405483881
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
