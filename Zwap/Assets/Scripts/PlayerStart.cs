@@ -191,8 +191,13 @@ public class PlayerStart : MonoBehaviour
             float halfW = halfH * cam.aspect;
             Vector3 c = cam.transform.position;
 
-            target.x = Mathf.Clamp(target.x, c.x - halfW + padding, c.x + halfW - padding);
-            target.y = Mathf.Clamp(target.y, c.y - halfH + padding, c.y + halfH - padding);
+            // Scale the padding with the visible width so it tracks the width-matched
+            // rock border across screen sizes (see the paddingFraction fields above).
+            float padX = halfW * paddingFractionX;
+            float padY = halfW * paddingFractionY;
+
+            target.x = Mathf.Clamp(target.x, c.x - halfW + padX, c.x + halfW - padX);
+            target.y = Mathf.Clamp(target.y, c.y - halfH + padY, c.y + halfH - padY);
         }
 
         rb.MovePosition(target);
