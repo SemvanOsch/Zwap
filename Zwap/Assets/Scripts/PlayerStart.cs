@@ -13,7 +13,18 @@ public class PlayerStart : MonoBehaviour
     [SerializeField] private float touchSensitivity = 0.5f; // 1 = full speed, lower = slower touch movement
 
     [Header("Bounds")] [SerializeField] private Camera cam;
-    [SerializeField] private float padding = 0.5f; // keeps the sprite fully on screen
+
+    // Padding is expressed as a FRACTION of the visible half-width, not a fixed
+    // number of world units. The rock border is a UI background scaled by a
+    // CanvasScaler set to "Scale With Screen Size / Match = Width", so it always
+    // sits at a constant fraction of the screen width. Deriving the clamp from
+    // halfW the same way keeps the player aligned with the rocks on every aspect
+    // ratio. Both axes use halfW because the CanvasScaler matches width (so the
+    // background's on-screen height scales with width too, not with orthographicSize).
+    [Range(0f, 0.5f)]
+    [SerializeField] private float paddingFractionX = 0.05f; // gap from the left/right rocks
+    [Range(0f, 0.5f)]
+    [SerializeField] private float paddingFractionY = 0.05f; // gap from the top/bottom edge
 
     [SerializeField] private Animator _animator;
     
@@ -22,6 +33,9 @@ public class PlayerStart : MonoBehaviour
 
     [Header("Follow")]
     [SerializeField] private float followDeadzone = 0.1f; // finger this close to the fish = hold still (kills jitter)
+
+    [Range(0f, 1f)]
+    [SerializeField] private float followSensitivity = 0.5f; // 1 = full speed toward finger, lower = slower follow
 
     [Header("Game Over")]
     [SerializeField] private SceneField gameOverScene;
@@ -233,10 +247,10 @@ public class PlayerStart : MonoBehaviour
 
         isMoving = true;
 
-        // Step toward the finger, capped at the same per-step distance the other
-        // modes use (moveSpeed * multiplier), so the score speed-ramp still applies
-        // and the fish glides instead of teleporting onto the finger.
-        float maxStep = moveSpeed * multiplier;
+        // Step toward the finger, capped so the fish glides instead of teleporting
+        // onto it. followSensitivity scales Follow speed on its own; multiplier keeps
+        // the score-based speed ramp applying here like everywhere else.
+        float maxStep = moveSpeed * multiplier * followSensitivity;
         return Vector3.MoveTowards(pos, world, maxStep);
     }
 
