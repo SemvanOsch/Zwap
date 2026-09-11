@@ -1,0 +1,656 @@
+fileFormatVersion: 2
+guid: b683d246ee718624484199ff5470545a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8576690417775576939
+    second: flowAnimation9_0
+  - first:
+      213: -5251611759842062259
+    second: flowAnimation9_1
+  - first:
+      213: 4507739630790830230
+    second: flowAnimation9_2
+  - first:
+      213: -1222237610344114934
+    second: flowAnimation9_3
+  - first:
+      213: 2203186067389543458
+    second: flowAnimation9_4
+  - first:
+      213: -7922407017466491107
+    second: flowAnimation9_5
+  - first:
+      213: 2397750271525221234
+    second: flowAnimation9_6
+  - first:
+      213: -7738155682150355505
+    second: flowAnimation9_7
+  - first:
+      213: 7851855761821083613
+    second: flowAnimation9_8
+  - first:
+      213: -7001231833244767548
+    second: flowAnimation9_9
+  - first:
+      213: -4246370576340855279
+    second: flowAnimation9_10
+  - first:
+      213: -2002839781202858963
+    second: flowAnimation9_11
+  - first:
+      213: -3136397586940348585
+    second: flowAnimation9_12
+  - first:
+      213: 8075281334650299603
+    second: flowAnimation9_13
+  - first:
+      213: -6037162947000557823
+    second: flowAnimation9_14
+  - first:
+      213: -3376618232085934314
+    second: flowAnimation9_15
+  - first:
+      213: -3924946518088275295
+    second: flowAnimation9_16
+  - first:
+      213: 3696023647009554275
+    second: flowAnimation9_17
+  - first:
+      213: -8401570102950262694
+    second: flowAnimation9_18
+  - first:
+      213: -1007007216810392575
+    second: flowAnimation9_19
+  - first:
+      213: -7890027749572205392
+    second: flowAnimation9_20
+  - first:
+      213: 3873550918253478951
+    second: flowAnimation9_21
+  - first:
+      213: -8199320668827751188
+    second: flowAnimation9_22
+  - first:
+      213: -3975626293383212551
+    second: flowAnimation9_23
+  - first:
+      213: -459106731924178591
+    second: flowAnimation9_24
+  - first:
+      213: 6227634996704168203
+    second: flowAnimation9_25
+  - first:
+      213: 8305255538217450908
+    second: flowAnimation9_26
+  - first:
+      213: 2176406270120861052
+    second: flowAnimation9_27
+  - first:
+      213: -4721916684920221658
+    second: flowAnimation9_28
+  - first:
+      213: -5278984685760211984
+    second: flowAnimation9_29
+  - first:
+      213: 583211921397755143
+    second: flowAnimation9_30
+  - first:
+      213: 5307878681105509982
+    second: flowAnimation9_31
+  - first:
+      213: 7115119925675398973
+    second: flowAnimation9_32
+  - first:
+      213: 4443587336293518479
+    second: flowAnimation9_33
+  - first:
+      213: 2152316966572565857
+    second: flowAnimation9_34
+  - first:
+      213: -5112678104921484617
+    second: flowAnimation9_35
+  - first:
+      213: 5869209547608756669
+    second: flowAnimation9_36
+  - first:
+      213: 407814615142252695
+    second: flowAnimation9_37
+  - first:
+      213: 8265136915705577600
+    second: flowAnimation9_38
+  - first:
+      213: 2491548888928458447
+    second: flowAnimation9_39
+  - first:
+      213: -8373895945533311851
+    second: flowAnimation9_40
+  - first:
+      213: 8560109092553279024
+    second: flowAnimation9_41
+  - first:
+      213: -2277780142021364044
+    second: flowAnimation9_42
+  - first:
+      213: 2456743748422826857
+    second: flowAnimation9_43
+  - first:
+      213: -4232569079011685162
+    second: flowAnimation9_44
+  - first:
+      213: -4369280812661035694
+    second: flowAnimation9_45
+  - first:
+      213: 7966829769461936146
+    second: flowAnimation9_46
+  - first:
+      213: -8227376736769859801
+    second: flowAnimation9_47
+  - first:
+      213: -3809948408913704005
+    second: flowAnimation9_48
+  - first:
+      213: 4858510497453696648
+    second: flowAnimation9_49
+  - first:
+      213: -1588652059829857348
+    second: flowAnimation9_50
+  - first:
+      213: -437386057920067303
+    second: flowAnimation9_51
+  - first:
+      213: 5891768588290726089
+    second: flowAnimation9_52
+  - first:
+      213: -3640674497658670934
+    second: flowAnimation9_53
+  - first:
+      213: 451030086101262487
+    second: flowAnimation9_54
+  - first:
+      213: -5273414860436865115
+    second: flowAnimation9_55
+  - first:
+      213: -8389865621734537915
+    second: flowAnimation9_56
+  - first:
+      213: 5642437759583399949
+    second: flowAnimation9_57
+  - first:
+      213: -5624525890209759821
+    second: flowAnimation9_58
+  - first:
+      213: 5840721659038210253
+    second: flowAnimation9_59
+  - first:
+      213: 7015377659524910059
+    second: flowAnimation9_60
+  - first:
+      213: 1603235750372274921
+    second: flowAnimation9_61
+  - first:
+      213: 1649068030368194596
+    second: flowAnimation9_62
+  - first:
+      213: 6967072163553445833
+    second: flowAnimation9_63
+  - first:
+      213: -6285974679955732593
+    second: flowAnimation9_64
+  - first:
+      213: 635101923683823563
+    second: flowAnimation9_65
+  - first:
+      213: 2217693065206684001
+    second: flowAnimation9_66
+  - first:
+      213: 3610009380456076718
+    second: flowAnimation9_67
+  - first:
+      213: 5813193391978015465
+    second: flowAnimation9_68
+  - first:
+      213: -7886970681257641275
+    second: flowAnimation9_69
+  - first:
+      213: 2203128028181622161
+    second: flowAnimation9_70
+  - first:
+      213: -7667092150444126893
+    second: flowAnimation9_71
+  - first:
+      213: -7687110207872851137
+    second: flowAnimation9_72
+  - first:
+      213: 914182771622193423
+    second: flowAnimation9_73
+  - first:
+      213: 6896398427118197423
+    second: flowAnimation9_74
+  - first:
+      213: -2706907309169279730
+    second: flowAnimation9_75
+  - first:
+      213: 8056257624438656878
+    second: flowAnimation9_76
+  - first:
+      213: 5725937406623177945
+    second: flowAnimation9_77
+  - first:
+      213: -7016346362990294462
+    second: flowAnimation9_78
+  - first:
+      213: -6933189876060366246
+    second: flowAnimation9_79
+  - first:
+      213: 3853111818877628077
+    second: flowAnimation9_80
+  - first:
+      213: 3251757106819602002
+    second: flowAnimation9_81
+  - first:
+      213: 2535672691806496007
+    second: flowAnimation9_82
+  - first:
+      213: -5908620093657919361
+    second: flowAnimation9_83
+  - first:
+      213: 4403639298022135533
+    second: flowAnimation9_84
+  - first:
+      213: -4896884179582615950
+    second: flowAnimation9_85
+  - first:
+      213: -5125840910671174080
+    second: flowAnimation9_86
+  - first:
+      213: 1008908637702608612
+    second: flowAnimation9_87
+  - first:
+      213: -6416954957858386029
+    second: flowAnimation9_88
+  - first:
+      213: -485532680519312917
+    second: flowAnimation9_89
+  - first:
+      213: 7340943953616084282
+    second: flowAnimation9_90
+  - first:
+      213: 6946644799030554529
+    second: flowAnimation9_91
+  - first:
+      213: -1090062346144319207
+    second: flowAnimation9_92
+  - first:
+      213: 5630609394936274288
+    second: flowAnimation9_93
+  - first:
+      213: 5317916728759881307
+    second: flowAnimation9_94
+  - first:
+      213: 8535287676028448941
+    second: flowAnimation9_95
+  - first:
+      213: 4876381239272787954
+    second: flowAnimation9_96
+  - first:
+      213: 8254609266716825641
+    second: flowAnimation9_97
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 40
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: flowAnimation9_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5987dfb918979f880800000000000000
+      internalID: -8576690417775576939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowAnimation9_1
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d40995cbde68e17b0800000000000000
+      internalID: -5251611759842062259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowAnimation9_2
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 698ec39af45be8e30800000000000000
+      internalID: 4507739630790830230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowAnimation9_3
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a05115c7e5db90fe0800000000000000
+      internalID: -1222237610344114934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowAnimation9_4
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 224f7d82e0a439e10800000000000000
+      internalID: 2203186067389543458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowAnimation9_5
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1f09d5dac4fd0290800000000000000
+      internalID: -7922407017466491107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowAnimation9_6
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2737b5a0b25864120800000000000000
+      internalID: 2397750271525221234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowAnimation9_7
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcde1c4d76c8c9490800000000000000
+      internalID: -7738155682150355505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowAnimation9_8
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd723f6e63567fc60800000000000000
+      internalID: 7851855761821083613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowAnimation9_9
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cae945edb0a6de90800000000000000
+      internalID: -7001231833244767548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 36e1e546b9c9d4248b305759ab0a890b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":10.0,"y":1.0},"gridSpriteSize":{"x":1000.0,"y":1000.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      flowAnimation9_0: -8576690417775576939
+      flowAnimation9_1: -5251611759842062259
+      flowAnimation9_2: 4507739630790830230
+      flowAnimation9_3: -1222237610344114934
+      flowAnimation9_4: 2203186067389543458
+      flowAnimation9_5: -7922407017466491107
+      flowAnimation9_6: 2397750271525221234
+      flowAnimation9_7: -7738155682150355505
+      flowAnimation9_8: 7851855761821083613
+      flowAnimation9_9: -7001231833244767548
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,548 @@
+fileFormatVersion: 2
+guid: b825f8db0663d674986a03b064d133ce
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2548465965160118767
+    second: flowAnimation7_0
+  - first:
+      213: -7749805803521018422
+    second: flowAnimation7_1
+  - first:
+      213: 3279318251971790225
+    second: flowAnimation7_2
+  - first:
+      213: 8517420698703890649
+    second: flowAnimation7_3
+  - first:
+      213: -3861220239648541773
+    second: flowAnimation7_4
+  - first:
+      213: 8654336739664373454
+    second: flowAnimation7_5
+  - first:
+      213: 4207265374255619930
+    second: flowAnimation7_6
+  - first:
+      213: -3397205915843398483
+    second: flowAnimation7_7
+  - first:
+      213: 1423462573026731068
+    second: flowAnimation7_8
+  - first:
+      213: -2845982150940410824
+    second: flowAnimation7_9
+  - first:
+      213: -3491147499253447947
+    second: flowAnimation7_10
+  - first:
+      213: -6716704195143164183
+    second: flowAnimation7_11
+  - first:
+      213: 6872774975819764773
+    second: flowAnimation7_12
+  - first:
+      213: 1093883702596211703
+    second: flowAnimation7_13
+  - first:
+      213: -2294042415474610554
+    second: flowAnimation7_14
+  - first:
+      213: -7662372249155134756
+    second: flowAnimation7_15
+  - first:
+      213: 7932814554803866886
+    second: flowAnimation7_16
+  - first:
+      213: -689881297950887700
+    second: flowAnimation7_17
+  - first:
+      213: -8166527016010397796
+    second: flowAnimation7_18
+  - first:
+      213: -5933847711992218837
+    second: flowAnimation7_19
+  - first:
+      213: -4133898642928943619
+    second: flowAnimation7_20
+  - first:
+      213: -8973666536673107609
+    second: flowAnimation7_21
+  - first:
+      213: -3911890469848160717
+    second: flowAnimation7_22
+  - first:
+      213: -1435237056630812239
+    second: flowAnimation7_23
+  - first:
+      213: -7411661137437718191
+    second: flowAnimation7_24
+  - first:
+      213: 3201160135496497542
+    second: flowAnimation7_25
+  - first:
+      213: 7564888836865969370
+    second: flowAnimation7_26
+  - first:
+      213: 1865800990141313772
+    second: flowAnimation7_27
+  - first:
+      213: 4605928307343364841
+    second: flowAnimation7_28
+  - first:
+      213: 3669995276568029226
+    second: flowAnimation7_29
+  - first:
+      213: 2082406628431451472
+    second: flowAnimation7_30
+  - first:
+      213: 8107608264295905380
+    second: flowAnimation7_31
+  - first:
+      213: 1379444672553183499
+    second: flowAnimation7_32
+  - first:
+      213: -2162195989747157246
+    second: flowAnimation7_33
+  - first:
+      213: 1500621209224243975
+    second: flowAnimation7_34
+  - first:
+      213: -8308962005498609287
+    second: flowAnimation7_35
+  - first:
+      213: -1262988948077379765
+    second: flowAnimation7_36
+  - first:
+      213: 8603854707156398688
+    second: flowAnimation7_37
+  - first:
+      213: -1045353025913918548
+    second: flowAnimation7_38
+  - first:
+      213: -6859249650662125948
+    second: flowAnimation7_39
+  - first:
+      213: 966620620304558281
+    second: flowAnimation7_40
+  - first:
+      213: -5288887350862706602
+    second: flowAnimation7_41
+  - first:
+      213: 2221035736463000835
+    second: flowAnimation7_42
+  - first:
+      213: -1478924518532093292
+    second: flowAnimation7_43
+  - first:
+      213: 8350581847753075951
+    second: flowAnimation7_44
+  - first:
+      213: -3538676636185514501
+    second: flowAnimation7_45
+  - first:
+      213: -6526002154332178230
+    second: flowAnimation7_46
+  - first:
+      213: -4734567258087797644
+    second: flowAnimation7_47
+  - first:
+      213: 4047346776423022711
+    second: flowAnimation7_48
+  - first:
+      213: -7384740425669373976
+    second: flowAnimation7_49
+  - first:
+      213: 4059924081736861486
+    second: flowAnimation7_50
+  - first:
+      213: 7549951220109935209
+    second: flowAnimation7_51
+  - first:
+      213: 6156293961550017358
+    second: flowAnimation7_52
+  - first:
+      213: 4151436279397411700
+    second: flowAnimation7_53
+  - first:
+      213: -2664414644857189339
+    second: flowAnimation7_54
+  - first:
+      213: 4880873722374833837
+    second: flowAnimation7_55
+  - first:
+      213: 2435213434049926539
+    second: flowAnimation7_56
+  - first:
+      213: 5847863348913077307
+    second: flowAnimation7_57
+  - first:
+      213: 4362432647469338074
+    second: flowAnimation7_58
+  - first:
+      213: 414161136658912847
+    second: flowAnimation7_59
+  - first:
+      213: 8559880511634896476
+    second: flowAnimation7_60
+  - first:
+      213: 2037117079855539683
+    second: flowAnimation7_61
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 30
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: flowAnimation7_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 116457005b702acd0800000000000000
+      internalID: -2548465965160118767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowAnimation7_1
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac57ed29ea8237490800000000000000
+      internalID: -7749805803521018422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowAnimation7_2
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 195cb3a539a728d20800000000000000
+      internalID: 3279318251971790225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowAnimation7_3
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d80ecc8ff4f33670800000000000000
+      internalID: 8517420698703890649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowAnimation7_4
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b3333056a03a6ac0800000000000000
+      internalID: -3861220239648541773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowAnimation7_5
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec6ae4e79616a1870800000000000000
+      internalID: 8654336739664373454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowAnimation7_6
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5f9e4c1195336a30800000000000000
+      internalID: 4207265374255619930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowAnimation7_7
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da47c4df733bad0d0800000000000000
+      internalID: -3397205915843398483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowAnimation7_8
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3462581ba721c310800000000000000
+      internalID: 1423462573026731068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flowAnimation7_9
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83c3818ff4a0188d0800000000000000
+      internalID: -2845982150940410824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 98405935569d21543960b45d8ee91b5e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":10.0,"y":1.0},"gridSpriteSize":{"x":1000.0,"y":1000.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      flowAnimation7_0: -2548465965160118767
+      flowAnimation7_1: -7749805803521018422
+      flowAnimation7_2: 3279318251971790225
+      flowAnimation7_3: 8517420698703890649
+      flowAnimation7_4: -3861220239648541773
+      flowAnimation7_5: 8654336739664373454
+      flowAnimation7_6: 4207265374255619930
+      flowAnimation7_7: -3397205915843398483
+      flowAnimation7_8: 1423462573026731068
+      flowAnimation7_9: -2845982150940410824
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

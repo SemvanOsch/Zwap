@@ -1,4 +1,5 @@
-using System;
+
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -43,6 +44,7 @@ public class Spawner : MonoBehaviour
         timer += Time.deltaTime;
 
         float multiplier = 1f;
+
         if (ScoreManager.Instance != null)
             multiplier = 1f + spawnSpeedPerScore * ScoreManager.Instance.GetScore();
 
