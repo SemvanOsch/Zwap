@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2071982782084722513}
   - component: {fileID: 5625870249454440949}
   - component: {fileID: 862086326993458479}
+  - component: {fileID: 8553210915218838785}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Entity
@@ -145,3 +146,29 @@ CapsuleCollider2D:
   m_Offset: {x: 0.09047127, y: 0}
   m_Size: {x: 0.0001, y: 8.06}
   m_Direction: 1
+--- !u!114 &8553210915218838785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223877303238547685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865ec7c7b57d7c34db03c64a59403bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  frames:
+  - {fileID: -5928440283406610970, guid: 3b8763adf02e09a40b2289d93ed30170, type: 3}
+  - {fileID: -8261255641780385992, guid: 3b8763adf02e09a40b2289d93ed30170, type: 3}
+  - {fileID: -3056736200223800479, guid: 3b8763adf02e09a40b2289d93ed30170, type: 3}
+  - {fileID: 7008108503690577586, guid: 3b8763adf02e09a40b2289d93ed30170, type: 3}
+  - {fileID: 6559849166956335271, guid: 3b8763adf02e09a40b2289d93ed30170, type: 3}
+  - {fileID: -2703944283295719863, guid: 3b8763adf02e09a40b2289d93ed30170, type: 3}
+  - {fileID: 4548463135186978994, guid: 3b8763adf02e09a40b2289d93ed30170, type: 3}
+  - {fileID: -4493403976479103292, guid: 3b8763adf02e09a40b2289d93ed30170, type: 3}
+  - {fileID: -736343916290851877, guid: 3b8763adf02e09a40b2289d93ed30170, type: 3}
+  - {fileID: -1603883633677369211, guid: 3b8763adf02e09a40b2289d93ed30170, type: 3}
+  frameLength: 0.12
+  offset: {x: 0, y: 0}
+  sortingOrder: -1
