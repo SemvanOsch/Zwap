@@ -1,0 +1,1063 @@
+fileFormatVersion: 2
+guid: 35efd5b28b71dcb4fb6e73573f2881be
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9111328991988386314
+    second: HealAnimation 1_0
+  - first:
+      213: 6395143929626583595
+    second: HealAnimation 1_1
+  - first:
+      213: -4875607995970440959
+    second: HealAnimation 1_2
+  - first:
+      213: 5132467886829867236
+    second: HealAnimation 1_3
+  - first:
+      213: 7474837014398690751
+    second: HealAnimation 1_4
+  - first:
+      213: 5744392792795321396
+    second: HealAnimation 1_5
+  - first:
+      213: 7749026529517055618
+    second: HealAnimation 1_6
+  - first:
+      213: 3543389976902882266
+    second: HealAnimation 1_7
+  - first:
+      213: 8900846053176778193
+    second: HealAnimation 1_8
+  - first:
+      213: 5830761482316144522
+    second: HealAnimation 1_9
+  - first:
+      213: -5298870550735576716
+    second: HealAnimation 1_10
+  - first:
+      213: -4198841867738931548
+    second: HealAnimation 1_11
+  - first:
+      213: 675427465566055205
+    second: HealAnimation 1_12
+  - first:
+      213: 4807154222562553802
+    second: HealAnimation 1_13
+  - first:
+      213: -3140803751033144687
+    second: HealAnimation 1_14
+  - first:
+      213: -4681377257878816797
+    second: HealAnimation 1_15
+  - first:
+      213: -871970400758575665
+    second: HealAnimation 1_16
+  - first:
+      213: 8956756014406690364
+    second: HealAnimation 1_17
+  - first:
+      213: -8529988961624279284
+    second: HealAnimation 1_18
+  - first:
+      213: -4205762029816423992
+    second: HealAnimation 1_19
+  - first:
+      213: -2918538415128003982
+    second: HealAnimation 1_20
+  - first:
+      213: -4113396199247150617
+    second: HealAnimation 1_21
+  - first:
+      213: 7033463405675381156
+    second: HealAnimation 1_22
+  - first:
+      213: 2756176411507458880
+    second: HealAnimation 1_23
+  - first:
+      213: -1857726429589543276
+    second: HealAnimation 1_24
+  - first:
+      213: -9140830956015408316
+    second: HealAnimation 1_25
+  - first:
+      213: 3735113979917425498
+    second: HealAnimation 1_26
+  - first:
+      213: -1069541427673535171
+    second: HealAnimation 1_27
+  - first:
+      213: -5647324603679948802
+    second: HealAnimation 1_28
+  - first:
+      213: 5131291531243403522
+    second: HealAnimation 1_29
+  - first:
+      213: 5517360448979051491
+    second: HealAnimation 1_30
+  - first:
+      213: -2556193295983249089
+    second: HealAnimation 1_31
+  - first:
+      213: -4907997719833553344
+    second: HealAnimation 1_32
+  - first:
+      213: 4358056182837926298
+    second: HealAnimation 1_33
+  - first:
+      213: -3323104685940751653
+    second: HealAnimation 1_34
+  - first:
+      213: 8134511667836499912
+    second: HealAnimation 1_35
+  - first:
+      213: 6646794594413610849
+    second: HealAnimation 1_36
+  - first:
+      213: 6575577731697404582
+    second: HealAnimation 1_37
+  - first:
+      213: -5748799982423233001
+    second: HealAnimation 1_38
+  - first:
+      213: 8587230033449739099
+    second: HealAnimation 1_39
+  - first:
+      213: -9169339339322229633
+    second: HealAnimation 1_40
+  - first:
+      213: -2305368145127923752
+    second: HealAnimation 1_41
+  - first:
+      213: -7366186936802465872
+    second: HealAnimation 1_42
+  - first:
+      213: 4187114749043910379
+    second: HealAnimation 1_43
+  - first:
+      213: -8107612300915800014
+    second: HealAnimation 1_44
+  - first:
+      213: 8787425205340397863
+    second: HealAnimation 1_45
+  - first:
+      213: 2477240834227100469
+    second: HealAnimation 1_46
+  - first:
+      213: 1638736762448395995
+    second: HealAnimation 1_47
+  - first:
+      213: -4187757585103140238
+    second: HealAnimation 1_48
+  - first:
+      213: -4986080943939256980
+    second: HealAnimation 1_49
+  - first:
+      213: 8303171951312703041
+    second: HealAnimation 1_50
+  - first:
+      213: 4180128811474273608
+    second: HealAnimation 1_51
+  - first:
+      213: 3800362141784876882
+    second: HealAnimation 1_52
+  - first:
+      213: -6494435110159759170
+    second: HealAnimation 1_53
+  - first:
+      213: 1603827798976103749
+    second: HealAnimation 1_54
+  - first:
+      213: -7760238751704778216
+    second: HealAnimation 1_55
+  - first:
+      213: -3410385105665439832
+    second: HealAnimation 1_56
+  - first:
+      213: -8953587731569356935
+    second: HealAnimation 1_57
+  - first:
+      213: -5136874700443918429
+    second: HealAnimation 1_58
+  - first:
+      213: -1331505102876073176
+    second: HealAnimation 1_59
+  - first:
+      213: 8077116398518003120
+    second: HealAnimation 1_60
+  - first:
+      213: 2121371859761872276
+    second: HealAnimation 1_61
+  - first:
+      213: -3189547923398839338
+    second: HealAnimation 1_62
+  - first:
+      213: 8983100867837018785
+    second: HealAnimation 1_63
+  - first:
+      213: -2474011400747282904
+    second: HealAnimation 1_64
+  - first:
+      213: 8463118676820356334
+    second: HealAnimation 1_65
+  - first:
+      213: -7053129993100501350
+    second: HealAnimation 1_66
+  - first:
+      213: 6043797120544660389
+    second: HealAnimation 1_67
+  - first:
+      213: -7833993386142051436
+    second: HealAnimation 1_68
+  - first:
+      213: -1720615079425191579
+    second: HealAnimation 1_69
+  - first:
+      213: 6995049598309074621
+    second: HealAnimation 1_70
+  - first:
+      213: -7933404400587934853
+    second: HealAnimation 1_71
+  - first:
+      213: -8545200530736912252
+    second: HealAnimation 1_72
+  - first:
+      213: 1256488060728234015
+    second: HealAnimation 1_73
+  - first:
+      213: 5715366401111824659
+    second: HealAnimation 1_74
+  - first:
+      213: -3448268186986910825
+    second: HealAnimation 1_75
+  - first:
+      213: -1666674652655532781
+    second: HealAnimation 1_76
+  - first:
+      213: 858167409689190599
+    second: HealAnimation 1_77
+  - first:
+      213: 2777836404596984924
+    second: HealAnimation 1_78
+  - first:
+      213: -8314736449364914253
+    second: HealAnimation 1_79
+  - first:
+      213: 2417262562437170070
+    second: HealAnimation 1_80
+  - first:
+      213: -2275330120983117216
+    second: HealAnimation 1_81
+  - first:
+      213: 5900123621344375176
+    second: HealAnimation 1_82
+  - first:
+      213: 1117103635551473274
+    second: HealAnimation 1_83
+  - first:
+      213: 4424912315728281871
+    second: HealAnimation 1_84
+  - first:
+      213: -3338874800690684687
+    second: HealAnimation 1_85
+  - first:
+      213: -5712298300003300112
+    second: HealAnimation 1_86
+  - first:
+      213: 1388326821071301701
+    second: HealAnimation 1_87
+  - first:
+      213: 4128679919463182855
+    second: HealAnimation 1_88
+  - first:
+      213: 6836874861453347194
+    second: HealAnimation 1_89
+  - first:
+      213: -1492401547427789593
+    second: HealAnimation 1_90
+  - first:
+      213: -1917519986786840776
+    second: HealAnimation 1_91
+  - first:
+      213: 5385996311765483548
+    second: HealAnimation 1_92
+  - first:
+      213: 634174369591174581
+    second: HealAnimation 1_93
+  - first:
+      213: 3806336033447990349
+    second: HealAnimation 1_94
+  - first:
+      213: -2687641994684678813
+    second: HealAnimation 1_95
+  - first:
+      213: -6125285066357656179
+    second: HealAnimation 1_96
+  - first:
+      213: 2190377686246196112
+    second: HealAnimation 1_97
+  - first:
+      213: 6059393068023092575
+    second: HealAnimation 1_98
+  - first:
+      213: -3052549844133324787
+    second: HealAnimation 1_99
+  - first:
+      213: 7426599886675727179
+    second: HealAnimation 1_100
+  - first:
+      213: -2989096883672372574
+    second: HealAnimation 1_101
+  - first:
+      213: -3436385141018873427
+    second: HealAnimation 1_102
+  - first:
+      213: 6506020595426960344
+    second: HealAnimation 1_103
+  - first:
+      213: 6355397833478209835
+    second: HealAnimation 1_104
+  - first:
+      213: -476897817750366577
+    second: HealAnimation 1_105
+  - first:
+      213: 1014709548708520112
+    second: HealAnimation 1_106
+  - first:
+      213: -1251021391695259310
+    second: HealAnimation 1_107
+  - first:
+      213: -5270887521742920996
+    second: HealAnimation 1_108
+  - first:
+      213: -5017539341395358781
+    second: HealAnimation 1_109
+  - first:
+      213: -7268596511070360772
+    second: HealAnimation 1_110
+  - first:
+      213: 8556709993848688543
+    second: HealAnimation 1_111
+  - first:
+      213: 4693980536258276369
+    second: HealAnimation 1_112
+  - first:
+      213: 3758620626792321757
+    second: HealAnimation 1_113
+  - first:
+      213: 3737636513671280629
+    second: HealAnimation 1_114
+  - first:
+      213: 4334137762128769211
+    second: HealAnimation 1_115
+  - first:
+      213: -6256540840621286835
+    second: HealAnimation 1_116
+  - first:
+      213: -5751626579297651692
+    second: HealAnimation 1_117
+  - first:
+      213: -3610214713347710968
+    second: HealAnimation 1_118
+  - first:
+      213: -4706044208801202322
+    second: HealAnimation 1_119
+  - first:
+      213: -5733999809187715646
+    second: HealAnimation 1_120
+  - first:
+      213: -2990611282307561493
+    second: HealAnimation 1_121
+  - first:
+      213: -6235217586537190322
+    second: HealAnimation 1_122
+  - first:
+      213: -4473871089505063468
+    second: HealAnimation 1_123
+  - first:
+      213: -8963201013760417118
+    second: HealAnimation 1_124
+  - first:
+      213: -3349074159493354947
+    second: HealAnimation 1_125
+  - first:
+      213: 3435612322562284239
+    second: HealAnimation 1_126
+  - first:
+      213: 2825723139524663481
+    second: HealAnimation 1_127
+  - first:
+      213: -8172511973129503806
+    second: HealAnimation 1_128
+  - first:
+      213: 4400464437866784423
+    second: HealAnimation 1_129
+  - first:
+      213: -1162257508098580251
+    second: HealAnimation 1_130
+  - first:
+      213: 5860580411931075806
+    second: HealAnimation 1_131
+  - first:
+      213: 4569469217629054113
+    second: HealAnimation 1_132
+  - first:
+      213: -4400205933534255343
+    second: HealAnimation 1_133
+  - first:
+      213: 6719013340382935135
+    second: HealAnimation 1_134
+  - first:
+      213: 7841996523942930631
+    second: HealAnimation 1_135
+  - first:
+      213: 684605670060869682
+    second: HealAnimation 1_136
+  - first:
+      213: 1640883278843412928
+    second: HealAnimation 1_137
+  - first:
+      213: 1735328314375333932
+    second: HealAnimation 1_138
+  - first:
+      213: -4012462800007119422
+    second: HealAnimation 1_139
+  - first:
+      213: -1506071237772333654
+    second: HealAnimation 1_140
+  - first:
+      213: 8279379455602388616
+    second: HealAnimation 1_141
+  - first:
+      213: 4972185903373143365
+    second: HealAnimation 1_142
+  - first:
+      213: 546503161505693769
+    second: HealAnimation 1_143
+  - first:
+      213: 6237641809914716323
+    second: HealAnimation 1_144
+  - first:
+      213: 9220836859946287488
+    second: HealAnimation 1_145
+  - first:
+      213: -8076432881686479099
+    second: HealAnimation 1_146
+  - first:
+      213: -3721628024854579180
+    second: HealAnimation 1_147
+  - first:
+      213: -8700786497140262405
+    second: HealAnimation 1_148
+  - first:
+      213: 5189945550202996934
+    second: HealAnimation 1_149
+  - first:
+      213: -7602501864925520237
+    second: HealAnimation 1_150
+  - first:
+      213: 8167547546549417172
+    second: HealAnimation 1_151
+  - first:
+      213: -3741824317064645678
+    second: HealAnimation 1_152
+  - first:
+      213: 5238114113999303900
+    second: HealAnimation 1_153
+  - first:
+      213: 223210098489113000
+    second: HealAnimation 1_154
+  - first:
+      213: -4534292953365029551
+    second: HealAnimation 1_155
+  - first:
+      213: -5315968408752634467
+    second: HealAnimation 1_156
+  - first:
+      213: 7577927584453738323
+    second: HealAnimation 1_157
+  - first:
+      213: 2461086609117983044
+    second: HealAnimation 1_158
+  - first:
+      213: 4160939204375059617
+    second: HealAnimation 1_159
+  - first:
+      213: -8742821781462432331
+    second: HealAnimation 1_160
+  - first:
+      213: 3662389917600827040
+    second: HealAnimation 1_161
+  - first:
+      213: -2532232507194392569
+    second: HealAnimation 1_162
+  - first:
+      213: -228862219120764455
+    second: HealAnimation 1_163
+  - first:
+      213: 5765224943904520719
+    second: HealAnimation 1_164
+  - first:
+      213: -9062464936804539948
+    second: HealAnimation 1_165
+  - first:
+      213: 673517692837976594
+    second: HealAnimation 1_166
+  - first:
+      213: 8399698544449795818
+    second: HealAnimation 1_167
+  - first:
+      213: 3652056969217978419
+    second: HealAnimation 1_168
+  - first:
+      213: 9123532273492499088
+    second: HealAnimation 1_169
+  - first:
+      213: -7352834610104026841
+    second: HealAnimation 1_170
+  - first:
+      213: 8976737526125838574
+    second: HealAnimation 1_171
+  - first:
+      213: -263640185553661692
+    second: HealAnimation 1_172
+  - first:
+      213: 5801575986891872825
+    second: HealAnimation 1_173
+  - first:
+      213: -6793416796746880088
+    second: HealAnimation 1_174
+  - first:
+      213: -6348493436726214766
+    second: HealAnimation 1_175
+  - first:
+      213: 6090612766512308158
+    second: HealAnimation 1_176
+  - first:
+      213: 385619559560726145
+    second: HealAnimation 1_177
+  - first:
+      213: -4596150623722821118
+    second: HealAnimation 1_178
+  - first:
+      213: -7465341323288619529
+    second: HealAnimation 1_179
+  - first:
+      213: -4341836690305424326
+    second: HealAnimation 1_180
+  - first:
+      213: -7034079717237966399
+    second: HealAnimation 1_181
+  - first:
+      213: -9102173053296444865
+    second: HealAnimation 1_182
+  - first:
+      213: 4055978965047686375
+    second: HealAnimation 1_183
+  - first:
+      213: 2289886774787429593
+    second: HealAnimation 1_184
+  - first:
+      213: 1949501924553000105
+    second: HealAnimation 1_185
+  - first:
+      213: 905228797272088242
+    second: HealAnimation 1_186
+  - first:
+      213: -4746534206778106173
+    second: HealAnimation 1_187
+  - first:
+      213: -7405573211584672363
+    second: HealAnimation 1_188
+  - first:
+      213: -4921011414674337266
+    second: HealAnimation 1_189
+  - first:
+      213: 4591206342165478784
+    second: HealAnimation 1_190
+  - first:
+      213: -7725511894426393414
+    second: HealAnimation 1_191
+  - first:
+      213: -4422972814575130400
+    second: HealAnimation 1_192
+  - first:
+      213: 812670712327779236
+    second: HealAnimation 1_193
+  - first:
+      213: -1628584021146365384
+    second: HealAnimation 1_194
+  - first:
+      213: 4478828425301162566
+    second: HealAnimation 1_195
+  - first:
+      213: -450576619024964573
+    second: HealAnimation 1_196
+  - first:
+      213: -2638626257672793978
+    second: HealAnimation 1_197
+  - first:
+      213: 8569209689393850426
+    second: HealAnimation 1_198
+  - first:
+      213: 6778339613905310196
+    second: HealAnimation 1_199
+  - first:
+      213: 747917582489857867
+    second: HealAnimation 1_200
+  - first:
+      213: -8601731244359514806
+    second: HealAnimation 1_201
+  - first:
+      213: 1197611941212895547
+    second: HealAnimation 1_202
+  - first:
+      213: 5930256219558037495
+    second: HealAnimation 1_203
+  - first:
+      213: -4422698488334630239
+    second: HealAnimation 1_204
+  - first:
+      213: -2840783669856962493
+    second: HealAnimation 1_205
+  - first:
+      213: 2180838058410859967
+    second: HealAnimation 1_206
+  - first:
+      213: -3775430391447873788
+    second: HealAnimation 1_207
+  - first:
+      213: -3425902302662816127
+    second: HealAnimation 1_208
+  - first:
+      213: -258102755910149120
+    second: HealAnimation 1_209
+  - first:
+      213: 7586458155876793534
+    second: HealAnimation 1_210
+  - first:
+      213: -5791922778800944103
+    second: HealAnimation 1_211
+  - first:
+      213: -6595979031624823699
+    second: HealAnimation 1_212
+  - first:
+      213: -3521022100080782879
+    second: HealAnimation 1_213
+  - first:
+      213: 5370905798868845435
+    second: HealAnimation 1_214
+  - first:
+      213: -6437799457477458095
+    second: HealAnimation 1_215
+  - first:
+      213: 6676183534594994139
+    second: HealAnimation 1_216
+  - first:
+      213: 8351889704564592264
+    second: HealAnimation 1_217
+  - first:
+      213: -3218178749328830584
+    second: HealAnimation 1_218
+  - first:
+      213: 6084757775212001103
+    second: HealAnimation 1_219
+  - first:
+      213: 5191029430551688447
+    second: HealAnimation 1_220
+  - first:
+      213: 7197429292579869060
+    second: HealAnimation 1_221
+  - first:
+      213: 829296221986637967
+    second: HealAnimation 1_222
+  - first:
+      213: -4719936458833384719
+    second: HealAnimation 1_223
+  - first:
+      213: 5049002492650132830
+    second: HealAnimation 1_224
+  - first:
+      213: 1513461250109348239
+    second: HealAnimation 1_225
+  - first:
+      213: -4950883342698846882
+    second: HealAnimation 1_226
+  - first:
+      213: 3392380133535961508
+    second: HealAnimation 1_227
+  - first:
+      213: -9165614281618846100
+    second: HealAnimation 1_228
+  - first:
+      213: 6369987409140253285
+    second: HealAnimation 1_229
+  - first:
+      213: -5976318916737955005
+    second: HealAnimation 1_230
+  - first:
+      213: 3677295177941839869
+    second: HealAnimation 1_231
+  - first:
+      213: -562362111875163892
+    second: HealAnimation 1_232
+  - first:
+      213: -6277462842471378513
+    second: HealAnimation 1_233
+  - first:
+      213: 1854758965595208054
+    second: HealAnimation 1_234
+  - first:
+      213: 989189340090439098
+    second: HealAnimation 1_235
+  - first:
+      213: 4785150937435549405
+    second: HealAnimation 1_236
+  - first:
+      213: 2596223317841017124
+    second: HealAnimation 1_237
+  - first:
+      213: -3497644919659623955
+    second: HealAnimation 1_238
+  - first:
+      213: 6016202095809371364
+    second: HealAnimation 1_239
+  - first:
+      213: 1945213016568053769
+    second: HealAnimation 1_240
+  - first:
+      213: -1629323218688392092
+    second: HealAnimation 1_241
+  - first:
+      213: -7942057817600354423
+    second: HealAnimation 1_242
+  - first:
+      213: -559162996094160132
+    second: HealAnimation 1_243
+  - first:
+      213: -9007609499241153963
+    second: HealAnimation 1_244
+  - first:
+      213: -3838887750701673588
+    second: HealAnimation 1_245
+  - first:
+      213: -2856119269161502662
+    second: HealAnimation 1_246
+  - first:
+      213: -8031565898016219481
+    second: HealAnimation 1_247
+  - first:
+      213: 1926752549629046869
+    second: HealAnimation 1_248
+  - first:
+      213: 8034377572640705271
+    second: HealAnimation 1_249
+  - first:
+      213: 7146040326813402624
+    second: HealAnimation 1_250
+  - first:
+      213: 1416392662196305933
+    second: HealAnimation 1_251
+  - first:
+      213: -4333436443241153975
+    second: HealAnimation 1_252
+  - first:
+      213: 935854229978417612
+    second: HealAnimation 1_253
+  - first:
+      213: 8514176590325648018
+    second: HealAnimation 1_254
+  - first:
+      213: -4255449779114725249
+    second: HealAnimation 1_255
+  - first:
+      213: 5657218062614867146
+    second: HealAnimation 1_256
+  - first:
+      213: 6892053636594139809
+    second: HealAnimation 1_257
+  - first:
+      213: -7081930528592693905
+    second: HealAnimation 1_258
+  - first:
+      213: -5658911166751322546
+    second: HealAnimation 1_259
+  - first:
+      213: -4875253844539778951
+    second: HealAnimation 1_260
+  - first:
+      213: 2802557236611380605
+    second: HealAnimation 1_261
+  - first:
+      213: -2461403962086112947
+    second: HealAnimation 1_262
+  - first:
+      213: -5796209105619667925
+    second: HealAnimation 1_263
+  - first:
+      213: -711498856489263384
+    second: HealAnimation 1_264
+  - first:
+      213: -5893661658912280529
+    second: HealAnimation 1_265
+  - first:
+      213: 8923367861034125728
+    second: HealAnimation 1_266
+  - first:
+      213: -2660058273829207092
+    second: HealAnimation 1_267
+  - first:
+      213: -6234969550760912569
+    second: HealAnimation 1_268
+  - first:
+      213: -2002308928500555194
+    second: HealAnimation 1_269
+  - first:
+      213: 2943561077652964490
+    second: HealAnimation 1_270
+  - first:
+      213: 8754369147588722039
+    second: HealAnimation 1_271
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HealAnimation 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0a8f2fb171f17e70800000000000000
+      internalID: 9111328991988386314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealAnimation 1_1
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2263e4658d10c850800000000000000
+      internalID: 6395143929626583595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealAnimation 1_2
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 101b0281c5c565cb0800000000000000
+      internalID: -4875607995970440959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealAnimation 1_3
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e0189f99503a3740800000000000000
+      internalID: 5132467886829867236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealAnimation 1_4
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb5ec2549a4fbb760800000000000000
+      internalID: 7474837014398690751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1e32b45bbbd98c0488ed90eb5e6eb393
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":1000.0,"y":2000.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      HealAnimation 1_0: 9111328991988386314
+      HealAnimation 1_1: 6395143929626583595
+      HealAnimation 1_2: -4875607995970440959
+      HealAnimation 1_3: 5132467886829867236
+      HealAnimation 1_4: 7474837014398690751
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,399 @@
+fileFormatVersion: 2
+guid: d1981015ac6f6934e857adb4fcae37e4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7362025657278092253
+    second: BigHitAnimation_0
+  - first:
+      213: 7872241465168968899
+    second: BigHitAnimation_1
+  - first:
+      213: 8233042801223658838
+    second: BigHitAnimation_2
+  - first:
+      213: -3546938018737841970
+    second: BigHitAnimation_3
+  - first:
+      213: -1360122752513732719
+    second: BigHitAnimation_4
+  - first:
+      213: 5816308576841995578
+    second: BigHitAnimation_5
+  - first:
+      213: -7709667679673664452
+    second: BigHitAnimation_6
+  - first:
+      213: 4803402992898645784
+    second: BigHitAnimation_7
+  - first:
+      213: 2442379503190909359
+    second: BigHitAnimation_8
+  - first:
+      213: -6318993075044394020
+    second: BigHitAnimation_9
+  - first:
+      213: 5780363193050305018
+    second: BigHitAnimation_10
+  - first:
+      213: -5981592791710887029
+    second: BigHitAnimation_11
+  - first:
+      213: -2930180041365311214
+    second: BigHitAnimation_12
+  - first:
+      213: -6909131409608603750
+    second: BigHitAnimation_13
+  - first:
+      213: -8713667774607744669
+    second: BigHitAnimation_14
+  - first:
+      213: -4268062280378335045
+    second: BigHitAnimation_15
+  - first:
+      213: -1536411652090670669
+    second: BigHitAnimation_16
+  - first:
+      213: -3684657450889501535
+    second: BigHitAnimation_17
+  - first:
+      213: 3260922936508359761
+    second: BigHitAnimation_18
+  - first:
+      213: -2725489159741845927
+    second: BigHitAnimation_19
+  - first:
+      213: -3284172163062496182
+    second: BigHitAnimation_20
+  - first:
+      213: 549789913474311817
+    second: BigHitAnimation_21
+  - first:
+      213: -3733641721637440441
+    second: BigHitAnimation_22
+  - first:
+      213: 1171488299852984299
+    second: BigHitAnimation_23
+  - first:
+      213: -3442730333823798418
+    second: BigHitAnimation_24
+  - first:
+      213: -3144578404974224231
+    second: BigHitAnimation_25
+  - first:
+      213: 237580210528651975
+    second: BigHitAnimation_26
+  - first:
+      213: 8048713960341291405
+    second: BigHitAnimation_27
+  - first:
+      213: -5212436713671089985
+    second: BigHitAnimation_28
+  - first:
+      213: 4273617441111485167
+    second: BigHitAnimation_29
+  - first:
+      213: -8549207779917294957
+    second: BigHitAnimation_30
+  - first:
+      213: 7837028956217894775
+    second: BigHitAnimation_31
+  - first:
+      213: -6038982755048314668
+    second: BigHitAnimation_32
+  - first:
+      213: -4913244870093849864
+    second: BigHitAnimation_33
+  - first:
+      213: -8726428646011644156
+    second: BigHitAnimation_34
+  - first:
+      213: -6483380203953890103
+    second: BigHitAnimation_35
+  - first:
+      213: 2372681230998094054
+    second: BigHitAnimation_36
+  - first:
+      213: 8024927031905254920
+    second: BigHitAnimation_37
+  - first:
+      213: 3841732717679608865
+    second: BigHitAnimation_38
+  - first:
+      213: 6283381613835022575
+    second: BigHitAnimation_39
+  - first:
+      213: 6839479945840833334
+    second: BigHitAnimation_40
+  - first:
+      213: -926006352528764759
+    second: BigHitAnimation_41
+  - first:
+      213: -8451013086737726254
+    second: BigHitAnimation_42
+  - first:
+      213: -7371903727506213004
+    second: BigHitAnimation_43
+  - first:
+      213: -2983527308135643574
+    second: BigHitAnimation_44
+  - first:
+      213: 8435642856530830574
+    second: BigHitAnimation_45
+  - first:
+      213: -6631783555689728788
+    second: BigHitAnimation_46
+  - first:
+      213: 8412081777754229926
+    second: BigHitAnimation_47
+  - first:
+      213: -6600513593064538637
+    second: BigHitAnimation_48
+  - first:
+      213: -6239187643533602739
+    second: BigHitAnimation_49
+  - first:
+      213: -3185370900849988040
+    second: BigHitAnimation_50
+  - first:
+      213: -8960347517361040599
+    second: BigHitAnimation_51
+  - first:
+      213: -1021015449557050856
+    second: BigHitAnimation_52
+  - first:
+      213: 5806023187217644355
+    second: BigHitAnimation_53
+  - first:
+      213: 4055082218490274905
+    second: BigHitAnimation_54
+  - first:
+      213: -7446565133206580872
+    second: BigHitAnimation_55
+  - first:
+      213: 6950612205718965420
+    second: BigHitAnimation_56
+  - first:
+      213: -4023238858824324449
+    second: BigHitAnimation_57
+  - first:
+      213: -111321785546916544
+    second: BigHitAnimation_58
+  - first:
+      213: 7626425487483199618
+    second: BigHitAnimation_59
+  - first:
+      213: 3599813379823465397
+    second: BigHitAnimation_60
+  - first:
+      213: -345222615354771230
+    second: BigHitAnimation_61
+  - first:
+      213: -9054068255947330666
+    second: BigHitAnimation_62
+  - first:
+      213: 9142547897200056207
+    second: BigHitAnimation_63
+  - first:
+      213: -740802143879926074
+    second: BigHitAnimation_64
+  - first:
+      213: -2109730734329294328
+    second: BigHitAnimation_65
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BigHitAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32ca0ae9ba4d4d990800000000000000
+      internalID: -7362025657278092253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigHitAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cc3f7557e1df3d60800000000000000
+      internalID: 7872241465168968899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BigHitAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65de583aec4a14270800000000000000
+      internalID: 8233042801223658838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d7fd1899cf731ef4889a4772021c3fe8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":1000.0,"y":2000.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      BigHitAnimation_0: -7362025657278092253
+      BigHitAnimation_1: 7872241465168968899
+      BigHitAnimation_2: 8233042801223658838
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -37,6 +38,31 @@ public class PlayerStart : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float followSensitivity = 0.5f; // 1 = full speed toward finger, lower = slower follow
 
+    [Header("Hit Effect")]
+    [SerializeField] private float hitEffectFrameLength = 0.08f; // seconds per frame, shared by all 3 animations below
+    [SerializeField] private int hitEffectSortingOrder = 10; // keep higher than the player's sprite so it draws on top
+
+    [Header("Hit Effect — 1st Hit")]
+    [SerializeField] private Sprite[] firstHitSprites = new Sprite[3]; // Size = 3 in the Inspector
+    [SerializeField] private AudioClip firstHitSound;
+
+    [Header("Hit Effect — 2nd Hit (fatal)")]
+    [SerializeField] private Sprite[] secondHitSprites = new Sprite[3];
+    [SerializeField] private AudioClip secondHitSound;
+
+    [Header("Hit Effect — Recovery")]
+    [SerializeField] private Sprite[] recoverySprites = new Sprite[3];
+    [SerializeField] private AudioClip recoverySound;
+
+    [Header("Hit Window")]
+    [SerializeField] private float hitWindowDuration = 3f; // seconds to land a fatal 2nd hit from a DIFFERENT object
+    [SerializeField] private float blinkInterval = 0.12f; // seconds between color toggles while vulnerable
+    [SerializeField] private Color blinkColor = Color.red;
+    [SerializeField] private SpriteRenderer playerSpriteRenderer; // the fish's own sprite, for the vulnerability blink
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource; // auto-added in Awake if left empty
+
     [Header("Game Over")]
     [SerializeField] private SceneField gameOverScene;
 
@@ -45,7 +71,12 @@ public class PlayerStart : MonoBehaviour
     private PlayerControls controls;
     private Rigidbody2D rb;
     private bool isGameOver = false;
-    
+
+    private bool isInHitWindow;        // true between a 1st hit and either a fatal 2nd hit or the recovery timeout
+    private GameObject firstHitObject; // the object that caused the 1st hit, so a repeat trigger from it doesn't count as "another" hit
+    private Coroutine hitWindowRoutine;
+    private Color normalColor;
+
     private float multiplier = 1f;
 
     private void Awake()
@@ -53,6 +84,12 @@ public class PlayerStart : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         controls = new PlayerControls();
         if (cam == null) cam = Camera.main;
+
+        if (audioSource == null) audioSource = GetComponent<AudioSource>();
+        if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
+
+        if (playerSpriteRenderer != null)
+            normalColor = playerSpriteRenderer.color;
     }
 
     private bool subscribed;
@@ -276,34 +313,133 @@ public class PlayerStart : MonoBehaviour
     {
         if (isGameOver) return; // guard against multiple triggers in the same frame
 
-        Debug.Log("Collided with: " + other.gameObject.name);
+        if (!other.CompareTag("Entity")) return;
 
-        if (other.CompareTag("Entity"))
+        if (!isInHitWindow)
         {
-            Debug.Log("Tag matched");
+            // 1st hit: not fatal, opens a hitWindowDuration-second window during
+            // which a hit from a DIFFERENT object is fatal.
+            isInHitWindow = true;
+            firstHitObject = other.gameObject;
+
+            PlayHitAudio(firstHitSound);
+            StartCoroutine(PlayHitAnimation(firstHitSprites));
+
+            hitWindowRoutine = StartCoroutine(HitWindowRoutine());
+        }
+        else if (other.gameObject != firstHitObject)
+        {
+            // 2nd hit within the window, from a different object -> fatal.
+            if (hitWindowRoutine != null) StopCoroutine(hitWindowRoutine);
+            ResetBlink();
             isGameOver = true;
             HandleGameOver();
         }
+        // else: repeat trigger from the same object that caused the 1st hit — ignored.
+    }
+
+    // Blinks the player toward blinkColor for hitWindowDuration seconds. If nothing
+    // fatal interrupts it (see OnTriggerEnter2D above), the window times out here
+    // and the player recovers back to normal with its own little animation + sound.
+    private IEnumerator HitWindowRoutine()
+    {
+        float elapsed = 0f;
+        bool toggled = false;
+
+        while (elapsed < hitWindowDuration)
+        {
+            if (playerSpriteRenderer != null)
+            {
+                playerSpriteRenderer.color = toggled ? blinkColor : normalColor;
+                toggled = !toggled;
+            }
+
+            yield return new WaitForSeconds(blinkInterval);
+            elapsed += blinkInterval;
+        }
+
+        ResetBlink();
+        isInHitWindow = false;
+        firstHitObject = null;
+        hitWindowRoutine = null;
+
+        PlayHitAudio(recoverySound);
+        StartCoroutine(PlayHitAnimation(recoverySprites));
+    }
+
+    private void ResetBlink()
+    {
+        if (playerSpriteRenderer != null)
+            playerSpriteRenderer.color = normalColor;
+    }
+
+    private void PlayHitAudio(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+            audioSource.PlayOneShot(clip);
+    }
+
+    // Spawns a small child object at the player's position, flips through the given
+    // 3 sprites at hitEffectFrameLength seconds each, then cleans itself up. Shared
+    // by the 1st hit, the fatal 2nd hit, and the recovery-back-to-normal animation.
+    private IEnumerator PlayHitAnimation(Sprite[] sprites, System.Action onComplete = null)
+    {
+        if (sprites != null && sprites.Length > 0)
+        {
+            var fx = new GameObject("HitEffect");
+            fx.transform.SetParent(transform, worldPositionStays: false);
+            fx.transform.localPosition = Vector3.zero;
+
+            var sr = fx.AddComponent<SpriteRenderer>();
+            sr.sortingOrder = hitEffectSortingOrder; // draw on top of the player sprite
+
+            foreach (Sprite frame in sprites)
+            {
+                if (frame == null)
+                    continue;
+
+                sr.sprite = frame;
+                yield return new WaitForSeconds(hitEffectFrameLength);
+            }
+
+            Destroy(fx);
+        }
+
+        onComplete?.Invoke();
     }
 
     private void HandleGameOver()
     {
         rb.linearVelocity = Vector2.zero;
-        enabled = false;
-
-        int CurrentScore = ScoreManager.Instance.GetScore();
-
-        if ( CurrentScore > SaveManager.Instance.Data.highScore)
-        {
-            SaveManager.Instance.Data.highScore = CurrentScore;
-            GameData.Instance.Highscore = CurrentScore;
-        }
-        
-        SaveManager.Instance.Data.runs++;
-        SaveManager.Instance.Save();
 
         if (_animator != null)
             _animator.SetBool("IsMoving", false);
+
+        PlayHitAudio(secondHitSound);
+
+        // Play the fatal-hit flash first, then finish the game-over flow once it's
+        // done, so the player actually sees the animation instead of the scene
+        // cutting it off.
+        StartCoroutine(PlayHitAnimation(secondHitSprites, FinishGameOver));
+
+        // Stop input/movement processing while the hit effect and scene transition
+        // play out. This does NOT stop coroutines already running — disabling a
+        // component only pauses its Update/FixedUpdate.
+        enabled = false;
+    }
+
+    private void FinishGameOver()
+    {
+        int currentScore = ScoreManager.Instance.GetScore();
+
+        if (currentScore > SaveManager.Instance.Data.highScore)
+        {
+            SaveManager.Instance.Data.highScore = currentScore;
+            GameData.Instance.Highscore = currentScore;
+        }
+
+        SaveManager.Instance.Data.runs++;
+        SaveManager.Instance.Save();
 
         SceneManager.LoadScene(gameOverScene);
     }
