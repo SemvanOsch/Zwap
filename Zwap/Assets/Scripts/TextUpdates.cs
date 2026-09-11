@@ -14,8 +14,8 @@ public class ScoreDisplay : MonoBehaviour
             return;
         }
 
-        scoreText.text = "Score: " + GameData.Instance.score;
-        HighscoreText.text = "Highscore: " + GameData.Instance.Highscore;
+        scoreText.text = "Score: " + GameData.Instance.score + " M";
+        HighscoreText.text = "Highscore: " + GameData.Instance.Highscore + " M ";
     }
 }
 
