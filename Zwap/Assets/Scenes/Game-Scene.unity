@@ -715,6 +715,14 @@ PrefabInstance:
       value: 0.8627451
       objectReference: {fileID: 0}
     - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: blinkColor.a
+      value: 0.8627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: blinkInterval
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: firstHitSound
       value: 
       objectReference: {fileID: 8300000, guid: 50452aee08420a247b6dcbdabb0a7120, type: 3}
@@ -738,6 +746,10 @@ PrefabInstance:
       propertyPath: touchSensitivity
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: playerSpriteRenderer
+      value: 
+      objectReference: {fileID: 1897003631}
     - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: gameOverScene.sceneName
       value: Game-over
@@ -2008,6 +2020,11 @@ MonoBehaviour:
 --- !u!4 &1769865398 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6699625963249174140, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+  m_PrefabInstance: {fileID: 702984356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1897003631 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2511196548380628927, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
   m_PrefabInstance: {fileID: 702984356}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &353906436778286791
