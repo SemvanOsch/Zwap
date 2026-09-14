@@ -44,6 +44,8 @@ public class ControlSwitcher : MonoBehaviour
     [SerializeField] private Sprite followSprite;
     [SerializeField] private Sprite joystickSprite;
     [SerializeField] private Sprite invertedSprite;
+    [Tooltip("Optional. Unique icon for the inverted joystick. Falls back to Inverted Sprite if left empty.")]
+    [SerializeField] private Sprite joystickInvertedSprite;
 
     [Header("Inverse")]
     [Range(0f, 1f)]
@@ -175,7 +177,18 @@ public class ControlSwitcher : MonoBehaviour
         if (nextControlIcon == null)
             return;
 
-        nextControlIcon.sprite = NextIsInverted ? invertedSprite : GetSpriteFor(NextControl);
+        if (NextIsInverted)
+        {
+            // Use the dedicated inverted-joystick icon when available; otherwise fall
+            // back to the shared inverted sprite (used by every other inverted control).
+            nextControlIcon.sprite = (NextControl == ControlType.Joystick && joystickInvertedSprite != null)
+                ? joystickInvertedSprite
+                : invertedSprite;
+        }
+        else
+        {
+            nextControlIcon.sprite = GetSpriteFor(NextControl);
+        }
     }
 
     private Sprite GetSpriteFor(ControlType type)

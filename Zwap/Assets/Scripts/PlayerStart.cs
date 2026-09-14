@@ -199,7 +199,17 @@ public class PlayerStart : MonoBehaviour
                 return moveInput * touchSensitivity;
 
             case ControlType.Joystick:
-                return GetJoystickInput() * joystickSensitivity;
+            {
+                // Unlike Touch (whose inverted panel bakes the flip into its button
+                // wiring), the joystick outputs a raw axis, so apply the inversion here
+                // by negating both axes — matching the 180° flip the touch panel uses.
+                // Instance is guaranteed non-null: GetActiveInput() returns early above
+                // if the switcher is missing.
+                Vector2 joy = GetJoystickInput() * joystickSensitivity;
+                if (ControlSwitcher.Instance.IsInverted)
+                    joy = -joy;
+                return joy;
+            }
 
             default:
                 return Vector2.zero;
