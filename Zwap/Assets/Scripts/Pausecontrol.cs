@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class PauseManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject pauseMenuUI; // the panel that shows when paused (Resume/Quit buttons etc.)
 
+    [Header("Pause Button Icon")]
+    [SerializeField] private Image pauseButtonImage; // the Image component on the pause button itself
+    [SerializeField] private Sprite pauseSprite;      // shown while the game is running (tap to pause)
+    [SerializeField] private Sprite resumeSprite;     // shown while paused (tap to resume)
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -18,6 +24,13 @@ public class PauseManager : MonoBehaviour
         }
 
         Instance = this;
+    }
+
+    private void Start()
+    {
+        // Make sure the pause button renders on top from the moment the scene
+        // loads, not just after the first Pause() call.
+        transform.SetAsLastSibling();
     }
 
     // Hook this up to the pause button's OnClick() in the Inspector.
@@ -31,11 +44,14 @@ public class PauseManager : MonoBehaviour
     {
         IsPaused = true;
 
-        Time.timeScale = 0f;      // freezes movement, spawning, timers
+        Time.timeScale = 0f;        // freezes movement, spawning, timers
         AudioListener.pause = true; // freezes all AudioSources (music + SFX)
 
         if (pauseMenuUI != null)
             pauseMenuUI.SetActive(true);
+
+        transform.SetAsLastSibling();
+        UpdateButtonSprite();
     }
 
     public void Resume()
@@ -47,5 +63,14 @@ public class PauseManager : MonoBehaviour
 
         if (pauseMenuUI != null)
             pauseMenuUI.SetActive(false);
+
+        UpdateButtonSprite();
+    }
+
+    private void UpdateButtonSprite()
+    {
+        if (pauseButtonImage == null) return;
+
+        pauseButtonImage.sprite = IsPaused ? resumeSprite : pauseSprite;
     }
 }
