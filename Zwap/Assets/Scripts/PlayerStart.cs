@@ -13,6 +13,9 @@ public class PlayerStart : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float touchSensitivity = 0.5f; // 1 = full speed, lower = slower touch movement
 
+    [Range(0f, 1f)]
+    [SerializeField] private float joystickSensitivity = 0.5f; // 1 = full speed, lower = slower joystick movement
+
     [Header("Bounds")] [SerializeField] private Camera cam;
 
     // Padding is expressed as a FRACTION of the visible half-width, not a fixed
@@ -157,6 +160,15 @@ public class PlayerStart : MonoBehaviour
         keyboardInput = Vector2.zero;
     }
 
+    private Vector2 GetJoystickInput()
+    {
+        // Reads the Terresquall Virtual Joystick's axis (each component ~ -1..1).
+        // Only called while Joystick is the active control, so its panel is active
+        // and an instance exists to read from (no instance -> the pack logs a warning
+        // and returns Vector2.zero).
+        return Terresquall.VirtualJoystick.GetAxis();
+    }
+
     private Vector2 GetTiltInput()
     {
         if (Accelerometer.current == null)
@@ -185,6 +197,19 @@ public class PlayerStart : MonoBehaviour
             case ControlType.Touch:
                 // already reflects inversion, since TouchControls applies its own flip internally
                 return moveInput * touchSensitivity;
+
+            case ControlType.Joystick:
+            {
+                // Unlike Touch (whose inverted panel bakes the flip into its button
+                // wiring), the joystick outputs a raw axis, so apply the inversion here
+                // by negating both axes — matching the 180° flip the touch panel uses.
+                // Instance is guaranteed non-null: GetActiveInput() returns early above
+                // if the switcher is missing.
+                Vector2 joy = GetJoystickInput() * joystickSensitivity;
+                if (ControlSwitcher.Instance.IsInverted)
+                    joy = -joy;
+                return joy;
+            }
 
             default:
                 return Vector2.zero;

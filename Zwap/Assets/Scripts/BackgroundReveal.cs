@@ -17,6 +17,8 @@ using UnityEngine.UI;
 // sync with baseImage every frame.
 public class BackgroundReveal : MonoBehaviour
 {
+    public static BackgroundReveal Instance;
+
     [Header("Images")]
     [Tooltip("The base/old background RawImage — the SAME one assigned to ControlBackground and scrolled by BackgroundScroller.")]
     [SerializeField] private RawImage baseImage;
@@ -60,8 +62,16 @@ public class BackgroundReveal : MonoBehaviour
     private Coroutine routine;
     private Texture pending; // the texture the running reveal is transitioning to
 
+    // Fires every frame during a reveal with the same eased 0..1 fraction that drives
+    // the circle's size, and once more with exactly 1f on commit. Other systems (e.g.
+    // a rock's water-swirl color) can subscribe to this to stay in lockstep with the
+    // circle's visual growth instead of switching instantly.
+    public event System.Action<float> OnRevealProgress;
+
     private void Awake()
     {
+        Instance = this;
+
         // Swap the low-res built-in circle for a crisp generated one so the edge stays
         // smooth when the circle is scaled up to cover the screen.
         if (generateCircleSprite)
@@ -182,8 +192,9 @@ public class BackgroundReveal : MonoBehaviour
         {
             t += Time.deltaTime;
             float k = duration > 0f ? Mathf.Clamp01(t / duration) : 1f;
-            float s = ease.Evaluate(k) * diameter;
-            circle.sizeDelta = new Vector2(s, s);
+            float eased = ease.Evaluate(k);
+            circle.sizeDelta = new Vector2(eased * diameter, eased * diameter);
+            OnRevealProgress?.Invoke(eased);
 
             // Stay in scroll sync with the base map so the reveal is seamless.
             revealImage.uvRect = baseImage.uvRect;
@@ -199,6 +210,8 @@ public class BackgroundReveal : MonoBehaviour
     {
         if (pending != null)
             baseImage.texture = pending;
+
+        OnRevealProgress?.Invoke(1f); // guarantee listeners land exactly on the final value
 
         // Collapse the circle (its Mask then shows nothing) but keep it active so this
         // script can start the next reveal's coroutine.

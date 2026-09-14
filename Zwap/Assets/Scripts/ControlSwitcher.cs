@@ -5,7 +5,9 @@ public enum ControlType
 {
     Tilt,
     Touch,
-    Follow
+    Follow,
+    Joystick   // on-screen Terresquall Virtual Joystick. Appended (not inserted) so
+               // existing serialized ControlType values in scenes keep their meaning.
 }
 
 [System.Serializable]
@@ -40,7 +42,10 @@ public class ControlSwitcher : MonoBehaviour
     [SerializeField] private Sprite tiltSprite;
     [SerializeField] private Sprite touchSprite;
     [SerializeField] private Sprite followSprite;
+    [SerializeField] private Sprite joystickSprite;
     [SerializeField] private Sprite invertedSprite;
+    [Tooltip("Optional. Unique icon for the inverted joystick. Falls back to Inverted Sprite if left empty.")]
+    [SerializeField] private Sprite joystickInvertedSprite;
 
     [Header("Inverse")]
     [Range(0f, 1f)]
@@ -172,16 +177,28 @@ public class ControlSwitcher : MonoBehaviour
         if (nextControlIcon == null)
             return;
 
-        nextControlIcon.sprite = NextIsInverted ? invertedSprite : GetSpriteFor(NextControl);
+        if (NextIsInverted)
+        {
+            // Use the dedicated inverted-joystick icon when available; otherwise fall
+            // back to the shared inverted sprite (used by every other inverted control).
+            nextControlIcon.sprite = (NextControl == ControlType.Joystick && joystickInvertedSprite != null)
+                ? joystickInvertedSprite
+                : invertedSprite;
+        }
+        else
+        {
+            nextControlIcon.sprite = GetSpriteFor(NextControl);
+        }
     }
 
     private Sprite GetSpriteFor(ControlType type)
     {
         switch (type)
         {
-            case ControlType.Tilt:   return tiltSprite;
-            case ControlType.Touch:  return touchSprite;
-            case ControlType.Follow: return followSprite;
+            case ControlType.Tilt:     return tiltSprite;
+            case ControlType.Touch:    return touchSprite;
+            case ControlType.Follow:   return followSprite;
+            case ControlType.Joystick: return joystickSprite;
             default: return null;
         }
     }
