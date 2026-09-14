@@ -122,11 +122,15 @@ public class RockWaterEffect : MonoBehaviour
 
     private IEnumerator Animate(SpriteRenderer sr)
     {
-        int i = 0;
+        int previous = -1;
         while (true)
         {
+            int i = frames.Length > 1 ? Random.Range(0, frames.Length) : 0;
+            while (i == previous)
+                i = Random.Range(0, frames.Length);
+
             sr.sprite = frames[i];
-            i = (i + 1) % frames.Length;
+            previous = i;
             yield return new WaitForSeconds(frameLength);
         }
     }
