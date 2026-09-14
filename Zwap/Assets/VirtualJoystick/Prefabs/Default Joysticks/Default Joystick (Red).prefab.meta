@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 68cec56235ec3424b9c2941688f24328
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 261317
+  packageName: Virtual Joystick Pack
+  packageVersion: 1.2.1
+  assetPath: Assets/VirtualJoystick/Prefabs/Default Joysticks/Default Joystick (Red).prefab
+  uploadId: 916198

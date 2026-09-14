@@ -5,7 +5,9 @@ public enum ControlType
 {
     Tilt,
     Touch,
-    Follow
+    Follow,
+    Joystick   // on-screen Terresquall Virtual Joystick. Appended (not inserted) so
+               // existing serialized ControlType values in scenes keep their meaning.
 }
 
 [System.Serializable]
@@ -40,6 +42,7 @@ public class ControlSwitcher : MonoBehaviour
     [SerializeField] private Sprite tiltSprite;
     [SerializeField] private Sprite touchSprite;
     [SerializeField] private Sprite followSprite;
+    [SerializeField] private Sprite joystickSprite;
     [SerializeField] private Sprite invertedSprite;
 
     [Header("Inverse")]
@@ -179,9 +182,10 @@ public class ControlSwitcher : MonoBehaviour
     {
         switch (type)
         {
-            case ControlType.Tilt:   return tiltSprite;
-            case ControlType.Touch:  return touchSprite;
-            case ControlType.Follow: return followSprite;
+            case ControlType.Tilt:     return tiltSprite;
+            case ControlType.Touch:    return touchSprite;
+            case ControlType.Follow:   return followSprite;
+            case ControlType.Joystick: return joystickSprite;
             default: return null;
         }
     }
