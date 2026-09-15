@@ -6,8 +6,10 @@ public enum ControlType
     Tilt,
     Touch,
     Follow,
-    Joystick   // on-screen Terresquall Virtual Joystick. Appended (not inserted) so
+    Joystick,  // on-screen Terresquall Virtual Joystick. Appended (not inserted) so
                // existing serialized ControlType values in scenes keep their meaning.
+    Slider     // two on-screen sliders (bottom = X, right = Y) set an absolute
+               // position; the fish glides toward it. Appended for the same reason.
 }
 
 [System.Serializable]
@@ -43,6 +45,7 @@ public class ControlSwitcher : MonoBehaviour
     [SerializeField] private Sprite touchSprite;
     [SerializeField] private Sprite followSprite;
     [SerializeField] private Sprite joystickSprite;
+    [SerializeField] private Sprite sliderSprite;
     [SerializeField] private Sprite invertedSprite;
     [Tooltip("Optional. Unique icon for the inverted joystick. Falls back to Inverted Sprite if left empty.")]
     [SerializeField] private Sprite joystickInvertedSprite;
@@ -199,6 +202,7 @@ public class ControlSwitcher : MonoBehaviour
             case ControlType.Touch:    return touchSprite;
             case ControlType.Follow:   return followSprite;
             case ControlType.Joystick: return joystickSprite;
+            case ControlType.Slider:   return sliderSprite;
             default: return null;
         }
     }

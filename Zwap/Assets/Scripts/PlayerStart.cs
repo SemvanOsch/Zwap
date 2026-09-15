@@ -41,6 +41,12 @@ public class PlayerStart : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float followSensitivity = 0.5f; // 1 = full speed toward finger, lower = slower follow
 
+    [Header("Slider")]
+    [SerializeField] private SliderControls sliderControls; // the two on-screen sliders (bottom = X, right = Y)
+
+    [Range(0f, 1f)]
+    [SerializeField] private float sliderSensitivity = 0.5f; // 1 = full speed toward the slider point, lower = slower glide
+
     [Header("Hit Effect")]
     [SerializeField] private float hitEffectFrameLength = 0.08f; // seconds per frame, shared by all 3 animations below
     [SerializeField] private int hitEffectSortingOrder = 10; // keep higher than the player's sprite so it draws on top
@@ -148,6 +154,17 @@ public class PlayerStart : MonoBehaviour
         keyboardInput = Vector2.zero;
         moveInput = Vector2.zero;
         rb.linearVelocity = Vector2.zero; // stop any coasting carried over from the previous mode
+
+        // Entering Slider mode: park the handles on the fish's current position so
+        // the absolute mapping doesn't yank it to wherever the sliders were left.
+        if (newControl == ControlType.Slider && sliderControls != null
+            && TryGetBounds(out Vector2 min, out Vector2 max))
+        {
+            Vector3 pos = transform.position;
+            sliderControls.SetFromNormalized(new Vector2(
+                Mathf.InverseLerp(min.x, max.x, pos.x),
+                Mathf.InverseLerp(min.y, max.y, pos.y)));
+        }
     }
 
     private void OnKeyboardMove(InputAction.CallbackContext ctx)
@@ -235,6 +252,12 @@ public class PlayerStart : MonoBehaviour
             // per-step direction, so it computes its own target.
             target = GetFollowTarget(out isMoving);
         }
+        else if (current == ControlType.Slider)
+        {
+            // Slider mode is also absolute: the sliders name a point in the play
+            // area and the fish glides toward it (see GetSliderTarget).
+            target = GetSliderTarget(out isMoving);
+        }
         else
         {
             Vector2 activeInput = GetActiveInput();
@@ -247,19 +270,10 @@ public class PlayerStart : MonoBehaviour
         if (_animator != null)
             _animator.SetBool("IsMoving", isMoving);
 
-        if (cam != null && cam.orthographic)
+        if (TryGetBounds(out Vector2 min, out Vector2 max))
         {
-            float halfH = cam.orthographicSize;
-            float halfW = halfH * cam.aspect;
-            Vector3 c = cam.transform.position;
-
-            // Scale the padding with the visible width so it tracks the width-matched
-            // rock border across screen sizes (see the paddingFraction fields above).
-            float padX = halfW * paddingFractionX;
-            float padY = halfW * paddingFractionY;
-
-            target.x = Mathf.Clamp(target.x, c.x - halfW + padX, c.x + halfW - padX);
-            target.y = Mathf.Clamp(target.y, c.y - halfH + padY, c.y + halfH - padY);
+            target.x = Mathf.Clamp(target.x, min.x, max.x);
+            target.y = Mathf.Clamp(target.y, min.y, max.y);
         }
 
         rb.MovePosition(target);
@@ -319,6 +333,60 @@ public class PlayerStart : MonoBehaviour
         // the score-based speed ramp applying here like everywhere else.
         float maxStep = moveSpeed * multiplier * followSensitivity;
         return Vector3.MoveTowards(pos, world, maxStep);
+    }
+
+    // The clamped play area (world-space), derived the same way the movement
+    // clamp is — padding scaled by the visible width to track the width-matched
+    // rock border. Returns false when there's no orthographic camera to measure.
+    private bool TryGetBounds(out Vector2 min, out Vector2 max)
+    {
+        min = max = Vector2.zero;
+
+        if (cam == null || !cam.orthographic)
+            return false;
+
+        float halfH = cam.orthographicSize;
+        float halfW = halfH * cam.aspect;
+        Vector3 c = cam.transform.position;
+
+        // Scale the padding with the visible width so it tracks the width-matched
+        // rock border across screen sizes (see the paddingFraction fields above).
+        float padX = halfW * paddingFractionX;
+        float padY = halfW * paddingFractionY;
+
+        min = new Vector2(c.x - halfW + padX, c.y - halfH + padY);
+        max = new Vector2(c.x + halfW - padX, c.y + halfH - padY);
+        return true;
+    }
+
+    // Where the fish should move to this step in Slider mode. The two sliders
+    // give a 0..1 point that maps onto the play area; the fish glides toward it,
+    // capped at its full speed (moveSpeed * the score ramp) so it never teleports.
+    private Vector3 GetSliderTarget(out bool isMoving)
+    {
+        isMoving = false;
+        Vector3 pos = transform.position;
+
+        if (sliderControls == null || !TryGetBounds(out Vector2 min, out Vector2 max))
+            return pos;
+
+        Vector2 v = sliderControls.Get01();
+        Vector3 destination = new Vector3(
+            Mathf.Lerp(min.x, max.x, v.x),
+            Mathf.Lerp(min.y, max.y, v.y),
+            pos.z);
+
+        // Already there (within a hair) -> hold still so the animator doesn't
+        // flicker IsMoving while the sliders are untouched.
+        if (Vector2.Distance(pos, destination) <= 0.001f)
+            return pos;
+
+        isMoving = true;
+
+        // sliderSensitivity scales the glide speed on its own; multiplier keeps the
+        // score-based speed ramp applying here like everywhere else.
+        float maxStep = moveSpeed * multiplier * sliderSensitivity;
+        return Vector3.MoveTowards(pos, destination, maxStep);
     }
 
     // Touch controls push the fully-resolved direction here (recomputed from the
