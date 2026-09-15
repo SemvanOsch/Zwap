@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4561437150082412274}
   - component: {fileID: 7022234193921684744}
   - component: {fileID: 6436014610610214956}
+  - component: {fileID: -370365431698029870}
   m_Layer: 0
   m_Name: Tree Stump
   m_TagString: Entity
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 6853316077166303748, guid: b39c85d33058a8145a9e382a3dae42b9, type: 3}
+  m_Sprite: {fileID: 2080066441436306916, guid: c6b17237cdc4aea479c142b53a0bccb0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,17 +128,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.10050821, y: -0.1133461}
+  m_Offset: {x: -0.06915712, y: -0.068134665}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.26, y: 3.18}
+    oldSize: {x: 7.6018558, y: 3.16}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 6.935504, y: 2.5683355}
+  m_Size: {x: 6.872802, y: 2.4779127}
   m_EdgeRadius: 0
 --- !u!114 &6436014610610214956
 MonoBehaviour:
@@ -154,3 +155,32 @@ MonoBehaviour:
   speed: 10
   speedPerScore: 0.002
   despawnY: -20
+--- !u!114 &-370365431698029870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7905770488391994396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6eb82b65c95085498804c11b035f391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectVariant
+  skins:
+  - type: 1
+    normalSprite: {fileID: 2080066441436306916, guid: c6b17237cdc4aea479c142b53a0bccb0, type: 3}
+    invertedSprite: {fileID: 0}
+  - type: 0
+    normalSprite: {fileID: -5632171373162201151, guid: c6b17237cdc4aea479c142b53a0bccb0, type: 3}
+    invertedSprite: {fileID: 0}
+  - type: 2
+    normalSprite: {fileID: 5842922027441903609, guid: c6b17237cdc4aea479c142b53a0bccb0, type: 3}
+    invertedSprite: {fileID: 0}
+  - type: 3
+    normalSprite: {fileID: -75390464761476512, guid: c6b17237cdc4aea479c142b53a0bccb0, type: 3}
+    invertedSprite: {fileID: 0}
+  - type: 4
+    normalSprite: {fileID: -7182747695877843710, guid: c6b17237cdc4aea479c142b53a0bccb0, type: 3}
+    invertedSprite: {fileID: 0}
+  swapAtRevealProgress: 0.5

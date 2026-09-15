@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5625870249454440949}
   - component: {fileID: 862086326993458479}
   - component: {fileID: 8553210915218838785}
+  - component: {fileID: 1309624340655762086}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Entity
@@ -187,3 +188,32 @@ MonoBehaviour:
     invertedColorIndex: 6
   - type: 3
     invertedColorIndex: 7
+--- !u!114 &1309624340655762086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223877303238547685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6eb82b65c95085498804c11b035f391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectVariant
+  skins:
+  - type: 0
+    normalSprite: {fileID: 6898035379108858973, guid: 4d8681ff287fe5a4d9be71f693139f01, type: 3}
+    invertedSprite: {fileID: 0}
+  - type: 1
+    normalSprite: {fileID: 6898035379108858973, guid: 4d8681ff287fe5a4d9be71f693139f01, type: 3}
+    invertedSprite: {fileID: 0}
+  - type: 2
+    normalSprite: {fileID: 7070523001487488714, guid: 20d110508ddba9f4f86e91ae22276b6c, type: 3}
+    invertedSprite: {fileID: 0}
+  - type: 3
+    normalSprite: {fileID: 7070523001487488714, guid: 20d110508ddba9f4f86e91ae22276b6c, type: 3}
+    invertedSprite: {fileID: -3422693575197793578, guid: f8137c7bb5b9cc14a952e10d127d924c, type: 3}
+  - type: 4
+    normalSprite: {fileID: -5026036951603974886, guid: caac96f8fb7489a429a939abaa49409c, type: 3}
+    invertedSprite: {fileID: 0}
+  swapAtRevealProgress: 0.5

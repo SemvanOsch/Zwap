@@ -3622,6 +3622,9 @@ MonoBehaviour:
   - type: 3
     normalBackground: {fileID: 2800000, guid: a3a5f7bbc7b6c014d9e167eedca7da14, type: 3}
     invertedBackground: {fileID: 2800000, guid: 90b0df1b8022f2d45846fc62061f0905, type: 3}
+  - type: 4
+    normalBackground: {fileID: 2800000, guid: a3a5f7bbc7b6c014d9e167eedca7da14, type: 3}
+    invertedBackground: {fileID: 0}
   reveal: {fileID: 425552251}
 --- !u!1001 &5387543847370031638
 PrefabInstance:
