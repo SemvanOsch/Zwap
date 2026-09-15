@@ -4,9 +4,23 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 
+[System.Serializable]
+public class FishSkin
+{
+    public string skinName; // alleen voor overzicht in de Inspector, geen functionele rol
+    public Sprite[] frames; // volgorde 1 t/m N
+
+    [Tooltip("Aan: schommelt heen en weer (1..N..1..N...). Uit: loopt door en springt terug naar het begin (1..N, 1..N, ...).")]
+    public bool pingPong;
+}
+
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerStart : MonoBehaviour
 {
+    // Zet dit vanuit het (nog te bouwen) skin-selectiescherm, VOORDAT je deze scene
+    // laadt: PlayerPrefs.SetInt(PlayerStart.SkinPrefsKey, index); PlayerPrefs.Save();
+    public const string SkinPrefsKey = "SelectedSkin";
+
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
 
@@ -16,22 +30,13 @@ public class PlayerStart : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float joystickSensitivity = 0.5f; // 1 = full speed, lower = slower joystick movement
 
-    [Header("Bounds")] [SerializeField] private Camera cam;
+    [Header("Bounds")][SerializeField] private Camera cam;
 
-    // Padding is expressed as a FRACTION of the visible half-width, not a fixed
-    // number of world units. The rock border is a UI background scaled by a
-    // CanvasScaler set to "Scale With Screen Size / Match = Width", so it always
-    // sits at a constant fraction of the screen width. Deriving the clamp from
-    // halfW the same way keeps the player aligned with the rocks on every aspect
-    // ratio. Both axes use halfW because the CanvasScaler matches width (so the
-    // background's on-screen height scales with width too, not with orthographicSize).
     [Range(0f, 0.5f)]
     [SerializeField] private float paddingFractionX = 0.05f; // gap from the left/right rocks
     [Range(0f, 0.5f)]
     [SerializeField] private float paddingFractionY = 0.05f; // gap from the top/bottom edge
 
-    [SerializeField] private Animator _animator;
-    
     [SerializeField] private float speedPerScore = 0.002f; // +0.2% move speed per point
     [SerializeField] private float maxSpeedMultiplier = 3f;
 
@@ -46,6 +51,18 @@ public class PlayerStart : MonoBehaviour
 
     [Range(0f, 1f)]
     [SerializeField] private float sliderSensitivity = 0.5f; // 1 = full speed toward the slider point, lower = slower glide
+
+    [Header("Skins")]
+    [SerializeField] private FishSkin[] skins;
+    [SerializeField] private int fallbackSkinIndex = 0; // gebruikt zolang er nog geen selectiescherm is (of geen PlayerPrefs-waarde bestaat)
+    [SerializeField] private SpriteRenderer playerSpriteRenderer; // toont zowel de skin-frames als de hit-window-blink hieronder
+
+    [Header("Animatie snelheid")]
+    [SerializeField] private float idleFrameLength = 0.15f; // seconden per frame in stilstand
+    [SerializeField] private float movingFrameLength = 0.08f; // seconden per frame tijdens bewegen
+    [SerializeField] private float speedTransitionDuration = 0.25f; // seconden om te blenden tussen idle- en moving-snelheid
+    [Range(0f, 1f)]
+    [SerializeField] private float speedTransitionExitTime = 0.7f; // wacht tot dit punt in de huidige cyclus voordat de blend start
 
     [Header("Hit Effect")]
     [SerializeField] private float hitEffectFrameLength = 0.08f; // seconds per frame, shared by all 3 animations below
@@ -67,7 +84,6 @@ public class PlayerStart : MonoBehaviour
     [SerializeField] private float hitWindowDuration = 3f; // seconds to land a fatal 2nd hit from a DIFFERENT object
     [SerializeField] private float blinkInterval = 0.12f; // seconds between color toggles while vulnerable
     [SerializeField] private Color blinkColor = Color.red;
-    [SerializeField] private SpriteRenderer playerSpriteRenderer; // the fish's own sprite, for the vulnerability blink
 
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource; // auto-added in Awake if left empty
@@ -88,6 +104,20 @@ public class PlayerStart : MonoBehaviour
 
     private float multiplier = 1f;
 
+    // --- Skin/frame animation state ---
+    private FishSkin currentSkin;
+    private int frameIndex;
+    private int frameStep = 1;      // +1 of -1, alleen relevant bij pingPong
+    private int cycleLengthSteps;   // hoeveel frame-stappen 1 volledige cyclus telt
+    private int stepsIntoCycle;
+    private float frameTimer;
+    private float currentFrameLength;
+    private bool isMoving;          // vervangt de oude Animator-bool; drijft nu de sprite-snelheid aan
+    private bool speedTransitionActive;
+    private float speedTransitionTimer;
+    private float speedTransitionFrom;
+    private float speedTransitionTo;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -99,6 +129,102 @@ public class PlayerStart : MonoBehaviour
 
         if (playerSpriteRenderer != null)
             normalColor = playerSpriteRenderer.color;
+
+        InitializeSkin();
+    }
+
+    // Kiest de skin op basis van PlayerPrefs (gezet door het skin-selectiescherm),
+    // of fallbackSkinIndex als die nog niet bestaat, en zet de animatie op frame 1.
+    private void InitializeSkin()
+    {
+        if (skins == null || skins.Length == 0) return;
+
+        int skinIndex = PlayerPrefs.HasKey(SkinPrefsKey) ? PlayerPrefs.GetInt(SkinPrefsKey) : fallbackSkinIndex;
+        skinIndex = Mathf.Clamp(skinIndex, 0, skins.Length - 1);
+        currentSkin = skins[skinIndex];
+
+        if (currentSkin.frames == null || currentSkin.frames.Length == 0) return;
+
+        cycleLengthSteps = currentSkin.pingPong
+            ? Mathf.Max(1, (currentSkin.frames.Length - 1) * 2)
+            : currentSkin.frames.Length;
+
+        frameIndex = 0;
+        frameStep = 1;
+        stepsIntoCycle = 0;
+        frameTimer = 0f;
+        currentFrameLength = idleFrameLength;
+
+        if (playerSpriteRenderer != null)
+            playerSpriteRenderer.sprite = currentSkin.frames[0];
+    }
+
+    private void Update()
+    {
+        UpdateSkinAnimation();
+    }
+
+    private void UpdateSkinAnimation()
+    {
+        if (currentSkin == null || currentSkin.frames == null || currentSkin.frames.Length == 0) return;
+
+        float targetFrameLength = isMoving ? movingFrameLength : idleFrameLength;
+
+        // Net als bij een Mecanim-transition: wacht tot 'exit time' bereikt is in de
+        // huidige cyclus voordat de blend naar de nieuwe snelheid start.
+        if (!speedTransitionActive && !Mathf.Approximately(currentFrameLength, targetFrameLength))
+        {
+            float cycleProgress = cycleLengthSteps > 0 ? (float)stepsIntoCycle / cycleLengthSteps : 1f;
+            if (cycleProgress >= speedTransitionExitTime)
+            {
+                speedTransitionActive = true;
+                speedTransitionTimer = 0f;
+                speedTransitionFrom = currentFrameLength;
+                speedTransitionTo = targetFrameLength;
+            }
+        }
+
+        if (speedTransitionActive)
+        {
+            speedTransitionTimer += Time.deltaTime;
+            float t = speedTransitionDuration > 0f ? Mathf.Clamp01(speedTransitionTimer / speedTransitionDuration) : 1f;
+            currentFrameLength = Mathf.Lerp(speedTransitionFrom, speedTransitionTo, t);
+
+            if (t >= 1f)
+            {
+                speedTransitionActive = false;
+                currentFrameLength = speedTransitionTo;
+            }
+        }
+
+        frameTimer += Time.deltaTime;
+        if (frameTimer >= currentFrameLength)
+        {
+            frameTimer -= currentFrameLength;
+            AdvanceFrame();
+        }
+    }
+
+    private void AdvanceFrame()
+    {
+        Sprite[] frames = currentSkin.frames;
+        int n = frames.Length;
+
+        if (currentSkin.pingPong && n > 1)
+        {
+            frameIndex += frameStep;
+            if (frameIndex >= n) { frameIndex = n - 2; frameStep = -1; }
+            else if (frameIndex < 0) { frameIndex = 1; frameStep = 1; }
+        }
+        else
+        {
+            frameIndex = (frameIndex + 1) % n;
+        }
+
+        stepsIntoCycle = (stepsIntoCycle + 1) % Mathf.Max(1, cycleLengthSteps);
+
+        if (playerSpriteRenderer != null)
+            playerSpriteRenderer.sprite = frames[frameIndex];
     }
 
     private bool subscribed;
@@ -140,8 +266,7 @@ public class PlayerStart : MonoBehaviour
         if (Accelerometer.current != null)
             InputSystem.DisableDevice(Accelerometer.current);
 
-        if (_animator != null)
-            _animator.SetBool("IsMoving", false);
+        isMoving = false;
 
         if (subscribed && ControlSwitcher.Instance != null)
             ControlSwitcher.Instance.OnControlChanged -= HandleControlChanged;
@@ -179,10 +304,6 @@ public class PlayerStart : MonoBehaviour
 
     private Vector2 GetJoystickInput()
     {
-        // Reads the Terresquall Virtual Joystick's axis (each component ~ -1..1).
-        // Only called while Joystick is the active control, so its panel is active
-        // and an instance exists to read from (no instance -> the pack logs a warning
-        // and returns Vector2.zero).
         return Terresquall.VirtualJoystick.GetAxis();
     }
 
@@ -200,7 +321,7 @@ public class PlayerStart : MonoBehaviour
     {
         if (ControlSwitcher.Instance == null)
         {
-            Debug.LogWarning("ControlSwitcher.Instance is null — is ControlSwitcher in the scene?");
+            Debug.LogWarning("ControlSwitcher.Instance is null — is ControlSwitcher in de scene?");
             return Vector2.zero;
         }
 
@@ -212,21 +333,15 @@ public class PlayerStart : MonoBehaviour
                 return GetTiltInput();
 
             case ControlType.Touch:
-                // already reflects inversion, since TouchControls applies its own flip internally
                 return moveInput * touchSensitivity;
 
             case ControlType.Joystick:
-            {
-                // Unlike Touch (whose inverted panel bakes the flip into its button
-                // wiring), the joystick outputs a raw axis, so apply the inversion here
-                // by negating both axes — matching the 180° flip the touch panel uses.
-                // Instance is guaranteed non-null: GetActiveInput() returns early above
-                // if the switcher is missing.
-                Vector2 joy = GetJoystickInput() * joystickSensitivity;
-                if (ControlSwitcher.Instance.IsInverted)
-                    joy = -joy;
-                return joy;
-            }
+                {
+                    Vector2 joy = GetJoystickInput() * joystickSensitivity;
+                    if (ControlSwitcher.Instance.IsInverted)
+                        joy = -joy;
+                    return joy;
+                }
 
             default:
                 return Vector2.zero;
@@ -235,7 +350,6 @@ public class PlayerStart : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Update the score-based speed ramp first so every control mode uses it.
         if (ScoreManager.Instance != null)
             multiplier = Mathf.Min(1f + speedPerScore * ScoreManager.Instance.GetScore(), maxSpeedMultiplier);
 
@@ -248,14 +362,10 @@ public class PlayerStart : MonoBehaviour
 
         if (current == ControlType.Follow)
         {
-            // Follow mode drives an absolute destination (the finger), not a
-            // per-step direction, so it computes its own target.
             target = GetFollowTarget(out isMoving);
         }
         else if (current == ControlType.Slider)
         {
-            // Slider mode is also absolute: the sliders name a point in the play
-            // area and the fish glides toward it (see GetSliderTarget).
             target = GetSliderTarget(out isMoving);
         }
         else
@@ -267,8 +377,7 @@ public class PlayerStart : MonoBehaviour
             target = transform.position + move;
         }
 
-        if (_animator != null)
-            _animator.SetBool("IsMoving", isMoving);
+        this.isMoving = isMoving; // drijft nu UpdateSkinAnimation() aan i.p.v. een Animator-bool
 
         if (TryGetBounds(out Vector2 min, out Vector2 max))
         {
@@ -278,14 +387,9 @@ public class PlayerStart : MonoBehaviour
 
         rb.MovePosition(target);
 
-        // Position is fully driven by MovePosition, so never let the dynamic body
-        // build up momentum — otherwise it coasts when input stops.
         rb.linearVelocity = Vector2.zero;
     }
 
-    // Where the fish should move to this step in Follow mode. It only moves while
-    // a finger is actually pressed (a mouse press stands in for a finger in the
-    // Editor); with nothing pressed it stays exactly where it is.
     private Vector3 GetFollowTarget(out bool isMoving)
     {
         isMoving = false;
@@ -302,42 +406,31 @@ public class PlayerStart : MonoBehaviour
             pressed = Touchscreen.current.primaryTouch.press.isPressed;
             screenPos = Touchscreen.current.primaryTouch.position.ReadValue();
         }
-        else if (Pointer.current != null) // mouse fallback so it's testable in the Editor
+        else if (Pointer.current != null)
         {
             pressed = Pointer.current.press.isPressed;
             screenPos = Pointer.current.position.ReadValue();
         }
         else
         {
-            return pos; // no touchscreen or pointer present
+            return pos;
         }
 
-        // Finger up -> don't move at all.
         if (!pressed)
             return pos;
 
-        // Screen pixels -> world position. Depth along the view doesn't matter for
-        // an orthographic 2D camera, but keep the fish's own z so it stays on plane.
         Vector3 world = cam.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, 0f));
         world.z = pos.z;
 
-        // Deadzone: if the finger is basically on top of the fish, hold still so it
-        // doesn't jitter back and forth across the touch point.
         if (Vector2.Distance(pos, world) <= followDeadzone)
             return pos;
 
         isMoving = true;
 
-        // Step toward the finger, capped so the fish glides instead of teleporting
-        // onto it. followSensitivity scales Follow speed on its own; multiplier keeps
-        // the score-based speed ramp applying here like everywhere else.
         float maxStep = moveSpeed * multiplier * followSensitivity;
         return Vector3.MoveTowards(pos, world, maxStep);
     }
 
-    // The clamped play area (world-space), derived the same way the movement
-    // clamp is — padding scaled by the visible width to track the width-matched
-    // rock border. Returns false when there's no orthographic camera to measure.
     private bool TryGetBounds(out Vector2 min, out Vector2 max)
     {
         min = max = Vector2.zero;
@@ -349,8 +442,6 @@ public class PlayerStart : MonoBehaviour
         float halfW = halfH * cam.aspect;
         Vector3 c = cam.transform.position;
 
-        // Scale the padding with the visible width so it tracks the width-matched
-        // rock border across screen sizes (see the paddingFraction fields above).
         float padX = halfW * paddingFractionX;
         float padY = halfW * paddingFractionY;
 
@@ -359,9 +450,6 @@ public class PlayerStart : MonoBehaviour
         return true;
     }
 
-    // Where the fish should move to this step in Slider mode. The two sliders
-    // give a 0..1 point that maps onto the play area; the fish glides toward it,
-    // capped at its full speed (moveSpeed * the score ramp) so it never teleports.
     private Vector3 GetSliderTarget(out bool isMoving)
     {
         isMoving = false;
@@ -376,22 +464,15 @@ public class PlayerStart : MonoBehaviour
             Mathf.Lerp(min.y, max.y, v.y),
             pos.z);
 
-        // Already there (within a hair) -> hold still so the animator doesn't
-        // flicker IsMoving while the sliders are untouched.
         if (Vector2.Distance(pos, destination) <= 0.001f)
             return pos;
 
         isMoving = true;
 
-        // sliderSensitivity scales the glide speed on its own; multiplier keeps the
-        // score-based speed ramp applying here like everywhere else.
         float maxStep = moveSpeed * multiplier * sliderSensitivity;
         return Vector3.MoveTowards(pos, destination, maxStep);
     }
 
-    // Touch controls push the fully-resolved direction here (recomputed from the
-    // set of currently-held arrows), so a lost press/release can't leave a stuck
-    // residual the way the old += / -= accumulator could.
     public void SetTouchInput(Vector2 dir)
     {
         moveInput = dir;
@@ -404,14 +485,12 @@ public class PlayerStart : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (isGameOver) return; // guard against multiple triggers in the same frame
+        if (isGameOver) return;
 
         if (!other.CompareTag("Entity")) return;
 
         if (!isInHitWindow)
         {
-            // 1st hit: not fatal, opens a hitWindowDuration-second window during
-            // which a hit from a DIFFERENT object is fatal.
             isInHitWindow = true;
             firstHitObject = other.gameObject;
 
@@ -422,18 +501,13 @@ public class PlayerStart : MonoBehaviour
         }
         else if (other.gameObject != firstHitObject)
         {
-            // 2nd hit within the window, from a different object -> fatal.
             if (hitWindowRoutine != null) StopCoroutine(hitWindowRoutine);
             ResetBlink();
             isGameOver = true;
             HandleGameOver();
         }
-        // else: repeat trigger from the same object that caused the 1st hit — ignored.
     }
 
-    // Blinks the player toward blinkColor for hitWindowDuration seconds. If nothing
-    // fatal interrupts it (see OnTriggerEnter2D above), the window times out here
-    // and the player recovers back to normal with its own little animation + sound.
     private IEnumerator HitWindowRoutine()
     {
         float elapsed = 0f;
@@ -472,9 +546,6 @@ public class PlayerStart : MonoBehaviour
             audioSource.PlayOneShot(clip);
     }
 
-    // Spawns a small child object at the player's position, flips through the given
-    // 3 sprites at hitEffectFrameLength seconds each, then cleans itself up. Shared
-    // by the 1st hit, the fatal 2nd hit, and the recovery-back-to-normal animation.
     private IEnumerator PlayHitAnimation(Sprite[] sprites, System.Action onComplete = null)
     {
         if (sprites != null && sprites.Length > 0)
@@ -484,7 +555,7 @@ public class PlayerStart : MonoBehaviour
             fx.transform.localPosition = Vector3.zero;
 
             var sr = fx.AddComponent<SpriteRenderer>();
-            sr.sortingOrder = hitEffectSortingOrder; // draw on top of the player sprite
+            sr.sortingOrder = hitEffectSortingOrder;
 
             foreach (Sprite frame in sprites)
             {
@@ -504,20 +575,12 @@ public class PlayerStart : MonoBehaviour
     private void HandleGameOver()
     {
         rb.linearVelocity = Vector2.zero;
-
-        if (_animator != null)
-            _animator.SetBool("IsMoving", false);
+        isMoving = false;
 
         PlayHitAudio(secondHitSound);
 
-        // Play the fatal-hit flash first, then finish the game-over flow once it's
-        // done, so the player actually sees the animation instead of the scene
-        // cutting it off.
         StartCoroutine(PlayHitAnimation(secondHitSprites, FinishGameOver));
 
-        // Stop input/movement processing while the hit effect and scene transition
-        // play out. This does NOT stop coroutines already running — disabling a
-        // component only pauses its Update/FixedUpdate.
         enabled = false;
     }
 

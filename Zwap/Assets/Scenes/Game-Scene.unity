@@ -835,6 +835,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: fallbackSkinIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: playerSpriteRenderer
       value: 
       objectReference: {fileID: 1897003631}
@@ -1059,10 +1063,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 6352434718933735328, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-    - {fileID: 240394248357503559, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-    - {fileID: 6531997119867940873, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-    - {fileID: 8911823864152393170, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
