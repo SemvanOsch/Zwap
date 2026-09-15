@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7022234193921684744}
   - component: {fileID: 6436014610610214956}
   - component: {fileID: -370365431698029870}
+  - component: {fileID: -8987059801316312802}
   m_Layer: 0
   m_Name: Tree Stump
   m_TagString: Entity
@@ -184,3 +185,44 @@ MonoBehaviour:
     normalSprite: {fileID: -7182747695877843710, guid: c6b17237cdc4aea479c142b53a0bccb0, type: 3}
     invertedSprite: {fileID: 0}
   swapAtRevealProgress: 0.5
+--- !u!114 &-8987059801316312802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7905770488391994396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865ec7c7b57d7c34db03c64a59403bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  frames:
+  - {fileID: 8331815433167968425, guid: c5d31bc0d4277d547a3126345db72e93, type: 3}
+  - {fileID: 21838160096390098, guid: c5d31bc0d4277d547a3126345db72e93, type: 3}
+  - {fileID: 7842665335034008655, guid: c5d31bc0d4277d547a3126345db72e93, type: 3}
+  - {fileID: 4867108060976119699, guid: c5d31bc0d4277d547a3126345db72e93, type: 3}
+  - {fileID: 504394439351499745, guid: c5d31bc0d4277d547a3126345db72e93, type: 3}
+  - {fileID: 1197248330731272476, guid: c5d31bc0d4277d547a3126345db72e93, type: 3}
+  - {fileID: -6065521151226811484, guid: c5d31bc0d4277d547a3126345db72e93, type: 3}
+  - {fileID: 5604327021494785774, guid: c5d31bc0d4277d547a3126345db72e93, type: 3}
+  - {fileID: -2148691456905472133, guid: c5d31bc0d4277d547a3126345db72e93, type: 3}
+  - {fileID: 5545735205901105688, guid: c5d31bc0d4277d547a3126345db72e93, type: 3}
+  frameLength: 0.12
+  offset: {x: 0, y: 0}
+  sortingOrder: -1
+  dimensionColors:
+  - {r: 1, g: 0.40566027, b: 0.40566027, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.51257855, g: 1, b: 0.8110054, a: 1}
+  - {r: 0.56101286, g: 1, b: 0.48742133, a: 1}
+  - {r: 0.50628924, g: 0.70364773, b: 1, a: 1}
+  - {r: 1, g: 0.97733957, b: 0.51257855, a: 1}
+  - {r: 0.3461096, g: 0.5507525, b: 0.6289307, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  currentDimensionIndex: 0
+  invertedOverrides:
+  - type: 1
+    invertedColorIndex: 6
+  - type: 3
+    invertedColorIndex: 7
