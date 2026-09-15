@@ -7,20 +7,21 @@ using UnityEngine.UI;
 [Serializable]
 public class IntroScreen
 {
-    public Sprite image;               // just drag a PNG/sprite here
+    public Texture image;              // just drag a texture/PNG here
     public float displayDuration = 1f; // how long this screen stays up, in seconds
 }
 
 public class IntroSceneManager : MonoBehaviour
 {
-    [Header("Button Zoom Effect")]
-    [SerializeField] private RectTransform buttonToZoom;   // the Play button's RectTransform
-    [SerializeField] private float zoomScale = 1.3f;       // how big it grows (1 = no change)
-    [SerializeField] private float zoomDuration = 0.2f;    // seconds for the zoom to play
+    [Header("UI Zoom Effect")]
+    [SerializeField] private RectTransform zoomRoot;       // parent that holds ALL home screen content (background, logo, button, etc.)
+    [SerializeField] private RectTransform zoomTargetRect; // the point to zoom toward - can be the button itself, or an empty RectTransform placed a bit above it
+    [SerializeField] private float targetZoomScale = 2f;   // 2 = zoomed in to 2x, 1 = no zoom
+    [SerializeField] private float zoomDuration = 0.5f;    // seconds for the zoom to play
 
     [Header("Intro Screens")]
-    [SerializeField] private Image introImage;             // one Image, positioned/sized how you like, layered above the home screen in the Hierarchy
-    [SerializeField] private IntroScreen[] introScreens;   // add/remove freely - just drag sprites in, set each duration
+    [SerializeField] private RawImage introImage;          // one RawImage, positioned/sized how you like, layered above the home screen in the Hierarchy
+    [SerializeField] private IntroScreen[] introScreens;   // add/remove freely - just drag textures in, set each duration
 
     [Header("Home Screen (optional)")]
     [SerializeField] private CanvasGroup homeScreenCanvasGroup; // disables home buttons while the sequence plays
@@ -29,9 +30,19 @@ public class IntroSceneManager : MonoBehaviour
     [SerializeField] private SceneField gameScene;
 
     private bool isPlaying;
+    private Vector2 originalPivot;
+    private Vector3 originalLocalPosition;
+    private Vector3 originalLocalScale;
 
     private void Awake()
     {
+        if (zoomRoot != null)
+        {
+            originalPivot = zoomRoot.pivot;
+            originalLocalPosition = zoomRoot.localPosition;
+            originalLocalScale = zoomRoot.localScale;
+        }
+
         ClearAllScreens();
     }
 
@@ -65,21 +76,28 @@ public class IntroSceneManager : MonoBehaviour
     {
         SetHomeScreenInteractable(false);
 
-        // 1) Zoom the button
-        if (buttonToZoom != null)
-            yield return StartCoroutine(ZoomButton());
+        // 1) Zoom the whole home screen UI in toward the target point
+        if (zoomRoot != null && zoomTargetRect != null)
+            yield return StartCoroutine(ZoomUI());
 
-        // 2) Show each sprite over the home screen, one at a time
+        // 2) Show each texture over the home screen, one at a time
         if (introImage != null)
         {
-            foreach (IntroScreen screen in introScreens)
+            for (int i = 0; i < introScreens.Length; i++)
             {
+                IntroScreen screen = introScreens[i];
                 if (screen.image == null) continue;
 
-                introImage.sprite = screen.image;
+                introImage.texture = screen.image;
                 introImage.gameObject.SetActive(true);
                 yield return new WaitForSecondsRealtime(screen.displayDuration);
-                introImage.gameObject.SetActive(false);
+
+                bool isLastScreen = i == introScreens.Length - 1;
+                if (!isLastScreen)
+                    introImage.gameObject.SetActive(false);
+                // if it's the last screen, leave it active - it'll stay on
+                // top until the new scene finishes loading, avoiding a
+                // flash of the home screen underneath.
             }
         }
 
@@ -93,8 +111,12 @@ public class IntroSceneManager : MonoBehaviour
         if (introImage != null)
             introImage.gameObject.SetActive(false);
 
-        if (buttonToZoom != null)
-            buttonToZoom.localScale = Vector3.one;
+        if (zoomRoot != null)
+        {
+            zoomRoot.pivot = originalPivot;
+            zoomRoot.localPosition = originalLocalPosition;
+            zoomRoot.localScale = originalLocalScale;
+        }
 
         SetHomeScreenInteractable(true);
         isPlaying = false;
@@ -108,20 +130,54 @@ public class IntroSceneManager : MonoBehaviour
         homeScreenCanvasGroup.blocksRaycasts = value;
     }
 
-    private IEnumerator ZoomButton()
+    private IEnumerator ZoomUI()
     {
-        Vector3 startScale = buttonToZoom.localScale;
-        Vector3 targetScale = startScale * zoomScale;
+        // Move zoomRoot's pivot to line up with the target point, WITHOUT
+        // moving anything visually - this makes scaling naturally converge
+        // on that point instead of the center of the screen.
+        Vector2 pivot = WorldPointToPivot(zoomRoot, zoomTargetRect.position);
+        SetPivotPreservingPosition(zoomRoot, pivot);
+
+        Vector3 startScale = zoomRoot.localScale;
+        Vector3 endScale = Vector3.one * targetZoomScale;
 
         float t = 0f;
         while (t < zoomDuration)
         {
             t += Time.unscaledDeltaTime;
             float progress = Mathf.Clamp01(t / zoomDuration);
-            buttonToZoom.localScale = Vector3.Lerp(startScale, targetScale, progress);
+            zoomRoot.localScale = Vector3.Lerp(startScale, endScale, progress);
             yield return null;
         }
 
-        buttonToZoom.localScale = targetScale;
+        zoomRoot.localScale = endScale;
+    }
+
+    // Converts a world-space point into a 0-1 pivot fraction within rt's own rect.
+    private Vector2 WorldPointToPivot(RectTransform rt, Vector3 worldPoint)
+    {
+        Vector3 localPoint = rt.InverseTransformPoint(worldPoint);
+        Rect rect = rt.rect;
+
+        float px = Mathf.InverseLerp(rect.xMin, rect.xMax, localPoint.x);
+        float py = Mathf.InverseLerp(rect.yMin, rect.yMax, localPoint.y);
+
+        return new Vector2(px, py);
+    }
+
+    // Changes a RectTransform's pivot without visually moving it -
+    // standard Unity trick since changing pivot alone shifts anchoredPosition.
+    private void SetPivotPreservingPosition(RectTransform rt, Vector2 newPivot)
+    {
+        Vector2 size = rt.rect.size;
+        Vector2 deltaPivot = rt.pivot - newPivot;
+
+        Vector3 deltaPosition = new Vector3(
+            deltaPivot.x * size.x * rt.localScale.x,
+            deltaPivot.y * size.y * rt.localScale.y,
+            0f);
+
+        rt.pivot = newPivot;
+        rt.localPosition -= deltaPosition;
     }
 }
