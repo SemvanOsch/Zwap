@@ -17,6 +17,9 @@ public class SpawnableItem
 {
     public GameObject prefab;
     public SpawnZone spawnZone = SpawnZone.Anywhere;
+
+    [Tooltip("Zet dit AAN voor bomen: de hele prefab wordt gespiegeld (X-scale omgedraaid) als hij aan de rechterkant spawnt. Laat UIT voor stenen en al het andere dat niet gespiegeld hoeft te worden.")]
+    public bool mirrorOnRightSide = false;
 }
 
 public class Spawner : MonoBehaviour
@@ -67,7 +70,20 @@ public class Spawner : MonoBehaviour
         float x = GetRandomX(chosen.spawnZone);
         Vector3 spawnPos = new Vector3(x, spawnPoint.position.y, spawnPoint.position.z);
 
-        Instantiate(chosen.prefab, spawnPos, Quaternion.identity);
+        GameObject spawned = Instantiate(chosen.prefab, spawnPos, Quaternion.identity);
+
+        // Alleen items met mirrorOnRightSide aan (bv. bomen) worden gespiegeld, en
+        // alleen als ze daadwerkelijk rechts van het midden van de spawn-band landen.
+        if (chosen.mirrorOnRightSide)
+        {
+            float midX = (centerMinX + centerMaxX) * 0.5f;
+            if (x > midX)
+            {
+                Vector3 scale = spawned.transform.localScale;
+                scale.x *= -1f;
+                spawned.transform.localScale = scale;
+            }
+        }
     }
 
     private float GetRandomX(SpawnZone zone)
