@@ -989,7 +989,7 @@ PrefabInstance:
     - target: {fileID: 8579035696156347547, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: sliderSprite
       value: 
-      objectReference: {fileID: 7825453866717813237, guid: fe2b306f89ce0c54d8bfea940d3f7c9a, type: 3}
+      objectReference: {fileID: 3201898036628771695, guid: 9fadb7b14db905d4f9bfc6340383100e, type: 3}
     - target: {fileID: 8579035696156347547, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: inverseChance
       value: 0.4
