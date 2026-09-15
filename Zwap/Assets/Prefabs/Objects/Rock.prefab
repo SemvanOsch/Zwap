@@ -179,6 +179,11 @@ MonoBehaviour:
   - {r: 0.56101286, g: 1, b: 0.48742133, a: 1}
   - {r: 0.50628924, g: 0.70364773, b: 1, a: 1}
   - {r: 1, g: 0.97733957, b: 0.51257855, a: 1}
-  - {r: 1, g: 0.5251572, b: 0.89957136, a: 1}
-  - {r: 1, g: 0.7236755, b: 0.51886785, a: 1}
+  - {r: 0.3461096, g: 0.5507525, b: 0.6289307, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
   currentDimensionIndex: 0
+  invertedOverrides:
+  - type: 1
+    invertedColorIndex: 6
+  - type: 3
+    invertedColorIndex: 7
