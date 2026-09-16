@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,9 @@ public class SkinPreview : MonoBehaviour
     {
         if (targetImage == null)
             targetImage = GetComponent<Image>();
+
+        int skin = PlayerPrefs.GetInt(PlayerStart.SkinPrefsKey, 0);
+        SetSkin(skin);
     }
 
     public void SetSkin(int index)
