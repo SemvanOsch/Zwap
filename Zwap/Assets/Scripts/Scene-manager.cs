@@ -13,4 +13,9 @@ public class SceneButtonHandler : MonoBehaviour
 
         SceneManager.LoadScene(sceneToLoad);
     }
+
+    public void ToggleObject(GameObject target)
+    {
+        target.SetActive(!target.activeSelf);
+    }
 }
