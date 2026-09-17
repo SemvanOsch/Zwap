@@ -177,7 +177,7 @@ MonoBehaviour:
     - {fileID: 1885356844053227999, guid: 7b088d63fa3c8aa49b5043c4b151b5ed, type: 3}
     - {fileID: -3184186697534075550, guid: 7b088d63fa3c8aa49b5043c4b151b5ed, type: 3}
     - {fileID: 333102266997456408, guid: 7b088d63fa3c8aa49b5043c4b151b5ed, type: 3}
-    pingPong: 0
+    pingPong: 1
   - skinName: Koi
     frames:
     - {fileID: -706284179297705200, guid: bd314184037aee145b74b550abba6868, type: 3}

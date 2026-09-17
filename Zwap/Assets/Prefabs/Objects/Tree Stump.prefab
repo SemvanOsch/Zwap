@@ -180,7 +180,7 @@ MonoBehaviour:
     invertedSprite: {fileID: 0}
   - type: 3
     normalSprite: {fileID: -3485977713458880019, guid: 3943959934600c4499ac28a781dd7a72, type: 3}
-    invertedSprite: {fileID: 0}
+    invertedSprite: {fileID: 5960194505450210004, guid: 04f40633e9e0330408c3ecbdefac9071, type: 3}
   - type: 4
     normalSprite: {fileID: 7875180036326522969, guid: 3943959934600c4499ac28a781dd7a72, type: 3}
     invertedSprite: {fileID: 0}

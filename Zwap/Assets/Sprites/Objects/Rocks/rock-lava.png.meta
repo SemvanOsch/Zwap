@@ -1,0 +1,1027 @@
+fileFormatVersion: 2
+guid: 92d8d833148e6a24484132bad654670d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5597865059345224797
+    second: rock-lava_0
+  - first:
+      213: -8578491068274069562
+    second: rock-lava_1
+  - first:
+      213: -3035908669820081712
+    second: rock-lava_2
+  - first:
+      213: 9198507220566147827
+    second: rock-lava_3
+  - first:
+      213: -6982160684419521722
+    second: rock-lava_4
+  - first:
+      213: 8758275507519779224
+    second: rock-lava_5
+  - first:
+      213: 9159724371455663743
+    second: rock-lava_6
+  - first:
+      213: 5180427299414871281
+    second: rock-lava_7
+  - first:
+      213: -3810124827326499367
+    second: rock-lava_8
+  - first:
+      213: -4167894254805898936
+    second: rock-lava_9
+  - first:
+      213: -8070253607961962271
+    second: rock-lava_10
+  - first:
+      213: -9186171973974289286
+    second: rock-lava_11
+  - first:
+      213: -1029622315825695295
+    second: rock-lava_12
+  - first:
+      213: -4230245505817015883
+    second: rock-lava_13
+  - first:
+      213: 3095795988863441891
+    second: rock-lava_14
+  - first:
+      213: -8751940614528382446
+    second: rock-lava_15
+  - first:
+      213: -2599189862290997484
+    second: rock-lava_16
+  - first:
+      213: 9135209850942822681
+    second: rock-lava_17
+  - first:
+      213: 8128867382403513908
+    second: rock-lava_18
+  - first:
+      213: -2379251042684121723
+    second: rock-lava_19
+  - first:
+      213: 3355613621799005841
+    second: rock-lava_20
+  - first:
+      213: 2792875338348726676
+    second: rock-lava_21
+  - first:
+      213: -4628429105526779220
+    second: rock-lava_22
+  - first:
+      213: 617415484306778629
+    second: rock-lava_23
+  - first:
+      213: 3247805776680563954
+    second: rock-lava_24
+  - first:
+      213: 6685095841748253607
+    second: rock-lava_25
+  - first:
+      213: -749264415140417879
+    second: rock-lava_26
+  - first:
+      213: -284111766582343026
+    second: rock-lava_27
+  - first:
+      213: 3596448834601990380
+    second: rock-lava_28
+  - first:
+      213: 7358894644277386750
+    second: rock-lava_29
+  - first:
+      213: 7415804984379806976
+    second: rock-lava_30
+  - first:
+      213: -2568689437405273095
+    second: rock-lava_31
+  - first:
+      213: -1543077083079710483
+    second: rock-lava_32
+  - first:
+      213: -7094148783665683493
+    second: rock-lava_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rock-lava_0
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 2403
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d54d7dadc9c9fad40800000000000000
+      internalID: 5597865059345224797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_1
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 1661
+        width: 982
+        height: 729
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cfa9aef2d313f880800000000000000
+      internalID: -8578491068274069562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_2
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 2366
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d968d456294ed5d0800000000000000
+      internalID: -3035908669820081712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_3
+      rect:
+        serializedVersion: 2
+        x: 1381
+        y: 1542
+        width: 589
+        height: 735
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f206b1d499a7af70800000000000000
+      internalID: 9198507220566147827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_4
+      rect:
+        serializedVersion: 2
+        x: 1565
+        y: 2275
+        width: 57
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 643e970c9d16a1f90800000000000000
+      internalID: -6982160684419521722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_5
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 2052
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89178b6bb25ab8970800000000000000
+      internalID: 8758275507519779224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_6
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 1937
+        width: 7
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7e5a1919c0ed1f70800000000000000
+      internalID: 9159724371455663743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_7
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 2001
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fc0c568e2394e740800000000000000
+      internalID: 5180427299414871281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_8
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 1994
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d5be4d08a7bf1bc0800000000000000
+      internalID: -3810124827326499367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_9
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 1942
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84927e8f14aa826c0800000000000000
+      internalID: -4167894254805898936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_10
+      rect:
+        serializedVersion: 2
+        x: 1965
+        y: 1754
+        width: 7
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e8dc120a13b00090800000000000000
+      internalID: -8070253607961962271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_11
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 1654
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a741d959249248080800000000000000
+      internalID: -9186171973974289286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_12
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 1660
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c5f46c75fb06b1f0800000000000000
+      internalID: -1029622315825695295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_13
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 791
+        width: 1235
+        height: 647
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b9851110262b45c0800000000000000
+      internalID: -4230245505817015883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_14
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 1420
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ebd845bc0a76fa20800000000000000
+      internalID: 3095795988863441891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_15
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1417
+        width: 37
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21ac8bf716cda8680800000000000000
+      internalID: -8751940614528382446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_16
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 1416
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41f39526792ddebd0800000000000000
+      internalID: -2599189862290997484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_17
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 1421
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 919981285f8c6ce70800000000000000
+      internalID: 9135209850942822681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_18
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 1407
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43ebb62d0d98fc070800000000000000
+      internalID: 8128867382403513908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_19
+      rect:
+        serializedVersion: 2
+        x: 1473
+        y: 1243
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58dc55158c33bfed0800000000000000
+      internalID: -2379251042684121723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_20
+      rect:
+        serializedVersion: 2
+        x: 1473
+        y: 1215
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19eaaca6fc8819e20800000000000000
+      internalID: 3355613621799005841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_21
+      rect:
+        serializedVersion: 2
+        x: 1476
+        y: 1183
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 499893ca25942c620800000000000000
+      internalID: 2792875338348726676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_22
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 1057
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca25ff0404484cfb0800000000000000
+      internalID: -4628429105526779220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_23
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 1034
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50a6eec9c10819800800000000000000
+      internalID: 617415484306778629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_24
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 1021
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f4b1827526821d20800000000000000
+      internalID: 3247805776680563954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_25
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 1006
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ab78d8bf3b36cc50800000000000000
+      internalID: 6685095841748253607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_26
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 810
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9aee6b4fbf31a95f0800000000000000
+      internalID: -749264415140417879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_27
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 812
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8ac9548ad1ae0cf0800000000000000
+      internalID: -284111766582343026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_28
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 807
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce8b157092729e130800000000000000
+      internalID: 3596448834601990380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_29
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 809
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efd9dab90bb002660800000000000000
+      internalID: 7358894644277386750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_30
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 807
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0059789b75b3ae660800000000000000
+      internalID: 7415804984379806976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_31
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 809
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f32921f09e2a5cd0800000000000000
+      internalID: -2568689437405273095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_32
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 811
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de8ecf98193e59ae0800000000000000
+      internalID: -1543077083079710483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-lava_33
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 803
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd366d584458c8d90800000000000000
+      internalID: -7094148783665683493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      rock-lava_0: 5597865059345224797
+      rock-lava_1: -8578491068274069562
+      rock-lava_10: -8070253607961962271
+      rock-lava_11: -9186171973974289286
+      rock-lava_12: -1029622315825695295
+      rock-lava_13: -4230245505817015883
+      rock-lava_14: 3095795988863441891
+      rock-lava_15: -8751940614528382446
+      rock-lava_16: -2599189862290997484
+      rock-lava_17: 9135209850942822681
+      rock-lava_18: 8128867382403513908
+      rock-lava_19: -2379251042684121723
+      rock-lava_2: -3035908669820081712
+      rock-lava_20: 3355613621799005841
+      rock-lava_21: 2792875338348726676
+      rock-lava_22: -4628429105526779220
+      rock-lava_23: 617415484306778629
+      rock-lava_24: 3247805776680563954
+      rock-lava_25: 6685095841748253607
+      rock-lava_26: -749264415140417879
+      rock-lava_27: -284111766582343026
+      rock-lava_28: 3596448834601990380
+      rock-lava_29: 7358894644277386750
+      rock-lava_3: 9198507220566147827
+      rock-lava_30: 7415804984379806976
+      rock-lava_31: -2568689437405273095
+      rock-lava_32: -1543077083079710483
+      rock-lava_33: -7094148783665683493
+      rock-lava_4: -6982160684419521722
+      rock-lava_5: 8758275507519779224
+      rock-lava_6: 9159724371455663743
+      rock-lava_7: 5180427299414871281
+      rock-lava_8: -3810124827326499367
+      rock-lava_9: -4167894254805898936
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
