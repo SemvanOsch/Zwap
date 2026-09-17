@@ -1,25 +1,10 @@
 fileFormatVersion: 2
-guid: 87eb9f640739b4a8e9be5cc757878209
+guid: 49894bba807cab24ba368e2962a52b50
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4538433864535026286
-    second: Fish_Sprites_Uncut_0
-  - first:
-      213: 4182233719899166443
-    second: Fish_Sprites_Uncut_1
-  - first:
-      213: -4277593647437367421
-    second: Fish_Sprites_Uncut_2
-  - first:
-      213: -5864000554651509889
-    second: Fish_Sprites_Uncut_3
-  - first:
-      213: 9201632422511523959
-    second: Fish_Sprites_Uncut_4
-  - first:
-      213: -7014884864912180425
-    second: Fish_Sprites_Uncut_5
+      213: -4991880539763003333
+    second: Intro_3.1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,20 +84,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -138,7 +110,20 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -193,133 +178,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fish_Sprites_Uncut_0
+      name: Intro_3.1_0
       rect:
         serializedVersion: 2
-        x: 52
-        y: 570
-        width: 546
-        height: 1473
+        x: 0
+        y: 0
+        width: 1080
+        height: 1920
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 29559c3227e3401c0800000000000000
-      internalID: -4538433864535026286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fish_Sprites_Uncut_1
-      rect:
-        serializedVersion: 2
-        x: 717
-        y: 554
-        width: 437
-        height: 1477
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: be6104ae8674a0a30800000000000000
-      internalID: 4182233719899166443
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fish_Sprites_Uncut_2
-      rect:
-        serializedVersion: 2
-        x: 1321
-        y: 537
-        width: 401
-        height: 1482
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3873707cd3fe2a4c0800000000000000
-      internalID: -4277593647437367421
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fish_Sprites_Uncut_3
-      rect:
-        serializedVersion: 2
-        x: 1895
-        y: 541
-        width: 399
-        height: 1482
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f7b9d497092ee9ea0800000000000000
-      internalID: -5864000554651509889
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fish_Sprites_Uncut_4
-      rect:
-        serializedVersion: 2
-        x: 2414
-        y: 546
-        width: 437
-        height: 1478
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 77834899fe3c2bf70800000000000000
-      internalID: 9201632422511523959
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fish_Sprites_Uncut_5
-      rect:
-        serializedVersion: 2
-        x: 2923
-        y: 546
-        width: 545
-        height: 1473
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 73b35aeb16f16ae90800000000000000
-      internalID: -7014884864912180425
+      spriteID: b30bd32e81749bab0800000000000000
+      internalID: -4991880539763003333
       vertices: []
       indices: 
       edges: []
@@ -328,7 +203,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 94cbca242db0c4cb696bfbab2229be69
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -336,16 +211,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Fish_Sprites_Uncut_0: -4538433864535026286
-      Fish_Sprites_Uncut_1: 4182233719899166443
-      Fish_Sprites_Uncut_2: -4277593647437367421
-      Fish_Sprites_Uncut_3: -5864000554651509889
-      Fish_Sprites_Uncut_4: 9201632422511523959
-      Fish_Sprites_Uncut_5: -7014884864912180425
+      Intro_3.1_0: -4991880539763003333
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
