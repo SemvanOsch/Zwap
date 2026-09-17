@@ -1,0 +1,2171 @@
+fileFormatVersion: 2
+guid: b9bc57afdd693b5449696e36d8cd0370
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8247408954047130860
+    second: rock-rainbow_0
+  - first:
+      213: -2278914635890116315
+    second: rock-rainbow_1
+  - first:
+      213: 3929599339575930515
+    second: rock-rainbow_2
+  - first:
+      213: -5211743660547406352
+    second: rock-rainbow_3
+  - first:
+      213: -2370653091404966234
+    second: rock-rainbow_4
+  - first:
+      213: -3743988465616943143
+    second: rock-rainbow_5
+  - first:
+      213: 1080491759808841479
+    second: rock-rainbow_6
+  - first:
+      213: -8905127977599758566
+    second: rock-rainbow_7
+  - first:
+      213: -3101490412299245088
+    second: rock-rainbow_8
+  - first:
+      213: -765102260243785852
+    second: rock-rainbow_9
+  - first:
+      213: 3721575563965246487
+    second: rock-rainbow_10
+  - first:
+      213: 4193445180668423473
+    second: rock-rainbow_11
+  - first:
+      213: -5507286149399749697
+    second: rock-rainbow_12
+  - first:
+      213: -1235213441757278809
+    second: rock-rainbow_13
+  - first:
+      213: 326009392317960757
+    second: rock-rainbow_14
+  - first:
+      213: 7766376616429815886
+    second: rock-rainbow_15
+  - first:
+      213: -4992487727061684834
+    second: rock-rainbow_16
+  - first:
+      213: 4499438773616113904
+    second: rock-rainbow_17
+  - first:
+      213: 665710412949471913
+    second: rock-rainbow_18
+  - first:
+      213: -3063971993331252889
+    second: rock-rainbow_19
+  - first:
+      213: -1040825788146998288
+    second: rock-rainbow_20
+  - first:
+      213: 8409341977939295341
+    second: rock-rainbow_21
+  - first:
+      213: -4132661763953971079
+    second: rock-rainbow_22
+  - first:
+      213: 2910341507379007562
+    second: rock-rainbow_23
+  - first:
+      213: 224848044526350293
+    second: rock-rainbow_24
+  - first:
+      213: -8456961261999455200
+    second: rock-rainbow_25
+  - first:
+      213: -8667312873969702703
+    second: rock-rainbow_26
+  - first:
+      213: 8871170779581790577
+    second: rock-rainbow_27
+  - first:
+      213: 7665290502603798818
+    second: rock-rainbow_28
+  - first:
+      213: -3443976270305868823
+    second: rock-rainbow_29
+  - first:
+      213: 2688549662495102202
+    second: rock-rainbow_30
+  - first:
+      213: -2763694672581917510
+    second: rock-rainbow_31
+  - first:
+      213: -1556182136234598387
+    second: rock-rainbow_32
+  - first:
+      213: -7680259496156369997
+    second: rock-rainbow_33
+  - first:
+      213: 308736949837677044
+    second: rock-rainbow_34
+  - first:
+      213: 2367882349737249871
+    second: rock-rainbow_35
+  - first:
+      213: 1823556658326541830
+    second: rock-rainbow_36
+  - first:
+      213: 1671550072772163855
+    second: rock-rainbow_37
+  - first:
+      213: 8054412183594931946
+    second: rock-rainbow_38
+  - first:
+      213: -3107376117207904547
+    second: rock-rainbow_39
+  - first:
+      213: -2019581511992481651
+    second: rock-rainbow_40
+  - first:
+      213: -5756622604218725978
+    second: rock-rainbow_41
+  - first:
+      213: -5106257226117735316
+    second: rock-rainbow_42
+  - first:
+      213: -5513585925124051360
+    second: rock-rainbow_43
+  - first:
+      213: -2790324168987864838
+    second: rock-rainbow_44
+  - first:
+      213: -7443695844077486843
+    second: rock-rainbow_45
+  - first:
+      213: -5804146695629358038
+    second: rock-rainbow_46
+  - first:
+      213: -893272120936725601
+    second: rock-rainbow_47
+  - first:
+      213: -7825740664838140673
+    second: rock-rainbow_48
+  - first:
+      213: 2046308041582874100
+    second: rock-rainbow_49
+  - first:
+      213: 3908650045608076258
+    second: rock-rainbow_50
+  - first:
+      213: 3995557413835952159
+    second: rock-rainbow_51
+  - first:
+      213: 2986439509137422938
+    second: rock-rainbow_52
+  - first:
+      213: 885754309500050333
+    second: rock-rainbow_53
+  - first:
+      213: -389552762188814945
+    second: rock-rainbow_54
+  - first:
+      213: 1279231989437750995
+    second: rock-rainbow_55
+  - first:
+      213: -4950059562107060921
+    second: rock-rainbow_56
+  - first:
+      213: -5152033545116019804
+    second: rock-rainbow_57
+  - first:
+      213: 3643212186108146305
+    second: rock-rainbow_58
+  - first:
+      213: 6797761150932073879
+    second: rock-rainbow_59
+  - first:
+      213: -1586977476433036221
+    second: rock-rainbow_60
+  - first:
+      213: 6847926799589790391
+    second: rock-rainbow_61
+  - first:
+      213: 5463869286766958393
+    second: rock-rainbow_62
+  - first:
+      213: 3618128092679602681
+    second: rock-rainbow_63
+  - first:
+      213: -6887356155332041716
+    second: rock-rainbow_64
+  - first:
+      213: 8814970992807811250
+    second: rock-rainbow_65
+  - first:
+      213: -2295770814761431057
+    second: rock-rainbow_66
+  - first:
+      213: -5487531011819022197
+    second: rock-rainbow_67
+  - first:
+      213: 6562323696150509885
+    second: rock-rainbow_68
+  - first:
+      213: -4311250004525217716
+    second: rock-rainbow_69
+  - first:
+      213: -2769295799732897742
+    second: rock-rainbow_70
+  - first:
+      213: 5398216044987111469
+    second: rock-rainbow_71
+  - first:
+      213: -4568451200087231932
+    second: rock-rainbow_72
+  - first:
+      213: 1847900114408763406
+    second: rock-rainbow_73
+  - first:
+      213: -5202951443823340204
+    second: rock-rainbow_74
+  - first:
+      213: 1651547795487644012
+    second: rock-rainbow_75
+  - first:
+      213: -4755441974919642585
+    second: rock-rainbow_76
+  - first:
+      213: -5174912023537891353
+    second: rock-rainbow_77
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rock-rainbow_0
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 1680
+        width: 670
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41315a0c0415b8d80800000000000000
+      internalID: -8247408954047130860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_1
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 2364
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 529b45e763baf50e0800000000000000
+      internalID: -2278914635890116315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_2
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 2365
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39e680987cdb88630800000000000000
+      internalID: 3929599339575930515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_3
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 2145
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f58da4f0ca2ca7b0800000000000000
+      internalID: -5211743660547406352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_4
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 2156
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a61029d29fb91fd0800000000000000
+      internalID: -2370653091404966234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_5
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 2125
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d70eb7b35eaa0cc0800000000000000
+      internalID: -3743988465616943143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_6
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 2108
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7078426e78daefe00800000000000000
+      internalID: 1080491759808841479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_7
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 2036
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1f06c72941aa6480800000000000000
+      internalID: -8905127977599758566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_8
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 2047
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e9af9407ea45f4d0800000000000000
+      internalID: -3101490412299245088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_9
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 2000
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48712594c8fc165f0800000000000000
+      internalID: -765102260243785852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_10
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 1977
+        width: 21
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71c2ce6f141b5a330800000000000000
+      internalID: 3721575563965246487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_11
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 2010
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13da0da8c2c123a30800000000000000
+      internalID: 4193445180668423473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_12
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 1979
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbb599c0d603293b0800000000000000
+      internalID: -5507286149399749697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_13
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 1970
+        width: 11
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ad054e4be3abdee0800000000000000
+      internalID: -1235213441757278809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_14
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 1272
+        width: 708
+        height: 715
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5329d86a0d7368400800000000000000
+      internalID: 326009392317960757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_15
+      rect:
+        serializedVersion: 2
+        x: 1333
+        y: 1985
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4803367266b7cb60800000000000000
+      internalID: 7766376616429815886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_16
+      rect:
+        serializedVersion: 2
+        x: 1393
+        y: 1986
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9dadf21dde17bab0800000000000000
+      internalID: -4992487727061684834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_17
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1964
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f8f10eb9b7317e30800000000000000
+      internalID: 4499438773616113904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_18
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 1933
+        width: 18
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a2c12fe7141d3900800000000000000
+      internalID: 665710412949471913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_19
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 1956
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 761ceb7a4b59a75d0800000000000000
+      internalID: -3063971993331252889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_20
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 1942
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f3ae60d57e3e81f0800000000000000
+      internalID: -1040825788146998288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_21
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 1933
+        width: 10
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6c3add69fbf3b470800000000000000
+      internalID: 8409341977939295341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_22
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 1893
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9703fae7506d5a6c0800000000000000
+      internalID: -4132661763953971079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_23
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 1676
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a40966a6e2c936820800000000000000
+      internalID: 2910341507379007562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_24
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 1670
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5df2f6eea12de1300800000000000000
+      internalID: 224848044526350293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_25
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 1676
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02488430a86d2aa80800000000000000
+      internalID: -8456961261999455200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_26
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 1674
+        width: 33
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d8adddccd487b780800000000000000
+      internalID: -8667312873969702703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_27
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 1672
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1793cc292dabc1b70800000000000000
+      internalID: 8871170779581790577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_28
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 1674
+        width: 25
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 229ffd38915906a60800000000000000
+      internalID: 7665290502603798818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_29
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 1677
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e34b8144d98430d0800000000000000
+      internalID: -3443976270305868823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_30
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 1666
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af4540a6ca5af4520800000000000000
+      internalID: 2688549662495102202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_31
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 1669
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab48d15865265a9d0800000000000000
+      internalID: -2763694672581917510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_32
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 1643
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d00ade39794576ae0800000000000000
+      internalID: -1556182136234598387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_33
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 1656
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bb67c41eac3a6590800000000000000
+      internalID: -7680259496156369997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_34
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 1606
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f1cc10ce9ad84400800000000000000
+      internalID: 308736949837677044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_35
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 1583
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4c810693786cd020800000000000000
+      internalID: 2367882349737249871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_36
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 1575
+        width: 11
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6061a5f7e139e4910800000000000000
+      internalID: 1823556658326541830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_37
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1564
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f09fcd75fe9823710800000000000000
+      internalID: 1671550072772163855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_38
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 1565
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae611c5f43507cf60800000000000000
+      internalID: 8054412183594931946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_39
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 1568
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dde4a4e82e160e4d0800000000000000
+      internalID: -3107376117207904547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_40
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 1554
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d88edb6a05109f3e0800000000000000
+      internalID: -2019581511992481651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_41
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 1560
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a90f89cd3e5c10b0800000000000000
+      internalID: -5756622604218725978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_42
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 866
+        width: 682
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6c1b716b1ee229b0800000000000000
+      internalID: -5106257226117735316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_43
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 1546
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06e236630decb73b0800000000000000
+      internalID: -5513585925124051360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_44
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 1536
+        width: 18
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af09a4bb3f6c649d0800000000000000
+      internalID: -2790324168987864838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_45
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 1341
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50db5b5711ea2b890800000000000000
+      internalID: -7443695844077486843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_46
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 1352
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2c31cef457837fa0800000000000000
+      internalID: -5804146695629358038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_47
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 1320
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f938ecf1db57a93f0800000000000000
+      internalID: -893272120936725601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_48
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 1303
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffc4effe352656390800000000000000
+      internalID: -7825740664838140673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_49
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 1269
+        width: 16
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fd829f6252f56c10800000000000000
+      internalID: 2046308041582874100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_50
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 1262
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e3a8cfe1805e3630800000000000000
+      internalID: 3908650045608076258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_51
+      rect:
+        serializedVersion: 2
+        x: 1321
+        y: 1268
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f10de5b6c42137730800000000000000
+      internalID: 3995557413835952159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_52
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 1258
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5af35529e6f17920800000000000000
+      internalID: 2986439509137422938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_53
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 1264
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9b95000ad4da4c00800000000000000
+      internalID: 885754309500050333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_54
+      rect:
+        serializedVersion: 2
+        x: 1431
+        y: 1266
+        width: 26
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f95a674a3d7089af0800000000000000
+      internalID: -389552762188814945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_55
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 1270
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ded0cb77beb0c110800000000000000
+      internalID: 1279231989437750995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_56
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 1261
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74d35970e0bdd4bb0800000000000000
+      internalID: -4950059562107060921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_57
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 1229
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a3967099cc4088b0800000000000000
+      internalID: -5152033545116019804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_58
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 1241
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 182b9524e2a4f8230800000000000000
+      internalID: 3643212186108146305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_59
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 1232
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79db14d20cf765e50800000000000000
+      internalID: 6797761150932073879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_60
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 1192
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34cb9a2b46ce9f9e0800000000000000
+      internalID: -1586977476433036221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_61
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 1169
+        width: 21
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b25d617429b80f50800000000000000
+      internalID: 6847926799589790391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_62
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1171
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93759e0ea2093db40800000000000000
+      internalID: 5463869286766958393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_63
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 1162
+        width: 11
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f18704a45c263230800000000000000
+      internalID: 3618128092679602681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_64
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 1156
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0465d741123b60a0800000000000000
+      internalID: -6887356155332041716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_65
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 1124
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b89eab0a61155a70800000000000000
+      internalID: 8814970992807811250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_66
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 1148
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fef8f648b98c320e0800000000000000
+      internalID: -2295770814761431057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_67
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 1134
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8856927e9f58d3b0800000000000000
+      internalID: -5487531011819022197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_68
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1123
+        width: 10
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d39fd2a02ae021b50800000000000000
+      internalID: 6562323696150509885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_69
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 1083
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c488f5e76fc5b24c0800000000000000
+      internalID: -4311250004525217716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_70
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 862
+        width: 16
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23870fa742c7199d0800000000000000
+      internalID: -2769295799732897742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_71
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 856
+        width: 16
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d28554654e05aea40800000000000000
+      internalID: 5398216044987111469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_72
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 861
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 442f71596d99990c0800000000000000
+      internalID: -4568451200087231932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_73
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 852
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e00fcbb0d5f05a910800000000000000
+      internalID: 1847900114408763406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_74
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 858
+        width: 16
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 455dd4f6a376bc7b0800000000000000
+      internalID: -5202951443823340204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_75
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 859
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c69de9f38f97be610800000000000000
+      internalID: 1651547795487644012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_76
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 863
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 722ceee18b6410eb0800000000000000
+      internalID: -4755441974919642585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rock-rainbow_77
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 854
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e74025bee40f28b0800000000000000
+      internalID: -5174912023537891353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      rock-rainbow_0: -8247408954047130860
+      rock-rainbow_1: -2278914635890116315
+      rock-rainbow_10: 3721575563965246487
+      rock-rainbow_11: 4193445180668423473
+      rock-rainbow_12: -5507286149399749697
+      rock-rainbow_13: -1235213441757278809
+      rock-rainbow_14: 326009392317960757
+      rock-rainbow_15: 7766376616429815886
+      rock-rainbow_16: -4992487727061684834
+      rock-rainbow_17: 4499438773616113904
+      rock-rainbow_18: 665710412949471913
+      rock-rainbow_19: -3063971993331252889
+      rock-rainbow_2: 3929599339575930515
+      rock-rainbow_20: -1040825788146998288
+      rock-rainbow_21: 8409341977939295341
+      rock-rainbow_22: -4132661763953971079
+      rock-rainbow_23: 2910341507379007562
+      rock-rainbow_24: 224848044526350293
+      rock-rainbow_25: -8456961261999455200
+      rock-rainbow_26: -8667312873969702703
+      rock-rainbow_27: 8871170779581790577
+      rock-rainbow_28: 7665290502603798818
+      rock-rainbow_29: -3443976270305868823
+      rock-rainbow_3: -5211743660547406352
+      rock-rainbow_30: 2688549662495102202
+      rock-rainbow_31: -2763694672581917510
+      rock-rainbow_32: -1556182136234598387
+      rock-rainbow_33: -7680259496156369997
+      rock-rainbow_34: 308736949837677044
+      rock-rainbow_35: 2367882349737249871
+      rock-rainbow_36: 1823556658326541830
+      rock-rainbow_37: 1671550072772163855
+      rock-rainbow_38: 8054412183594931946
+      rock-rainbow_39: -3107376117207904547
+      rock-rainbow_4: -2370653091404966234
+      rock-rainbow_40: -2019581511992481651
+      rock-rainbow_41: -5756622604218725978
+      rock-rainbow_42: -5106257226117735316
+      rock-rainbow_43: -5513585925124051360
+      rock-rainbow_44: -2790324168987864838
+      rock-rainbow_45: -7443695844077486843
+      rock-rainbow_46: -5804146695629358038
+      rock-rainbow_47: -893272120936725601
+      rock-rainbow_48: -7825740664838140673
+      rock-rainbow_49: 2046308041582874100
+      rock-rainbow_5: -3743988465616943143
+      rock-rainbow_50: 3908650045608076258
+      rock-rainbow_51: 3995557413835952159
+      rock-rainbow_52: 2986439509137422938
+      rock-rainbow_53: 885754309500050333
+      rock-rainbow_54: -389552762188814945
+      rock-rainbow_55: 1279231989437750995
+      rock-rainbow_56: -4950059562107060921
+      rock-rainbow_57: -5152033545116019804
+      rock-rainbow_58: 3643212186108146305
+      rock-rainbow_59: 6797761150932073879
+      rock-rainbow_6: 1080491759808841479
+      rock-rainbow_60: -1586977476433036221
+      rock-rainbow_61: 6847926799589790391
+      rock-rainbow_62: 5463869286766958393
+      rock-rainbow_63: 3618128092679602681
+      rock-rainbow_64: -6887356155332041716
+      rock-rainbow_65: 8814970992807811250
+      rock-rainbow_66: -2295770814761431057
+      rock-rainbow_67: -5487531011819022197
+      rock-rainbow_68: 6562323696150509885
+      rock-rainbow_69: -4311250004525217716
+      rock-rainbow_7: -8905127977599758566
+      rock-rainbow_70: -2769295799732897742
+      rock-rainbow_71: 5398216044987111469
+      rock-rainbow_72: -4568451200087231932
+      rock-rainbow_73: 1847900114408763406
+      rock-rainbow_74: -5202951443823340204
+      rock-rainbow_75: 1651547795487644012
+      rock-rainbow_76: -4755441974919642585
+      rock-rainbow_77: -5174912023537891353
+      rock-rainbow_8: -3101490412299245088
+      rock-rainbow_9: -765102260243785852
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

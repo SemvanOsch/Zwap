@@ -2,29 +2,48 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Growing-circle background transition. A circle expands from the fish's position;
-// inside the circle the NEW map is shown, outside it the OLD map stays, until the
-// circle covers the whole screen and the swap is committed.
+// Growing-circle map transition. A circle expands from the fish's position; inside the
+// circle the NEW map is shown, outside it the OLD map stays, until the circle covers
+// the whole screen and the swap is committed.
 //
-// Setup (see the component's fields):
+// This reveals any number of LAYERS at once (background + rock side borders + ...),
+// all clipped to the same circle so they change in perfect sync. Each layer is a pair
+// of RawImages: a base/old image shown normally, and an overlay copy parented under the
+// mask. The caller (ControlBackground) supplies these pairs plus the target texture per
+// layer via RevealRequest.
+//
+// Setup:
 //   Canvas
-//   ├─ Background (RawImage)          = baseImage (the OLD map, scrolled by BackgroundScroller)
-//   └─ RevealCircle (Image + Mask)    = circle   (Image uses a circle sprite, e.g. Unity's "Knob";
-//      └─ NewBackground (RawImage)    = revealImage    Mask's "Show Mask Graphic" OFF)
+//   ├─ Background   (RawImage)          = a layer's base image (scrolled)
+//   ├─ RockLeft     (RawImage)          = a layer's base image (scrolled)
+//   ├─ RockRight    (RawImage)          = a layer's base image (scrolled)
+//   └─ RevealCircle (Image + Mask)      = circle (Image uses a circle sprite; Mask's
+//      ├─ NewBackground (RawImage)         "Show Mask Graphic" OFF). Each overlay is a
+//      ├─ NewRockLeft   (RawImage)         DIRECT child of the circle so it's clipped.
+//      └─ NewRockRight  (RawImage)
 //
 // The circle grows via its RectTransform sizeDelta (NOT localScale) so the masked
-// child map is clipped, never zoomed. revealImage is kept full-screen and in scroll
-// sync with baseImage every frame.
+// overlays are clipped, never zoomed. Each overlay is matched to its own base image's
+// rect and kept in scroll sync every frame.
 public class BackgroundReveal : MonoBehaviour
 {
     public static BackgroundReveal Instance;
 
-    [Header("Images")]
-    [Tooltip("The base/old background RawImage — the SAME one assigned to ControlBackground and scrolled by BackgroundScroller.")]
-    [SerializeField] private RawImage baseImage;
+    // One layer to reveal: its base/old image, the masked overlay copy, and the texture
+    // the overlay is transitioning to. Built at runtime by ControlBackground.
+    public struct RevealRequest
+    {
+        public RawImage baseImage;
+        public RawImage overlay;
+        public Texture newTexture;
 
-    [Tooltip("The overlay RawImage that shows the new map, masked to the circle. Child of the RevealCircle object.")]
-    [SerializeField] private RawImage revealImage;
+        public RevealRequest(RawImage baseImage, RawImage overlay, Texture newTexture)
+        {
+            this.baseImage = baseImage;
+            this.overlay = overlay;
+            this.newTexture = newTexture;
+        }
+    }
 
     [Header("Circle")]
     [Tooltip("RectTransform of the masked circle (Image + Mask). Its pivot and anchor must both be centered. Grown via sizeDelta.")]
@@ -40,7 +59,7 @@ public class BackgroundReveal : MonoBehaviour
     [SerializeField] private int circleResolution = 512;
 
     [Header("References")]
-    [Tooltip("The Canvas's RectTransform, used to convert the fish position to canvas space and to size the overlay.")]
+    [Tooltip("The Canvas's RectTransform, used to convert the fish position to canvas space and to place the overlays.")]
     [SerializeField] private RectTransform canvasRect;
 
     [Tooltip("The fish/player transform — the circle grows from here.")]
@@ -60,12 +79,12 @@ public class BackgroundReveal : MonoBehaviour
     [SerializeField] private float radiusMargin = 1.05f;
 
     private Coroutine routine;
-    private Texture pending; // the texture the running reveal is transitioning to
+    private RevealRequest[] active; // the layers of the reveal currently in progress
 
     // Fires every frame during a reveal with the same eased 0..1 fraction that drives
     // the circle's size, and once more with exactly 1f on commit. Other systems (e.g.
-    // a rock's water-swirl color) can subscribe to this to stay in lockstep with the
-    // circle's visual growth instead of switching instantly.
+    // a rock's water-swirl color, falling-object skins) subscribe to this to stay in
+    // lockstep with the circle's visual growth instead of switching instantly.
     public event System.Action<float> OnRevealProgress;
 
     private void Awake()
@@ -85,9 +104,134 @@ public class BackgroundReveal : MonoBehaviour
 
         // Start hidden — no reveal in progress. The circle GameObject stays ACTIVE
         // (this script lives on it and must be able to run coroutines); collapsing it
-        // to size 0 makes its Mask clip the overlay to nothing, so it shows nothing.
+        // to size 0 makes its Mask clip the overlays to nothing, so it shows nothing.
         if (circle != null) circle.sizeDelta = Vector2.zero;
-        if (revealImage != null) revealImage.gameObject.SetActive(false);
+    }
+
+    // Kick off (or fast-forward then restart) a circle reveal for the given layers.
+    public void Reveal(RevealRequest[] requests)
+    {
+        if (requests == null || requests.Length == 0)
+            return;
+
+        // Missing any piece needed for the animation -> just swap instantly so the
+        // game never gets stuck on the wrong map.
+        if (circle == null || canvasRect == null || fish == null)
+        {
+            InstantApply(requests);
+            return;
+        }
+
+        // A reveal is already playing: commit it immediately so its targets aren't lost,
+        // then start the new one from the finished state.
+        if (routine != null)
+        {
+            StopCoroutine(routine);
+            Commit();
+        }
+
+        // Nothing to do if every layer already shows its target.
+        bool anyChange = false;
+        foreach (var r in requests)
+        {
+            if (r.baseImage != null && r.newTexture != null && r.baseImage.texture != r.newTexture)
+            {
+                anyChange = true;
+                break;
+            }
+        }
+        if (!anyChange)
+            return;
+
+        routine = StartCoroutine(RevealRoutine(requests));
+    }
+
+    // Immediately set every layer's base texture, no animation (used at startup and as
+    // the fallback when the reveal can't run).
+    public void InstantApply(RevealRequest[] requests)
+    {
+        if (requests == null)
+            return;
+
+        foreach (var r in requests)
+        {
+            if (r.baseImage != null && r.newTexture != null)
+                r.baseImage.texture = r.newTexture;
+        }
+    }
+
+    private IEnumerator RevealRoutine(RevealRequest[] requests)
+    {
+        active = requests;
+
+        // Freeze the circle's center on the fish (in canvas space) for the whole reveal.
+        Vector2 center = FishCanvasPoint();
+        circle.anchoredPosition = center;
+
+        // Prepare each overlay: show its new texture, and match its rect EXACTLY to its
+        // own base image so the new map lines up 1:1 (same scale, framing and position).
+        foreach (var r in requests)
+        {
+            if (r.overlay == null || r.baseImage == null)
+                continue;
+
+            r.overlay.texture = r.newTexture;
+            r.overlay.color = Color.white; // opaque; otherwise the old map shows through
+            r.overlay.uvRect = r.baseImage.uvRect;
+
+            MatchRect(r.overlay.rectTransform, r.baseImage.rectTransform);
+
+            r.overlay.gameObject.SetActive(true);
+        }
+
+        float diameter = MaxRadiusToCorners(center) * 2f * radiusMargin;
+        circle.sizeDelta = Vector2.zero;
+
+        float t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            float k = duration > 0f ? Mathf.Clamp01(t / duration) : 1f;
+            float eased = ease.Evaluate(k);
+            circle.sizeDelta = new Vector2(eased * diameter, eased * diameter);
+            OnRevealProgress?.Invoke(eased);
+
+            // Keep every overlay in scroll sync with its base so the reveal is seamless.
+            foreach (var r in requests)
+            {
+                if (r.overlay != null && r.baseImage != null)
+                    r.overlay.uvRect = r.baseImage.uvRect;
+            }
+            yield return null;
+        }
+
+        Commit();
+    }
+
+    // Finish a reveal: each new map becomes its base, and the overlays are hidden so
+    // we're back to the cheap single-image steady state.
+    private void Commit()
+    {
+        if (active != null)
+        {
+            foreach (var r in active)
+            {
+                if (r.baseImage != null && r.newTexture != null)
+                    r.baseImage.texture = r.newTexture;
+                if (r.overlay != null)
+                    r.overlay.gameObject.SetActive(false);
+            }
+        }
+        active = null;
+
+        OnRevealProgress?.Invoke(1f); // guarantee listeners land exactly on the final value
+
+        // Collapse the circle (its Mask then shows nothing) but keep it active so this
+        // script can start the next reveal's coroutine.
+        if (circle != null)
+            circle.sizeDelta = Vector2.zero;
+
+        routine = null;
     }
 
     // Builds a white, anti-aliased filled circle as a Sprite. Used as the mask shape;
@@ -125,102 +269,29 @@ public class BackgroundReveal : MonoBehaviour
         return Sprite.Create(tex, new Rect(0f, 0f, size, size), new Vector2(0.5f, 0.5f));
     }
 
-    // Kick off (or fast-forward then restart) a circle reveal to the given texture.
-    public void Reveal(Texture tex)
+    private static readonly Vector3[] cornerBuf = new Vector3[4];
+
+    // Places `overlay` over the exact on-screen rectangle occupied by `baseRT`, robust
+    // to the base image's anchors, pivot, and any scale on it or its parents. Copies the
+    // base's world corners and compensates for the overlay parent's own scale — so an
+    // overlay parented under the circle still lands 1:1 on top of its base image.
+    private void MatchRect(RectTransform overlay, RectTransform baseRT)
     {
-        if (baseImage == null || tex == null)
-            return;
+        baseRT.GetWorldCorners(cornerBuf); // 0=bottom-left, 1=top-left, 2=top-right, 3=bottom-right
+        Vector3 worldCenter = (cornerBuf[0] + cornerBuf[2]) * 0.5f;
+        float worldWidth = Vector3.Distance(cornerBuf[0], cornerBuf[3]);
+        float worldHeight = Vector3.Distance(cornerBuf[0], cornerBuf[1]);
 
-        // Missing any piece needed for the animation -> just swap instantly so the
-        // game never gets stuck on the wrong background.
-        if (revealImage == null || circle == null || canvasRect == null || fish == null)
-        {
-            baseImage.texture = tex;
-            return;
-        }
+        overlay.anchorMin = overlay.anchorMax = new Vector2(0.5f, 0.5f);
+        overlay.pivot = new Vector2(0.5f, 0.5f);
+        overlay.localScale = Vector3.one;
 
-        // A reveal is already playing: commit it immediately so its target isn't lost,
-        // then start the new one from the finished state.
-        if (routine != null)
-        {
-            StopCoroutine(routine);
-            Commit();
-        }
+        Vector3 parentScale = overlay.parent != null ? overlay.parent.lossyScale : Vector3.one;
+        float sx = Mathf.Approximately(parentScale.x, 0f) ? 1f : parentScale.x;
+        float sy = Mathf.Approximately(parentScale.y, 0f) ? 1f : parentScale.y;
+        overlay.sizeDelta = new Vector2(worldWidth / sx, worldHeight / sy);
 
-        // Nothing to do if we're already showing this map.
-        if (tex == baseImage.texture)
-            return;
-
-        routine = StartCoroutine(RevealRoutine(tex));
-    }
-
-    private IEnumerator RevealRoutine(Texture tex)
-    {
-        pending = tex;
-
-        revealImage.texture = tex;
-        revealImage.uvRect = baseImage.uvRect;
-        // Fully opaque, untinted — otherwise the old map shows through and the new one
-        // looks translucent during the wipe.
-        revealImage.color = Color.white;
-
-        // Match the overlay's rect EXACTLY to the base map, so the new map is shown at
-        // the same scale and framing. Without this the new texture is stretched over a
-        // different-sized rect and looks zoomed-in / low-detail inside the circle.
-        RectTransform baseRT = baseImage.rectTransform;
-        RectTransform overlayRT = revealImage.rectTransform;
-        overlayRT.anchorMin = overlayRT.anchorMax = new Vector2(0.5f, 0.5f);
-        overlayRT.pivot = new Vector2(0.5f, 0.5f);
-        overlayRT.sizeDelta = baseRT.rect.size;
-
-        // Freeze the circle's center on the fish (in canvas space) for the whole reveal.
-        Vector2 center = FishCanvasPoint();
-        circle.anchoredPosition = center;
-
-        // Position the overlay so it overlaps the base map 1:1, compensating for the
-        // circle it's parented to (overlay pos is relative to the circle's center).
-        Vector2 baseCenter = (Vector2)canvasRect.InverseTransformPoint(baseRT.TransformPoint(baseRT.rect.center));
-        overlayRT.anchoredPosition = baseCenter - center;
-
-        float diameter = MaxRadiusToCorners(center) * 2f * radiusMargin;
-
-        revealImage.gameObject.SetActive(true);
-        circle.sizeDelta = Vector2.zero;
-
-        float t = 0f;
-        while (t < duration)
-        {
-            t += Time.deltaTime;
-            float k = duration > 0f ? Mathf.Clamp01(t / duration) : 1f;
-            float eased = ease.Evaluate(k);
-            circle.sizeDelta = new Vector2(eased * diameter, eased * diameter);
-            OnRevealProgress?.Invoke(eased);
-
-            // Stay in scroll sync with the base map so the reveal is seamless.
-            revealImage.uvRect = baseImage.uvRect;
-            yield return null;
-        }
-
-        Commit();
-    }
-
-    // Finish a reveal: the new map becomes the base, and the overlay is hidden so we're
-    // back to the cheap single-image steady state.
-    private void Commit()
-    {
-        if (pending != null)
-            baseImage.texture = pending;
-
-        OnRevealProgress?.Invoke(1f); // guarantee listeners land exactly on the final value
-
-        // Collapse the circle (its Mask then shows nothing) but keep it active so this
-        // script can start the next reveal's coroutine.
-        if (circle != null)
-            circle.sizeDelta = Vector2.zero;
-        if (revealImage != null)
-            revealImage.gameObject.SetActive(false);
-
-        routine = null;
+        overlay.position = worldCenter;
     }
 
     // Fish world position -> point in canvasRect's local space.

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6699625963249174140}
   - component: {fileID: 2511196548380628927}
-  - component: {fileID: 6376809572622171141}
   - component: {fileID: 2864335691809274187}
   - component: {fileID: 3009193054213696258}
   - component: {fileID: 1643064021892119670}
@@ -92,33 +91,11 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.4516134, y: 14.73}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!95 &6376809572622171141
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161412674535546430}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f66c0ec2ef8cf4ad49116bf9d72f3160, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!70 &2864335691809274187
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -170,11 +147,78 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStart
   moveSpeed: 0.3
   touchSensitivity: 0.5
+  joystickSensitivity: 0.5
   cam: {fileID: 0}
-  padding: 2
-  _animator: {fileID: 6376809572622171141}
+  paddingFractionX: 0.05
+  paddingFractionY: 0.05
   speedPerScore: 0.002
   maxSpeedMultiplier: 3
+  followDeadzone: 0.1
+  followSensitivity: 0.5
+  sliderControls: {fileID: 0}
+  sliderSensitivity: 0.5
+  skins:
+  - skinName: Default
+    frames:
+    - {fileID: -4538433864535026286, guid: 87eb9f640739b4a8e9be5cc757878209, type: 3}
+    - {fileID: 4182233719899166443, guid: 87eb9f640739b4a8e9be5cc757878209, type: 3}
+    - {fileID: -4277593647437367421, guid: 87eb9f640739b4a8e9be5cc757878209, type: 3}
+    - {fileID: -5864000554651509889, guid: 87eb9f640739b4a8e9be5cc757878209, type: 3}
+    - {fileID: 9201632422511523959, guid: 87eb9f640739b4a8e9be5cc757878209, type: 3}
+    - {fileID: -7014884864912180425, guid: 87eb9f640739b4a8e9be5cc757878209, type: 3}
+    pingPong: 1
+  - skinName: Robo
+    frames:
+    - {fileID: -2373775345610137398, guid: 7b088d63fa3c8aa49b5043c4b151b5ed, type: 3}
+    - {fileID: -678385052880463676, guid: 7b088d63fa3c8aa49b5043c4b151b5ed, type: 3}
+    - {fileID: -7847574480200084888, guid: 7b088d63fa3c8aa49b5043c4b151b5ed, type: 3}
+    - {fileID: -8904309661645734009, guid: 7b088d63fa3c8aa49b5043c4b151b5ed, type: 3}
+    - {fileID: -2016006713259842027, guid: 7b088d63fa3c8aa49b5043c4b151b5ed, type: 3}
+    - {fileID: 1885356844053227999, guid: 7b088d63fa3c8aa49b5043c4b151b5ed, type: 3}
+    - {fileID: -3184186697534075550, guid: 7b088d63fa3c8aa49b5043c4b151b5ed, type: 3}
+    - {fileID: 333102266997456408, guid: 7b088d63fa3c8aa49b5043c4b151b5ed, type: 3}
+    pingPong: 1
+  - skinName: Koi
+    frames:
+    - {fileID: -8464106817141722918, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
+    - {fileID: 6539327699446029056, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
+    - {fileID: -7766516936396821798, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
+    - {fileID: 792922996299731838, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
+    - {fileID: -8491408753240629906, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
+    - {fileID: -7267850422695593499, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
+    - {fileID: 7054875542260937609, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
+    - {fileID: 798646867394936902, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
+    pingPong: 1
+  fallbackSkinIndex: 0
+  playerSpriteRenderer: {fileID: 2511196548380628927}
+  idleFrameLength: 0.15
+  movingFrameLength: 0.08
+  speedTransitionDuration: 0.25
+  speedTransitionExitTime: 0.7
+  hitEffectFrameLength: 0.08
+  hitEffectSortingOrder: 10
+  firstHitSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  firstHitSound: {fileID: 0}
+  secondHitSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  secondHitSound: {fileID: 0}
+  recoverySprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  recoverySound: {fileID: 0}
+  hitWindowDuration: 3
+  blinkInterval: 0.12
+  blinkColor: {r: 1, g: 0, b: 0, a: 1}
+  audioSource: {fileID: 0}
+  gameOverScene:
+    sceneAsset: {fileID: 0}
+    sceneName: 
 --- !u!114 &1643064021892119670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +245,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ControlSwitcher
   switchInterval: 10
+  shockEffectPrefab: {fileID: 0}
+  shockBangDelay: 3.24
   controlPanels:
   - type: 1
     normalPanel: {fileID: 0}
@@ -208,7 +254,11 @@ MonoBehaviour:
   nextControlIcon: {fileID: 0}
   tiltSprite: {fileID: 7825453866717813237, guid: fe2b306f89ce0c54d8bfea940d3f7c9a, type: 3}
   touchSprite: {fileID: 1446098369628453845, guid: 652300e21288eea418968d44b5253756, type: 3}
+  followSprite: {fileID: 0}
+  joystickSprite: {fileID: 0}
+  sliderSprite: {fileID: 0}
   invertedSprite: {fileID: -7002430021844421038, guid: 00436ff0ce78b094a9c4732d242f7495, type: 3}
+  joystickInvertedSprite: {fileID: 0}
   inverseChance: 0.3
   invertibleControls: 01000000
 --- !u!50 &8450627948985621674

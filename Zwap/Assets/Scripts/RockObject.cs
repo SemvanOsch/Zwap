@@ -9,8 +9,20 @@ public class RockWaterEffect : MonoBehaviour
     [SerializeField] private int sortingOrder = -1; // lager dan de rots = tekent erachter (zelfde Sorting Layer!)
 
     [Header("Dimensie-kleuren")]
-    [SerializeField] private Color[] dimensionColors = new Color[8]; // 1 kleur per ControlType/dimensie, index = (int)ControlType
+    [Tooltip("1 kleur per ControlType (index = (int)ControlType), plus eventueel extra kleuren aan het eind voor specifieke inverted-varianten (zie Inverted Overrides).")]
+    [SerializeField] private Color[] dimensionColors = new Color[8]; // 6 basis + 2 dedicated inverted, voor nu
     [SerializeField] private int currentDimensionIndex = 0; // startkleur bij spawn
+
+    [System.Serializable]
+    public class InvertedColorOverride
+    {
+        public ControlType type;
+        [Tooltip("Index in dimensionColors die dit type gebruikt zodra het inverted is.")]
+        public int invertedColorIndex;
+    }
+
+    [Tooltip("Alleen de types die hier genoemd staan krijgen een eigen kleur voor hun inverted-variant. Elk ander type gebruikt gewoon zijn normale kleur, ook als het inverted is.")]
+    [SerializeField] private InvertedColorOverride[] invertedOverrides;
 
     private SpriteRenderer sr;
     private bool subscribedToSwitcher;
@@ -34,10 +46,16 @@ public class RockWaterEffect : MonoBehaviour
 
         if (frames == null || frames.Length == 0) return;
 
+        int dimensionCount = System.Enum.GetValues(typeof(ControlType)).Length;
+        if (dimensionColors == null || dimensionColors.Length < dimensionCount)
+        {
+            Debug.LogWarning($"RockWaterEffect: dimensionColors heeft {(dimensionColors?.Length ?? 0)} kleuren, maar er zijn {dimensionCount} ControlTypes. Vergroot de array (Size) anders krijgen hogere dimensies allemaal de laatste kleur.", this);
+        }
+
         // Pak de dimensie die NU echt actief is, i.p.v. altijd bij index 0 te starten —
         // anders toont een net gespawnde rots de verkeerde kleur tot de volgende wissel.
         if (ControlSwitcher.Instance != null && dimensionColors != null && dimensionColors.Length > 0)
-            currentDimensionIndex = Mathf.Clamp((int)ControlSwitcher.Instance.CurrentControl, 0, dimensionColors.Length - 1);
+            currentDimensionIndex = ComputeDimensionIndex(ControlSwitcher.Instance.CurrentControl, ControlSwitcher.Instance.IsInverted);
 
         var fx = new GameObject("WaterSwirl");
         fx.transform.SetParent(transform, false);
@@ -75,13 +93,31 @@ public class RockWaterEffect : MonoBehaviour
         subscribedToReveal = true;
     }
 
-    // Elke dimensie wordt straks een eigen ControlType; (int)newControl wordt direct
-    // gebruikt als index in dimensionColors.
+    // Basis-index = (int)type. Alleen als dit type in invertedOverrides staat EN
+    // inverted is, wordt de aparte, daarvoor aangewezen index gebruikt.
+    private int ComputeDimensionIndex(ControlType type, bool inverted)
+    {
+        if (inverted && invertedOverrides != null)
+        {
+            foreach (var o in invertedOverrides)
+            {
+                if (o.type == type)
+                    return Mathf.Clamp(o.invertedColorIndex, 0, dimensionColors.Length - 1);
+            }
+        }
+
+        return Mathf.Clamp((int)type, 0, dimensionColors.Length - 1);
+    }
+
     private void HandleControlChanged(ControlType newControl)
     {
         if (dimensionColors == null || dimensionColors.Length == 0) return;
 
-        int newIndex = Mathf.Clamp((int)newControl, 0, dimensionColors.Length - 1);
+        // Het event geeft alleen het ControlType door; IsInverted lezen we, net als
+        // ControlBackground doet, los uit de switcher — die staat er al bij tegen de
+        // tijd dat dit event afgaat.
+        bool inverted = ControlSwitcher.Instance != null && ControlSwitcher.Instance.IsInverted;
+        int newIndex = ComputeDimensionIndex(newControl, inverted);
 
         if (BackgroundReveal.Instance == null)
         {

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5625870249454440949}
   - component: {fileID: 862086326993458479}
   - component: {fileID: 8553210915218838785}
+  - component: {fileID: 1309624340655762086}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Entity
@@ -179,6 +180,40 @@ MonoBehaviour:
   - {r: 0.56101286, g: 1, b: 0.48742133, a: 1}
   - {r: 0.50628924, g: 0.70364773, b: 1, a: 1}
   - {r: 1, g: 0.97733957, b: 0.51257855, a: 1}
-  - {r: 1, g: 0.5251572, b: 0.89957136, a: 1}
-  - {r: 1, g: 0.7236755, b: 0.51886785, a: 1}
+  - {r: 0.3461096, g: 0.5507525, b: 0.6289307, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
   currentDimensionIndex: 0
+  invertedOverrides:
+  - type: 1
+    invertedColorIndex: 6
+  - type: 3
+    invertedColorIndex: 7
+--- !u!114 &1309624340655762086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223877303238547685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6eb82b65c95085498804c11b035f391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectVariant
+  skins:
+  - type: 0
+    normalSprite: {fileID: -8578491068274069562, guid: 92d8d833148e6a24484132bad654670d, type: 3}
+    invertedSprite: {fileID: 0}
+  - type: 1
+    normalSprite: {fileID: 6898035379108858973, guid: 4d8681ff287fe5a4d9be71f693139f01, type: 3}
+    invertedSprite: {fileID: 0}
+  - type: 2
+    normalSprite: {fileID: 7070523001487488714, guid: 20d110508ddba9f4f86e91ae22276b6c, type: 3}
+    invertedSprite: {fileID: 0}
+  - type: 3
+    normalSprite: {fileID: 7070523001487488714, guid: 20d110508ddba9f4f86e91ae22276b6c, type: 3}
+    invertedSprite: {fileID: -8247408954047130860, guid: b9bc57afdd693b5449696e36d8cd0370, type: 3}
+  - type: 4
+    normalSprite: {fileID: -5673737255382854229, guid: caac96f8fb7489a429a939abaa49409c, type: 3}
+    invertedSprite: {fileID: 0}
+  swapAtRevealProgress: 0.5
