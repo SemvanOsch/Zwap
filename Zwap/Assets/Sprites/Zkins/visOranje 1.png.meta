@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: bd314184037aee145b74b550abba6868
+guid: 197c53f46f2ab44459e8180b92822c1b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -706284179297705200
-    second: visOranje_0
+      213: -8464106817141722918
+    second: visOranje 1_0
   - first:
-      213: 4598195651429635575
-    second: visOranje_1
+      213: 6539327699446029056
+    second: visOranje 1_1
   - first:
-      213: -5876372272739278750
-    second: visOranje_2
+      213: -7766516936396821798
+    second: visOranje 1_2
   - first:
-      213: 1896102041063650973
-    second: visOranje_3
+      213: 792922996299731838
+    second: visOranje 1_3
   - first:
-      213: -3574875926036297715
-    second: visOranje_4
+      213: -8491408753240629906
+    second: visOranje 1_4
   - first:
-      213: 8218919135882780887
-    second: visOranje_5
+      213: -7267850422695593499
+    second: visOranje 1_5
   - first:
-      213: 4371153181136628895
-    second: visOranje_6
+      213: 7054875542260937609
+    second: visOranje 1_6
   - first:
-      213: -4530788752266559307
-    second: visOranje_7
+      213: 798646867394936902
+    second: visOranje 1_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -134,177 +134,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: visOranje_0
+      name: visOranje 1_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 492
+        x: 13
+        y: 979
         width: 453
-        height: 1118
+        height: 1119
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0136b7ee746c236f0800000000000000
-      internalID: -706284179297705200
+      spriteID: ad03e4fc1b3798a80800000000000000
+      internalID: -8464106817141722918
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: visOranje_1
+      name: visOranje 1_1
       rect:
         serializedVersion: 2
-        x: 358
-        y: 480
+        x: 566
+        y: 977
         width: 439
-        height: 1121
+        height: 1122
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7f5953b259210df30800000000000000
-      internalID: 4598195651429635575
+      spriteID: 00b5a5355eb50ca50800000000000000
+      internalID: 6539327699446029056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: visOranje_2
+      name: visOranje 1_2
       rect:
         serializedVersion: 2
-        x: 721
-        y: 480
+        x: 1128
+        y: 977
         width: 320
-        height: 1121
+        height: 1122
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 260ab636d8ee27ea0800000000000000
-      internalID: -5876372272739278750
+      spriteID: ada2300cef9c73490800000000000000
+      internalID: -7766516936396821798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: visOranje_3
+      name: visOranje 1_3
       rect:
         serializedVersion: 2
-        x: 1103
-        y: 466
+        x: 1602
+        y: 963
         width: 331
-        height: 1132
+        height: 1133
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d96fd77a2ce405a10800000000000000
-      internalID: 1896102041063650973
+      spriteID: e731fa89347010b00800000000000000
+      internalID: 792922996299731838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: visOranje_4
+      name: visOranje 1_4
       rect:
         serializedVersion: 2
-        x: 1527
-        y: 478
+        x: 2166
+        y: 962
         width: 331
-        height: 1132
+        height: 1133
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d08c288294d736ec0800000000000000
-      internalID: -3574875926036297715
+      spriteID: e6d13747ab4782a80800000000000000
+      internalID: -8491408753240629906
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: visOranje_5
+      name: visOranje 1_5
       rect:
         serializedVersion: 2
-        x: 1966
-        y: 479
+        x: 2626
+        y: 957
         width: 320
-        height: 1121
+        height: 1122
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7d024fb88677f0270800000000000000
-      internalID: 8218919135882780887
+      spriteID: 5e97e8a1c88632b90800000000000000
+      internalID: -7267850422695593499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: visOranje_6
+      name: visOranje 1_6
       rect:
         serializedVersion: 2
-        x: 2211
-        y: 469
+        x: 3003
+        y: 954
         width: 439
-        height: 1121
+        height: 1122
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9ca77ca8a479ac30800000000000000
-      internalID: 4371153181136628895
+      spriteID: 983fd076de3f7e160800000000000000
+      internalID: 7054875542260937609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: visOranje_7
+      name: visOranje 1_7
       rect:
         serializedVersion: 2
-        x: 2525
-        y: 474
+        x: 3517
+        y: 958
         width: 453
-        height: 1118
+        height: 1119
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5b001dc82a76f11c0800000000000000
-      internalID: -4530788752266559307
+      spriteID: 640cd00381d551b00800000000000000
+      internalID: 798646867394936902
       vertices: []
       indices: 
       edges: []
@@ -313,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: eb035816694c0734d9a06606438e63b8
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -323,14 +323,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      visOranje_0: -706284179297705200
-      visOranje_1: 4598195651429635575
-      visOranje_2: -5876372272739278750
-      visOranje_3: 1896102041063650973
-      visOranje_4: -3574875926036297715
-      visOranje_5: 8218919135882780887
-      visOranje_6: 4371153181136628895
-      visOranje_7: -4530788752266559307
+      visOranje 1_0: -8464106817141722918
+      visOranje 1_1: 6539327699446029056
+      visOranje 1_2: -7766516936396821798
+      visOranje 1_3: 792922996299731838
+      visOranje 1_4: -8491408753240629906
+      visOranje 1_5: -7267850422695593499
+      visOranje 1_6: 7054875542260937609
+      visOranje 1_7: 798646867394936902
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

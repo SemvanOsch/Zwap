@@ -635,7 +635,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.171}
-  m_AnchoredPosition: {x: 0, y: 1.9999847}
+  m_AnchoredPosition: {x: 0, y: 1.9999695}
   m_SizeDelta: {x: 0.0000019073486, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &883182906
@@ -975,7 +975,7 @@ MonoBehaviour:
   skinSprites:
   - {fileID: 4182233719899166443, guid: 87eb9f640739b4a8e9be5cc757878209, type: 3}
   - {fileID: -2016006713259842027, guid: 7b088d63fa3c8aa49b5043c4b151b5ed, type: 3}
-  - {fileID: 1896102041063650973, guid: bd314184037aee145b74b550abba6868, type: 3}
+  - {fileID: -7766516936396821798, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
 --- !u!222 &1135417303
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1392,7 +1392,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1896102041063650973, guid: bd314184037aee145b74b550abba6868, type: 3}
+  m_Sprite: {fileID: -7766516936396821798, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

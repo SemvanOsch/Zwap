@@ -180,14 +180,14 @@ MonoBehaviour:
     pingPong: 0
   - skinName: Koi
     frames:
-    - {fileID: -706284179297705200, guid: bd314184037aee145b74b550abba6868, type: 3}
-    - {fileID: 4598195651429635575, guid: bd314184037aee145b74b550abba6868, type: 3}
-    - {fileID: -5876372272739278750, guid: bd314184037aee145b74b550abba6868, type: 3}
-    - {fileID: 1896102041063650973, guid: bd314184037aee145b74b550abba6868, type: 3}
-    - {fileID: -3574875926036297715, guid: bd314184037aee145b74b550abba6868, type: 3}
-    - {fileID: 8218919135882780887, guid: bd314184037aee145b74b550abba6868, type: 3}
-    - {fileID: 4371153181136628895, guid: bd314184037aee145b74b550abba6868, type: 3}
-    - {fileID: -4530788752266559307, guid: bd314184037aee145b74b550abba6868, type: 3}
+    - {fileID: -8464106817141722918, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
+    - {fileID: 6539327699446029056, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
+    - {fileID: -7766516936396821798, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
+    - {fileID: 792922996299731838, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
+    - {fileID: -8491408753240629906, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
+    - {fileID: -7267850422695593499, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
+    - {fileID: 7054875542260937609, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
+    - {fileID: 798646867394936902, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
     pingPong: 1
   fallbackSkinIndex: 0
   playerSpriteRenderer: {fileID: 2511196548380628927}
