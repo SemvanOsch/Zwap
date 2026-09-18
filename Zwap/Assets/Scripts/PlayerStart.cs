@@ -52,6 +52,32 @@ public class PlayerStart : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float sliderSensitivity = 0.5f; // 1 = full speed toward the slider point, lower = slower glide
 
+    [Header("Slingshot")]
+    [SerializeField] private float maxLaunchSpeed = 12f; // hard cap on launch speed (world units/sec) — the "max speed"
+
+    [Range(0f, 1f)]
+    [SerializeField] private float slingSensitivity = 0.5f; // slide sensitivity: 0.5 = neutral, higher reaches max speed with less pull
+
+    [Range(0.05f, 1f)]
+    [SerializeField] private float maxPullFraction = 0.35f; // a full-power pull, as a fraction of screen height (device-independent)
+
+    [Range(0.02f, 0.5f)]
+    [SerializeField] private float grabRadiusFraction = 0.12f; // a press must land this close to the fish (fraction of screen height) to grab it
+
+    [SerializeField] private float slingDeceleration = 8f; // world units/sec^2 the fish sheds while coasting
+    [SerializeField] private float slingStopThreshold = 0.05f; // below this speed the fish counts as stopped (idle animation)
+
+    [Tooltip("When the finger is pinned against a screen edge (out of room to pull further), holding this many seconds adds full power on top of the current pull. Lets you escape a wall you can't drag away from.")]
+    [SerializeField] private float slingEdgeChargeTime = 1f;
+
+    [Range(0.01f, 0.15f)]
+    [Tooltip("How close to a screen edge (as a fraction of screen height) the finger must be, while pulling into that edge, to count as pinned and start charging.")]
+    [SerializeField] private float slingEdgeThresholdFraction = 0.04f;
+
+    [Tooltip("Optional. A LineRenderer that draws the aim line while pulling. Points the launch way and grows with power.")]
+    [SerializeField] private LineRenderer aimLine;
+    [SerializeField] private float maxAimLineLength = 3f; // world-unit length of the aim line at full power
+
     [Header("Skins")]
     [SerializeField] private FishSkin[] skins;
     [SerializeField] private int fallbackSkinIndex = 0; // gebruikt zolang er nog geen selectiescherm is (of geen PlayerPrefs-waarde bestaat)
@@ -103,6 +129,15 @@ public class PlayerStart : MonoBehaviour
     private Color normalColor;
 
     private float multiplier = 1f;
+
+    // --- Slingshot state ---
+    private Vector2 slingVelocity;       // our own coast velocity (integrated via MovePosition, like every other mode)
+    private bool slingAiming;            // true while the fish is grabbed and being pulled back
+    private bool slingWasPressed;        // pointer state last FixedUpdate, to detect press/release edges
+    private Vector2 slingAnchorScreen;   // screen point where the pull started
+    private Vector2 slingCurrentScreen;  // latest finger screen point while pulling
+    private float slingChargeN;          // extra normalized power banked by holding at an edge
+    private float slingEffectivePullN;   // current power (drag + charge), 0..1, used on release and for the aim line
 
     // --- Skin/frame animation state ---
     private FishSkin currentSkin;
@@ -280,6 +315,12 @@ public class PlayerStart : MonoBehaviour
         moveInput = Vector2.zero;
         rb.linearVelocity = Vector2.zero; // stop any coasting carried over from the previous mode
 
+        // Drop any slingshot coast/aim so it can't bleed into the next mode.
+        slingVelocity = Vector2.zero;
+        slingAiming = false;
+        slingWasPressed = false;
+        if (aimLine != null) aimLine.enabled = false;
+
         // Entering Slider mode: park the handles on the fish's current position so
         // the absolute mapping doesn't yank it to wherever the sliders were left.
         if (newControl == ControlType.Slider && sliderControls != null
@@ -367,6 +408,10 @@ public class PlayerStart : MonoBehaviour
         else if (current == ControlType.Slider)
         {
             target = GetSliderTarget(out isMoving);
+        }
+        else if (current == ControlType.Slingshot)
+        {
+            target = GetSlingshotTarget(out isMoving);
         }
         else
         {
@@ -471,6 +516,133 @@ public class PlayerStart : MonoBehaviour
 
         float maxStep = moveSpeed * multiplier * sliderSensitivity;
         return Vector3.MoveTowards(pos, destination, maxStep);
+    }
+
+    // Golf-game slingshot: hold on the fish, drag back, release. The fish launches
+    // opposite the drag and coasts to a stop, sliding along a wall it hits instead of
+    // bouncing. We keep our own velocity vector and move via MovePosition (like every
+    // other mode), so it never fights the Rigidbody's gravity/body settings.
+    private Vector3 GetSlingshotTarget(out bool isMoving)
+    {
+        Vector3 pos = transform.position;
+
+        // Read the primary touch (or mouse in the editor), same source as Follow mode.
+        bool pressed = false;
+        Vector2 screenPos = Vector2.zero;
+        if (Touchscreen.current != null)
+        {
+            pressed = Touchscreen.current.primaryTouch.press.isPressed;
+            screenPos = Touchscreen.current.primaryTouch.position.ReadValue();
+        }
+        else if (Pointer.current != null)
+        {
+            pressed = Pointer.current.press.isPressed;
+            screenPos = Pointer.current.position.ReadValue();
+        }
+
+        float grabRadiusPx = grabRadiusFraction * Screen.height;
+        float maxPullPx = Mathf.Max(1f, maxPullFraction * Screen.height);
+
+        // Press began: only grab if it landed near the fish. Grabbing mid-coast is
+        // allowed — it catches the fish so the player can immediately re-fling.
+        if (pressed && !slingWasPressed && cam != null)
+        {
+            Vector2 fishScreen = cam.WorldToScreenPoint(pos);
+            if (Vector2.Distance(screenPos, fishScreen) <= grabRadiusPx)
+            {
+                slingAiming = true;
+                slingAnchorScreen = screenPos;
+                slingCurrentScreen = screenPos;
+                slingChargeN = 0f;          // fresh grab: no banked charge yet
+                slingEffectivePullN = 0f;
+                slingVelocity = Vector2.zero; // hold still while being aimed
+            }
+        }
+
+        if (slingAiming && pressed)
+        {
+            slingCurrentScreen = screenPos; // fish stays put; we just track the pull
+
+            // Bank extra power while the finger is jammed against a screen edge it's
+            // pulling into (out of room to drag further). This is the only way to reach
+            // full power when the fish is pinned to a wall, where the drag can't grow.
+            if (IsPinnedAtEdge(slingEdgeThresholdFraction * Screen.height))
+                slingChargeN += Time.fixedDeltaTime / Mathf.Max(0.01f, slingEdgeChargeTime);
+
+            // Power shown/fired = drag distance plus any banked edge charge, capped at 1.
+            Vector2 drag = slingAnchorScreen - slingCurrentScreen;
+            slingEffectivePullN = Mathf.Clamp01(ComputePullN(drag, maxPullPx) + slingChargeN);
+        }
+        else if (slingAiming && !pressed)
+        {
+            // Release: launch opposite the pull. maxLaunchSpeed is the hard cap.
+            Vector2 drag = slingAnchorScreen - slingCurrentScreen;
+            slingVelocity = drag.sqrMagnitude > 0.0001f
+                ? drag.normalized * (slingEffectivePullN * maxLaunchSpeed)
+                : Vector2.zero;
+            slingAiming = false;
+        }
+
+        slingWasPressed = pressed;
+
+        // Draw (or hide) the aim line. Launch direction is opposite the drag; screen
+        // axes map straight to world axes under an orthographic, axis-aligned camera.
+        // Length reflects the effective power, so a growing line shows the edge charge.
+        if (aimLine != null)
+        {
+            if (slingAiming)
+            {
+                Vector2 drag = slingAnchorScreen - slingCurrentScreen;
+                Vector3 dir = drag.sqrMagnitude > 0.0001f ? (Vector3)drag.normalized : Vector3.zero;
+                aimLine.positionCount = 2;
+                aimLine.SetPosition(0, pos);
+                aimLine.SetPosition(1, pos + dir * (slingEffectivePullN * maxAimLineLength));
+                aimLine.enabled = true;
+            }
+            else
+            {
+                aimLine.enabled = false;
+            }
+        }
+
+        // Coast: shed speed over time (held-still while aiming keeps velocity at zero).
+        if (!slingAiming)
+            slingVelocity = Vector2.MoveTowards(slingVelocity, Vector2.zero, slingDeceleration * Time.fixedDeltaTime);
+
+        Vector3 target = pos + (Vector3)(slingVelocity * Time.fixedDeltaTime);
+
+        // Wall glide: cancel only the velocity component pushing into the edge, keeping
+        // the tangential component so the fish slides along the wall instead of bouncing.
+        if (TryGetBounds(out Vector2 min, out Vector2 max))
+        {
+            if ((target.x <= min.x && slingVelocity.x < 0f) || (target.x >= max.x && slingVelocity.x > 0f))
+                slingVelocity.x = 0f;
+            if ((target.y <= min.y && slingVelocity.y < 0f) || (target.y >= max.y && slingVelocity.y > 0f))
+                slingVelocity.y = 0f;
+        }
+
+        isMoving = slingVelocity.magnitude > slingStopThreshold;
+        return target;
+    }
+
+    // Pull as a normalized 0..1 power. Sensitivity (0.5 = neutral) scales how quickly
+    // a pull reaches full power; the result is clamped so it can never exceed 1.
+    private float ComputePullN(Vector2 drag, float maxPullPx)
+    {
+        float sensitivityFactor = slingSensitivity * 2f;
+        return Mathf.Clamp01((drag.magnitude / maxPullPx) * sensitivityFactor);
+    }
+
+    // True when the finger sits within edgePx of a screen border AND is pulling further
+    // into that same border (so it's genuinely out of drag room, not just resting there).
+    private bool IsPinnedAtEdge(float edgePx)
+    {
+        Vector2 c = slingCurrentScreen;
+        Vector2 a = slingAnchorScreen;
+
+        bool pinnedX = (c.x >= Screen.width - edgePx && c.x > a.x) || (c.x <= edgePx && c.x < a.x);
+        bool pinnedY = (c.y >= Screen.height - edgePx && c.y > a.y) || (c.y <= edgePx && c.y < a.y);
+        return pinnedX || pinnedY;
     }
 
     public void SetTouchInput(Vector2 dir)

@@ -216,4 +216,7 @@ MonoBehaviour:
   - type: 4
     normalSprite: {fileID: -5673737255382854229, guid: caac96f8fb7489a429a939abaa49409c, type: 3}
     invertedSprite: {fileID: 0}
+  - type: 5
+    normalSprite: {fileID: 4775630859605534401, guid: d2060921456ace747b12259dbf697e22, type: 3}
+    invertedSprite: {fileID: 0}
   swapAtRevealProgress: 0.5
