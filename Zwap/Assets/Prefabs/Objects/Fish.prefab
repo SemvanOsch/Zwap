@@ -189,6 +189,17 @@ MonoBehaviour:
     - {fileID: 7054875542260937609, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
     - {fileID: 798646867394936902, guid: 197c53f46f2ab44459e8180b92822c1b, type: 3}
     pingPong: 1
+  - skinName: Sub
+    frames:
+    - {fileID: -941222759849540844, guid: 0d207519b5e34e94cb9ff23e7810684f, type: 3}
+    - {fileID: -7444771728682132349, guid: 0d207519b5e34e94cb9ff23e7810684f, type: 3}
+    - {fileID: 895641037975425111, guid: 0d207519b5e34e94cb9ff23e7810684f, type: 3}
+    - {fileID: 7935637431235430210, guid: 0d207519b5e34e94cb9ff23e7810684f, type: 3}
+    - {fileID: -5767386709015500426, guid: 0d207519b5e34e94cb9ff23e7810684f, type: 3}
+    - {fileID: -1740886650082209242, guid: 0d207519b5e34e94cb9ff23e7810684f, type: 3}
+    - {fileID: 5658345392934809248, guid: 0d207519b5e34e94cb9ff23e7810684f, type: 3}
+    - {fileID: 5680573607921540426, guid: 0d207519b5e34e94cb9ff23e7810684f, type: 3}
+    pingPong: 1
   fallbackSkinIndex: 0
   playerSpriteRenderer: {fileID: 2511196548380628927}
   idleFrameLength: 0.15
