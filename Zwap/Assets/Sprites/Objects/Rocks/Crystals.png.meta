@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: 49894bba807cab24ba368e2962a52b50
+guid: d2060921456ace747b12259dbf697e22
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6064373767533578506
-    second: intro_3.1_0
+      213: 4775630859605534401
+    second: Crystals_0
+  - first:
+      213: 7308664677214642820
+    second: Crystals_1
+  - first:
+      213: -8237667901665138252
+    second: Crystals_2
+  - first:
+      213: -2467140366469486843
+    second: Crystals_3
+  - first:
+      213: -8602326965400858886
+    second: Crystals_4
+  - first:
+      213: -3283395716511959148
+    second: Crystals_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,32 +99,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -136,33 +125,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: VisionOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -178,13 +141,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: intro_3.1_0
+      name: Crystals_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1080
-        height: 1920
+        x: 77
+        y: 1763
+        width: 838
+        height: 628
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,8 +156,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6f6b6f8503407dba0800000000000000
-      internalID: -6064373767533578506
+      spriteID: 1c66e25e6f2764240800000000000000
+      internalID: 4775630859605534401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystals_1
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 1605
+        width: 455
+        height: 690
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 482e2db0dc79d6560800000000000000
+      internalID: 7308664677214642820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystals_2
+      rect:
+        serializedVersion: 2
+        x: 1986
+        y: 1416
+        width: 448
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b9ac9f30bcedad80800000000000000
+      internalID: -8237667901665138252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystals_3
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 1153
+        width: 1066
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5072f8d78e4f2cdd0800000000000000
+      internalID: -2467140366469486843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystals_4
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 724
+        width: 1060
+        height: 499
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afe8489b3356e9880800000000000000
+      internalID: -8602326965400858886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystals_5
+      rect:
+        serializedVersion: 2
+        x: 2128
+        y: 472
+        width: 830
+        height: 623
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 497f344fdf80f62d0800000000000000
+      internalID: -3283395716511959148
       vertices: []
       indices: 
       edges: []
@@ -213,7 +286,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      intro_3.1_0: -6064373767533578506
+      Crystals_0: 4775630859605534401
+      Crystals_1: 7308664677214642820
+      Crystals_2: -8237667901665138252
+      Crystals_3: -2467140366469486843
+      Crystals_4: -8602326965400858886
+      Crystals_5: -3283395716511959148
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
