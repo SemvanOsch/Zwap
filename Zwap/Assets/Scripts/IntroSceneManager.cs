@@ -8,10 +8,16 @@ using TMPro;
 [Serializable]
 public class IntroScreen
 {
-    public Texture image;              // just drag a texture/PNG here
-    public float displayDuration = 1f; // how long this screen stays up, in seconds
+    public Texture[] images;           // drag one or more textures/PNGs here - they play one after another, evenly split across displayDuration
+    public float displayDuration = 1f; // TOTAL time this screen stays up (shared across all its images), in seconds
     [TextArea]
-    public string captionText;         // optional - leave empty for no text on this screen
+    public string captionText;         // optional - leave empty for no text on this screen. Shown for the whole screen, across all its images.
+
+    [Header("Optional extras")]
+    public bool showFishOverlay;           // if true, the player's currently selected skin is drawn on top for this screen's whole duration
+    public float lastFrameExtraDuration;  // optional - extra seconds added on top of this screen's last frame only. Leave at 0 for even spacing.
+    public Vector2 overlayStartPos;       // anchored position (on overlayImage's RectTransform) where the overlay starts this screen
+    public Vector2 overlayEndPos;         // anchored position it has drifted to by the end of this screen. Leave both the same for no movement.
 }
 
 public class IntroSceneManager : MonoBehaviour
@@ -25,10 +31,14 @@ public class IntroSceneManager : MonoBehaviour
     [Header("Intro Screens")]
     [SerializeField] private RawImage introImage;          // one RawImage, positioned/sized how you like, layered above the home screen in the Hierarchy
     [SerializeField] private TMP_Text introCaptionText;    // optional - a text element layered over introImage, for screens that have captionText set
-    [SerializeField] private IntroScreen[] introScreens;   // add/remove freely - just drag textures in, set each duration
+    [SerializeField] private IntroScreen[] introScreens;   // add/remove freely - each screen can hold several sprites shown evenly across its displayDuration
+    [SerializeField] private Image overlayImage;           // optional decorative layer (the selected skin/fish) - place it above introImage in the Hierarchy
+
+    [Header("Fish / Skin")]
+    [SerializeField] private SkinPreview skinPreview;      // drag in your existing SkinPreview component (any hierarchy depth, active or not - a direct reference works either way)
 
     [Header("Skip")]
-    [SerializeField] private Button skipButton;            // optional - an invisible full-screen button over introImage; tapping it skips to the next screen instantly
+    [SerializeField] private Button skipButton;            // optional - an invisible full-screen button over introImage; tapping it skips straight to the next screen
 
     [Header("Home Screen (optional)")]
     [SerializeField] private GameObject[] objectsToHideDuringZoom; // e.g. Play button, highscore board
@@ -88,20 +98,20 @@ public class IntroSceneManager : MonoBehaviour
     {
         SetObjectsActive(objectsToHideDuringZoom, false);
 
+        Sprite selectedSkinSprite = GetSelectedSkinSprite();
+
         // 1) Zoom the whole home screen UI in toward the target point
         if (zoomRoot != null && zoomTargetRect != null)
             yield return StartCoroutine(ZoomUI());
 
-        // 2) Show each texture over the home screen, one at a time
+        // 2) Play each screen's sprites, evenly spaced within that screen's window
         if (introImage != null)
         {
             for (int i = 0; i < introScreens.Length; i++)
             {
                 IntroScreen screen = introScreens[i];
-                if (screen.image == null) continue;
-
-                introImage.texture = screen.image;
-                introImage.gameObject.SetActive(true);
+                if (screen.images == null || screen.images.Length == 0)
+                    continue;
 
                 if (introCaptionText != null)
                 {
@@ -110,14 +120,70 @@ public class IntroSceneManager : MonoBehaviour
                     introCaptionText.gameObject.SetActive(hasCaption);
                 }
 
-                yield return StartCoroutine(WaitOrSkip(screen.displayDuration));
+                // Optional decorative overlay - the player's selected skin - that sits on top for this whole screen
+                bool hasOverlay = overlayImage != null && screen.showFishOverlay && selectedSkinSprite != null;
+                if (overlayImage != null)
+                {
+                    if (hasOverlay)
+                    {
+                        overlayImage.sprite = selectedSkinSprite;
+                        overlayImage.rectTransform.anchoredPosition = screen.overlayStartPos;
+                        overlayImage.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        overlayImage.gameObject.SetActive(false);
+                    }
+                }
 
                 bool isLastScreen = i == introScreens.Length - 1;
-                if (!isLastScreen)
-                    introImage.gameObject.SetActive(false);
-                // if it's the last screen, leave it active - it'll stay on
-                // top until the new scene finishes loading, avoiding a
-                // flash of the home screen underneath.
+                float perImageDuration = screen.displayDuration / screen.images.Length;
+                float totalScreenDuration = screen.displayDuration + screen.lastFrameExtraDuration;
+                float elapsedBeforeFrame = 0f;
+
+                for (int j = 0; j < screen.images.Length; j++)
+                {
+                    Texture image = screen.images[j];
+                    if (image == null) continue;
+
+                    introImage.texture = image;
+                    introImage.gameObject.SetActive(true);
+
+                    bool isLastImage = j == screen.images.Length - 1;
+                    float thisFrameDuration = perImageDuration + (isLastImage ? screen.lastFrameExtraDuration : 0f);
+
+                    // Work out how far the overlay should have drifted by the start and
+                    // end of THIS frame, as a fraction of the screen's total duration -
+                    // this keeps its motion one smooth, steady drift across every frame
+                    // in the screen (including the held-longer last one), not a jump per frame.
+                    Vector2 fromPos = screen.overlayStartPos;
+                    Vector2 toPos = screen.overlayStartPos;
+                    if (hasOverlay && totalScreenDuration > 0f)
+                    {
+                        float fromProgress = elapsedBeforeFrame / totalScreenDuration;
+                        float toProgress = (elapsedBeforeFrame + thisFrameDuration) / totalScreenDuration;
+                        fromPos = Vector2.Lerp(screen.overlayStartPos, screen.overlayEndPos, fromProgress);
+                        toPos = Vector2.Lerp(screen.overlayStartPos, screen.overlayEndPos, toProgress);
+                    }
+
+                    yield return StartCoroutine(WaitOrSkip(thisFrameDuration, hasOverlay ? overlayImage : null, fromPos, toPos));
+
+                    elapsedBeforeFrame += thisFrameDuration;
+
+                    if (skipRequested)
+                    {
+                        // Skip jumps straight to the next screen, same as before -
+                        // it doesn't just advance to the next sprite within this screen.
+                        skipRequested = false;
+                        break;
+                    }
+
+                    if (!(isLastScreen && isLastImage))
+                        introImage.gameObject.SetActive(false);
+                    // if it's the very last image of the very last screen, leave it
+                    // active - it'll stay on top until the new scene finishes loading,
+                    // avoiding a flash of the home screen underneath.
+                }
             }
         }
 
@@ -134,6 +200,9 @@ public class IntroSceneManager : MonoBehaviour
         if (introCaptionText != null)
             introCaptionText.gameObject.SetActive(false);
 
+        if (overlayImage != null)
+            overlayImage.gameObject.SetActive(false);
+
         if (zoomRoot != null)
         {
             zoomRoot.localPosition = originalLocalPosition;
@@ -142,6 +211,14 @@ public class IntroSceneManager : MonoBehaviour
 
         SetObjectsActive(objectsToHideDuringZoom, true);
         isPlaying = false;
+    }
+
+    // Simply defers to the existing SkinPreview component, so there's a single
+    // source of truth for "which skin is selected" rather than two copies of
+    // the skin list and PlayerPrefs key.
+    private Sprite GetSelectedSkinSprite()
+    {
+        return skinPreview != null ? skinPreview.GetSelectedSkinSprite() : null;
     }
 
     private void SetObjectsActive(GameObject[] objects, bool active)
@@ -162,18 +239,27 @@ public class IntroSceneManager : MonoBehaviour
         skipRequested = true;
     }
 
-    private IEnumerator WaitOrSkip(float duration)
+    private IEnumerator WaitOrSkip(float duration, Image overlay, Vector2 overlayFromPos, Vector2 overlayToPos)
     {
-        skipRequested = false;
+        if (overlay != null)
+            overlay.rectTransform.anchoredPosition = overlayFromPos;
 
         float t = 0f;
         while (t < duration && !skipRequested)
         {
             t += Time.unscaledDeltaTime;
+
+            if (overlay != null)
+            {
+                float progress = duration > 0f ? Mathf.Clamp01(t / duration) : 1f;
+                overlay.rectTransform.anchoredPosition = Vector2.Lerp(overlayFromPos, overlayToPos, progress);
+            }
+
             yield return null;
         }
 
-        skipRequested = false;
+        if (overlay != null)
+            overlay.rectTransform.anchoredPosition = overlayToPos;
     }
 
     private IEnumerator ZoomUI()

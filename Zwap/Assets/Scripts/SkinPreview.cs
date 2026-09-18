@@ -77,4 +77,19 @@ public class SkinPreview : MonoBehaviour
 
         SetSkin(index);
     }
+
+    // Lets other scripts (e.g. the intro sequence) read the player's currently
+    // selected skin sprite directly, without needing their own copy of
+    // skinSprites or knowing about PlayerStart.SkinPrefsKey. Works even if this
+    // GameObject is inactive or nested deep in a menu - it doesn't depend on
+    // Awake having run, it reads PlayerPrefs itself each time it's called.
+    public Sprite GetSelectedSkinSprite()
+    {
+        if (skinSprites == null || skinSprites.Length == 0) return null;
+
+        int index = PlayerPrefs.GetInt(PlayerStart.SkinPrefsKey, 0);
+        if (index < 0 || index >= skinSprites.Length) return null;
+
+        return skinSprites[index];
+    }
 }
