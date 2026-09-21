@@ -1033,7 +1033,7 @@ PrefabInstance:
     - target: {fileID: 8579035696156347547, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: slingshotSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2428b3141e8c1d84c9dc883a9900318e, type: 3}
+      objectReference: {fileID: 3683170113380467368, guid: bf0e0d7618d6be147a0a191a0a29d5ee, type: 3}
     - target: {fileID: 8579035696156347547, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: shockEffectPrefab
       value: 
