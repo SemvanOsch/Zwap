@@ -34,7 +34,8 @@ Transform:
   m_LocalPosition: {x: -1.0266, y: -0.3761, z: 1}
   m_LocalScale: {x: 0.5698869, y: 0.49564582, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4045056479089484639}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2511196548380628927
@@ -87,7 +88,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7014884864912180425, guid: 87eb9f640739b4a8e9be5cc757878209, type: 3}
-  m_Color: {r: 0.5, g: 0.38443395, b: 0.38443395, a: 1}
+  m_Color: {r: 0.5, g: 0.38443395, b: 0.38443395, a: 0.8627451}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -149,14 +150,24 @@ MonoBehaviour:
   touchSensitivity: 0.5
   joystickSensitivity: 0.5
   cam: {fileID: 0}
-  paddingFractionX: 0.05
-  paddingFractionY: 0.05
+  paddingFractionX: 0.25
+  paddingFractionY: 0.1
   speedPerScore: 0.002
   maxSpeedMultiplier: 3
   followDeadzone: 0.1
   followSensitivity: 0.5
   sliderControls: {fileID: 0}
   sliderSensitivity: 0.5
+  maxLaunchSpeed: 16
+  slingSensitivity: 0.6
+  maxPullFraction: 0.35
+  grabRadiusFraction: 0.15
+  slingDeceleration: 7
+  slingStopThreshold: 0.05
+  slingEdgeChargeTime: 0.8
+  slingEdgeThresholdFraction: 0.04
+  aimLine: {fileID: 5681757853519845958}
+  maxAimLineLength: 3
   skins:
   - skinName: Default
     frames:
@@ -209,27 +220,36 @@ MonoBehaviour:
   hitEffectFrameLength: 0.08
   hitEffectSortingOrder: 10
   firstHitSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  firstHitSound: {fileID: 0}
+  - {fileID: -1406369263830624049, guid: bbc48ad737d1fe14bb3acc07ad2eef93, type: 3}
+  - {fileID: 1514733709569861521, guid: bbc48ad737d1fe14bb3acc07ad2eef93, type: 3}
+  - {fileID: -6185419184951043727, guid: bbc48ad737d1fe14bb3acc07ad2eef93, type: 3}
+  firstHitSound: {fileID: 8300000, guid: 50452aee08420a247b6dcbdabb0a7120, type: 3}
   secondHitSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  secondHitSound: {fileID: 0}
+  - {fileID: -1116285609385462369, guid: 97fbc4443918a3640a89f048aaf0e63f, type: 3}
+  - {fileID: 3790518965646698876, guid: 97fbc4443918a3640a89f048aaf0e63f, type: 3}
+  - {fileID: -8852228774408660075, guid: 97fbc4443918a3640a89f048aaf0e63f, type: 3}
+  - {fileID: -8237100011581386553, guid: 97fbc4443918a3640a89f048aaf0e63f, type: 3}
+  - {fileID: 32893237259480202, guid: 97fbc4443918a3640a89f048aaf0e63f, type: 3}
+  - {fileID: -4085440114446207813, guid: 97fbc4443918a3640a89f048aaf0e63f, type: 3}
+  - {fileID: -7217869524579280045, guid: 97fbc4443918a3640a89f048aaf0e63f, type: 3}
+  - {fileID: -3529257971168133473, guid: 97fbc4443918a3640a89f048aaf0e63f, type: 3}
+  - {fileID: 4243485814001743029, guid: 97fbc4443918a3640a89f048aaf0e63f, type: 3}
+  - {fileID: -5792328639405483881, guid: 97fbc4443918a3640a89f048aaf0e63f, type: 3}
+  secondHitSound: {fileID: 8300000, guid: b40d54c2cae4c294fb42f593889b9d80, type: 3}
   recoverySprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  recoverySound: {fileID: 0}
+  - {fileID: 9111328991988386314, guid: 35efd5b28b71dcb4fb6e73573f2881be, type: 3}
+  - {fileID: 6395143929626583595, guid: 35efd5b28b71dcb4fb6e73573f2881be, type: 3}
+  - {fileID: -4875607995970440959, guid: 35efd5b28b71dcb4fb6e73573f2881be, type: 3}
+  - {fileID: 5132467886829867236, guid: 35efd5b28b71dcb4fb6e73573f2881be, type: 3}
+  - {fileID: 7474837014398690751, guid: 35efd5b28b71dcb4fb6e73573f2881be, type: 3}
+  recoverySound: {fileID: 8300000, guid: 855d7216b9223b647a10820fe96c42af, type: 3}
   hitWindowDuration: 3
-  blinkInterval: 0.12
-  blinkColor: {r: 1, g: 0, b: 0, a: 1}
+  blinkInterval: 0.35
+  blinkColor: {r: 1, g: 0, b: 0, a: 0.8627451}
   audioSource: {fileID: 0}
   gameOverScene:
-    sceneAsset: {fileID: 0}
-    sceneName: 
+    sceneAsset: {fileID: 102900000, guid: 9f6a4676ec70f24488a265edf8d3e4c7, type: 3}
+    sceneName: Game-over
 --- !u!114 &1643064021892119670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,22 +276,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ControlSwitcher
   switchInterval: 10
-  shockEffectPrefab: {fileID: 0}
+  shockEffectPrefab: {fileID: 2689088838736693599, guid: aa47a6f0a98da3d4bbc1b66f3465fdc6, type: 3}
   shockBangDelay: 3.24
   controlPanels:
   - type: 1
     normalPanel: {fileID: 0}
     invertedPanel: {fileID: 0}
+  - type: 3
+    normalPanel: {fileID: 0}
+    invertedPanel: {fileID: 0}
+  - type: 4
+    normalPanel: {fileID: 0}
+    invertedPanel: {fileID: 0}
   nextControlIcon: {fileID: 0}
   tiltSprite: {fileID: 7825453866717813237, guid: fe2b306f89ce0c54d8bfea940d3f7c9a, type: 3}
   touchSprite: {fileID: 1446098369628453845, guid: 652300e21288eea418968d44b5253756, type: 3}
-  followSprite: {fileID: 0}
-  joystickSprite: {fileID: 0}
-  sliderSprite: {fileID: 0}
+  followSprite: {fileID: -6673855010269493280, guid: f474992ce4f0600448bf36ba4ef9700e, type: 3}
+  joystickSprite: {fileID: -2958781280793026067, guid: 87b047dd9a04fc14e8750fc2b1e2ab19, type: 3}
+  sliderSprite: {fileID: 3201898036628771695, guid: 9fadb7b14db905d4f9bfc6340383100e, type: 3}
+  slingshotSprite: {fileID: 3683170113380467368, guid: bf0e0d7618d6be147a0a191a0a29d5ee, type: 3}
   invertedSprite: {fileID: -7002430021844421038, guid: 00436ff0ce78b094a9c4732d242f7495, type: 3}
-  joystickInvertedSprite: {fileID: 0}
-  inverseChance: 0.3
-  invertibleControls: 01000000
+  joystickInvertedSprite: {fileID: 2148166096133664279, guid: 28f5f04b4bc29134f9ce5518478db31b, type: 3}
+  inverseChance: 0.4
+  invertibleControls: 0100000003000000
 --- !u!50 &8450627948985621674
 Rigidbody2D:
   serializedVersion: 5
@@ -299,3 +326,145 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!1 &1945002038827515091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4045056479089484639}
+  - component: {fileID: 5681757853519845958}
+  m_Layer: 0
+  m_Name: AimLine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4045056479089484639
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945002038827515091}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6699625963249174140}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!120 &5681757853519845958
+LineRenderer:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945002038827515091}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 76e3e5a8220e8124084d4c3167197466, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 20
+  m_MaskInteraction: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 0.2466812
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    textureScale: {x: 1, y: 1}
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
+  m_ApplyActiveColorSpace: 1

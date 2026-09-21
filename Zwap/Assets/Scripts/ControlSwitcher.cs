@@ -53,6 +53,22 @@ public class ControlSwitcher : MonoBehaviour
     [Tooltip("Optional. Unique icon for the inverted joystick. Falls back to Inverted Sprite if left empty.")]
     [SerializeField] private Sprite joystickInvertedSprite;
 
+    [Header("Next Control Color")]
+    [SerializeField] private Image nextControlColorImage; // de afbeelding waarvan de kleur meewisselt
+    [Tooltip("Index = (int)ControlType. Vul 8 kleuren: 6 basis + 2 voor de inverted-varianten hieronder (zie Inverted Color Overrides).")]
+    [SerializeField] private Color[] controlColors = new Color[8];
+
+    [System.Serializable]
+    public class ControlColorOverride
+    {
+        public ControlType type;
+        [Tooltip("Index in Control Colors die dit type gebruikt zodra het inverted is.")]
+        public int invertedColorIndex;
+    }
+
+    [Tooltip("Alleen de types hier krijgen een eigen kleur voor hun inverted-variant. Elk ander type gebruikt gewoon zijn normale kleur, ook als het inverted is.")]
+    [SerializeField] private ControlColorOverride[] invertedColorOverrides;
+
     [Header("Inverse")]
     [Range(0f, 1f)]
     [SerializeField] private float inverseChance = 0.3f;
@@ -83,6 +99,7 @@ public class ControlSwitcher : MonoBehaviour
         NextIsInverted = RollInverted(NextControl);
 
         UpdateNextControlIcon();
+        UpdateNextControlColor();
 
         if (shockBangDelay > switchInterval)
             Debug.LogWarning("shockBangDelay is larger than switchInterval — the shock effect will spawn immediately every cycle. Lower shockBangDelay or raise switchInterval.");
@@ -141,6 +158,7 @@ public class ControlSwitcher : MonoBehaviour
 
         UpdatePanels();
         UpdateNextControlIcon();
+        UpdateNextControlColor();
 
         Debug.Log("Current: " + CurrentControl + " (Inverted: " + IsInverted + ")" +
                    " | Next: " + NextControl + " (Inverted: " + NextIsInverted + ")");
@@ -195,6 +213,32 @@ public class ControlSwitcher : MonoBehaviour
         {
             nextControlIcon.sprite = GetSpriteFor(NextControl);
         }
+    }
+
+    // Zelfde bron van waarheid als UpdateNextControlIcon() (NextControl/NextIsInverted),
+    // maar dan voor de kleur van nextControlColorImage. Basis-index = (int)type; alleen
+    // types die in invertedColorOverrides staan krijgen een eigen kleur als ze inverted zijn.
+    private void UpdateNextControlColor()
+    {
+        if (nextControlColorImage == null || controlColors == null || controlColors.Length == 0)
+            return;
+
+        int index = (int)NextControl;
+
+        if (NextIsInverted && invertedColorOverrides != null)
+        {
+            foreach (var o in invertedColorOverrides)
+            {
+                if (o.type == NextControl)
+                {
+                    index = o.invertedColorIndex;
+                    break;
+                }
+            }
+        }
+
+        index = Mathf.Clamp(index, 0, controlColors.Length - 1);
+        nextControlColorImage.color = controlColors[index];
     }
 
     private Sprite GetSpriteFor(ControlType type)
