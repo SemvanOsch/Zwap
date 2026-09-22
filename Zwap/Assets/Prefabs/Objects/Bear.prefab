@@ -80,7 +80,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.14505935}
+  m_Offset: {x: 0.33843803, y: -1.3116882}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -90,7 +90,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.7098813}
+  m_Size: {x: 6.297268, y: 2.0636258}
   m_EdgeRadius: 0
 --- !u!1 &6255794193210782943
 GameObject:
@@ -199,15 +199,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bear
   treePrefab: {fileID: 7905770488391994396, guid: a0a8068e0659ed94d9465ccf42c91ec1, type: 3}
   treeAnchor: {fileID: 0}
+  fitTreeToScreenWidth: 1
   moveSpeed: 10
-  scaleSpeedWithScore: 0
+  scaleSpeedWithScore: 1
   speedPerScore: 0.002
-  maxSpeedMultiplier: 0
-  attackInterval: 4
-  warningDuration: 1
-  swipeActiveDuration: 0.5
+  maxSpeedMultiplier: 1e+26
+  attackInterval: 1
+  warningDuration: 0.5
+  swipeActiveDuration: 0.1
   warningIndicator: {fileID: 0}
-  warningFillColor: {r: 1, g: 0, b: 0, a: 0.35}
+  warningFillColor: {r: 1, g: 0, b: 0, a: 0.28235295}
   logStateChanges: 1
   animator: {fileID: 0}
   attackTriggerName: Attack

@@ -357,24 +357,44 @@ public class Bear : MonoBehaviour
     private void CreateWarningFillRenderer()
     {
         if (swipeHitbox == null)
+        {
+            Debug.LogError("[Bear] Swipe Hitbox is not assigned!");
             return;
+        }
 
         GameObject fillObj = new GameObject("WarningFill (auto-generated)");
-        fillObj.transform.SetParent(swipeHitbox.transform, worldPositionStays: false);
+
+        fillObj.transform.SetParent(
+            swipeHitbox.transform,
+            worldPositionStays: false
+        );
+
+        // Match the collider position.
         fillObj.transform.localPosition = swipeHitbox.offset;
         fillObj.transform.localRotation = Quaternion.identity;
 
         warningFillRenderer = fillObj.AddComponent<SpriteRenderer>();
-        warningFillRenderer.sprite = CreateSolidWhiteSprite();
-        warningFillRenderer.color = warningFillColor;
 
-        // The generated sprite is exactly 1x1 world unit at scale 1, so scale
-        // directly equals the collider's own size in local units - height is
-        // fixed, width starts at 0 and grows toward warningFillFullScaleX.
+        warningFillRenderer.sprite = CreateSolidWhiteSprite();
+
+        warningFillRenderer.color = warningFillColor;
+        // Force it above the tree/bear graphics.
+        warningFillRenderer.sortingOrder = 1000;
+
         warningFillFullScaleX = swipeHitbox.size.x;
-        fillObj.transform.localScale = new Vector3(0f, swipeHitbox.size.y, 1f);
+
+        // Start empty.
+        fillObj.transform.localScale = new Vector3(
+            0f,
+            swipeHitbox.size.y,
+            1f
+        );
 
         fillObj.SetActive(false);
+
+        Debug.Log(
+            $"[Bear] Warning fill created. Hitbox size: {swipeHitbox.size}"
+        );
     }
 
     private static Sprite CreateSolidWhiteSprite()
