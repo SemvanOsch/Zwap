@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 862086326993458479}
   - component: {fileID: 8553210915218838785}
   - component: {fileID: 1309624340655762086}
-  - component: {fileID: 5935146352734617318}
+  - component: {fileID: 5587727427936474165}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Entity
@@ -145,8 +145,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.03710462, y: -0.08505107}
-  m_Size: {x: 8.995545, y: 6.529148}
+  m_Offset: {x: -0.05648516, y: 0.18369487}
+  m_Size: {x: 8.500882, y: 5.635241}
   m_Direction: 1
 --- !u!114 &8553210915218838785
 MonoBehaviour:
@@ -221,7 +221,7 @@ MonoBehaviour:
     normalSprite: {fileID: 4775630859605534401, guid: d2060921456ace747b12259dbf697e22, type: 3}
     invertedSprite: {fileID: 0}
   swapAtRevealProgress: 0.5
---- !u!50 &5935146352734617318
+--- !u!50 &5587727427936474165
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
