@@ -170,6 +170,9 @@ MonoBehaviour:
   inverseSuffix: Inverse
   showDelay: 0.8
   debugIgnoreSaved: 0
+  currentArea:
+    key: 
+    panel: {fileID: 0}
 --- !u!4 &21520183
 Transform:
   m_ObjectHideFlags: 0
@@ -1055,10 +1058,10 @@ RectTransform:
   m_Children:
   - {fileID: 979600095}
   - {fileID: 275483675}
-  - {fileID: 1739472821}
   - {fileID: 57899326}
   - {fileID: 1075109996}
   - {fileID: 1064534556}
+  - {fileID: 831718904}
   m_Father: {fileID: 982890890}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1747,17 +1750,27 @@ MonoBehaviour:
   - {fileID: 1530533901}
   - {fileID: 1875202584}
   pageControls: 0100000001000000000000000400000003000000030000000200000005000000
-  pageInverted: 0001000000010000
+  pageInverted: 
   prevButton: {fileID: 0}
   nextButton: {fileID: 0}
   wrapAround: 1
   dotsParent: {fileID: 0}
   dotPrefab: {fileID: 0}
-  activeDotColor: {r: 1, g: 1, b: 1, a: 1}
-  inactiveDotColor: {r: 1, g: 1, b: 1, a: 0.4}
+  activeDotColor:
+    r: 1
+    g: 1
+    b: 1
+    a: 1
+  inactiveDotColor:
+    r: 1
+    g: 1
+    b: 1
+    a: 0.4
   activeDotSprite: {fileID: 0}
   inactiveDotSprite: {fileID: 0}
   minSwipeDistance: 75
+  currentPage: 0
+  dragStartPosition: {x: 0, y: 0}
 --- !u!114 &502615683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2029,8 +2042,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2511196548380628927, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2511196548380628927, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2511196548380628927, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2511196548380628927, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: m_SortingLayerID
@@ -2043,14 +2064,6 @@ PrefabInstance:
     - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: blinkColor.a
       value: 0.8627451
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511196548380628927, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511196548380628927, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-      propertyPath: m_Color.r
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: sliderControls
@@ -2756,6 +2769,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785350042}
   m_CullTransparentMesh: 1
+--- !u!224 &831718904 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3142973097586609444, guid: 8017286ce7f8e4749b6b6f84c6682e28, type: 3}
+  m_PrefabInstance: {fileID: 5768412683880457936}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &853245880
 GameObject:
   m_ObjectHideFlags: 0
@@ -2819,7 +2837,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 853914235
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Positions:
@@ -2896,7 +2914,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1769865398}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &853293367
 PrefabInstance:
@@ -3383,7 +3401,6 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -34.22998, y: 13.310059}
-  m_AnchoredPosition: {x: -34.22998, y: 13.310059}
   m_SizeDelta: {x: 319.46, y: 201.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &917203043
@@ -3473,6 +3490,7 @@ RectTransform:
   - {fileID: 1099600444}
   - {fileID: 917203042}
   - {fileID: 703131219}
+  - {fileID: 1739472821}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7641,11 +7659,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!212 &1897003631 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 2511196548380628927, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
-  m_PrefabInstance: {fileID: 702984356}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1982533523
 GameObject:
   m_ObjectHideFlags: 0
@@ -8809,3 +8822,4 @@ SceneRoots:
   - {fileID: 733189539}
   - {fileID: 21520183}
   - {fileID: 152919716}
+  - {fileID: 853245882}
