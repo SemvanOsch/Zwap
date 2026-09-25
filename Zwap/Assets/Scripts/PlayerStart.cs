@@ -201,6 +201,7 @@ public class PlayerStart : MonoBehaviour
     {
         UpdateSkinAnimation();
     }
+    
 
     private void UpdateSkinAnimation()
     {
@@ -785,6 +786,17 @@ public class PlayerStart : MonoBehaviour
 
         onComplete?.Invoke();
     }
+    
+    public void ForceFatalHit()
+    {
+        if (isGameOver) return;
+
+        if (hitWindowRoutine != null) StopCoroutine(hitWindowRoutine);
+        ResetBlink();
+        isGameOver = true;
+        HandleGameOver();
+    }
+
 
     private void HandleGameOver()
     {
@@ -813,4 +825,6 @@ public class PlayerStart : MonoBehaviour
 
         SceneManager.LoadScene(gameOverScene);
     }
+    
+    
 }
