@@ -37,6 +37,9 @@ public class PlayerStart : MonoBehaviour
     [Range(0f, 0.5f)]
     [SerializeField] private float paddingFractionY = 0.05f; // gap from the top/bottom edge
 
+    [Tooltip("How far below the bottom of the play area (world units) the fish may be shoved — e.g. pinned under a falling rock — before it dies. Larger = more forgiving. Set it around the bottom padding gap so death only triggers once the fish is actually pushed off-screen.")]
+    [SerializeField] private float bottomDeathZone = 0.5f;
+
     [SerializeField] private float speedPerScore = 0.002f; // +0.2% move speed per point
     [SerializeField] private float maxSpeedMultiplier = 3f;
 
@@ -426,6 +429,14 @@ public class PlayerStart : MonoBehaviour
 
         if (TryGetBounds(out Vector2 min, out Vector2 max))
         {
+            // Shoved out the bottom (e.g. pinned under a falling rock): die.
+            // Read the fish's real position, which reflects any push from last physics step.
+            if (transform.position.y < min.y - bottomDeathZone)
+            {
+                TriggerGameOver();
+                return;
+            }
+
             target.x = Mathf.Clamp(target.x, min.x, max.x);
             target.y = Mathf.Clamp(target.y, min.y, max.y);
         }
@@ -655,7 +666,21 @@ public class PlayerStart : MonoBehaviour
         moveInput = Vector2.zero;
     }
 
+    // Trees (and anything else with a trigger collider): overlap-based hit, no blocking.
     private void OnTriggerEnter2D(Collider2D other)
+    {
+        RegisterHit(other.gameObject);
+    }
+
+    // Rocks (solid collider): the fish is physically blocked AND takes the hit on contact.
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        RegisterHit(collision.gameObject);
+    }
+
+    // Shared hit logic for both paths above. Same behaviour as before: the first
+    // Entity opens the blink/hit window; a *different* Entity during that window ends the game.
+    private void RegisterHit(GameObject other)
     {
         if (isGameOver) return;
 
@@ -664,20 +689,29 @@ public class PlayerStart : MonoBehaviour
         if (!isInHitWindow)
         {
             isInHitWindow = true;
-            firstHitObject = other.gameObject;
+            firstHitObject = other;
 
             PlayHitAudio(firstHitSound);
             StartCoroutine(PlayHitAnimation(firstHitSprites));
 
             hitWindowRoutine = StartCoroutine(HitWindowRoutine());
         }
-        else if (other.gameObject != firstHitObject)
+        else if (other != firstHitObject)
         {
-            if (hitWindowRoutine != null) StopCoroutine(hitWindowRoutine);
-            ResetBlink();
-            isGameOver = true;
-            HandleGameOver();
+            TriggerGameOver();
         }
+    }
+
+    // Single entry point for ending the run: a second Entity during the hit window,
+    // or being pushed out the bottom of the screen.
+    private void TriggerGameOver()
+    {
+        if (isGameOver) return;
+
+        if (hitWindowRoutine != null) StopCoroutine(hitWindowRoutine);
+        ResetBlink();
+        isGameOver = true;
+        HandleGameOver();
     }
 
     private IEnumerator HitWindowRoutine()
@@ -727,7 +761,15 @@ public class PlayerStart : MonoBehaviour
             fx.transform.localPosition = Vector3.zero;
 
             var sr = fx.AddComponent<SpriteRenderer>();
-            sr.sortingOrder = hitEffectSortingOrder;
+            if (playerSpriteRenderer != null)
+            {
+                sr.sortingLayerID = playerSpriteRenderer.sortingLayerID;
+                sr.sortingOrder = playerSpriteRenderer.sortingOrder + 1;
+            }
+            else
+            {
+                sr.sortingOrder = hitEffectSortingOrder;
+            }
 
             foreach (Sprite frame in sprites)
             {

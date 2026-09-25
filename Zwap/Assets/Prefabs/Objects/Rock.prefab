@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 862086326993458479}
   - component: {fileID: 8553210915218838785}
   - component: {fileID: 1309624340655762086}
+  - component: {fileID: 5935146352734617318}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Entity
@@ -81,8 +82,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1633450721
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6898035379108858973, guid: 4d8681ff287fe5a4d9be71f693139f01, type: 3}
@@ -144,8 +145,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.09047127, y: 0}
-  m_Size: {x: 0.0001, y: 8.06}
+  m_Offset: {x: -0.03710462, y: -0.08505107}
+  m_Size: {x: 8.995545, y: 6.529148}
   m_Direction: 1
 --- !u!114 &8553210915218838785
 MonoBehaviour:
@@ -220,3 +221,30 @@ MonoBehaviour:
     normalSprite: {fileID: 4775630859605534401, guid: d2060921456ace747b12259dbf697e22, type: 3}
     invertedSprite: {fileID: 0}
   swapAtRevealProgress: 0.5
+--- !u!50 &5935146352734617318
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223877303238547685}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

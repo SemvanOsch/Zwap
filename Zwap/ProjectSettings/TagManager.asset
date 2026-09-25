@@ -48,5 +48,17 @@ TagManager:
   - name: Water
     uniqueID: 2993253231
     locked: 0
+  - name: Fish
+    uniqueID: 853914235
+    locked: 0
+  - name: Objects
+    uniqueID: 1633450721
+    locked: 0
+  - name: Rock walls
+    uniqueID: 1346082847
+    locked: 0
+  - name: UI
+    uniqueID: 546960017
+    locked: 0
   m_RenderingLayers:
   - Default
