@@ -87,6 +87,8 @@ public class Bear : MonoBehaviour
 
     private float warningFillFullScaleX; // the localScale.x that reads as "100% filled, matching swipeHitbox's full width"
     private SpriteRenderer warningFillRenderer; // built automatically in Start() - not a manual field
+    private ObjectVariant treeVariant; // the tree's own skin-swap script - Bear drives it directly, see HandleTreeControlChanged
+    private bool subscribedToSwitcherForTree;
 
     private void Awake()
     {
@@ -96,55 +98,108 @@ public class Bear : MonoBehaviour
         SpawnTree();
     }
 
-    // Briefly instantiates treePrefab (off to the side, unparented) so its own
-    // script gets a chance to resolve/apply whichever biome sprite it should
-    // show, then copies JUST that sprite onto a plain SpriteRenderer parented
-    // under the Bear, and destroys the temporary instance. This deliberately
-    // does NOT keep the tree's own movement script (which would double up with
-    // the Bear's own MoveDown() and make it fall faster) or its own collider
-    // (only the swipe hitbox should ever be able to hurt the player here) -
-    // just the visual.
+    private void OnEnable()
+    {
+        StartCoroutine(AttackLoop());
+        TrySubscribeSwitcherForTree();
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+
+        if (subscribedToSwitcherForTree && ControlSwitcher.Instance != null)
+            ControlSwitcher.Instance.OnControlChanged -= HandleTreeControlChanged;
+        subscribedToSwitcherForTree = false;
+    }
+
+    private void TrySubscribeSwitcherForTree()
+    {
+        if (subscribedToSwitcherForTree || ControlSwitcher.Instance == null)
+            return;
+
+        ControlSwitcher.Instance.OnControlChanged += HandleTreeControlChanged;
+        subscribedToSwitcherForTree = true;
+    }
+
+    // Drives the tree's skin directly, bypassing ObjectVariant's own
+    // subscription entirely (which was silently failing to fire for the
+    // bear-spawned copy for reasons we couldn't pin down). Since Bear itself
+    // is never disabled/destroyed mid-life the way the tree's other stripped
+    // scripts might be, this subscription is reliable regardless of that.
+    private void HandleTreeControlChanged(ControlType newControl)
+    {
+        if (treeVariant == null)
+            return;
+
+        bool inverted = ControlSwitcher.Instance != null && ControlSwitcher.Instance.IsInverted;
+        treeVariant.ApplySkin(newControl, inverted);
+    }
+
+    // Instantiates the REAL treePrefab as a child of the Bear (keeping
+    // ObjectVariant alive purely so its skins array/sprites are readable),
+    // then strips out everything else: every other script (whatever moves it -
+    // unknown class, so this removes ANY MonoBehaviour that isn't
+    // ObjectVariant) and every Collider2D, so it can't move itself (only the
+    // Bear's own MoveDown() should move this whole group) or damage the player
+    // on contact (only the swipe hitbox should ever do that here). The actual
+    // skin-swapping is driven by Bear itself via HandleTreeControlChanged, not
+    // by ObjectVariant's own subscription.
     private void SpawnTree()
     {
         if (treePrefab == null)
             return;
 
-        GameObject tempInstance = Instantiate(treePrefab);
-        SpriteRenderer sourceRenderer = tempInstance.GetComponentInChildren<SpriteRenderer>();
-
-        if (sourceRenderer == null)
-        {
-            Debug.LogWarning("[Bear] Tree Prefab has no SpriteRenderer to copy a sprite from.", this);
-            Destroy(tempInstance);
-            return;
-        }
-
         Transform parent = treeAnchor != null ? treeAnchor : transform;
-        GameObject treeVisual = new GameObject("Tree (sprite only)");
-        treeVisual.transform.SetParent(parent, worldPositionStays: false);
-        treeVisual.transform.localPosition = Vector3.zero;
+        GameObject treeInstance = Instantiate(treePrefab, parent);
+        treeInstance.transform.localPosition = Vector3.zero;
 
-        SpriteRenderer sr = treeVisual.AddComponent<SpriteRenderer>();
-        sr.sprite = sourceRenderer.sprite;
-        sr.sortingLayerID = sourceRenderer.sortingLayerID;
-        sr.sortingOrder = sourceRenderer.sortingOrder;
-        sr.flipX = sourceRenderer.flipX;
-        sr.flipY = sourceRenderer.flipY;
-        sr.color = sourceRenderer.color;
+        StripTreeInstance(treeInstance);
+
+        treeVariant = treeInstance.GetComponentInChildren<ObjectVariant>();
+        TrySubscribeSwitcherForTree();
+
+        // Apply whatever control is already active right now - OnControlChanged
+        // only fires on a future SWITCH, so without this the tree would show
+        // its default sprite until the next switch happens.
+        if (treeVariant != null && ControlSwitcher.Instance != null)
+            treeVariant.ApplySkin(ControlSwitcher.Instance.CurrentControl, ControlSwitcher.Instance.IsInverted);
 
         if (fitTreeToScreenWidth)
-            FitTreeSpriteToWidth(treeVisual, sr);
-
-        Destroy(tempInstance);
+            FitTreeSpriteToWidth(treeInstance, treeInstance.GetComponentInChildren<SpriteRenderer>());
     }
 
-    // Stretches the copied tree sprite's horizontal scale so it spans
+    private void StripTreeInstance(GameObject treeInstance)
+    {
+        foreach (Collider2D col in treeInstance.GetComponentsInChildren<Collider2D>())
+            Destroy(col);
+
+        foreach (MonoBehaviour mb in treeInstance.GetComponentsInChildren<MonoBehaviour>())
+        {
+            if (mb is ObjectVariant)
+                continue; // keep this one - Bear reads its skins/calls ApplySkin directly
+
+            Destroy(mb);
+        }
+
+        // Defensive: destroying an unknown script above can have a side effect
+        // of deactivating the WHOLE GameObject (a common pattern for obstacles
+        // that disable themselves on cleanup/pooling). Force it back active so
+        // the sprite stays visible - the skin-swapping itself no longer depends
+        // on this object being "enabled" in Unity's sense, since Bear calls
+        // ApplySkin() directly rather than relying on ObjectVariant's own
+        // OnEnable/event subscription.
+        if (!treeInstance.activeSelf)
+            treeInstance.SetActive(true);
+    }
+
+    // Stretches the tree's sprite's horizontal scale so it spans
     // GetTargetWidth() (the same width the swipe hitbox uses), and centers it
     // on the camera's X - same idea as FitHitboxToScreenWidth, just applied to
-    // this sprite-only copy instead of a collider.
-    private void FitTreeSpriteToWidth(GameObject treeVisual, SpriteRenderer sr)
+    // this sprite instead of a collider.
+    private void FitTreeSpriteToWidth(GameObject treeInstance, SpriteRenderer sr)
     {
-        if (sr.sprite == null)
+        if (sr == null || sr.sprite == null)
             return;
 
         float targetWidth = GetTargetWidth();
@@ -152,15 +207,15 @@ public class Bear : MonoBehaviour
         if (targetWidth <= 0f || spriteWidth <= 0f)
             return;
 
-        Vector3 scale = treeVisual.transform.localScale;
+        Vector3 scale = treeInstance.transform.localScale;
         scale.x = targetWidth / spriteWidth;
-        treeVisual.transform.localScale = scale;
+        treeInstance.transform.localScale = scale;
 
         if (cam != null)
         {
-            Vector3 pos = treeVisual.transform.position;
+            Vector3 pos = treeInstance.transform.position;
             pos.x = cam.transform.position.x;
-            treeVisual.transform.position = pos;
+            treeInstance.transform.position = pos;
         }
     }
 
@@ -173,16 +228,6 @@ public class Bear : MonoBehaviour
 
         if (warningIndicator != null)
             warningIndicator.SetActive(false);
-    }
-
-    private void OnEnable()
-    {
-        StartCoroutine(AttackLoop());
-    }
-
-    private void OnDisable()
-    {
-        StopAllCoroutines();
     }
 
     private void Update()
@@ -357,44 +402,24 @@ public class Bear : MonoBehaviour
     private void CreateWarningFillRenderer()
     {
         if (swipeHitbox == null)
-        {
-            Debug.LogError("[Bear] Swipe Hitbox is not assigned!");
             return;
-        }
 
         GameObject fillObj = new GameObject("WarningFill (auto-generated)");
-
-        fillObj.transform.SetParent(
-            swipeHitbox.transform,
-            worldPositionStays: false
-        );
-
-        // Match the collider position.
+        fillObj.transform.SetParent(swipeHitbox.transform, worldPositionStays: false);
         fillObj.transform.localPosition = swipeHitbox.offset;
         fillObj.transform.localRotation = Quaternion.identity;
 
         warningFillRenderer = fillObj.AddComponent<SpriteRenderer>();
-
         warningFillRenderer.sprite = CreateSolidWhiteSprite();
-
         warningFillRenderer.color = warningFillColor;
-        // Force it above the tree/bear graphics.
-        warningFillRenderer.sortingOrder = 1000;
 
+        // The generated sprite is exactly 1x1 world unit at scale 1, so scale
+        // directly equals the collider's own size in local units - height is
+        // fixed, width starts at 0 and grows toward warningFillFullScaleX.
         warningFillFullScaleX = swipeHitbox.size.x;
-
-        // Start empty.
-        fillObj.transform.localScale = new Vector3(
-            0f,
-            swipeHitbox.size.y,
-            1f
-        );
+        fillObj.transform.localScale = new Vector3(0f, swipeHitbox.size.y, 1f);
 
         fillObj.SetActive(false);
-
-        Debug.Log(
-            $"[Bear] Warning fill created. Hitbox size: {swipeHitbox.size}"
-        );
     }
 
     private static Sprite CreateSolidWhiteSprite()
