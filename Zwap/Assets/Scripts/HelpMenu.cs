@@ -50,6 +50,20 @@ public class HelpMenu : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
              "a time. Design each panel yourself in the Editor.")]
     [SerializeField] private GameObject[] pages;
 
+    [Tooltip("Which control each page explains, parallel to Pages (same length, same order). " +
+             "When the menu opens it jumps to the page whose control matches the one that is " +
+             "currently active (ControlSwitcher.CurrentControl). Leave empty, or set a page's " +
+             "entry to a control that isn't active, and the menu just opens on the first page. " +
+             "The player can still swipe to any page from there.")]
+    [SerializeField] private ControlType[] pageControls;
+
+    [Tooltip("Parallel to Pages: tick the entry for a page that explains the INVERTED version of " +
+             "its control (e.g. the inverse-Joystick screen). When the active control is inverted, " +
+             "the menu opens on its ticked inverse page; if that control has no inverse page, it " +
+             "falls back to the control's normal page. Leave every entry unticked if no page is an " +
+             "inverse screen. Shorter than Pages is fine — missing entries count as not-inverted.")]
+    [SerializeField] private bool[] pageInverted;
+
     [Header("Arrows (optional)")]
     [Tooltip("Goes to the previous page. Leave empty if you only want swipe + dots.")]
     [SerializeField] private Button prevButton;
@@ -103,7 +117,7 @@ public class HelpMenu : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     // help menu shows (the game stays paused — we never touch Time.timeScale here).
     private void OnEnable()
     {
-        ShowPage(0);
+        ShowPage(GetStartPage());
 
         if (pauseMenuUI != null)
             pauseMenuUI.SetActive(false);
@@ -112,6 +126,51 @@ public class HelpMenu : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             pauseButton.SetActive(false);
 
         SetHiddenObjects(false);
+    }
+
+    // Picks the page to open on, matching both the active control and whether it is inverted:
+    //   1. If the active control is inverted, prefer its inverse page (control matches AND the
+    //      page is ticked inverted).
+    //   2. Otherwise (or if no inverse page exists for it), use the control's normal page
+    //      (control matches AND the page is NOT ticked inverted).
+    //   3. Fall back to the first page whenever we can't resolve a match — no ControlSwitcher in
+    //      the scene, no pageControls set up, or the active control simply has no page listed.
+    // The player can always swipe from wherever we land, so a fallback is harmless.
+    private int GetStartPage()
+    {
+        if (ControlSwitcher.Instance == null || pageControls == null || pages == null)
+            return 0;
+
+        ControlType current = ControlSwitcher.Instance.CurrentControl;
+        bool inverted = ControlSwitcher.Instance.IsInverted;
+
+        // When inverted, look for the matching inverse page first.
+        if (inverted)
+        {
+            int invertedPage = FindPage(current, wantInverted: true);
+            if (invertedPage >= 0)
+                return invertedPage;
+        }
+
+        // Normal page for this control (also the fallback when an inverse page wasn't found).
+        int normalPage = FindPage(current, wantInverted: false);
+        return normalPage >= 0 ? normalPage : 0;
+    }
+
+    // Returns the first page whose control matches and whose inverted flag equals wantInverted,
+    // or -1 if none. Scans only indices valid in Pages, and treats a short/absent pageInverted
+    // array as "not inverted" for the trailing entries.
+    private int FindPage(ControlType control, bool wantInverted)
+    {
+        int count = Mathf.Min(pageControls.Length, pages.Length);
+        for (int i = 0; i < count; i++)
+        {
+            bool isInverted = pageInverted != null && i < pageInverted.Length && pageInverted[i];
+            if (pageControls[i] == control && isInverted == wantInverted)
+                return i;
+        }
+
+        return -1;
     }
 
     // Called by the Next arrow's OnClick (and by a right-to-left swipe).

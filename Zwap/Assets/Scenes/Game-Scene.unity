@@ -1746,6 +1746,8 @@ MonoBehaviour:
   - {fileID: 1081012756}
   - {fileID: 1530533901}
   - {fileID: 1875202584}
+  pageControls: 0100000001000000000000000400000003000000030000000200000005000000
+  pageInverted: 0001000000010000
   prevButton: {fileID: 0}
   nextButton: {fileID: 0}
   wrapAround: 1
