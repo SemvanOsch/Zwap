@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 453187866954575166}
   - component: {fileID: 225737720664607034}
   - component: {fileID: 1935842935139434844}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Swipehitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1318004662269555294}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 769288123005521784}
   - component: {fileID: 6817088828250991674}
   - component: {fileID: 8234205344374552817}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Bear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,11 +171,11 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1633450721
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1524887189780866326, guid: 123d601fab127cb4097d8b5eeaa4edbf, type: 3}
+  m_Sprite: {fileID: -5611087925330350269, guid: af972b50670b10c4bab50890dc8a7218, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f928c8620a4df39387e75156385efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bear
+  treeDropOffset: 3
   treePrefab: {fileID: 7905770488391994396, guid: a0a8068e0659ed94d9465ccf42c91ec1, type: 3}
   treeAnchor: {fileID: 0}
   fitTreeToScreenWidth: 1
