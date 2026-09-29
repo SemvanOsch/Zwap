@@ -245,7 +245,7 @@ MonoBehaviour:
     invertedSprites: []
   swapAtRevealProgress: 0.5
   autoFitCollider: 1
-  hitboxScale: 0.9
+  hitboxScale: 0.85
 --- !u!50 &5587727427936474165
 Rigidbody2D:
   serializedVersion: 5
