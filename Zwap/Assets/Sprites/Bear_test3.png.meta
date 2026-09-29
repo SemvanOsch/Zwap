@@ -78,7 +78,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 30
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -148,7 +148,7 @@ TextureImporter:
         width: 320
         height: 360
       alignment: 9
-      pivot: {x: 0.2764241, y: 0.5342433}
+      pivot: {x: 0.52, y: 0.5408398}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -165,12 +165,12 @@ TextureImporter:
       name: Bear_test3_1
       rect:
         serializedVersion: 2
-        x: 320
+        x: 313
         y: 720
         width: 320
         height: 360
       alignment: 9
-      pivot: {x: 0.25457096, y: 0.53423685}
+      pivot: {x: 0.52, y: 0.5343688}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -187,12 +187,12 @@ TextureImporter:
       name: Bear_test3_2
       rect:
         serializedVersion: 2
-        x: 640
+        x: 623
         y: 720
         width: 320
         height: 360
       alignment: 9
-      pivot: {x: 0.21747093, y: 0.5569797}
+      pivot: {x: 0.52, y: 0.5343688}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -209,12 +209,12 @@ TextureImporter:
       name: Bear_test3_3
       rect:
         serializedVersion: 2
-        x: 960
+        x: 934
         y: 720
         width: 320
         height: 360
       alignment: 9
-      pivot: {x: 0.18910503, y: 0.5594752}
+      pivot: {x: 0.52, y: 0.5343688}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -231,12 +231,12 @@ TextureImporter:
       name: Bear_test3_4
       rect:
         serializedVersion: 2
-        x: 1280
+        x: 1279
         y: 720
         width: 320
         height: 360
       alignment: 9
-      pivot: {x: 0.26688042, y: 0.542737}
+      pivot: {x: 0.52, y: 0.5343688}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -253,12 +253,12 @@ TextureImporter:
       name: Bear_test3_5
       rect:
         serializedVersion: 2
-        x: 1600
+        x: 1577
         y: 720
         width: 320
         height: 360
       alignment: 9
-      pivot: {x: 0.20132789, y: 0.54512346}
+      pivot: {x: 0.52, y: 0.5343688}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []

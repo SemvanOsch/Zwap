@@ -4734,11 +4734,11 @@ MonoBehaviour:
   - prefab: {fileID: 6255794193210782943, guid: 32b729827a0356340a314e46f89763de, type: 3}
     spawnZone: 4
     mirrorOnRightSide: 0
-    weight: 0
+    weight: 81.9
   - prefab: {fileID: 8422416415017215438, guid: 2a5332aa828a10a4b8c7a6c026a59d0b, type: 3}
     spawnZone: 5
     mirrorOnRightSide: 1
-    weight: 100
+    weight: 1
   spawnPoint: {fileID: 1330424806}
   spawnInterval: 2
   spawnSpeedPerScore: 0.002
