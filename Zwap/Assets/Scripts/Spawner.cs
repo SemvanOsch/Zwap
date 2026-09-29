@@ -12,7 +12,8 @@ public enum SpawnZone
     EdgesOnly,   // left band OR right band, never the middle
     LeftOnly,    // left band only
     RightOnly,   // right band only
-    CenterOnly   // middle band only
+    CenterOnly,  // middle band only
+    Perch        // on the side rocks (left OR right bank), at the perch X positions below
 }
 
 [Serializable]
@@ -49,6 +50,19 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float centerMinX = -1f;
     [SerializeField] private float centerMaxX = 1f;
 
+    [Header("Perch (used by SpawnZone.Perch, e.g. the heron)")]
+    [Tooltip("X position of the left bank rocks where perching enemies sit. Select the Spawner to see it as a line in the Scene view.")]
+    [SerializeField] private float leftPerchX = -3.2f;
+
+    [Tooltip("X position of the right bank rocks where perching enemies sit.")]
+    [SerializeField] private float rightPerchX = 3.2f;
+
+    [Tooltip("Random +/- offset on the perch X, so herons don't all sit on the exact same spot.")]
+    [SerializeField] private float perchJitterX = 0.1f;
+
+    [Tooltip("Shifts perching enemies up/down relative to the spawn point (fine-tune so they sit ON the rock).")]
+    [SerializeField] private float perchYOffset = 0f;
+
     private float timer;
 
     void Update()
@@ -77,7 +91,8 @@ public class Spawner : MonoBehaviour
         if (chosen == null || chosen.prefab == null) return;
 
         float x = GetRandomX(chosen.spawnZone);
-        Vector3 spawnPos = new Vector3(x, spawnPoint.position.y, spawnPoint.position.z);
+        float y = spawnPoint.position.y + (chosen.spawnZone == SpawnZone.Perch ? perchYOffset : 0f);
+        Vector3 spawnPos = new Vector3(x, y, spawnPoint.position.z);
 
         GameObject spawned = Instantiate(chosen.prefab, spawnPos, Quaternion.identity);
 
@@ -145,6 +160,13 @@ public class Spawner : MonoBehaviour
                     ? Random.Range(minX, centerMinX)
                     : Random.Range(centerMaxX, maxX);
 
+            case SpawnZone.Perch:
+                {
+                    // sit on the left OR right bank rocks
+                    float baseX = Random.value < 0.5f ? leftPerchX : rightPerchX;
+                    return baseX + Random.Range(-perchJitterX, perchJitterX);
+                }
+
             case SpawnZone.Anywhere:
             default:
                 return Random.Range(minX, maxX);
@@ -152,6 +174,22 @@ public class Spawner : MonoBehaviour
     }
 
 #if UNITY_EDITOR
+    // Shows the perch positions (yellow) and the spawn range (white) in the Scene view
+    // while the Spawner is selected, so you can line the perch up with the side rocks.
+    private void OnDrawGizmosSelected()
+    {
+        float y = spawnPoint != null ? spawnPoint.position.y : transform.position.y;
+        float half = 6f;
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(new Vector3(leftPerchX, y - half + perchYOffset, 0f), new Vector3(leftPerchX, y + half + perchYOffset, 0f));
+        Gizmos.DrawLine(new Vector3(rightPerchX, y - half + perchYOffset, 0f), new Vector3(rightPerchX, y + half + perchYOffset, 0f));
+
+        Gizmos.color = Color.white;
+        Gizmos.DrawLine(new Vector3(minX, y - half, 0f), new Vector3(minX, y + half, 0f));
+        Gizmos.DrawLine(new Vector3(maxX, y - half, 0f), new Vector3(maxX, y + half, 0f));
+    }
+
     /// <summary>
     /// Editor-only inspector. Compiled out entirely in real builds (UNITY_EDITOR
     /// isn't defined there), so it's safe to keep in the same file - no "Editor"

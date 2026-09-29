@@ -2024,6 +2024,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fish
       objectReference: {fileID: 0}
+    - target: {fileID: 1161412674535546430, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: m_TagString
+      value: player
+      objectReference: {fileID: 0}
     - target: {fileID: 2511196548380628927, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -4722,15 +4726,19 @@ MonoBehaviour:
   - prefab: {fileID: 1223877303238547685, guid: eaf7c7f11abcbb541a6c460522c164ff, type: 3}
     spawnZone: 0
     mirrorOnRightSide: 0
-    weight: 5
+    weight: 0
   - prefab: {fileID: 7905770488391994396, guid: a0a8068e0659ed94d9465ccf42c91ec1, type: 3}
     spawnZone: 1
     mirrorOnRightSide: 1
-    weight: 4
+    weight: 0
   - prefab: {fileID: 6255794193210782943, guid: 32b729827a0356340a314e46f89763de, type: 3}
     spawnZone: 4
     mirrorOnRightSide: 0
-    weight: 1
+    weight: 0
+  - prefab: {fileID: 8422416415017215438, guid: 2a5332aa828a10a4b8c7a6c026a59d0b, type: 3}
+    spawnZone: 5
+    mirrorOnRightSide: 1
+    weight: 100
   spawnPoint: {fileID: 1330424806}
   spawnInterval: 2
   spawnSpeedPerScore: 0.002
@@ -4738,6 +4746,10 @@ MonoBehaviour:
   maxX: 3
   centerMinX: -1
   centerMaxX: 1
+  leftPerchX: -8
+  rightPerchX: 8
+  perchJitterX: 0.01
+  perchYOffset: 0
 --- !u!1 &1339993222
 GameObject:
   m_ObjectHideFlags: 0
@@ -5117,7 +5129,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.57670736, y: 0.37014678}
   m_AnchorMax: {x: 0.8097866, y: 0.55300003}
-  m_AnchoredPosition: {x: -165, y: -93.99997}
+  m_AnchoredPosition: {x: -165, y: -94}
   m_SizeDelta: {x: 1.3900146, y: 5.980011}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1387379400
@@ -7501,7 +7513,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.57670736, y: 0.37014678}
   m_AnchorMax: {x: 0.8097866, y: 0.55300003}
-  m_AnchoredPosition: {x: 4.5500183, y: 290.99203}
+  m_AnchoredPosition: {x: 4.5500183, y: 290.99207}
   m_SizeDelta: {x: 1.3900146, y: 5.980011}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1854365258

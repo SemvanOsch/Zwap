@@ -10,11 +10,15 @@ using UnityEngine.Events;
 /// </summary>
 public class Bear : MonoBehaviour
 {
+    [Header("Tree Placement")]
+    [Tooltip("How far the tree is pushed DOWN from the bear's origin, in world units. Raise it to make the bear sit higher on the tree.")]
+    [SerializeField] private float treeDropOffset = 0f;
+
     [Header("Tree")]
     [Tooltip("The tree/log prefab. Only its sprite is copied onto a plain SpriteRenderer under this Bear - its own movement script and collider are NOT included, so it can't double-move or add an extra hit area beyond the swipe.")]
     [SerializeField] private GameObject treePrefab;
 
-    [Tooltip("Optional. Where the tree gets parented/positioned. Leave empty to just parent it directly under this Bear's own transform at local (0,0,0).")]
+    [Tooltip("Optional. Where the tree gets parented/positioned. Leave empty to just parent it directly under this Bear's own transform at local (0,0,0). Should NOT be a child of the scaled BearVisual.")]
     [SerializeField] private Transform treeAnchor;
 
     [Tooltip("Stretches the copied tree sprite horizontally so it exactly spans the same width as Swipe Hitbox (respecting Manual Playfield Width below if set). Only affects this copy under the Bear - the original Tree Prefab elsewhere is untouched.")]
@@ -163,7 +167,7 @@ public class Bear : MonoBehaviour
 
         Transform parent = treeAnchor != null ? treeAnchor : transform;
         GameObject treeInstance = Instantiate(treePrefab, parent);
-        treeInstance.transform.localPosition = Vector3.zero;
+        treeInstance.transform.localPosition = new Vector3(0f, -treeDropOffset, 0f);
 
         StripTreeInstance(treeInstance);
 
@@ -207,7 +211,8 @@ public class Bear : MonoBehaviour
     // Stretches the tree's sprite's horizontal scale so it spans
     // GetTargetWidth() (the same width the swipe hitbox uses), and centers it
     // on the camera's X - same idea as FitHitboxToScreenWidth, just applied to
-    // this sprite instead of a collider.
+    // this sprite instead of a collider. Compensates for the parent's scale so
+    // scaling the Bear root or the tree anchor doesn't break the width.
     private void FitTreeSpriteToWidth(GameObject treeInstance, SpriteRenderer sr)
     {
         if (sr == null || sr.sprite == null)
@@ -218,8 +223,12 @@ public class Bear : MonoBehaviour
         if (targetWidth <= 0f || spriteWidth <= 0f)
             return;
 
+        Transform parent = treeInstance.transform.parent;
+        float parentScaleX = parent != null ? parent.lossyScale.x : 1f;
+        if (Mathf.Approximately(parentScaleX, 0f)) parentScaleX = 1f; // guard against a zeroed-out scale
+
         Vector3 scale = treeInstance.transform.localScale;
-        scale.x = targetWidth / spriteWidth;
+        scale.x = targetWidth / (spriteWidth * parentScaleX);
         treeInstance.transform.localScale = scale;
 
         if (cam != null)
