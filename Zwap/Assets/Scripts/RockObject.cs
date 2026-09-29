@@ -156,6 +156,18 @@ public class RockWaterEffect : MonoBehaviour
         sr.color = dimensionColors[Mathf.Clamp(currentDimensionIndex, 0, dimensionColors.Length - 1)];
     }
 
+    // The swirl is a child of the rock, so it would inherit the rock's rotation. In the
+    // reverse-joystick dimension RockRotation spins the rock; the water swirl is meant to
+    // stay put and upright with the flow, so we re-pin it here every frame (after MoveDown
+    // has translated the rock in Update). A no-op when the rock isn't rotating: identity
+    // rotation and position = rock centre + offset match the swirl's normal resting state.
+    private void LateUpdate()
+    {
+        if (sr == null) return;
+        sr.transform.rotation = Quaternion.identity;
+        sr.transform.position = transform.position + (Vector3)offset;
+    }
+
     private IEnumerator Animate(SpriteRenderer sr)
     {
         int previous = -1;

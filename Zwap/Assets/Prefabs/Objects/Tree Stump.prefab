@@ -170,24 +170,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObjectVariant
   skins:
   - type: 1
-    normalSprite: {fileID: 5039191710092813885, guid: 3943959934600c4499ac28a781dd7a72, type: 3}
-    invertedSprite: {fileID: 0}
+    normalSprites:
+    - {fileID: 5039191710092813885, guid: 3943959934600c4499ac28a781dd7a72, type: 3}
+    invertedSprites:
+    - {fileID: 5039191710092813885, guid: 3943959934600c4499ac28a781dd7a72, type: 3}
   - type: 0
-    normalSprite: {fileID: 8112581195078519218, guid: 3943959934600c4499ac28a781dd7a72, type: 3}
-    invertedSprite: {fileID: 0}
+    normalSprites:
+    - {fileID: 8112581195078519218, guid: 3943959934600c4499ac28a781dd7a72, type: 3}
+    invertedSprites: []
   - type: 2
-    normalSprite: {fileID: -6255635732196201218, guid: eee5f3a8759c386478221b37ae30cae1, type: 3}
-    invertedSprite: {fileID: 0}
+    normalSprites:
+    - {fileID: -6255635732196201218, guid: eee5f3a8759c386478221b37ae30cae1, type: 3}
+    invertedSprites: []
   - type: 3
-    normalSprite: {fileID: -3485977713458880019, guid: 3943959934600c4499ac28a781dd7a72, type: 3}
-    invertedSprite: {fileID: 5960194505450210004, guid: 04f40633e9e0330408c3ecbdefac9071, type: 3}
+    normalSprites:
+    - {fileID: 2831335947814123303, guid: 3943959934600c4499ac28a781dd7a72, type: 3}
+    invertedSprites:
+    - {fileID: -2279788061676665791, guid: eee5f3a8759c386478221b37ae30cae1, type: 3}
   - type: 4
-    normalSprite: {fileID: 7875180036326522969, guid: 3943959934600c4499ac28a781dd7a72, type: 3}
-    invertedSprite: {fileID: 0}
+    normalSprites:
+    - {fileID: -3187859115572242034, guid: eee5f3a8759c386478221b37ae30cae1, type: 3}
+    invertedSprites: []
   - type: 5
-    normalSprite: {fileID: 474991739839569933, guid: 3943959934600c4499ac28a781dd7a72, type: 3}
-    invertedSprite: {fileID: 0}
+    normalSprites:
+    - {fileID: 2155525985639990336, guid: eee5f3a8759c386478221b37ae30cae1, type: 3}
+    invertedSprites: []
   swapAtRevealProgress: 0.5
+  autoFitCollider: 0
+  hitboxScale: 0.9
 --- !u!114 &-8987059801316312802
 MonoBehaviour:
   m_ObjectHideFlags: 0

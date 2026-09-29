@@ -3442,7 +3442,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -34.22995, y: 13.310059}
+  m_AnchoredPosition: {x: -34.22998, y: 13.310059}
   m_SizeDelta: {x: 319.46, y: 201.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &917203043
@@ -6545,6 +6545,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5992051854147746764, guid: 8017286ce7f8e4749b6b6f84c6682e28, type: 3}
+      propertyPath: layers.Array.data[0].perControl.Array.data[1].invertedBackground
+      value: 
+      objectReference: {fileID: 2800000, guid: 5bd5ad8f3b4dbf9418d278577f96cfaf, type: 3}
     - target: {fileID: 5992051854147746764, guid: 8017286ce7f8e4749b6b6f84c6682e28, type: 3}
       propertyPath: layers.Array.data[1].perControl.Array.data[1].invertedBackground
       value: 

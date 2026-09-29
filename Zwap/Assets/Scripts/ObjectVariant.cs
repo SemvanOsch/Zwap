@@ -16,21 +16,39 @@ public class ObjectVariant : MonoBehaviour
     public class SkinEntry
     {
         public ControlType type;
-        public Sprite normalSprite;
-        public Sprite invertedSprite; // optional; leave null to reuse normalSprite when inverted
+
+        [Tooltip("One or more sprite options for this control. Each spawned object randomly picks one of these (by index) and uses it for its whole life.")]
+        public Sprite[] normalSprites;
+
+        [Tooltip("Optional inverted-variant options, matched by the same random index. Leave empty to reuse the normal sprite when inverted.")]
+        public Sprite[] invertedSprites;
     }
 
-    [Tooltip("One entry per control. invertedSprite is optional and only used when that control is in its inverted variant; leave it empty to reuse the normal sprite.")]
+    [Tooltip("One entry per control. Each entry can hold several sprite options; a random one is chosen per spawned object. invertedSprites are optional and only used when that control is in its inverted variant.")]
     [SerializeField] private SkinEntry[] skins;
 
     [Tooltip("Point in the reveal (0..1) at which the sprite snaps to the new skin, so it changes under the growing circle. 0.5 = the circle's midpoint.")]
     [Range(0f, 1f)]
     [SerializeField] private float swapAtRevealProgress = 0.5f;
 
+    [Header("Hitbox")]
+    [Tooltip("Auto-resize this object's Collider2D to match whichever sprite is showing, so slightly-different-sized skins all get a correct hitbox. Turn off to keep the collider fixed as authored in the prefab.")]
+    [SerializeField] private bool autoFitCollider = true;
+
+    [Tooltip("Shrinks the auto-fitted hitbox relative to the sprite. 1 = exact sprite bounds; 0.85 leaves the hitbox slightly inside the rock, which usually feels fairer.")]
+    [Range(0.1f, 1f)]
+    [SerializeField] private float hitboxScale = 1f;
+
     private SpriteRenderer sr;
+    private Collider2D fitCollider; // resized to match the current sprite when autoFitCollider is on
     private Sprite defaultSprite;   // fallback when a control has no entry
     private bool subscribedToSwitcher;
     private bool subscribedToReveal;
+
+    // Which sprite option this spawned instance uses, chosen once in Awake and reused for
+    // every dimension so the object keeps a consistent identity while it changes skin.
+    // Clamped per-entry in GetSpriteFor, so entries with fewer options still work.
+    private int variantIndex;
 
     // Pending swap state while a reveal is in progress.
     private bool waitingForReveal;
@@ -39,7 +57,22 @@ public class ObjectVariant : MonoBehaviour
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
+        fitCollider = GetComponent<Collider2D>();
         defaultSprite = sr.sprite; // whatever the prefab ships with
+
+        // Roll a single random index against the largest option set, then clamp it down
+        // per entry. This way an entry offering 3 sprites gets an even 0/1/2 spread, while
+        // an entry with only 1 always resolves to that one.
+        int maxOptions = 0;
+        if (skins != null)
+        {
+            foreach (var entry in skins)
+            {
+                if (entry?.normalSprites != null && entry.normalSprites.Length > maxOptions)
+                    maxOptions = entry.normalSprites.Length;
+            }
+        }
+        variantIndex = maxOptions > 0 ? Random.Range(0, maxOptions) : 0;
     }
 
     private void OnEnable()
@@ -100,7 +133,7 @@ public class ObjectVariant : MonoBehaviour
         if (BackgroundReveal.Instance == null)
         {
             // No reveal in the scene: swap immediately.
-            sr.sprite = target;
+            SetSprite(target);
             return;
         }
 
@@ -114,7 +147,7 @@ public class ObjectVariant : MonoBehaviour
         if (!waitingForReveal) return;
         if (t >= swapAtRevealProgress)
         {
-            sr.sprite = pendingSprite;
+            SetSprite(pendingSprite);
             waitingForReveal = false;
         }
     }
@@ -123,7 +156,42 @@ public class ObjectVariant : MonoBehaviour
     {
         Sprite target = GetSpriteFor(type, inverted);
         if (target != null)
-            sr.sprite = target;
+            SetSprite(target);
+    }
+
+    // Central sprite assignment: also re-fits the collider so the hitbox tracks the
+    // sprite that's actually on screen.
+    private void SetSprite(Sprite sprite)
+    {
+        sr.sprite = sprite;
+        FitColliderToSprite(sprite);
+    }
+
+    // Resizes the Collider2D to the sprite's local bounds (scaled by hitboxScale). Runs in
+    // the object's local space, so the transform's own scale still applies on top — the
+    // capsule also rotates with the object, so RockRotation's spin stays correct.
+    private void FitColliderToSprite(Sprite sprite)
+    {
+        if (!autoFitCollider || fitCollider == null || sprite == null) return;
+
+        Vector2 size = (Vector2)sprite.bounds.size * hitboxScale;
+        Vector2 offset = sprite.bounds.center; // handles sprites whose pivot isn't centered
+
+        switch (fitCollider)
+        {
+            case CapsuleCollider2D capsule:
+                capsule.size = size;
+                capsule.offset = offset;
+                break;
+            case BoxCollider2D box:
+                box.size = size;
+                box.offset = offset;
+                break;
+            case CircleCollider2D circle:
+                circle.radius = Mathf.Max(size.x, size.y) * 0.5f;
+                circle.offset = offset;
+                break;
+        }
     }
 
     private Sprite GetSpriteFor(ControlType type, bool inverted)
@@ -136,10 +204,13 @@ public class ObjectVariant : MonoBehaviour
                 continue;
 
             // Fall back to the normal sprite when this control has no inverted one.
-            if (inverted && entry.invertedSprite != null)
-                return entry.invertedSprite;
+            if (inverted && entry.invertedSprites != null && entry.invertedSprites.Length > 0)
+                return entry.invertedSprites[Mathf.Min(variantIndex, entry.invertedSprites.Length - 1)];
 
-            return entry.normalSprite != null ? entry.normalSprite : defaultSprite;
+            if (entry.normalSprites != null && entry.normalSprites.Length > 0)
+                return entry.normalSprites[Mathf.Min(variantIndex, entry.normalSprites.Length - 1)];
+
+            return defaultSprite;
         }
 
         // No entry for this control at all: keep the prefab's default sprite.
