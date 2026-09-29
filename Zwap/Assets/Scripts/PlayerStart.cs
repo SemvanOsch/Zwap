@@ -114,6 +114,14 @@ public class PlayerStart : MonoBehaviour
     [SerializeField] private float blinkInterval = 0.12f; // seconds between color toggles while vulnerable
     [SerializeField] private Color blinkColor = Color.red;
 
+    [Header("Shield")]
+    [SerializeField] private GameObject shieldVisual; // child object on the player, disabled by default
+    [SerializeField] private AudioClip shieldPickupSound;
+    [SerializeField] private AudioClip shieldBreakSound;
+
+    [Tooltip("Seconds of immunity after the shield breaks, so the object that broke it can't hit you again on the next frame.")]
+    [SerializeField] private float shieldBreakGrace = 0.5f;
+
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource; // auto-added in Awake if left empty
 
@@ -130,6 +138,10 @@ public class PlayerStart : MonoBehaviour
     private GameObject firstHitObject; // the object that caused the 1st hit, so a repeat trigger from it doesn't count as "another" hit
     private Coroutine hitWindowRoutine;
     private Color normalColor;
+
+    // --- Shield state ---
+    private bool hasShield;          // true while a shield is active (absorbs the next Entity hit)
+    private float shieldGraceUntil;  // Time.time until which Entity hits are ignored after the shield breaks
 
     private float multiplier = 1f;
 
@@ -167,6 +179,10 @@ public class PlayerStart : MonoBehaviour
 
         if (playerSpriteRenderer != null)
             normalColor = playerSpriteRenderer.color;
+
+        // Shield always starts off
+        if (shieldVisual != null)
+            shieldVisual.SetActive(false);
 
         InitializeSkin();
     }
@@ -432,6 +448,7 @@ public class PlayerStart : MonoBehaviour
         {
             // Shoved out the bottom (e.g. pinned under a falling rock): die.
             // Read the fish's real position, which reflects any push from last physics step.
+            // NOTE: the shield does NOT protect against this — it's an instant kill.
             if (transform.position.y < min.y - bottomDeathZone)
             {
                 TriggerGameOver();
@@ -667,6 +684,27 @@ public class PlayerStart : MonoBehaviour
         moveInput = Vector2.zero;
     }
 
+    // Called by the Can pickup. Returns true if the shield was actually picked up
+    // (false when already shielded or dead, so the can can decide whether to be consumed).
+    public bool GiveShield()
+    {
+        if (isGameOver || hasShield) return false;
+
+        hasShield = true;
+        if (shieldVisual != null) shieldVisual.SetActive(true);
+        PlayHitAudio(shieldPickupSound);
+        return true;
+    }
+
+    // Shield absorbed a hit: remove it and start a short grace period.
+    private void BreakShield()
+    {
+        hasShield = false;
+        shieldGraceUntil = Time.time + shieldBreakGrace;
+        if (shieldVisual != null) shieldVisual.SetActive(false);
+        PlayHitAudio(shieldBreakSound);
+    }
+
     // Trees (and anything else with a trigger collider): overlap-based hit, no blocking.
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -681,11 +719,23 @@ public class PlayerStart : MonoBehaviour
 
     // Shared hit logic for both paths above. Same behaviour as before: the first
     // Entity opens the blink/hit window; a *different* Entity during that window ends the game.
+    // A shield absorbs one Entity hit completely (no hit window, no damage). It is only
+    // checked here, so TriggerGameOver / ForceFatalHit (instant kills) ignore it.
     private void RegisterHit(GameObject other)
     {
         if (isGameOver) return;
 
         if (!other.CompareTag("Entity")) return;
+
+        // Grace period right after the shield broke
+        if (Time.time < shieldGraceUntil) return;
+
+        // Shield absorbs this hit
+        if (hasShield)
+        {
+            BreakShield();
+            return;
+        }
 
         if (!isInHitWindow)
         {
@@ -787,6 +837,7 @@ public class PlayerStart : MonoBehaviour
         onComplete?.Invoke();
     }
     
+    // Instant kill: ignores the shield and the hit window.
     public void ForceFatalHit()
     {
         if (isGameOver) return;
