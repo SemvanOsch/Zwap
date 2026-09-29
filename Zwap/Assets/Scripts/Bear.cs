@@ -50,10 +50,21 @@ public class Bear : MonoBehaviour
     [Tooltip("Log warning/attack state changes to the Console - handy for tuning timings before you have a final animation/indicator in place.")]
     [SerializeField] private bool logStateChanges = true;
 
-    [Header("Attack Animation (optional)")]
-    [Tooltip("Optional. If assigned, this trigger fires on the Animator the instant the swipe becomes lethal.")]
-    [SerializeField] private Animator animator;
-    [SerializeField] private string attackTriggerName = "Attack";
+    [Header("Attack Animation")]
+    [Tooltip("The SpriteRenderer whose sprite will be changed during the attack.")]
+    [SerializeField] private SpriteRenderer attackSpriteRenderer;
+
+    [Tooltip("Drag the attack animation sprites here in the order they should play.")]
+    [SerializeField] private Sprite[] attackSprites;
+
+    [Tooltip("How long each attack sprite is displayed.")]
+    [SerializeField] private float attackFrameDuration = 0.08f;
+
+    [Tooltip("If true, the first attack sprite is shown when the attack starts.")]
+    [SerializeField] private bool playAttackAnimation = true;
+
+    private Sprite idleSprite;
+    private Coroutine attackAnimationCoroutine;
 
     [Header("Swipe Hitbox")]
     [Tooltip("The full-width trigger collider (on a child object with a BearSwipeHitbox component) that becomes lethal during the attack.")]
@@ -228,6 +239,9 @@ public class Bear : MonoBehaviour
 
         if (warningIndicator != null)
             warningIndicator.SetActive(false);
+
+        if (attackSpriteRenderer != null)
+            idleSprite = attackSpriteRenderer.sprite;
     }
 
     private void Update()
@@ -316,13 +330,38 @@ public class Bear : MonoBehaviour
         if (warningFillRenderer != null)
             warningFillRenderer.gameObject.SetActive(false);
 
-        if (animator != null && !string.IsNullOrEmpty(attackTriggerName))
-            animator.SetTrigger(attackTriggerName);
+        if (playAttackAnimation &&
+            attackSpriteRenderer != null &&
+            attackSprites != null &&
+            attackSprites.Length > 0)
+        {
+            if (attackAnimationCoroutine != null)
+                StopCoroutine(attackAnimationCoroutine);
+
+            attackAnimationCoroutine = StartCoroutine(PlayAttackAnimation());
+        }
 
         if (logStateChanges)
             Debug.Log("[Bear] Swipe is now LETHAL", this);
 
         OnAttackStart?.Invoke();
+    }
+
+    private IEnumerator PlayAttackAnimation()
+    {
+        for (int i = 0; i < attackSprites.Length; i++)
+        {
+            if (attackSprites[i] != null)
+                attackSpriteRenderer.sprite = attackSprites[i];
+
+            yield return new WaitForSeconds(Mathf.Max(0.01f, attackFrameDuration));
+        }
+
+        // Return to the normal sprite after the attack animation
+        if (idleSprite != null)
+            attackSpriteRenderer.sprite = idleSprite;
+
+        attackAnimationCoroutine = null;
     }
 
     private void EndAttack()

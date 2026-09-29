@@ -175,7 +175,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1524887189780866326, guid: 123d601fab127cb4097d8b5eeaa4edbf, type: 3}
+  m_Sprite: {fileID: 7005449599638585701, guid: 869dd9995fe17df4ca8ca4073d3a1031, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -210,8 +210,16 @@ MonoBehaviour:
   warningIndicator: {fileID: 0}
   warningFillColor: {r: 1, g: 0, b: 0, a: 0.28235295}
   logStateChanges: 1
-  animator: {fileID: 0}
-  attackTriggerName: Attack
+  attackSpriteRenderer: {fileID: 6817088828250991674}
+  attackSprites:
+  - {fileID: 8361201981642547563, guid: ae1c03a937c1e904c87a9acdfd03912e, type: 3}
+  - {fileID: 7517733181207215565, guid: ae1c03a937c1e904c87a9acdfd03912e, type: 3}
+  - {fileID: 2939534103180835568, guid: ae1c03a937c1e904c87a9acdfd03912e, type: 3}
+  - {fileID: 6216433952584183757, guid: ae1c03a937c1e904c87a9acdfd03912e, type: 3}
+  - {fileID: 6010767511657234574, guid: ae1c03a937c1e904c87a9acdfd03912e, type: 3}
+  - {fileID: -2035162334252790281, guid: ae1c03a937c1e904c87a9acdfd03912e, type: 3}
+  attackFrameDuration: 0.08
+  playAttackAnimation: 1
   swipeHitbox: {fileID: 1935842935139434844}
   fitHitboxToScreenWidth: 1
   manualPlayfieldWidth: 0

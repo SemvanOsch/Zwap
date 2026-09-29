@@ -170,9 +170,6 @@ MonoBehaviour:
   inverseSuffix: Inverse
   showDelay: 0.8
   debugIgnoreSaved: 0
-  currentArea:
-    key: 
-    panel: {fileID: 0}
 --- !u!4 &21520183
 Transform:
   m_ObjectHideFlags: 0
@@ -1756,21 +1753,11 @@ MonoBehaviour:
   wrapAround: 1
   dotsParent: {fileID: 0}
   dotPrefab: {fileID: 0}
-  activeDotColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
-  inactiveDotColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 0.4
+  activeDotColor: {r: 1, g: 1, b: 1, a: 1}
+  inactiveDotColor: {r: 1, g: 1, b: 1, a: 0.4}
   activeDotSprite: {fileID: 0}
   inactiveDotSprite: {fileID: 0}
   minSwipeDistance: 75
-  currentPage: 0
-  dragStartPosition: {x: 0, y: 0}
 --- !u!114 &502615683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2881,7 +2868,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 853914235
-  m_SortingLayer: 0
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Positions:
@@ -3444,7 +3431,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -34.229965, y: 13.310059}
+  m_AnchoredPosition: {x: -34.22995, y: 13.310059}
   m_SizeDelta: {x: 319.46, y: 201.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &917203043
