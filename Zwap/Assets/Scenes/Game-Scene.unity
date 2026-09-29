@@ -2069,9 +2069,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1075109997}
     - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: shieldBreakSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 99bb863a8d2436a4e87880e9b3d1bfd2, type: 3}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: skins.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: shieldPickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 556d07a16e523e54abef3912ed756d15, type: 3}
     - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: skins.Array.data[4].pingPong
       value: 1
@@ -2097,6 +2105,10 @@ PrefabInstance:
       value: Snake
       objectReference: {fileID: 0}
     - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: skins.Array.data[7].skinName
+      value: Nemo
+      objectReference: {fileID: 0}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: skins.Array.data[4].frames.Array.size
       value: 7
       objectReference: {fileID: 0}
@@ -2106,6 +2118,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: skins.Array.data[6].frames.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: skins.Array.data[7].frames.Array.size
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
@@ -2204,6 +2220,38 @@ PrefabInstance:
       propertyPath: 'skins.Array.data[6].frames.Array.data[7]'
       value: 
       objectReference: {fileID: -5860883234166740290, guid: cf3a274c538554f47a7290cd66a3223a, type: 3}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: 'skins.Array.data[7].frames.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8940482477248386848, guid: 327fc8ded51115343a8f2a60861e0a55, type: 3}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: 'skins.Array.data[7].frames.Array.data[1]'
+      value: 
+      objectReference: {fileID: -5428866934542411199, guid: 327fc8ded51115343a8f2a60861e0a55, type: 3}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: 'skins.Array.data[7].frames.Array.data[2]'
+      value: 
+      objectReference: {fileID: -817964319284893707, guid: 327fc8ded51115343a8f2a60861e0a55, type: 3}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: 'skins.Array.data[7].frames.Array.data[3]'
+      value: 
+      objectReference: {fileID: 3643665081752290506, guid: 327fc8ded51115343a8f2a60861e0a55, type: 3}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: 'skins.Array.data[7].frames.Array.data[4]'
+      value: 
+      objectReference: {fileID: 6119307017405361285, guid: 327fc8ded51115343a8f2a60861e0a55, type: 3}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: 'skins.Array.data[7].frames.Array.data[5]'
+      value: 
+      objectReference: {fileID: -2265112509120184740, guid: 327fc8ded51115343a8f2a60861e0a55, type: 3}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: 'skins.Array.data[7].frames.Array.data[6]'
+      value: 
+      objectReference: {fileID: 4605213917531905335, guid: 327fc8ded51115343a8f2a60861e0a55, type: 3}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: 'skins.Array.data[7].frames.Array.data[7]'
+      value: 
+      objectReference: {fileID: -1829258697653759660, guid: 327fc8ded51115343a8f2a60861e0a55, type: 3}
     - target: {fileID: 6699625963249174140, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.07
