@@ -2053,6 +2053,10 @@ PrefabInstance:
       value: 853914235
       objectReference: {fileID: 0}
     - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 272017973}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: aimLine
       value: 
       objectReference: {fileID: 853245881}
@@ -2068,6 +2072,10 @@ PrefabInstance:
       propertyPath: sliderControls
       value: 
       objectReference: {fileID: 1075109997}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: paddingFractionX
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: shieldBreakSound
       value: 
@@ -3498,7 +3506,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -34.229935, y: 13.310059}
+  m_AnchoredPosition: {x: -34.22992, y: 13.310059}
   m_SizeDelta: {x: 319.46, y: 201.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &917203043
@@ -6595,11 +6603,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4883709644171307110, guid: 8017286ce7f8e4749b6b6f84c6682e28, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 45.99994
+      value: 81
       objectReference: {fileID: 0}
     - target: {fileID: 4883709644171307110, guid: 8017286ce7f8e4749b6b6f84c6682e28, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722642223343860809, guid: 8017286ce7f8e4749b6b6f84c6682e28, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -74
       objectReference: {fileID: 0}
     - target: {fileID: 5992051854147746764, guid: 8017286ce7f8e4749b6b6f84c6682e28, type: 3}
       propertyPath: layers.Array.data[0].perControl.Array.data[1].invertedBackground
