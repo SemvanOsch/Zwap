@@ -27,12 +27,12 @@ public class Heron : MonoBehaviour
     [SerializeField, Min(0f)] private float killDelay = 0f;
 
     [Header("Kill Sprites")]
-    [Tooltip("Optional. Frames played in sequence at the player's position the moment the kill happens.")]
+    [Tooltip("Optional. Frames played in sequence at the heron's own position the moment the kill happens.")]
     [SerializeField] private Sprite[] killSprites;
     [SerializeField] private float killFrameLength = 0.08f;
     [SerializeField] private int killSpriteSortingOrder = 10;
 
-    [Tooltip("Optional. The heron's own SpriteRenderer, so the kill animation copies its Flip X/Y. Leave empty to auto-grab the one on this GameObject.")]
+    [Tooltip("Optional. The heron's own SpriteRenderer, so the kill animation copies its Flip X/Y and plays at the same spot as its idle animation. Leave empty to auto-grab the one on this GameObject.")]
     [SerializeField] private SpriteRenderer heronSpriteRenderer;
 
     [Header("Area Visual (in-game)")]
@@ -243,16 +243,18 @@ public class Heron : MonoBehaviour
 
     // ---------- Kill sprite animation ----------
 
-    // Spawns a small object at the player's position (falls back to the kill area's
-    // center if there's no player reference) and flips through killSprites, then
-    // cleans itself up. Purely visual -- doesn't block or delay ForceFatalHit.
+    // Spawns a small object at the heron's own position (same spot as its idle sprite,
+    // not the player/fish) and flips through killSprites, then cleans itself up.
+    // Purely visual -- doesn't block or delay ForceFatalHit.
     private void PlayKillSprites()
     {
         if (killSprites == null || killSprites.Length == 0) return;
 
-        Vector3 pos = player != null ? player.transform.position : (Vector3)AreaCenter;
+        Transform anchor = heronSpriteRenderer != null ? heronSpriteRenderer.transform : transform;
+
         var fx = new GameObject($"{name}_KillEffect");
-        fx.transform.position = pos;
+        fx.transform.position = anchor.position;
+        fx.transform.rotation = anchor.rotation;
 
         var sr = fx.AddComponent<SpriteRenderer>();
         if (!string.IsNullOrEmpty(sortingLayerName))
@@ -270,6 +272,11 @@ public class Heron : MonoBehaviour
         sr.flipX = heronMirrored;
         if (heronSpriteRenderer != null)
             sr.flipY = heronSpriteRenderer.flipY;
+
+        // Hide the heron's own idle sprite while the kill animation plays over the
+        // same spot, so they don't show at once. It's re-shown if the heron is reused.
+        if (heronSpriteRenderer != null)
+            heronSpriteRenderer.enabled = false;
 
         StartCoroutine(AnimateKillSprites(sr, fx));
     }
