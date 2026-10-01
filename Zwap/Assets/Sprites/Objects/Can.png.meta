@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 024cfd104b20c204e8b6ac82078d4d59
+guid: e999a52f1c2ad3048adc83f84d92d5b4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2999057239440411347
-    second: Heron_Animation_0
+      213: 7032184553362833509
+    second: Can_0
   - first:
-      213: 8865400786811924766
-    second: Heron_Animation_1
+      213: 8933446878427001378
+    second: Can_1
   - first:
-      213: 213858104197939753
-    second: Heron_Animation_2
+      213: 7035461132062161893
+    second: Can_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -90,32 +90,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -130,6 +104,32 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -184,67 +184,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Heron_Animation_0
+      name: Can_0
       rect:
         serializedVersion: 2
-        x: 205
-        y: 521
-        width: 330
-        height: 367
+        x: 72
+        y: 1570
+        width: 168
+        height: 229
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d25371694553166d0800000000000000
-      internalID: -2999057239440411347
+      spriteID: 5604e2ad796579160800000000000000
+      internalID: 7032184553362833509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heron_Animation_1
+      name: Can_1
       rect:
         serializedVersion: 2
-        x: 681
-        y: 520
-        width: 361
-        height: 360
+        x: 316
+        y: 1619
+        width: 168
+        height: 182
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e11b4617b0b380b70800000000000000
-      internalID: 8865400786811924766
+      spriteID: 222b670ca9af9fb70800000000000000
+      internalID: 8933446878427001378
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heron_Animation_2
+      name: Can_2
       rect:
         serializedVersion: 2
-        x: 1190
-        y: 520
-        width: 405
-        height: 333
+        x: 560
+        y: 1569
+        width: 167
+        height: 106
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9228e0d00d6c7f200800000000000000
-      internalID: 213858104197939753
+      spriteID: 5ebf1a7cf9af2a160800000000000000
+      internalID: 7035461132062161893
       vertices: []
       indices: 
       edges: []
@@ -253,7 +253,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c81cbdf39af62314a9faf5b88eeaccf2
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -263,9 +263,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Heron_Animation_0: -2999057239440411347
-      Heron_Animation_1: 8865400786811924766
-      Heron_Animation_2: 213858104197939753
+      Can_0: 7032184553362833509
+      Can_1: 8933446878427001378
+      Can_2: 7035461132062161893
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

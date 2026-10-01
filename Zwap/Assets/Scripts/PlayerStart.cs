@@ -449,7 +449,9 @@ public class PlayerStart : MonoBehaviour
             // Shoved out the bottom (e.g. pinned under a falling rock): die.
             // Read the fish's real position, which reflects any push from last physics step.
             // NOTE: the shield does NOT protect against this — it's an instant kill.
-            if (transform.position.y < min.y - bottomDeathZone)
+            // GOD MODE: skip the kill, but don't return early — the clamp + MovePosition below
+            // must still run so the fish gets pulled back into the play area instead of freezing.
+            if (!GodMode.Enabled && transform.position.y < min.y - bottomDeathZone)
             {
                 TriggerGameOver();
                 return;
@@ -725,6 +727,9 @@ public class PlayerStart : MonoBehaviour
     {
         if (isGameOver) return;
 
+        // GOD MODE: ignore every hit completely — no hit window, no blink, no shield used up.
+        if (GodMode.Enabled) return;
+
         if (!other.CompareTag("Entity")) return;
 
         // Grace period right after the shield broke
@@ -758,6 +763,9 @@ public class PlayerStart : MonoBehaviour
     private void TriggerGameOver()
     {
         if (isGameOver) return;
+
+        // GOD MODE: the kill function is switched off.
+        if (GodMode.Enabled) return;
 
         if (hitWindowRoutine != null) StopCoroutine(hitWindowRoutine);
         ResetBlink();
@@ -841,6 +849,9 @@ public class PlayerStart : MonoBehaviour
     public void ForceFatalHit()
     {
         if (isGameOver) return;
+
+        // GOD MODE: instant kills from other scripts are ignored too.
+        if (GodMode.Enabled) return;
 
         if (hitWindowRoutine != null) StopCoroutine(hitWindowRoutine);
         ResetBlink();
