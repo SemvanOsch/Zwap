@@ -1,108 +1,78 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
 /// A screen-wide obstacle that drifts downward and periodically telegraphs,
 /// then executes, a full-width swipe attack that's instantly fatal on contact.
-/// Spawn it like any other SpawnableItem in Spawner.cs - it manages its own
-/// movement, attack timing, and cleanup once it scrolls off-screen.
 /// </summary>
 public class Bear : MonoBehaviour
 {
     [Header("Tree Placement")]
-    [Tooltip("How far the tree is pushed DOWN from the bear's origin, in world units. Raise it to make the bear sit higher on the tree.")]
+    [Tooltip("How far the tree is pushed DOWN from the bear's origin, in world units.")]
     [SerializeField] private float treeDropOffset = 0f;
 
     [Header("Tree")]
-    [Tooltip("The tree/log prefab. Only its sprite is copied onto a plain SpriteRenderer under this Bear - its own movement script and collider are NOT included, so it can't double-move or add an extra hit area beyond the swipe.")]
     [SerializeField] private GameObject treePrefab;
 
-    [Tooltip("Optional. Where the tree gets parented/positioned. Leave empty to just parent it directly under this Bear's own transform at local (0,0,0). Should NOT be a child of the scaled BearVisual.")]
+    [Tooltip("Optional. Where the tree gets parented/positioned.")]
     [SerializeField] private Transform treeAnchor;
 
-    [Tooltip("Stretches the copied tree sprite horizontally so it exactly spans the same width as Swipe Hitbox (respecting Manual Playfield Width below if set). Only affects this copy under the Bear - the original Tree Prefab elsewhere is untouched.")]
     [SerializeField] private bool fitTreeToScreenWidth = true;
 
     [Header("Movement")]
-    [Tooltip("How fast the bear drifts down the screen, in world units/sec.")]
     [SerializeField] private float moveSpeed = 1f;
 
-    [Tooltip("If enabled, move speed increases with score, same as the player and spawner do elsewhere.")]
     [SerializeField] private bool scaleSpeedWithScore = false;
     [SerializeField] private float speedPerScore = 0.002f;
     [SerializeField] private float maxSpeedMultiplier = 3f;
 
     [Header("Attack Timing")]
-    [Tooltip("Seconds between the end of one attack and the start of the next warning. Change this any time from the Inspector or via SetAttackInterval().")]
     [SerializeField] private float attackInterval = 4f;
-
-    [Tooltip("How long the warning shows before the swipe actually becomes lethal.")]
     [SerializeField] private float warningDuration = 1f;
-
-    [Tooltip("How long the swipe stays lethal once it triggers.")]
     [SerializeField] private float swipeActiveDuration = 0.5f;
 
     [Header("Warning Indicator")]
-    [Tooltip("Optional. Shown below the bear (or wherever you place it) for warningDuration before each swipe. Leave empty to skip the visual warning.")]
     [SerializeField] private GameObject warningIndicator;
 
-    [Header("Warning Fill (progress-bar style)")]
-    [Tooltip("Auto-generated to exactly match Swipe Hitbox's size and position - grows from empty to the hitbox's full width as the warning counts down, then vanishes the instant the swipe goes lethal.")]
-    [SerializeField] private Color warningFillColor = new Color(1f, 0f, 0f, 0.35f);
+    [Header("Warning Fill")]
+    [SerializeField] private Color warningFillColor =
+        new Color(1f, 0f, 0f, 0.35f);
 
-    [Tooltip("Log warning/attack state changes to the Console - handy for tuning timings before you have a final animation/indicator in place.")]
     [SerializeField] private bool logStateChanges = true;
 
     [Header("Attack Animation")]
-    [Tooltip("The SpriteRenderer whose sprite will be changed during the attack.")]
     [SerializeField] private SpriteRenderer attackSpriteRenderer;
-
-    [Tooltip("Drag the attack animation sprites here in the order they should play.")]
     [SerializeField] private Sprite[] attackSprites;
-
-    [Tooltip("How long each attack sprite is displayed.")]
     [SerializeField] private float attackFrameDuration = 0.08f;
-
-    [Tooltip("If true, the first attack sprite is shown when the attack starts.")]
     [SerializeField] private bool playAttackAnimation = true;
 
     private Sprite idleSprite;
     private Coroutine attackAnimationCoroutine;
 
     [Header("Swipe Hitbox")]
-    [Tooltip("The full-width trigger collider (on a child object with a BearSwipeHitbox component) that becomes lethal during the attack.")]
     [SerializeField] private BoxCollider2D swipeHitbox;
-
-    [Tooltip("Automatically stretches swipeHitbox on Start. Turn off to size it entirely by hand.")]
     [SerializeField] private bool fitHitboxToScreenWidth = true;
-
-    [Tooltip("If set above 0, this exact width (in world units) is used instead of the camera's full width - use this when the camera shows more than your actual playing field (e.g. margins/black bars on the sides). Leave at 0 to just use the camera's width automatically.")]
     [SerializeField] private float manualPlayfieldWidth = 0f;
-
-    [SerializeField] private Camera cam; // defaults to Camera.main if left empty
+    [SerializeField] private Camera cam;
 
     [Header("Cleanup")]
-    [Tooltip("Extra world units below the visible screen before the bear destroys itself.")]
     [SerializeField] private float destroyBelowScreenPadding = 1f;
 
     [Header("Events")]
-    [Tooltip("Fires the instant the warning appears (attack telegraph begins).")]
     public UnityEvent OnWarningStart;
-    [Tooltip("Fires the instant the warning disappears and the swipe becomes lethal.")]
     public UnityEvent OnAttackStart;
-    [Tooltip("Fires when the swipe stops being lethal and the bear goes back to idle.")]
     public UnityEvent OnAttackEnd;
 
-    /// <summary>True for the warningDuration window before a swipe.</summary>
     public bool IsWarning { get; private set; }
-
-    /// <summary>True for the swipeActiveDuration window - contact with the player during this window is fatal.</summary>
     public bool IsAttacking { get; private set; }
 
-    private float warningFillFullScaleX; // the localScale.x that reads as "100% filled, matching swipeHitbox's full width"
-    private SpriteRenderer warningFillRenderer; // built automatically in Start() - not a manual field
-    private ObjectVariant treeVariant; // the tree's own skin-swap script - Bear drives it directly, see HandleTreeControlChanged
+    private float warningFillFullScaleX;
+    private SpriteRenderer warningFillRendererLeft;
+    private SpriteRenderer warningFillRendererRight;
+
+    private ObjectVariant treeVariant;
     private bool subscribedToSwitcherForTree;
 
     private void Awake()
@@ -123,112 +93,127 @@ public class Bear : MonoBehaviour
     {
         StopAllCoroutines();
 
-        if (subscribedToSwitcherForTree && ControlSwitcher.Instance != null)
-            ControlSwitcher.Instance.OnControlChanged -= HandleTreeControlChanged;
+        if (subscribedToSwitcherForTree &&
+            ControlSwitcher.Instance != null)
+        {
+            ControlSwitcher.Instance.OnControlChanged -=
+                HandleTreeControlChanged;
+        }
+
         subscribedToSwitcherForTree = false;
     }
 
     private void TrySubscribeSwitcherForTree()
     {
-        if (subscribedToSwitcherForTree || ControlSwitcher.Instance == null)
+        if (subscribedToSwitcherForTree ||
+            ControlSwitcher.Instance == null)
             return;
 
-        ControlSwitcher.Instance.OnControlChanged += HandleTreeControlChanged;
+        ControlSwitcher.Instance.OnControlChanged +=
+            HandleTreeControlChanged;
+
         subscribedToSwitcherForTree = true;
     }
 
-    // Drives the tree's skin directly, bypassing ObjectVariant's own
-    // subscription entirely (which was silently failing to fire for the
-    // bear-spawned copy for reasons we couldn't pin down). Since Bear itself
-    // is never disabled/destroyed mid-life the way the tree's other stripped
-    // scripts might be, this subscription is reliable regardless of that.
     private void HandleTreeControlChanged(ControlType newControl)
     {
         if (treeVariant == null)
             return;
 
-        bool inverted = ControlSwitcher.Instance != null && ControlSwitcher.Instance.IsInverted;
+        bool inverted =
+            ControlSwitcher.Instance != null &&
+            ControlSwitcher.Instance.IsInverted;
+
         treeVariant.ApplySkin(newControl, inverted);
     }
 
-    // Instantiates the REAL treePrefab as a child of the Bear (keeping
-    // ObjectVariant alive purely so its skins array/sprites are readable),
-    // then strips out everything else: every other script (whatever moves it -
-    // unknown class, so this removes ANY MonoBehaviour that isn't
-    // ObjectVariant) and every Collider2D, so it can't move itself (only the
-    // Bear's own MoveDown() should move this whole group) or damage the player
-    // on contact (only the swipe hitbox should ever do that here). The actual
-    // skin-swapping is driven by Bear itself via HandleTreeControlChanged, not
-    // by ObjectVariant's own subscription.
     private void SpawnTree()
     {
         if (treePrefab == null)
             return;
 
-        Transform parent = treeAnchor != null ? treeAnchor : transform;
-        GameObject treeInstance = Instantiate(treePrefab, parent);
-        treeInstance.transform.localPosition = new Vector3(0f, -treeDropOffset, 0f);
+        Transform parent =
+            treeAnchor != null ? treeAnchor : transform;
+
+        GameObject treeInstance =
+            Instantiate(treePrefab, parent);
+
+        treeInstance.transform.localPosition =
+            new Vector3(0f, -treeDropOffset, 0f);
 
         StripTreeInstance(treeInstance);
 
-        treeVariant = treeInstance.GetComponentInChildren<ObjectVariant>();
+        treeVariant =
+            treeInstance.GetComponentInChildren<ObjectVariant>();
+
         TrySubscribeSwitcherForTree();
 
-        // Apply whatever control is already active right now - OnControlChanged
-        // only fires on a future SWITCH, so without this the tree would show
-        // its default sprite until the next switch happens.
-        if (treeVariant != null && ControlSwitcher.Instance != null)
-            treeVariant.ApplySkin(ControlSwitcher.Instance.CurrentControl, ControlSwitcher.Instance.IsInverted);
+        if (treeVariant != null &&
+            ControlSwitcher.Instance != null)
+        {
+            treeVariant.ApplySkin(
+                ControlSwitcher.Instance.CurrentControl,
+                ControlSwitcher.Instance.IsInverted
+            );
+        }
 
         if (fitTreeToScreenWidth)
-            FitTreeSpriteToWidth(treeInstance, treeInstance.GetComponentInChildren<SpriteRenderer>());
+        {
+            FitTreeSpriteToWidth(
+                treeInstance,
+                treeInstance.GetComponentInChildren<SpriteRenderer>()
+            );
+        }
     }
 
     private void StripTreeInstance(GameObject treeInstance)
     {
-        foreach (Collider2D col in treeInstance.GetComponentsInChildren<Collider2D>())
+        foreach (Collider2D col in
+                 treeInstance.GetComponentsInChildren<Collider2D>())
+        {
             Destroy(col);
+        }
 
-        foreach (MonoBehaviour mb in treeInstance.GetComponentsInChildren<MonoBehaviour>())
+        foreach (MonoBehaviour mb in
+                 treeInstance.GetComponentsInChildren<MonoBehaviour>())
         {
             if (mb is ObjectVariant)
-                continue; // keep this one - Bear reads its skins/calls ApplySkin directly
+                continue;
 
             Destroy(mb);
         }
 
-        // Defensive: destroying an unknown script above can have a side effect
-        // of deactivating the WHOLE GameObject (a common pattern for obstacles
-        // that disable themselves on cleanup/pooling). Force it back active so
-        // the sprite stays visible - the skin-swapping itself no longer depends
-        // on this object being "enabled" in Unity's sense, since Bear calls
-        // ApplySkin() directly rather than relying on ObjectVariant's own
-        // OnEnable/event subscription.
         if (!treeInstance.activeSelf)
             treeInstance.SetActive(true);
     }
 
-    // Stretches the tree's sprite's horizontal scale so it spans
-    // GetTargetWidth() (the same width the swipe hitbox uses), and centers it
-    // on the camera's X - same idea as FitHitboxToScreenWidth, just applied to
-    // this sprite instead of a collider. Compensates for the parent's scale so
-    // scaling the Bear root or the tree anchor doesn't break the width.
-    private void FitTreeSpriteToWidth(GameObject treeInstance, SpriteRenderer sr)
+    private void FitTreeSpriteToWidth(
+        GameObject treeInstance,
+        SpriteRenderer sr)
     {
         if (sr == null || sr.sprite == null)
             return;
 
         float targetWidth = GetTargetWidth();
         float spriteWidth = sr.sprite.bounds.size.x;
+
         if (targetWidth <= 0f || spriteWidth <= 0f)
             return;
 
         Transform parent = treeInstance.transform.parent;
-        float parentScaleX = parent != null ? parent.lossyScale.x : 1f;
-        if (Mathf.Approximately(parentScaleX, 0f)) parentScaleX = 1f; // guard against a zeroed-out scale
+
+        float parentScaleX =
+            parent != null ? parent.lossyScale.x : 1f;
+
+        if (Mathf.Approximately(parentScaleX, 0f))
+            parentScaleX = 1f;
 
         Vector3 scale = treeInstance.transform.localScale;
-        scale.x = targetWidth / (spriteWidth * parentScaleX);
+
+        scale.x =
+            targetWidth /
+            (spriteWidth * parentScaleX);
+
         treeInstance.transform.localScale = scale;
 
         if (cam != null)
@@ -263,10 +248,20 @@ public class Bear : MonoBehaviour
     {
         float multiplier = 1f;
 
-        if (scaleSpeedWithScore && ScoreManager.Instance != null)
-            multiplier = Mathf.Min(1f + speedPerScore * ScoreManager.Instance.GetScore(), maxSpeedMultiplier);
+        if (scaleSpeedWithScore &&
+            ScoreManager.Instance != null)
+        {
+            multiplier = Mathf.Min(
+                1f +
+                speedPerScore *
+                ScoreManager.Instance.GetScore(),
+                maxSpeedMultiplier
+            );
+        }
 
-        transform.position += Vector3.down * (moveSpeed * multiplier * Time.deltaTime);
+        transform.position +=
+            Vector3.down *
+            (moveSpeed * multiplier * Time.deltaTime);
     }
 
     private void DestroyIfBelowScreen()
@@ -274,18 +269,23 @@ public class Bear : MonoBehaviour
         if (cam == null || !cam.orthographic)
             return;
 
-        float bottomEdge = cam.transform.position.y - cam.orthographicSize - destroyBelowScreenPadding;
+        float bottomEdge =
+            cam.transform.position.y -
+            cam.orthographicSize -
+            destroyBelowScreenPadding;
 
         if (transform.position.y < bottomEdge)
             Destroy(gameObject);
     }
 
-    // Repeats forever while the bear is enabled: wait -> warn -> swipe -> repeat.
     private IEnumerator AttackLoop()
     {
         while (true)
         {
-            yield return new WaitForSeconds(Mathf.Max(0f, attackInterval));
+            yield return new WaitForSeconds(
+                Mathf.Max(0f, attackInterval)
+            );
+
             yield return StartCoroutine(RunAttackCycle());
         }
     }
@@ -295,16 +295,27 @@ public class Bear : MonoBehaviour
         BeginWarning();
 
         float t = 0f;
+
         while (t < warningDuration)
         {
             t += Time.deltaTime;
-            SetWarningFillProgress(warningDuration > 0f ? Mathf.Clamp01(t / warningDuration) : 1f);
+
+            SetWarningFillProgress(
+                warningDuration > 0f
+                    ? Mathf.Clamp01(t / warningDuration)
+                    : 1f
+            );
+
             yield return null;
         }
+
         SetWarningFillProgress(1f);
 
         BeginAttack();
-        yield return new WaitForSeconds(Mathf.Max(0f, swipeActiveDuration));
+
+        yield return new WaitForSeconds(
+            Mathf.Max(0f, swipeActiveDuration)
+        );
 
         EndAttack();
     }
@@ -316,14 +327,21 @@ public class Bear : MonoBehaviour
         if (warningIndicator != null)
             warningIndicator.SetActive(true);
 
-        if (warningFillRenderer != null)
-        {
-            warningFillRenderer.gameObject.SetActive(true);
-            SetWarningFillProgress(0f);
-        }
+        if (warningFillRendererLeft != null)
+            warningFillRendererLeft.gameObject.SetActive(true);
+
+        if (warningFillRendererRight != null)
+            warningFillRendererRight.gameObject.SetActive(true);
+
+        SetWarningFillProgress(0f);
 
         if (logStateChanges)
-            Debug.Log($"[Bear] Warning - swipe incoming in {warningDuration}s", this);
+        {
+            Debug.Log(
+                $"[Bear] Warning - swipe incoming in {warningDuration}s",
+                this
+            );
+        }
 
         OnWarningStart?.Invoke();
     }
@@ -336,8 +354,11 @@ public class Bear : MonoBehaviour
         if (warningIndicator != null)
             warningIndicator.SetActive(false);
 
-        if (warningFillRenderer != null)
-            warningFillRenderer.gameObject.SetActive(false);
+        if (warningFillRendererLeft != null)
+            warningFillRendererLeft.gameObject.SetActive(false);
+
+        if (warningFillRendererRight != null)
+            warningFillRendererRight.gameObject.SetActive(false);
 
         if (playAttackAnimation &&
             attackSpriteRenderer != null &&
@@ -347,7 +368,8 @@ public class Bear : MonoBehaviour
             if (attackAnimationCoroutine != null)
                 StopCoroutine(attackAnimationCoroutine);
 
-            attackAnimationCoroutine = StartCoroutine(PlayAttackAnimation());
+            attackAnimationCoroutine =
+                StartCoroutine(PlayAttackAnimation());
         }
 
         if (logStateChanges)
@@ -363,10 +385,11 @@ public class Bear : MonoBehaviour
             if (attackSprites[i] != null)
                 attackSpriteRenderer.sprite = attackSprites[i];
 
-            yield return new WaitForSeconds(Mathf.Max(0.01f, attackFrameDuration));
+            yield return new WaitForSeconds(
+                Mathf.Max(0.01f, attackFrameDuration)
+            );
         }
 
-        // Return to the normal sprite after the attack animation
         if (idleSprite != null)
             attackSpriteRenderer.sprite = idleSprite;
 
@@ -383,34 +406,27 @@ public class Bear : MonoBehaviour
         OnAttackEnd?.Invoke();
     }
 
-    /// <summary>
-    /// Called by BearSwipeHitbox whenever anything overlaps it. Only actually
-    /// hurts the player while IsAttacking is true - outside the attack window
-    /// this is a no-op, so the hitbox can safely stay enabled at all times
-    /// (see BearSwipeHitbox's OnTriggerStay2D comment for why that matters).
-    /// </summary>
     public void HandleSwipeHit(Collider2D other)
     {
         if (!IsAttacking)
             return;
 
-        PlayerStart player = other.GetComponent<PlayerStart>();
+        PlayerStart player =
+            other.GetComponent<PlayerStart>();
+
         if (player == null)
             return;
 
-        player.ForceFatalHit(); // requires the small PlayerStart addition - see chat explanation
+        player.ForceFatalHit();
     }
 
-    // Stretches swipeHitbox's width to either manualPlayfieldWidth (if set above
-    // 0) or the camera's full visible width otherwise, and centers it on the
-    // camera's X. Leaves the hitbox's Y position and height alone - position
-    // that manually to match wherever your swipe animation reads as dangerous.
     public void FitHitboxToScreenWidth()
     {
         if (swipeHitbox == null)
             return;
 
         float targetWidth = GetTargetWidth();
+
         if (targetWidth <= 0f)
             return;
 
@@ -421,16 +437,19 @@ public class Bear : MonoBehaviour
             swipeHitbox.transform.position = pos;
         }
 
-        float scaleX = swipeHitbox.transform.lossyScale.x;
-        if (Mathf.Approximately(scaleX, 0f)) scaleX = 1f; // guard against a zeroed-out scale
+        float scaleX =
+            swipeHitbox.transform.lossyScale.x;
+
+        if (Mathf.Approximately(scaleX, 0f))
+            scaleX = 1f;
 
         Vector2 size = swipeHitbox.size;
+
         size.x = targetWidth / scaleX;
+
         swipeHitbox.size = size;
     }
 
-    // manualPlayfieldWidth wins whenever it's set above 0; otherwise falls back
-    // to reading the camera's own orthographic width.
     private float GetTargetWidth()
     {
         if (manualPlayfieldWidth > 0f)
@@ -439,69 +458,153 @@ public class Bear : MonoBehaviour
         if (cam == null || !cam.orthographic)
             return 0f;
 
-        return cam.orthographicSize * cam.aspect * 2f;
+        return cam.orthographicSize *
+               cam.aspect *
+               2f;
     }
 
-    // Creates a child of swipeHitbox - matching its exact size and position -
-    // that visually fills as the warning counts down. Built from a single
-    // generated white pixel so no sprite asset is needed; the hitbox and the
-    // fill are guaranteed to line up because the fill is quite literally sized
-    // from the hitbox's own BoxCollider2D.size/offset, not computed separately.
     private void CreateWarningFillRenderer()
     {
         if (swipeHitbox == null)
             return;
 
-        GameObject fillObj = new GameObject("WarningFill (auto-generated)");
-        fillObj.transform.SetParent(swipeHitbox.transform, worldPositionStays: false);
-        fillObj.transform.localPosition = swipeHitbox.offset;
-        fillObj.transform.localRotation = Quaternion.identity;
+        warningFillFullScaleX =
+            swipeHitbox.size.x;
 
-        warningFillRenderer = fillObj.AddComponent<SpriteRenderer>();
-        warningFillRenderer.sprite = CreateSolidWhiteSprite();
-        warningFillRenderer.color = warningFillColor;
+        warningFillRendererLeft =
+            CreateWarningFillSide("WarningFill Left");
 
-        // The generated sprite is exactly 1x1 world unit at scale 1, so scale
-        // directly equals the collider's own size in local units - height is
-        // fixed, width starts at 0 and grows toward warningFillFullScaleX.
-        warningFillFullScaleX = swipeHitbox.size.x;
-        fillObj.transform.localScale = new Vector3(0f, swipeHitbox.size.y, 1f);
+        warningFillRendererRight =
+            CreateWarningFillSide("WarningFill Right");
+    }
+
+    private SpriteRenderer CreateWarningFillSide(
+        string objectName)
+    {
+        GameObject fillObj =
+            new GameObject(objectName);
+
+        fillObj.transform.SetParent(
+            swipeHitbox.transform,
+            worldPositionStays: false
+        );
+
+        fillObj.transform.localRotation =
+            Quaternion.identity;
+
+        SpriteRenderer renderer =
+            fillObj.AddComponent<SpriteRenderer>();
+
+        renderer.sprite =
+            CreateSolidWhiteSprite();
+
+        renderer.color =
+            warningFillColor;
 
         fillObj.SetActive(false);
+
+        return renderer;
     }
 
     private static Sprite CreateSolidWhiteSprite()
     {
-        Texture2D tex = new Texture2D(1, 1);
-        tex.SetPixel(0, 0, Color.white);
+        Texture2D tex =
+            new Texture2D(1, 1);
+
+        tex.SetPixel(
+            0,
+            0,
+            Color.white
+        );
+
         tex.Apply();
-        return Sprite.Create(tex, new Rect(0f, 0f, 1f, 1f), new Vector2(0.5f, 0.5f), pixelsPerUnit: 1f);
+
+        return Sprite.Create(
+            tex,
+            new Rect(0f, 0f, 1f, 1f),
+            new Vector2(0.5f, 0.5f),
+            pixelsPerUnit: 1f
+        );
     }
 
-    // Scales warningFillRenderer horizontally so 0 = invisible/empty and
-    // warningFillFullScaleX = exactly as wide as swipeHitbox. Grows outward
-    // from the center, matching how the hitbox itself is centered.
     private void SetWarningFillProgress(float progress)
     {
-        if (warningFillRenderer == null)
+        if (warningFillRendererLeft == null ||
+            warningFillRendererRight == null)
             return;
 
-        Vector3 scale = warningFillRenderer.transform.localScale;
-        scale.x = warningFillFullScaleX * Mathf.Clamp01(progress);
-        warningFillRenderer.transform.localScale = scale;
+        progress = Mathf.Clamp01(progress);
+
+        // 0 = empty
+        // 1 = completely filled
+        float filledWidth =
+            warningFillFullScaleX * progress;
+
+        float halfWidth =
+            filledWidth * 0.5f;
+
+        float halfFullWidth =
+            warningFillFullScaleX * 0.5f;
+
+        // LEFT SIDE
+        Transform left =
+            warningFillRendererLeft.transform;
+
+        left.localPosition =
+            new Vector3(
+                -halfFullWidth +
+                halfWidth * 0.5f,
+                swipeHitbox.offset.y,
+                0f
+            );
+
+        left.localScale =
+            new Vector3(
+                halfWidth,
+                swipeHitbox.size.y,
+                1f
+            );
+
+        // RIGHT SIDE
+        Transform right =
+            warningFillRendererRight.transform;
+
+        right.localPosition =
+            new Vector3(
+                halfFullWidth -
+                halfWidth * 0.5f,
+                swipeHitbox.offset.y,
+                0f
+            );
+
+        right.localScale =
+            new Vector3(
+                halfWidth,
+                swipeHitbox.size.y,
+                1f
+            );
     }
 
-    // ------------------------------------------------------------------
-    // Public API - tune this bear at runtime, e.g. from a difficulty
-    // system that makes bears attack faster/longer the further you get.
-    // ------------------------------------------------------------------
+    public void SetMoveSpeed(float unitsPerSecond)
+    {
+        moveSpeed = unitsPerSecond;
+    }
 
-    public void SetMoveSpeed(float unitsPerSecond) => moveSpeed = unitsPerSecond;
-    public void SetAttackInterval(float seconds) => attackInterval = Mathf.Max(0f, seconds);
-    public void SetWarningDuration(float seconds) => warningDuration = Mathf.Max(0f, seconds);
-    public void SetSwipeActiveDuration(float seconds) => swipeActiveDuration = Mathf.Max(0f, seconds);
+    public void SetAttackInterval(float seconds)
+    {
+        attackInterval = Mathf.Max(0f, seconds);
+    }
 
-    /// <summary>Skips whatever's left of the current wait and starts a warning->swipe cycle immediately.</summary>
+    public void SetWarningDuration(float seconds)
+    {
+        warningDuration = Mathf.Max(0f, seconds);
+    }
+
+    public void SetSwipeActiveDuration(float seconds)
+    {
+        swipeActiveDuration = Mathf.Max(0f, seconds);
+    }
+
     public void ForceAttackNow()
     {
         StopAllCoroutines();

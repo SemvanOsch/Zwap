@@ -83,9 +83,9 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 2943175451170188196, guid: 2cff5e85046dea04e8fbcbb825246550, type: 3}
+  m_Sprite: {fileID: -2999057239440411347, guid: 024cfd104b20c204e8b6ac82078d4d59, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 3.43, y: 5.16}
@@ -109,6 +109,12 @@ MonoBehaviour:
   areaOffset: {x: 0, y: 0}
   requireFullyInside: 1
   killDelay: 0.01
+  killSprites:
+  - {fileID: 8865400786811924766, guid: 024cfd104b20c204e8b6ac82078d4d59, type: 3}
+  - {fileID: 213858104197939753, guid: 024cfd104b20c204e8b6ac82078d4d59, type: 3}
+  - {fileID: 8865400786811924766, guid: 024cfd104b20c204e8b6ac82078d4d59, type: 3}
+  killFrameLength: 0.08
+  killSpriteSortingOrder: 10
   showAreaVisual: 1
   outlineColor: {r: 1, g: 0, b: 0, a: 1}
   dashLength: 0.3

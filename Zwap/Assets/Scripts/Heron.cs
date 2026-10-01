@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -24,6 +25,15 @@ public class Heron : MonoBehaviour
 
     [Tooltip("Seconds between the player being caught and the kill actually happening.")]
     [SerializeField, Min(0f)] private float killDelay = 0f;
+
+    [Header("Kill Sprites")]
+    [Tooltip("Optional. Frames played in sequence at the player's position the moment the kill happens.")]
+    [SerializeField] private Sprite[] killSprites;
+    [SerializeField] private float killFrameLength = 0.08f;
+    [SerializeField] private int killSpriteSortingOrder = 10;
+
+    [Tooltip("Optional. The heron's own SpriteRenderer, so the kill animation copies its Flip X/Y. Leave empty to auto-grab the one on this GameObject.")]
+    [SerializeField] private SpriteRenderer heronSpriteRenderer;
 
     [Header("Area Visual (in-game)")]
     [Tooltip("Show the kill area in the game: dotted outline + fill that gets redder the closer the player is to being caught.")]
@@ -106,6 +116,8 @@ public class Heron : MonoBehaviour
     private void Start()
     {
         FindPlayer();
+        if (heronSpriteRenderer == null)
+            heronSpriteRenderer = GetComponent<SpriteRenderer>();
         if (showAreaVisual) BuildVisual();
     }
 
@@ -221,10 +233,57 @@ public class Heron : MonoBehaviour
     {
         if (logKill) Debug.Log($"{name} killed the player!");
 
+        PlayKillSprites();
+
         if (player != null)
             player.ForceFatalHit();
 
         onKill?.Invoke();
+    }
+
+    // ---------- Kill sprite animation ----------
+
+    // Spawns a small object at the player's position (falls back to the kill area's
+    // center if there's no player reference) and flips through killSprites, then
+    // cleans itself up. Purely visual -- doesn't block or delay ForceFatalHit.
+    private void PlayKillSprites()
+    {
+        if (killSprites == null || killSprites.Length == 0) return;
+
+        Vector3 pos = player != null ? player.transform.position : (Vector3)AreaCenter;
+        var fx = new GameObject($"{name}_KillEffect");
+        fx.transform.position = pos;
+
+        var sr = fx.AddComponent<SpriteRenderer>();
+        if (!string.IsNullOrEmpty(sortingLayerName))
+            sr.sortingLayerName = sortingLayerName;
+        sr.sortingOrder = killSpriteSortingOrder;
+
+        // Covers both ways a heron might be mirrored: Flip X on its SpriteRenderer,
+        // or a negative X scale on its transform (the same trick used for trees via
+        // the Spawner). XOR'ing them means it's correct whichever one (or neither)
+        // is actually in use, without needing to know which.
+        bool heronMirrored = false;
+        if (heronSpriteRenderer != null) heronMirrored ^= heronSpriteRenderer.flipX;
+        heronMirrored ^= transform.lossyScale.x < 0f;
+
+        sr.flipX = heronMirrored;
+        if (heronSpriteRenderer != null)
+            sr.flipY = heronSpriteRenderer.flipY;
+
+        StartCoroutine(AnimateKillSprites(sr, fx));
+    }
+
+    private IEnumerator AnimateKillSprites(SpriteRenderer sr, GameObject fx)
+    {
+        foreach (Sprite frame in killSprites)
+        {
+            if (frame == null) continue;
+            sr.sprite = frame;
+            yield return new WaitForSeconds(killFrameLength);
+        }
+
+        Destroy(fx);
     }
 
     // ---------- Area visual ----------
