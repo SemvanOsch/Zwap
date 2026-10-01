@@ -4801,7 +4801,7 @@ MonoBehaviour:
   - prefab: {fileID: 8422416415017215438, guid: 2a5332aa828a10a4b8c7a6c026a59d0b, type: 3}
     spawnZone: 5
     mirrorOnRightSide: 1
-    weight: 20
+    weight: 100
   - prefab: {fileID: 1947725282463073393, guid: 15baf4e8123e3e24193f9c4bf4db8d60, type: 3}
     spawnZone: 0
     mirrorOnRightSide: 0
