@@ -81,7 +81,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2999057239440411347, guid: 024cfd104b20c204e8b6ac82078d4d59, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -115,6 +115,7 @@ MonoBehaviour:
   - {fileID: 8865400786811924766, guid: 024cfd104b20c204e8b6ac82078d4d59, type: 3}
   killFrameLength: 0.08
   killSpriteSortingOrder: 10
+  heronSpriteRenderer: {fileID: 0}
   showAreaVisual: 1
   outlineColor: {r: 1, g: 0, b: 0, a: 1}
   dashLength: 0.3

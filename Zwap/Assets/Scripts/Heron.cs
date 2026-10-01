@@ -79,6 +79,9 @@ public class Heron : MonoBehaviour
     [Tooltip("Sorting order of the fill (dashes are +1). Keep it below the player's sprite.")]
     [SerializeField] private int sortingOrder = 5;
 
+    [Tooltip("ON: the heron's own sprite is forced to draw above the area visual (fill + dashes). OFF: leaves its sorting order as set on the SpriteRenderer itself.")]
+    [SerializeField] private bool keepHeronSpriteOnTop = true;
+
     [Header("Player")]
     [Tooltip("Optional. Leave empty to find the PlayerStart in the scene automatically.")]
     [SerializeField] private PlayerStart player;
@@ -118,6 +121,15 @@ public class Heron : MonoBehaviour
         FindPlayer();
         if (heronSpriteRenderer == null)
             heronSpriteRenderer = GetComponent<SpriteRenderer>();
+
+        // Same layer and above the fill/dashes, so the idle sprite isn't hidden behind them.
+        if (keepHeronSpriteOnTop && heronSpriteRenderer != null)
+        {
+            if (!string.IsNullOrEmpty(sortingLayerName))
+                heronSpriteRenderer.sortingLayerName = sortingLayerName;
+            heronSpriteRenderer.sortingOrder = Mathf.Max(heronSpriteRenderer.sortingOrder, sortingOrder + 2);
+        }
+
         if (showAreaVisual) BuildVisual();
     }
 
@@ -259,7 +271,9 @@ public class Heron : MonoBehaviour
         var sr = fx.AddComponent<SpriteRenderer>();
         if (!string.IsNullOrEmpty(sortingLayerName))
             sr.sortingLayerName = sortingLayerName;
-        sr.sortingOrder = killSpriteSortingOrder;
+        // Always above the area visual (fill = sortingOrder, dashes = sortingOrder+1),
+        // even if killSpriteSortingOrder was left lower in the Inspector.
+        sr.sortingOrder = Mathf.Max(killSpriteSortingOrder, sortingOrder + 2);
 
         // Covers both ways a heron might be mirrored: Flip X on its SpriteRenderer,
         // or a negative X scale on its transform (the same trick used for trees via
