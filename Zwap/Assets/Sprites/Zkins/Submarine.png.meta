@@ -45,7 +45,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -137,10 +137,10 @@ TextureImporter:
       name: Submarine_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1000
-        height: 1000
+        x: 257
+        y: 50
+        width: 486
+        height: 949
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,10 +159,10 @@ TextureImporter:
       name: Submarine_1
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 1000
-        height: 1000
+        x: 1264
+        y: 50
+        width: 479
+        height: 950
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,32 +181,10 @@ TextureImporter:
       name: Submarine_2
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 75099ca57c4fd6c00800000000000000
-      internalID: 895641037975425111
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Submarine_3
-      rect:
-        serializedVersion: 2
-        x: 3000
-        y: 0
-        width: 1000
-        height: 1000
+        x: 2263
+        y: 50
+        width: 473
+        height: 950
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,13 +200,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Submarine_4
+      name: Submarine_3
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 0
-        width: 1000
-        height: 1000
+        x: 3257
+        y: 50
+        width: 483
+        height: 950
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,13 +222,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Submarine_5
+      name: Submarine_4
       rect:
         serializedVersion: 2
-        x: 5000
-        y: 0
-        width: 1000
-        height: 1000
+        x: 4257
+        y: 50
+        width: 484
+        height: 950
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,35 +244,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Submarine_6
+      name: Submarine_5
       rect:
         serializedVersion: 2
-        x: 6000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0aee85ad72b768e40800000000000000
-      internalID: 5658345392934809248
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Submarine_7
-      rect:
-        serializedVersion: 2
-        x: 7000
-        y: 0
-        width: 1000
-        height: 1000
+        x: 5261
+        y: 50
+        width: 485
+        height: 950
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,6 +261,50 @@ TextureImporter:
       bones: []
       spriteID: a4d5f94799375de40800000000000000
       internalID: 5680573607921540426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Submarine_6
+      rect:
+        serializedVersion: 2
+        x: 6257
+        y: 50
+        width: 489
+        height: 950
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8a725eb520e1624aae70a77c27a85aa
+      internalID: -1434492604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Submarine_7
+      rect:
+        serializedVersion: 2
+        x: 7257
+        y: 50
+        width: 489
+        height: 950
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a61f329cd5dce4d9ba950ae3c51457
+      internalID: -790489837
       vertices: []
       indices: 
       edges: []
@@ -323,16 +323,35 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":1000.0,"y":1000.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Submarine_0: -941222759849540844
       Submarine_1: -7444771728682132349
-      Submarine_2: 895641037975425111
-      Submarine_3: 7935637431235430210
-      Submarine_4: -5767386709015500426
-      Submarine_5: -1740886650082209242
-      Submarine_6: 5658345392934809248
-      Submarine_7: 5680573607921540426
+      Submarine_10: -1668659686
+      Submarine_11: 1350023016
+      Submarine_12: -1144767807
+      Submarine_13: 408150405
+      Submarine_14: 841560451
+      Submarine_15: -1335116669
+      Submarine_16: 444976475
+      Submarine_17: 782564729
+      Submarine_18: 1872632836
+      Submarine_19: 1566660067
+      Submarine_2: 7935637431235430210
+      Submarine_20: -1915166127
+      Submarine_21: 970025043
+      Submarine_22: 1366028826
+      Submarine_23: -300921848
+      Submarine_24: 111862114
+      Submarine_25: 1732106680
+      Submarine_26: 1433595174
+      Submarine_27: 844608871
+      Submarine_28: -1853609528
+      Submarine_3: -5767386709015500426
+      Submarine_4: -1740886650082209242
+      Submarine_5: 5680573607921540426
+      Submarine_6: -1434492604
+      Submarine_7: -790489837
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -45,7 +45,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -137,164 +137,10 @@ TextureImporter:
       name: robotvis_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ac0e35466e7ae0fd0800000000000000
-      internalID: -2373775345610137398
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: robotvis_1
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4c8102e7364e596f0800000000000000
-      internalID: -678385052880463676
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: robotvis_2
-      rect:
-        serializedVersion: 2
-        x: 2000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 862d047a690d71390800000000000000
-      internalID: -7847574480200084888
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: robotvis_3
-      rect:
-        serializedVersion: 2
-        x: 3000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 78ff68f2a898d6480800000000000000
-      internalID: -8904309661645734009
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: robotvis_4
-      rect:
-        serializedVersion: 2
-        x: 4000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 51628575394b504e0800000000000000
-      internalID: -2016006713259842027
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: robotvis_5
-      rect:
-        serializedVersion: 2
-        x: 5000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fd9e4a48f022a2a10800000000000000
-      internalID: 1885356844053227999
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: robotvis_6
-      rect:
-        serializedVersion: 2
-        x: 6000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 26d05f2b11f7fc3d0800000000000000
-      internalID: -3184186697534075550
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: robotvis_7
-      rect:
-        serializedVersion: 2
-        x: 7000
-        y: 0
-        width: 1000
-        height: 1000
+        x: 240
+        y: 143
+        width: 557
+        height: 772
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,6 +151,160 @@ TextureImporter:
       bones: []
       spriteID: 81eb24a3fba6f9400800000000000000
       internalID: 333102266997456408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotvis_1
+      rect:
+        serializedVersion: 2
+        x: 1242
+        y: 143
+        width: 563
+        height: 765
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98b5b75424c21fb4eafa3f036b5f9772
+      internalID: 791366551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotvis_2
+      rect:
+        serializedVersion: 2
+        x: 2227
+        y: 94
+        width: 539
+        height: 821
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78d8ad02c6f9799468e13548c0ab1acd
+      internalID: 1141981157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotvis_3
+      rect:
+        serializedVersion: 2
+        x: 3233
+        y: 119
+        width: 517
+        height: 796
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61f787b086c324d45a4aab678cc58487
+      internalID: -1476367145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotvis_4
+      rect:
+        serializedVersion: 2
+        x: 4200
+        y: 116
+        width: 610
+        height: 798
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba1610a3425ccb248b22713d2f204843
+      internalID: 1131224889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotvis_5
+      rect:
+        serializedVersion: 2
+        x: 5227
+        y: 115
+        width: 533
+        height: 800
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c6d2a711ae935c40bae6e7eb280dbaf
+      internalID: -402067087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotvis_6
+      rect:
+        serializedVersion: 2
+        x: 6234
+        y: 117
+        width: 539
+        height: 798
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a1649907c32c7d4e8eab8149bac97d7
+      internalID: 2029345936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robotvis_7
+      rect:
+        serializedVersion: 2
+        x: 7195
+        y: 139
+        width: 563
+        height: 775
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc27dd9f0fe9aa4d97efeceddfe4f0c
+      internalID: -1353293074
       vertices: []
       indices: 
       edges: []
@@ -323,16 +323,37 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":1000.0,"y":1000.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      robotvis_0: -2373775345610137398
-      robotvis_1: -678385052880463676
-      robotvis_2: -7847574480200084888
-      robotvis_3: -8904309661645734009
-      robotvis_4: -2016006713259842027
-      robotvis_5: 1885356844053227999
-      robotvis_6: -3184186697534075550
-      robotvis_7: 333102266997456408
+      robotvis_0: 333102266997456408
+      robotvis_1: 791366551
+      robotvis_11: 30570306
+      robotvis_13: -1428840742
+      robotvis_16: 1037665578
+      robotvis_19: 1880397806
+      robotvis_2: 1141981157
+      robotvis_20: 1349959265
+      robotvis_21: -1265374796
+      robotvis_22: -1279670357
+      robotvis_23: 1449436381
+      robotvis_24: 601703145
+      robotvis_25: 1642011512
+      robotvis_26: 1725311756
+      robotvis_27: 1713644093
+      robotvis_28: 1160991615
+      robotvis_29: -1861660952
+      robotvis_3: -1476367145
+      robotvis_30: 1816732996
+      robotvis_31: -1873531609
+      robotvis_32: -945330427
+      robotvis_33: -1329003211
+      robotvis_34: -464788497
+      robotvis_35: -449030365
+      robotvis_4: 1131224889
+      robotvis_5: -402067087
+      robotvis_6: 2029345936
+      robotvis_7: -1353293074
+      robotvis_8: -171870213
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
