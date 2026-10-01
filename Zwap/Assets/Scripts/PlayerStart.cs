@@ -115,7 +115,8 @@ public class PlayerStart : MonoBehaviour
     [SerializeField] private Color blinkColor = Color.red;
 
     [Header("Shield")]
-    [SerializeField] private GameObject shieldVisual; // child object on the player, disabled by default
+    [SerializeField] private GameObject shieldVisual;       // top part, child of the player, disabled by default
+    [SerializeField] private GameObject shieldVisualBottom; // bottom part, child of the player, disabled by default
     [SerializeField] private AudioClip shieldPickupSound;
     [SerializeField] private AudioClip shieldBreakSound;
 
@@ -183,6 +184,8 @@ public class PlayerStart : MonoBehaviour
         // Shield always starts off
         if (shieldVisual != null)
             shieldVisual.SetActive(false);
+        if (shieldVisualBottom != null)
+            shieldVisualBottom.SetActive(false);
 
         InitializeSkin();
     }
@@ -694,6 +697,7 @@ public class PlayerStart : MonoBehaviour
 
         hasShield = true;
         if (shieldVisual != null) shieldVisual.SetActive(true);
+        if (shieldVisualBottom != null) shieldVisualBottom.SetActive(true);
         PlayHitAudio(shieldPickupSound);
         return true;
     }
@@ -704,6 +708,7 @@ public class PlayerStart : MonoBehaviour
         hasShield = false;
         shieldGraceUntil = Time.time + shieldBreakGrace;
         if (shieldVisual != null) shieldVisual.SetActive(false);
+        if (shieldVisualBottom != null) shieldVisualBottom.SetActive(false);
         PlayHitAudio(shieldBreakSound);
     }
 
