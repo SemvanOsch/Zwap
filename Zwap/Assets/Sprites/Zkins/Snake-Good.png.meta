@@ -45,7 +45,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -134,34 +134,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Snake-Good_0
+      name: Snake-Good_3
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3328
         y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 51e35a2c6389b0590800000000000000
-      internalID: -7706898976353206763
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snake-Good_1
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 1000
+        width: 299
         height: 1000
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -178,57 +156,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake-Good_2
+      name: Snake-Good_0
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 63a335d25befcaf70800000000000000
-      internalID: 9200008192914045494
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snake-Good_3
-      rect:
-        serializedVersion: 2
-        x: 3000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: af16f64b75f1dca30800000000000000
-      internalID: 4237077285975319034
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snake-Good_4
-      rect:
-        serializedVersion: 2
-        x: 4000
-        y: 0
-        width: 1000
-        height: 1000
+        x: 365
+        y: 14
+        width: 301
+        height: 949
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,13 +178,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake-Good_5
+      name: Snake-Good_1
       rect:
         serializedVersion: 2
-        x: 5000
-        y: 0
-        width: 1000
-        height: 1000
+        x: 1336
+        y: 18
+        width: 282
+        height: 945
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,35 +200,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snake-Good_6
+      name: Snake-Good_2
       rect:
         serializedVersion: 2
-        x: 6000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3b0ae4ebe37f033e0800000000000000
-      internalID: -2075887579364941645
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snake-Good_7
-      rect:
-        serializedVersion: 2
-        x: 7000
-        y: 0
-        width: 1000
-        height: 1000
+        x: 2342
+        y: 5
+        width: 283
+        height: 952
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,6 +217,94 @@ TextureImporter:
       bones: []
       spriteID: ebae27530c5f9aea0800000000000000
       internalID: -5860883234166740290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snake-Good_4
+      rect:
+        serializedVersion: 2
+        x: 4342
+        y: 14
+        width: 300
+        height: 948
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 930e77cc29d193e45904b6a03d219e75
+      internalID: 680298453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snake-Good_5
+      rect:
+        serializedVersion: 2
+        x: 5389
+        y: 14
+        width: 257
+        height: 949
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fb4585cd3283e34197e879bd17c118e
+      internalID: 1489701194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snake-Good_6
+      rect:
+        serializedVersion: 2
+        x: 6385
+        y: 14
+        width: 269
+        height: 949
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae8c4dce88a3fee41ac32606f27be09c
+      internalID: -536458936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snake-Good_7
+      rect:
+        serializedVersion: 2
+        x: 7377
+        y: 18
+        width: 289
+        height: 945
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38517c74cad5f0d45ab09e333a0295c0
+      internalID: 369443969
       vertices: []
       indices: 
       edges: []
@@ -323,16 +323,50 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":1.0},"gridSpriteSize":{"x":1000.0,"y":1000.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Snake-Good_0: -7706898976353206763
-      Snake-Good_1: -3344506810629214140
-      Snake-Good_2: 9200008192914045494
-      Snake-Good_3: 4237077285975319034
-      Snake-Good_4: 8408104554887099906
-      Snake-Good_5: 349940981842168311
-      Snake-Good_6: -2075887579364941645
-      Snake-Good_7: -5860883234166740290
+      Snake-Good_0: 8408104554887099906
+      Snake-Good_1: 349940981842168311
+      Snake-Good_12: 1666451720
+      Snake-Good_13: -914545854
+      Snake-Good_14: -2110704106
+      Snake-Good_15: 797527773
+      Snake-Good_16: 751640925
+      Snake-Good_17: 1676009053
+      Snake-Good_18: 963040022
+      Snake-Good_19: -1542216565
+      Snake-Good_2: -5860883234166740290
+      Snake-Good_20: -582319675
+      Snake-Good_21: 242131725
+      Snake-Good_22: 1639503529
+      Snake-Good_23: -978838669
+      Snake-Good_24: 455845990
+      Snake-Good_25: 891821486
+      Snake-Good_26: -1621013330
+      Snake-Good_27: 792522242
+      Snake-Good_28: 1358831092
+      Snake-Good_29: -648836687
+      Snake-Good_3: -3344506810629214140
+      Snake-Good_30: -1608946766
+      Snake-Good_31: -1856438467
+      Snake-Good_32: 208274158
+      Snake-Good_33: -1411293324
+      Snake-Good_34: -543323834
+      Snake-Good_35: -446368920
+      Snake-Good_36: -90321978
+      Snake-Good_37: 1154468895
+      Snake-Good_38: 429100976
+      Snake-Good_39: -65815182
+      Snake-Good_4: 680298453
+      Snake-Good_40: -590168947
+      Snake-Good_41: -944307360
+      Snake-Good_42: -1751516759
+      Snake-Good_43: -392425960
+      Snake-Good_44: -753128821
+      Snake-Good_45: 1422439618
+      Snake-Good_5: 1489701194
+      Snake-Good_6: -536458936
+      Snake-Good_7: 369443969
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
