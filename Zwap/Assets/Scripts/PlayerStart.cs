@@ -144,6 +144,10 @@ public class PlayerStart : MonoBehaviour
     private bool hasShield;          // true while a shield is active (absorbs the next Entity hit)
     private float shieldGraceUntil;  // Time.time until which Entity hits are ignored after the shield breaks
 
+    // True while a can shield is protecting the fish. Read by the Spawner so the
+    // can respawn timer only runs while the fish is unprotected.
+    public bool HasShield => hasShield;
+
     private float multiplier = 1f;
 
     // --- Slingshot state ---

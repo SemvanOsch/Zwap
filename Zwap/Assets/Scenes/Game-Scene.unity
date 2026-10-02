@@ -2251,6 +2251,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1075109997}
     - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
+      propertyPath: hitWindowDuration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3009193054213696258, guid: aa64b3f3c924f9b4a9bc2ddd04db87b2, type: 3}
       propertyPath: shieldVisualBottom
       value: 
       objectReference: {fileID: 1914026928}

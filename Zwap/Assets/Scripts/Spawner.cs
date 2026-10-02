@@ -104,10 +104,12 @@ public class Spawner : MonoBehaviour
     private float timer;
     private float canTimer;
     private float canNextInterval;
+    private PlayerStart player; // used to pause the can timer while the fish is shielded
 
     void Start()
     {
         RollNextCanInterval();
+        player = FindObjectOfType<PlayerStart>();
     }
 
     void Update()
@@ -133,12 +135,22 @@ public class Spawner : MonoBehaviour
         // and deliberately does NOT scale with score.
         if (canItem != null && canItem.prefab != null)
         {
-            canTimer += Time.deltaTime;
-            if (canTimer >= canNextInterval)
+            // While the fish still has a can's shield, hold the timer at 0 so a fresh
+            // full interval only begins once that protection is gone. (Reset each pickup.)
+            if (player != null && player.HasShield)
             {
-                SpawnItem(canItem);
                 canTimer = 0f;
                 RollNextCanInterval();
+            }
+            else
+            {
+                canTimer += Time.deltaTime;
+                if (canTimer >= canNextInterval)
+                {
+                    SpawnItem(canItem);
+                    canTimer = 0f;
+                    RollNextCanInterval();
+                }
             }
         }
     }
