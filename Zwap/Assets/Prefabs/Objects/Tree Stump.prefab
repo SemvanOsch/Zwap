@@ -186,7 +186,7 @@ MonoBehaviour:
     normalSprites:
     - {fileID: 2831335947814123303, guid: 3943959934600c4499ac28a781dd7a72, type: 3}
     invertedSprites:
-    - {fileID: -2279788061676665791, guid: eee5f3a8759c386478221b37ae30cae1, type: 3}
+    - {fileID: -3513062060909809647, guid: 52ba50ab0cd652d4c8a2a28b27fffe66, type: 3}
   - type: 4
     normalSprites:
     - {fileID: -3187859115572242034, guid: eee5f3a8759c386478221b37ae30cae1, type: 3}
