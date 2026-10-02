@@ -42,6 +42,16 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float spawnInterval = 2f;
     [SerializeField] private float spawnSpeedPerScore = 0.002f;
 
+    [Header("Separate Can Spawn")]
+    [Tooltip("The can is NOT part of the items array above - it spawns on its own timer, so it can appear at the same time as a normal object. Leave the prefab empty to disable can spawning.")]
+    public SpawnableItem canItem;
+
+    [Tooltip("Shortest time (seconds) between can spawns. Each interval is re-rolled randomly between min and max. Does NOT scale with score.")]
+    [SerializeField] private float canSpawnIntervalMin = 3f;
+
+    [Tooltip("Longest time (seconds) between can spawns.")]
+    [SerializeField] private float canSpawnIntervalMax = 6f;
+
     [Header("Spawn Area (X range)")]
     [SerializeField] private float minX = -3f;
     [SerializeField] private float maxX = 3f;
@@ -64,6 +74,13 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float perchYOffset = 0f;
 
     private float timer;
+    private float canTimer;
+    private float canNextInterval;
+
+    void Start()
+    {
+        RollNextCanInterval();
+    }
 
     void Update()
     {
@@ -81,6 +98,28 @@ public class Spawner : MonoBehaviour
             SpawnEntity();
             timer = 0f;
         }
+
+        // The can runs on its own timer, independent of the main pool above,
+        // so it can land in the same frame as a normal object. It uses a
+        // random interval in [min, max] that is re-rolled after every spawn
+        // and deliberately does NOT scale with score.
+        if (canItem != null && canItem.prefab != null)
+        {
+            canTimer += Time.deltaTime;
+            if (canTimer >= canNextInterval)
+            {
+                SpawnItem(canItem);
+                canTimer = 0f;
+                RollNextCanInterval();
+            }
+        }
+    }
+
+    private void RollNextCanInterval()
+    {
+        float min = Mathf.Min(canSpawnIntervalMin, canSpawnIntervalMax);
+        float max = Mathf.Max(canSpawnIntervalMin, canSpawnIntervalMax);
+        canNextInterval = Random.Range(min, max);
     }
 
     void SpawnEntity()
@@ -88,6 +127,16 @@ public class Spawner : MonoBehaviour
         if (items == null || items.Length == 0) return;
 
         SpawnableItem chosen = GetWeightedRandomItem();
+        SpawnItem(chosen);
+    }
+
+    /// <summary>
+    /// Instantiates a single spawnable item at a random X within its zone,
+    /// applying the perch Y offset and right-side mirroring. Shared by the
+    /// main weighted pool and the separate can timer.
+    /// </summary>
+    private void SpawnItem(SpawnableItem chosen)
+    {
         if (chosen == null || chosen.prefab == null) return;
 
         float x = GetRandomX(chosen.spawnZone);

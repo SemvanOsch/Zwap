@@ -4933,26 +4933,29 @@ MonoBehaviour:
   - prefab: {fileID: 1223877303238547685, guid: eaf7c7f11abcbb541a6c460522c164ff, type: 3}
     spawnZone: 0
     mirrorOnRightSide: 0
-    weight: 20
+    weight: 30
   - prefab: {fileID: 7905770488391994396, guid: a0a8068e0659ed94d9465ccf42c91ec1, type: 3}
     spawnZone: 1
     mirrorOnRightSide: 1
-    weight: 20
+    weight: 40
   - prefab: {fileID: 6255794193210782943, guid: 32b729827a0356340a314e46f89763de, type: 3}
     spawnZone: 4
     mirrorOnRightSide: 0
-    weight: 20
+    weight: 10
   - prefab: {fileID: 8422416415017215438, guid: 2a5332aa828a10a4b8c7a6c026a59d0b, type: 3}
     spawnZone: 5
     mirrorOnRightSide: 1
-    weight: 100
-  - prefab: {fileID: 1947725282463073393, guid: 15baf4e8123e3e24193f9c4bf4db8d60, type: 3}
-    spawnZone: 0
-    mirrorOnRightSide: 0
     weight: 20
   spawnPoint: {fileID: 1330424806}
   spawnInterval: 2
   spawnSpeedPerScore: 0.002
+  canItem:
+    prefab: {fileID: 1947725282463073393, guid: 15baf4e8123e3e24193f9c4bf4db8d60, type: 3}
+    spawnZone: 0
+    mirrorOnRightSide: 0
+    weight: 10
+  canSpawnIntervalMin: 18
+  canSpawnIntervalMax: 22
   minX: -3
   maxX: 3
   centerMinX: -1
