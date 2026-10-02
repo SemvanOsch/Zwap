@@ -83,12 +83,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2999057239440411347, guid: 024cfd104b20c204e8b6ac82078d4d59, type: 3}
+  m_Sprite: {fileID: 7297659776310390102, guid: 5f24f3e46d285a54a905bf354b2cc763, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.43, y: 5.16}
+  m_Size: {x: 6.848485, y: 7.6060605}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -110,12 +110,14 @@ MonoBehaviour:
   requireFullyInside: 1
   killDelay: 0.01
   killSprites:
-  - {fileID: 8865400786811924766, guid: 024cfd104b20c204e8b6ac82078d4d59, type: 3}
-  - {fileID: 213858104197939753, guid: 024cfd104b20c204e8b6ac82078d4d59, type: 3}
-  - {fileID: 8865400786811924766, guid: 024cfd104b20c204e8b6ac82078d4d59, type: 3}
+  - {fileID: 7297659776310390102, guid: 5f24f3e46d285a54a905bf354b2cc763, type: 3}
+  - {fileID: 6784648409308531696, guid: 5f24f3e46d285a54a905bf354b2cc763, type: 3}
+  - {fileID: 8992672071663981394, guid: 5f24f3e46d285a54a905bf354b2cc763, type: 3}
+  - {fileID: -3901117294376956681, guid: 5f24f3e46d285a54a905bf354b2cc763, type: 3}
+  - {fileID: 7468800488246794988, guid: 5f24f3e46d285a54a905bf354b2cc763, type: 3}
   killFrameLength: 0.08
   killSpriteSortingOrder: 10
-  heronSpriteRenderer: {fileID: 0}
+  heronSpriteRenderer: {fileID: 4105541045142173264}
   showAreaVisual: 1
   outlineColor: {r: 1, g: 0, b: 0, a: 1}
   dashLength: 0.3
@@ -153,6 +155,7 @@ MonoBehaviour:
   fillSpeed: 20
   sortingLayerName: Default
   sortingOrder: 5
+  keepHeronSpriteOnTop: 1
   player: {fileID: 0}
   playerColliderOverride: {fileID: 0}
   animator: {fileID: 0}

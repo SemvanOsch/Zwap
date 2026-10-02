@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 #if UNITY_EDITOR
@@ -30,6 +31,31 @@ public class SpawnableItem
              "wordt automatisch genormaliseerd. De custom inspector hieronder laat het " +
              "resulterende live percentage per item zien.")]
     public float weight = 10f;
+
+    [Header("Multiples")]
+    [Min(1)]
+    [Tooltip("Minimum number of objects spawned each time this item is picked.")]
+    public int minCount = 1;
+
+    [Min(1)]
+    [Tooltip("Maximum number of objects spawned each time this item is picked. The actual count is random between Min and Max. Set both to 1 for a single object.")]
+    public int maxCount = 1;
+
+    [Min(0f)]
+    [Tooltip("Minimum X distance between objects of the same batch, so they don't overlap. 0 = no check. If no free spot is found after a few tries, that object is skipped.")]
+    public float minSeparationX = 1f;
+
+    [Min(0f)]
+    [Tooltip("0 = all objects spawn in the same row (side by side). Above 0 = each extra object spawns this much further up. With a delay below you usually want this at 0.")]
+    public float stackOffsetY = 0f;
+
+    [Min(0f)]
+    [Tooltip("Shortest delay (seconds) before the 2nd, 3rd, ... object of a batch spawns. The first object always spawns immediately. Each delay is re-rolled randomly between Min and Max.")]
+    public float minDelay = 0f;
+
+    [Min(0f)]
+    [Tooltip("Longest delay (seconds) between objects of the same batch. Set both Min and Max to 0 to spawn the whole batch at once.")]
+    public float maxDelay = 0f;
 }
 
 public class Spawner : MonoBehaviour
@@ -72,6 +98,8 @@ public class Spawner : MonoBehaviour
 
     [Tooltip("Shifts perching enemies up/down relative to the spawn point (fine-tune so they sit ON the rock).")]
     [SerializeField] private float perchYOffset = 0f;
+
+    private const int MaxPlacementAttempts = 10;
 
     private float timer;
     private float canTimer;
@@ -131,23 +159,99 @@ public class Spawner : MonoBehaviour
     }
 
     /// <summary>
-    /// Instantiates a single spawnable item at a random X within its zone,
-    /// applying the perch Y offset and right-side mirroring. Shared by the
-    /// main weighted pool and the separate can timer.
+    /// Starts a batch of one or more instances of the chosen item (count is
+    /// random between minCount and maxCount). Shared by the main weighted
+    /// pool and the separate can timer.
     /// </summary>
     private void SpawnItem(SpawnableItem chosen)
     {
         if (chosen == null || chosen.prefab == null) return;
 
-        float x = GetRandomX(chosen.spawnZone);
-        float y = spawnPoint.position.y + (chosen.spawnZone == SpawnZone.Perch ? perchYOffset : 0f);
-        Vector3 spawnPos = new Vector3(x, y, spawnPoint.position.z);
+        StartCoroutine(SpawnBatch(chosen));
+    }
 
-        GameObject spawned = Instantiate(chosen.prefab, spawnPos, Quaternion.identity);
+    /// <summary>
+    /// Picks all X positions for the batch up front (so the separation check
+    /// works), then spawns them one by one. The first spawns immediately; each
+    /// following one waits a random time between minDelay and maxDelay.
+    /// If no delay is set, the whole batch spawns in the same frame.
+    /// </summary>
+    private IEnumerator SpawnBatch(SpawnableItem chosen)
+    {
+        int minCount = Mathf.Max(1, chosen.minCount);
+        int maxCount = Mathf.Max(minCount, chosen.maxCount);
+        int count = Random.Range(minCount, maxCount + 1); // int overload: max is exclusive
+
+        float baseY = spawnPoint.position.y + (chosen.spawnZone == SpawnZone.Perch ? perchYOffset : 0f);
+
+        // Pick the positions first so objects in the same batch keep their distance.
+        List<float> positions = new List<float>(count);
+        for (int i = 0; i < count; i++)
+        {
+            if (TryPickX(chosen, positions, out float x))
+                positions.Add(x);
+            // else: no free spot left in this zone - skip this one
+        }
+
+        float minDelay = Mathf.Min(chosen.minDelay, chosen.maxDelay);
+        float maxDelay = Mathf.Max(chosen.minDelay, chosen.maxDelay);
+
+        for (int i = 0; i < positions.Count; i++)
+        {
+            if (i > 0 && maxDelay > 0f)
+                yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));
+
+            float y = baseY + i * chosen.stackOffsetY;
+            SpawnSingle(chosen, positions[i], y);
+        }
+    }
+
+    /// <summary>
+    /// Picks a random X in the item's zone that is far enough from every X
+    /// already used in this batch. Returns false if no valid spot was found.
+    /// </summary>
+    private bool TryPickX(SpawnableItem item, List<float> usedX, out float x)
+    {
+        x = 0f;
+
+        for (int attempt = 0; attempt < MaxPlacementAttempts; attempt++)
+        {
+            float candidate = GetRandomX(item.spawnZone);
+
+            bool tooClose = false;
+            if (item.minSeparationX > 0f)
+            {
+                foreach (float other in usedX)
+                {
+                    if (Mathf.Abs(candidate - other) < item.minSeparationX)
+                    {
+                        tooClose = true;
+                        break;
+                    }
+                }
+            }
+
+            if (!tooClose)
+            {
+                x = candidate;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Instantiates one object at the given position, applying right-side mirroring.
+    /// </summary>
+    private void SpawnSingle(SpawnableItem item, float x, float y)
+    {
+        Vector3 spawnPos = new Vector3(x, y, spawnPoint.position.z);
+        GameObject spawned = Instantiate(item.prefab, spawnPos, Quaternion.identity);
 
         // Alleen items met mirrorOnRightSide aan (bv. bomen) worden gespiegeld, en
         // alleen als ze daadwerkelijk rechts van het midden van de spawn-band landen.
-        if (chosen.mirrorOnRightSide)
+        if (item.mirrorOnRightSide)
         {
             float midX = (centerMinX + centerMaxX) * 0.5f;
             if (x > midX)
