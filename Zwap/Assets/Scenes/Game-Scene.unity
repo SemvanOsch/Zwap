@@ -4416,7 +4416,7 @@ MonoBehaviour:
     mirrorOnRightSide: 0
     weight: 30
     minCount: 1
-    maxCount: 3
+    maxCount: 2
     minSeparationX: 0.5
     stackOffsetY: 0.1
     minDelay: 0.4
@@ -6283,6 +6283,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3682046474361876951, guid: 8017286ce7f8e4749b6b6f84c6682e28, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3719579309991860172, guid: 8017286ce7f8e4749b6b6f84c6682e28, type: 3}
       propertyPath: cam
       value: 
@@ -6302,6 +6306,10 @@ PrefabInstance:
     - target: {fileID: 3919367399877456724, guid: 8017286ce7f8e4749b6b6f84c6682e28, type: 3}
       propertyPath: m_RenderMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590792003446679032, guid: 8017286ce7f8e4749b6b6f84c6682e28, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4883709644171307110, guid: 8017286ce7f8e4749b6b6f84c6682e28, type: 3}
       propertyPath: m_AnchorMax.x

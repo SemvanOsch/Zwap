@@ -39,11 +39,21 @@ public class Bear : MonoBehaviour
     [SerializeField] private Color warningFillColor =
         new Color(1f, 0f, 0f, 0.35f);
 
-    [Tooltip("Color of the hit area while the swipe is lethal.")]
-    [SerializeField] private Color attackFillColor =
+    [SerializeField] private bool logStateChanges = true;
+
+    [Header("Attack Border")]
+    [Tooltip("Color of the border around the hit area while the swipe is lethal.")]
+    [SerializeField] private Color attackBorderColor =
         new Color(1f, 0f, 0f, 1f);
 
-    [SerializeField] private bool logStateChanges = true;
+    [Tooltip("Border thickness in world units.")]
+    [SerializeField] private float attackBorderThickness = 0.1f;
+
+    [Tooltip("Keep the translucent fill visible inside the border during the attack.")]
+    [SerializeField] private bool keepFillDuringAttack = true;
+
+    [Tooltip("How long the border and fill take to fade out after the attack ends. 0 = instant.")]
+    [SerializeField] private float fadeOutDuration = 0.5f;
 
     [Header("Attack Animation")]
     [SerializeField] private SpriteRenderer attackSpriteRenderer;
@@ -53,6 +63,7 @@ public class Bear : MonoBehaviour
 
     private Sprite idleSprite;
     private Coroutine attackAnimationCoroutine;
+    private Coroutine fadeCoroutine;
 
     [Header("Swipe Hitbox")]
     [SerializeField] private BoxCollider2D swipeHitbox;
@@ -75,6 +86,12 @@ public class Bear : MonoBehaviour
     private SpriteRenderer warningFillRendererLeft;
     private SpriteRenderer warningFillRendererRight;
 
+    // Border: top, bottom, left, right
+    private SpriteRenderer borderTop;
+    private SpriteRenderer borderBottom;
+    private SpriteRenderer borderLeft;
+    private SpriteRenderer borderRight;
+
     private ObjectVariant treeVariant;
     private bool subscribedToSwitcherForTree;
 
@@ -95,6 +112,8 @@ public class Bear : MonoBehaviour
     private void OnDisable()
     {
         StopAllCoroutines();
+        fadeCoroutine = null;
+        attackAnimationCoroutine = null;
 
         if (subscribedToSwitcherForTree &&
             ControlSwitcher.Instance != null)
@@ -233,6 +252,7 @@ public class Bear : MonoBehaviour
             FitHitboxToScreenWidth();
 
         CreateWarningFillRenderer();
+        CreateBorderRenderers();
 
         if (warningIndicator != null)
             warningIndicator.SetActive(false);
@@ -331,9 +351,12 @@ public class Bear : MonoBehaviour
         if (warningIndicator != null)
             warningIndicator.SetActive(true);
 
-        // Make sure we're using the (translucent) warning color again.
-        SetFillColor(warningFillColor);
+        // Cancel any fade still in progress (e.g. via ForceAttackNow)
+        // and make sure no border is left over.
+        CancelFade();
+        SetBorderActive(false);
 
+        SetFillColor(warningFillColor);
         SetFillActive(true);
 
         SetWarningFillProgress(0f);
@@ -357,11 +380,25 @@ public class Bear : MonoBehaviour
         if (warningIndicator != null)
             warningIndicator.SetActive(false);
 
-        // Keep the fill visible, fully covering the hit area, in bright red
-        // for the whole time the swipe is lethal.
-        SetWarningFillProgress(1f);
-        SetFillColor(attackFillColor);
-        SetFillActive(true);
+        CancelFade();
+
+        // Fill stays as the translucent warning fill (or is hidden),
+        // and only the border turns bright red.
+        SetFillColor(warningFillColor);
+
+        if (keepFillDuringAttack)
+        {
+            SetWarningFillProgress(1f);
+            SetFillActive(true);
+        }
+        else
+        {
+            SetFillActive(false);
+        }
+
+        LayoutBorder();
+        SetBorderColor(attackBorderColor);
+        SetBorderActive(true);
 
         if (playAttackAnimation &&
             attackSpriteRenderer != null &&
@@ -401,16 +438,69 @@ public class Bear : MonoBehaviour
 
     private void EndAttack()
     {
+        // The lethal window ends immediately; only the visuals fade.
         IsAttacking = false;
 
-        // Hide the red hit area and reset to the warning color.
-        SetFillActive(false);
-        SetFillColor(warningFillColor);
+        CancelFade();
+
+        if (fadeOutDuration > 0f)
+        {
+            fadeCoroutine = StartCoroutine(FadeOutVisuals());
+        }
+        else
+        {
+            SetFillActive(false);
+            SetBorderActive(false);
+        }
 
         if (logStateChanges)
             Debug.Log("[Bear] Swipe ended", this);
 
         OnAttackEnd?.Invoke();
+    }
+
+    private IEnumerator FadeOutVisuals()
+    {
+        float fillStartAlpha = warningFillColor.a;
+        float borderStartAlpha = attackBorderColor.a;
+
+        float t = 0f;
+
+        while (t < fadeOutDuration)
+        {
+            t += Time.deltaTime;
+
+            float k = Mathf.Clamp01(t / fadeOutDuration);
+            float remaining = 1f - k;
+
+            Color fill = warningFillColor;
+            fill.a = fillStartAlpha * remaining;
+            SetFillColor(fill);
+
+            Color border = attackBorderColor;
+            border.a = borderStartAlpha * remaining;
+            SetBorderColor(border);
+
+            yield return null;
+        }
+
+        SetFillActive(false);
+        SetBorderActive(false);
+
+        // Restore full colors so the next warning/attack starts clean.
+        SetFillColor(warningFillColor);
+        SetBorderColor(attackBorderColor);
+
+        fadeCoroutine = null;
+    }
+
+    private void CancelFade()
+    {
+        if (fadeCoroutine != null)
+        {
+            StopCoroutine(fadeCoroutine);
+            fadeCoroutine = null;
+        }
     }
 
     public void HandleSwipeHit(Collider2D other)
@@ -513,6 +603,98 @@ public class Bear : MonoBehaviour
         return renderer;
     }
 
+    private void CreateBorderRenderers()
+    {
+        if (swipeHitbox == null)
+            return;
+
+        borderTop = CreateBorderSide("AttackBorder Top");
+        borderBottom = CreateBorderSide("AttackBorder Bottom");
+        borderLeft = CreateBorderSide("AttackBorder Left");
+        borderRight = CreateBorderSide("AttackBorder Right");
+    }
+
+    private SpriteRenderer CreateBorderSide(string objectName)
+    {
+        GameObject obj = new GameObject(objectName);
+
+        obj.transform.SetParent(
+            swipeHitbox.transform,
+            worldPositionStays: false
+        );
+
+        obj.transform.localRotation = Quaternion.identity;
+
+        SpriteRenderer renderer =
+            obj.AddComponent<SpriteRenderer>();
+
+        renderer.sprite = CreateSolidWhiteSprite();
+        renderer.color = attackBorderColor;
+
+        // Draw above the translucent fill.
+        renderer.sortingOrder = 1;
+
+        obj.SetActive(false);
+
+        return renderer;
+    }
+
+    /// <summary>
+    /// Sizes and positions the four border strips just inside the edges
+    /// of the swipe hitbox.
+    /// </summary>
+    private void LayoutBorder()
+    {
+        if (swipeHitbox == null ||
+            borderTop == null ||
+            borderBottom == null ||
+            borderLeft == null ||
+            borderRight == null)
+            return;
+
+        Vector3 lossy = swipeHitbox.transform.lossyScale;
+
+        float scaleX =
+            Mathf.Approximately(lossy.x, 0f) ? 1f : Mathf.Abs(lossy.x);
+
+        float scaleY =
+            Mathf.Approximately(lossy.y, 0f) ? 1f : Mathf.Abs(lossy.y);
+
+        // Convert the world-unit thickness into the hitbox's local space.
+        float tx = attackBorderThickness / scaleX;
+        float ty = attackBorderThickness / scaleY;
+
+        Vector2 size = swipeHitbox.size;
+        Vector2 offset = swipeHitbox.offset;
+
+        float halfW = size.x * 0.5f;
+        float halfH = size.y * 0.5f;
+
+        // Top
+        borderTop.transform.localPosition =
+            new Vector3(offset.x, offset.y + halfH - ty * 0.5f, 0f);
+        borderTop.transform.localScale =
+            new Vector3(size.x, ty, 1f);
+
+        // Bottom
+        borderBottom.transform.localPosition =
+            new Vector3(offset.x, offset.y - halfH + ty * 0.5f, 0f);
+        borderBottom.transform.localScale =
+            new Vector3(size.x, ty, 1f);
+
+        // Left
+        borderLeft.transform.localPosition =
+            new Vector3(offset.x - halfW + tx * 0.5f, offset.y, 0f);
+        borderLeft.transform.localScale =
+            new Vector3(tx, size.y, 1f);
+
+        // Right
+        borderRight.transform.localPosition =
+            new Vector3(offset.x + halfW - tx * 0.5f, offset.y, 0f);
+        borderRight.transform.localScale =
+            new Vector3(tx, size.y, 1f);
+    }
+
     private static Sprite CreateSolidWhiteSprite()
     {
         Texture2D tex =
@@ -550,6 +732,36 @@ public class Bear : MonoBehaviour
 
         if (warningFillRendererRight != null)
             warningFillRendererRight.color = color;
+    }
+
+    private void SetBorderActive(bool active)
+    {
+        if (borderTop != null)
+            borderTop.gameObject.SetActive(active);
+
+        if (borderBottom != null)
+            borderBottom.gameObject.SetActive(active);
+
+        if (borderLeft != null)
+            borderLeft.gameObject.SetActive(active);
+
+        if (borderRight != null)
+            borderRight.gameObject.SetActive(active);
+    }
+
+    private void SetBorderColor(Color color)
+    {
+        if (borderTop != null)
+            borderTop.color = color;
+
+        if (borderBottom != null)
+            borderBottom.color = color;
+
+        if (borderLeft != null)
+            borderLeft.color = color;
+
+        if (borderRight != null)
+            borderRight.color = color;
     }
 
     private void SetWarningFillProgress(float progress)
@@ -633,6 +845,8 @@ public class Bear : MonoBehaviour
     public void ForceAttackNow()
     {
         StopAllCoroutines();
+        fadeCoroutine = null;
+        attackAnimationCoroutine = null;
         StartCoroutine(ForceAttackNowRoutine());
     }
 
