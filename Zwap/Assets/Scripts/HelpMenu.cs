@@ -27,7 +27,7 @@ using UnityEngine.UI;
 ///     transparent one) so the drag events fire across the whole panel.
 ///   - Put the page panels, arrows and dots as children so they turn off with the root.
 /// </summary>
-public class HelpMenu : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class HelpMenu : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
     [Header("Pause Menu")]
     [Tooltip("The pause menu panel (PauseManager's pauseMenuUI). It is hidden while the help " +
@@ -97,6 +97,13 @@ public class HelpMenu : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     [Tooltip("Minimum horizontal drag, in pixels, that counts as a swipe. Shorter drags are " +
              "ignored so a tap or a tiny wobble doesn't flip the page.")]
     [SerializeField] private float minSwipeDistance = 75f;
+
+    [Header("Tap")]
+    [Tooltip("When on, a tap on the left half of the panel goes to the previous page and a tap " +
+             "on the right half goes to the next page, in addition to swiping. Taps on the " +
+             "arrow, dot or Back buttons still act as those buttons — the EventSystem routes " +
+             "the tap to the button, not here.")]
+    [SerializeField] private bool tapToNavigate = true;
 
     // The page currently shown. Kept in range [0, pages.Length - 1] at all times.
     private int currentPage;
@@ -336,5 +343,30 @@ public class HelpMenu : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             NextPage();
         else
             PrevPage();
+    }
+
+    // A tap (a click with no real drag) on the left half of the panel goes back a page, on the
+    // right half goes forward — mirroring the swipe directions. Taps that land on a child button
+    // (arrows, dots, Back) never reach here: the EventSystem delivers the click to that button
+    // instead. A genuine swipe doesn't fire this either, because dragging clears eligibleForClick.
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (!tapToNavigate)
+            return;
+
+        // Measure the tap against the panel's own rect, so the left/right split follows the
+        // panel regardless of screen size or canvas render mode.
+        RectTransform rect = transform as RectTransform;
+        if (rect == null)
+            return;
+
+        if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                rect, eventData.position, eventData.pressEventCamera, out Vector2 local))
+            return;
+
+        if (local.x < rect.rect.center.x)
+            PrevPage();
+        else
+            NextPage();
     }
 }
