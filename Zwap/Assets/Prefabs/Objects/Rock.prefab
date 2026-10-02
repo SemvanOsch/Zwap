@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoveDown
   speed: 10
   speedPerScore: 0.002
-  despawnY: -20
+  despawnY: -30
 --- !u!70 &862086326993458479
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
