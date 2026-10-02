@@ -210,7 +210,10 @@ MonoBehaviour:
   swipeActiveDuration: 0.1
   warningIndicator: {fileID: 0}
   warningFillColor: {r: 1, g: 0, b: 0, a: 0.28235295}
-  logStateChanges: 1
+  logStateChanges: 0
+  attackBorderColor: {r: 1, g: 0, b: 0, a: 1}
+  attackBorderThickness: 0.1
+  keepFillDuringAttack: 1
   attackSpriteRenderer: {fileID: 6817088828250991674}
   attackSprites:
   - {fileID: 8361201981642547563, guid: ae1c03a937c1e904c87a9acdfd03912e, type: 3}
@@ -225,7 +228,7 @@ MonoBehaviour:
   fitHitboxToScreenWidth: 1
   manualPlayfieldWidth: 0
   cam: {fileID: 0}
-  destroyBelowScreenPadding: 1
+  destroyBelowScreenPadding: 5
   OnWarningStart:
     m_PersistentCalls:
       m_Calls: []

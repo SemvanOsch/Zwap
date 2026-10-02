@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoveDown
   speed: 10
   speedPerScore: 0.002
-  despawnY: -20
+  despawnY: -30
 --- !u!114 &-370365431698029870
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 633f807fb78387e41ad1d987a15672a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Can
+  maxSpawnTilt: 20
 --- !u!114 &-5183052738965240447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoveDown
   speed: 10
   speedPerScore: 0.002
-  despawnY: -20
+  despawnY: -30
 --- !u!61 &3123874266434593340
 BoxCollider2D:
   m_ObjectHideFlags: 0
