@@ -265,8 +265,17 @@ public class Heron : MonoBehaviour
         Transform anchor = heronSpriteRenderer != null ? heronSpriteRenderer.transform : transform;
 
         var fx = new GameObject($"{name}_KillEffect");
+        // Parented to the heron (world position kept) so it keeps moving with it --
+        // e.g. if the heron/level is still scrolling down during the death sequence --
+        // instead of being left behind at the spot it spawned.
+        fx.transform.SetParent(anchor, worldPositionStays: true);
         fx.transform.position = anchor.position;
         fx.transform.rotation = anchor.rotation;
+
+        // The area visual (circle + dashes) has done its job once the kill fires;
+        // hide it immediately so it doesn't keep hovering there during the death animation.
+        if (visualRoot != null)
+            visualRoot.gameObject.SetActive(false);
 
         var sr = fx.AddComponent<SpriteRenderer>();
         if (!string.IsNullOrEmpty(sortingLayerName))
@@ -305,6 +314,11 @@ public class Heron : MonoBehaviour
         }
 
         Destroy(fx);
+
+        // Was hidden in PlayKillSprites() so it wouldn't show under the kill animation;
+        // bring it back now the animation is done, so the heron doesn't stay invisible.
+        if (heronSpriteRenderer != null)
+            heronSpriteRenderer.enabled = true;
     }
 
     // ---------- Area visual ----------
