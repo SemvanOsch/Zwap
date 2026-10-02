@@ -1,5 +1,4 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -39,6 +38,10 @@ public class Bear : MonoBehaviour
     [Header("Warning Fill")]
     [SerializeField] private Color warningFillColor =
         new Color(1f, 0f, 0f, 0.35f);
+
+    [Tooltip("Color of the hit area while the swipe is lethal.")]
+    [SerializeField] private Color attackFillColor =
+        new Color(1f, 0f, 0f, 1f);
 
     [SerializeField] private bool logStateChanges = true;
 
@@ -323,15 +326,15 @@ public class Bear : MonoBehaviour
     private void BeginWarning()
     {
         IsWarning = true;
+        IsAttacking = false;
 
         if (warningIndicator != null)
             warningIndicator.SetActive(true);
 
-        if (warningFillRendererLeft != null)
-            warningFillRendererLeft.gameObject.SetActive(true);
+        // Make sure we're using the (translucent) warning color again.
+        SetFillColor(warningFillColor);
 
-        if (warningFillRendererRight != null)
-            warningFillRendererRight.gameObject.SetActive(true);
+        SetFillActive(true);
 
         SetWarningFillProgress(0f);
 
@@ -354,11 +357,11 @@ public class Bear : MonoBehaviour
         if (warningIndicator != null)
             warningIndicator.SetActive(false);
 
-        if (warningFillRendererLeft != null)
-            warningFillRendererLeft.gameObject.SetActive(false);
-
-        if (warningFillRendererRight != null)
-            warningFillRendererRight.gameObject.SetActive(false);
+        // Keep the fill visible, fully covering the hit area, in bright red
+        // for the whole time the swipe is lethal.
+        SetWarningFillProgress(1f);
+        SetFillColor(attackFillColor);
+        SetFillActive(true);
 
         if (playAttackAnimation &&
             attackSpriteRenderer != null &&
@@ -399,6 +402,10 @@ public class Bear : MonoBehaviour
     private void EndAttack()
     {
         IsAttacking = false;
+
+        // Hide the red hit area and reset to the warning color.
+        SetFillActive(false);
+        SetFillColor(warningFillColor);
 
         if (logStateChanges)
             Debug.Log("[Bear] Swipe ended", this);
@@ -525,6 +532,24 @@ public class Bear : MonoBehaviour
             new Vector2(0.5f, 0.5f),
             pixelsPerUnit: 1f
         );
+    }
+
+    private void SetFillActive(bool active)
+    {
+        if (warningFillRendererLeft != null)
+            warningFillRendererLeft.gameObject.SetActive(active);
+
+        if (warningFillRendererRight != null)
+            warningFillRendererRight.gameObject.SetActive(active);
+    }
+
+    private void SetFillColor(Color color)
+    {
+        if (warningFillRendererLeft != null)
+            warningFillRendererLeft.color = color;
+
+        if (warningFillRendererRight != null)
+            warningFillRendererRight.color = color;
     }
 
     private void SetWarningFillProgress(float progress)
