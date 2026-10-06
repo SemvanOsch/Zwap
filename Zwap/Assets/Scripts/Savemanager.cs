@@ -47,25 +47,51 @@ public class SaveManager : MonoBehaviour
     /// <summary>Writes the current Data object to disk as JSON.</summary>
     public void Save()
     {
-        string json = JsonUtility.ToJson(Data, prettyPrint: true);
-        File.WriteAllText(SavePath, json);
-        Debug.Log($"[SaveManager] Saved to {SavePath}");
+        // Never let a disk error escape: callers like PlayerStart.FinishGameOver load the
+        // next scene right after saving, and an exception here would leave the game stuck.
+        try
+        {
+            string json = JsonUtility.ToJson(Data, prettyPrint: true);
+            File.WriteAllText(SavePath, json);
+            Debug.Log($"[SaveManager] Saved to {SavePath}");
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"[SaveManager] Could not save to {SavePath}: {e.Message}");
+        }
     }
 
-    /// <summary>Loads Data from disk. If no save file exists yet, keeps defaults.</summary>
+    /// <summary>Loads Data from disk. If no save file exists yet (or it can't be read), keeps defaults.</summary>
     public void Load()
     {
-        if (File.Exists(SavePath))
-        {
-            string json = File.ReadAllText(SavePath);
-            Data = JsonUtility.FromJson<SaveData>(json);
-            Debug.Log("[SaveManager] Save file loaded.");
-        }
-        else
+        if (!File.Exists(SavePath))
         {
             Data = new SaveData();
             Debug.Log("[SaveManager] No save file found, starting fresh.");
+            return;
         }
+
+        // An empty or corrupt file (e.g. the app was killed mid-write) must not leave Data
+        // null, or everything that reads SaveManager.Instance.Data would throw.
+        try
+        {
+            string json = File.ReadAllText(SavePath);
+            SaveData loaded = JsonUtility.FromJson<SaveData>(json);
+            if (loaded != null)
+            {
+                Data = loaded;
+                Debug.Log("[SaveManager] Save file loaded.");
+                return;
+            }
+
+            Debug.LogWarning("[SaveManager] Save file was empty, starting fresh.");
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"[SaveManager] Could not read save file, starting fresh: {e.Message}");
+        }
+
+        Data = new SaveData();
     }
 
     /// <summary>Wipes all saved progress and resets to defaults. Handy for a "Reset Data" debug button.</summary>

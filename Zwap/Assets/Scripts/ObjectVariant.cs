@@ -123,7 +123,6 @@ public class ObjectVariant : MonoBehaviour
 
     private void HandleControlChanged(ControlType newControl)
     {
-        Debug.Log($"[ObjectVariant] {name} got control change: {newControl}", this);
         // The event only carries the ControlType; read IsInverted straight from the
         // switcher (already updated by the time this fires), exactly like the others.
         bool inverted = ControlSwitcher.Instance != null && ControlSwitcher.Instance.IsInverted;

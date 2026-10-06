@@ -174,7 +174,8 @@ public class RockWaterEffect : MonoBehaviour
         while (true)
         {
             int i = frames.Length > 1 ? Random.Range(0, frames.Length) : 0;
-            while (i == previous)
+            // Only re-roll when there's another frame to pick; with a single frame this would loop forever.
+            while (frames.Length > 1 && i == previous)
                 i = Random.Range(0, frames.Length);
 
             sr.sprite = frames[i];

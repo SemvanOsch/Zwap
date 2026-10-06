@@ -883,16 +883,25 @@ public class PlayerStart : MonoBehaviour
 
     private void FinishGameOver()
     {
-        int currentScore = ScoreManager.Instance.GetScore();
-
-        if (currentScore > SaveManager.Instance.Data.highScore)
+        // Each singleton is checked so the game-over scene always loads, even when
+        // Game-Scene is played directly (SaveManager/GameData only live in Home-Screen).
+        if (SaveManager.Instance != null)
         {
-            SaveManager.Instance.Data.highScore = currentScore;
-            GameData.Instance.Highscore = currentScore;
-        }
+            if (ScoreManager.Instance != null)
+            {
+                int currentScore = ScoreManager.Instance.GetScore();
 
-        SaveManager.Instance.Data.runs++;
-        SaveManager.Instance.Save();
+                if (currentScore > SaveManager.Instance.Data.highScore)
+                {
+                    SaveManager.Instance.Data.highScore = currentScore;
+                    if (GameData.Instance != null)
+                        GameData.Instance.Highscore = currentScore;
+                }
+            }
+
+            SaveManager.Instance.Data.runs++;
+            SaveManager.Instance.Save();
+        }
 
         SceneManager.LoadScene(gameOverScene);
     }

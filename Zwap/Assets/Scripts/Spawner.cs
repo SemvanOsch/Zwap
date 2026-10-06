@@ -109,7 +109,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         RollNextCanInterval();
-        player = FindObjectOfType<PlayerStart>();
+        player = FindFirstObjectByType<PlayerStart>();
     }
 
     void Update()

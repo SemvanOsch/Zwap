@@ -63,8 +63,11 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdateText()
     {
-        if (scoreText != null)
+        // GameData lives in Home-Screen, so it's missing when Game-Scene is played directly.
+        if (GameData.Instance != null)
             GameData.Instance.score = score;
+
+        if (scoreText != null)
             scoreText.text = score.ToString();
     }
 }
