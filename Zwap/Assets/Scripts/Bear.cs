@@ -593,7 +593,7 @@ public class Bear : MonoBehaviour
             fillObj.AddComponent<SpriteRenderer>();
 
         renderer.sprite =
-            CreateSolidWhiteSprite();
+            GetSolidWhiteSprite();
 
         renderer.color =
             warningFillColor;
@@ -628,7 +628,7 @@ public class Bear : MonoBehaviour
         SpriteRenderer renderer =
             obj.AddComponent<SpriteRenderer>();
 
-        renderer.sprite = CreateSolidWhiteSprite();
+        renderer.sprite = GetSolidWhiteSprite();
         renderer.color = attackBorderColor;
 
         // Draw above the translucent fill.
@@ -695,8 +695,15 @@ public class Bear : MonoBehaviour
             new Vector3(tx, size.y, 1f);
     }
 
-    private static Sprite CreateSolidWhiteSprite()
+    // Shared by every bear's fill and border strips (their tint lives on the
+    // SpriteRenderer, not the sprite), so it's built once instead of 6x per bear.
+    private static Sprite solidWhiteSprite;
+
+    private static Sprite GetSolidWhiteSprite()
     {
+        if (solidWhiteSprite != null)
+            return solidWhiteSprite;
+
         Texture2D tex =
             new Texture2D(1, 1);
 
@@ -708,12 +715,18 @@ public class Bear : MonoBehaviour
 
         tex.Apply();
 
-        return Sprite.Create(
+        solidWhiteSprite = Sprite.Create(
             tex,
             new Rect(0f, 0f, 1f, 1f),
             new Vector2(0.5f, 0.5f),
             pixelsPerUnit: 1f
         );
+
+        // Same as Heron: keep it alive across scene loads (and play sessions, since
+        // domain reload is disabled) so the cached reference never points at an unloaded asset.
+        tex.hideFlags = HideFlags.DontUnloadUnusedAsset;
+        solidWhiteSprite.hideFlags = HideFlags.DontUnloadUnusedAsset;
+        return solidWhiteSprite;
     }
 
     private void SetFillActive(bool active)
