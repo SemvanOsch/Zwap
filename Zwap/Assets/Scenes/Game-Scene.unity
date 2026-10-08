@@ -6438,6 +6438,14 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3899860639726323228, guid: 8017286ce7f8e4749b6b6f84c6682e28, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 3899860639726323228, guid: 8017286ce7f8e4749b6b6f84c6682e28, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 3919367399877456724, guid: 8017286ce7f8e4749b6b6f84c6682e28, type: 3}
       propertyPath: m_Camera
       value: 
