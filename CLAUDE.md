@@ -1,37 +1,102 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for Claude Code when working in this repository.
 
-## ⚠️ Permission rule (read first)
+## Permission rule (read first)
 
-Do **not** make any changes to files, scenes, or assets without the user's specific, explicit permission for that change. It is fine to read, explore, and explain freely, and to propose edits — but wait for a clear "yes, do it" before writing anything. Approval for one change does not carry over to the next.
+Do **not** make any changes to files, scenes, or assets without the user's specific, explicit permission for that change. Reading, exploring, explaining and proposing edits is fine, but wait for a clear "yes, do it" before writing anything. Approval for one change does not carry over to the next.
 
 ## Project
 
-Zwap is a 2D mobile game built in **Unity 6000.3.23f1** (Unity 6). The player dodges falling objects; input comes from keyboard (WASD), on-screen touch arrows, and device tilt (accelerometer) simultaneously. Uses the new Input System, the 2D feature set, Cinemachine, and TextMesh Pro.
+Zwap is a 2D mobile game made in **Unity 6000.3.23f1** (Unity 6) by Zwap-Studio. You play a fish swimming up a river and dodge falling objects (rocks, tree stumps, trees, bears, herons). Every few seconds the control scheme switches to a different one, so the player has to keep adapting. The score goes up over time and the game speeds up as it does.
 
-The Unity project root is the `Zwap/` subfolder (not the repo root). Open `Zwap/` in the Unity Hub. The repo root only holds `Zwap/`, `Packages/`, `ProjectSettings/`, and docs.
+Packages used: new Input System, the 2D feature set, Cinemachine, TextMesh Pro, and Native Share (yasirkula, pulled from git) for sharing scores. The Terresquall Virtual Joystick asset lives in `Assets/VirtualJoystick/`.
 
-## Building & running
+The Unity project root is the `Zwap/` subfolder, not the repo root. Open `Zwap/` in Unity Hub.
 
-There is no CLI build/test flow — this is a Unity Editor project. Open it in the Unity Editor to run, and use **File → Build Profiles** to build. There are currently no automated tests despite `com.unity.test-framework` being present.
+## Building and running
+
+There is no CLI build or test flow. Open the project in the Unity Editor to run it and use **File > Build Profiles** to build. `com.unity.test-framework` is installed but there are no tests.
+
+Start play mode from `Home-Screen`. `GameData` and `SaveManager` are created there and kept with `DontDestroyOnLoad`, so starting `Game-Scene` directly works but logs warnings and skips some score/save logic.
 
 ## Scenes
 
-Game scenes live in `Zwap/Assets/Scenes/`: `Home-Screen`, `Game-Scene`, `SampleScene`. (The many scenes under `Assets/TextMesh Pro/` are vendor examples — ignore them.)
+In `Zwap/Assets/Scenes/`, in build order:
+
+1. `Home-Screen` - main menu, skin select, high score, intro sequence before the game starts.
+2. `Game-Scene` - the actual game.
+3. `Game-over` - final score, high score, share button, back to menu.
+4. `SampleScene` - leftover template scene.
+
+Ignore the scenes under `Assets/TextMesh Pro/` and `Assets/VirtualJoystick/Demo.unity`, those are vendor examples.
+
+## Code layout
+
+Game code is everything directly in `Zwap/Assets/Scripts/` plus `Zwap/Assets/Scripts/Editor/`. Do not edit third party code in `Assets/TextMesh Pro/` or `Assets/VirtualJoystick/`.
+
+`Zwap/Assets/PlayerControls.cs` is generated from `PlayerControls.inputactions`. Do not edit it by hand, regenerate it from the asset.
+
+Several class names do not match their file name. Unity needs the class name to stay the same as what scenes reference, so don't rename these without asking:
+
+| File | Class |
+| --- | --- |
+| Object-Movement.cs | `MoveDown` |
+| TouchControlsArrow.cs | `TouchControls` |
+| Pausecontrol.cs | `PauseManager` |
+| Performancesettings.cs | `PerformanceSettings` (static, no component) |
+| RockObject.cs | `RockWaterEffect` |
+| Scene-manager.cs | `SceneButtonHandler` |
+| ShockAnimationScript.cs | `SimpleAnimation` |
+| TextUpdates.cs | `ScoreDisplay` |
+| Savemanager.cs | `SaveManager` |
 
 ## Gameplay architecture
 
-Only the scripts directly under `Zwap/Assets/Scripts/` and `Zwap/Assets/PlayerControls.cs` are game code; everything under `Assets/TextMesh Pro/` is third-party sample code and should not be edited.
+### Controls
 
-- **PlayerControls.cs** — auto-generated from `PlayerControls.inputactions`. Do not hand-edit; regenerate from the `.inputactions` asset.
-- **PlayerStart.cs** — the player controller (on a `Rigidbody2D`). Sums three input sources every `FixedUpdate` into one movement vector: `moveInput` (touch), `keyboardInput` (Input System Move action), and tilt (`Accelerometer`). Drives an `Animator` bool `IsMoving`. Touch buttons call `AddInput`/`RemoveInput` on press/release. Note: several class names don't match their file (`PlayerStart` class in PlayerStart.cs, `MoveDown` in Object-Movement.cs, `RockSpawner` in Spawner.cs, `TouchControls` in TouchControlsArrow.cs).
-- **TouchControlsArrow.cs** (`TouchControls`) — wires the on-screen arrow buttons to `PlayerStart`. `ToggleInverse()` flips control direction and rotates the arrow sprites 180°; `SetNormal()` resets them. Some comments/identifiers are in Dutch.
-- **Spawner.cs** (`RockSpawner`) — spawns random prefabs from `itemPrefabs` on a timer at a random lane X (`lanePositions`) using the spawn point's Y/Z.
-- **Object-Movement.cs** (`MoveDown`) — moves a spawned object straight down and `Destroy`s it below `despawnY`.
-- **BackgroundScroller.cs** — scrolls a `RawImage`'s UV rect for a looping background.
+- **ControlSwitcher** (singleton, sits on the player) - the core of the game. Every `switchInterval` seconds (default 10) it switches to the next control. Control types are `Tilt`, `Touch`, `Follow`, `Joystick`, `Slider`, `Slingshot`. Some controls also have an inverted variant (listed in `invertibleControls`). Each control/inverted combo is tagged Easy, Medium or Hard, and the next control is picked from the pool that matches `difficultyOrder` (Easy, Medium, Hard, then wraps). It shows only the panel for the current control, updates the "next control" icon and color, and spawns the shock effect so its bang lands on the switch. Other scripts listen to `OnControlChanged`.
+- **ControlType enum order matters.** New values are appended at the end so serialized values in scenes keep their meaning. Never insert or reorder.
+- **PlayerStart** - the fish controller (`Rigidbody2D`, moved with `MovePosition`). Reads the current control from `ControlSwitcher` and gets a movement target from the matching mode (tilt via `Accelerometer`, touch arrows, follow finger, joystick, sliders, slingshot). Movement speed scales with score. Also handles skins (frame animation from PlayerPrefs `SelectedSkin`), the can shield, getting hit by objects tagged `Entity`, dying when pushed off the bottom, and game over (saves high score and run count, then loads `Game-over`). `ForceFatalHit()` is the instant kill used by enemies. Keyboard input is still bound but not used for movement right now.
+- **TouchControls** - on-screen arrow buttons. Buttons call `OnUpPress`/`OnUpRelease` etc. and the summed vector is pushed into `PlayerStart`. The inverted panel is wired to the opposite handlers, so no negation in code.
+- **SliderControls** - two sliders (bottom = X, right = Y) for Slider mode.
+- **GodMode** - static toggle from the pause menu that makes the player unkillable. Resets on every scene load.
+
+### Spawning and obstacles
+
+- **Spawner** - weighted random spawning from a list of `SpawnableItem`s. Each item has a spawn zone (anywhere, edges, left, right, center, perch), weight, batch count, spacing and delay, and can be mirrored on the right side (trees). Spawn rate scales with score. The can has its own separate timer that pauses while the fish still has a shield. Has a custom inspector that shows live spawn percentages.
+- **MoveDown** (Object-Movement.cs) - moves an object down in world space and destroys it below `despawnY`.
+- **Can** - pickup that gives a one hit shield. Must not be tagged `Entity`.
+- **Bear** - screen wide obstacle that drifts down, shows a warning, then does a full width swipe that kills on contact. **BearSwipeHitbox** forwards trigger hits from a child collider to the bear.
+- **Heron** - stationary enemy with a kill circle. Shows a red outline and a fill that gets stronger as the player moves in, then kills when the player's hitbox is inside.
+- **ObjectVariant** - swaps a falling object's sprite to match the current control and refits the collider.
+- **RockWaterEffect** (RockObject.cs) - changes a rock's water swirl color per control. **RockRotation** spins rocks only during the inverted joystick control.
+
+### Visuals and map
+
+- **ControlBackground** - every control has its own "map" (background and rock side borders). On a switch it hands the layers to **BackgroundReveal**, which plays a growing circle transition from the fish. `BackgroundReveal.OnRevealProgress` is used by ObjectVariant, RockWaterEffect and RockRotation so they change in sync with the circle.
+- **BackgroundScroller** - scrolls a `RawImage` UV rect for a looping background.
+- **SimpleAnimation** (ShockAnimationScript.cs) - the shock effect before a control switch, with sound.
+
+### UI, menus and data
+
+- **ScoreManager** (singleton, Game-Scene) - score goes up over time, faster as score rises (capped multiplier). Shown as meters ("M").
+- **GameData** (singleton, created in Home-Screen) - carries the score and high score between scenes.
+- **SaveManager** (singleton) - saves `SaveData` (`highScore`, `runs`) as JSON to `Application.persistentDataPath/save.json`. Add new save fields to `SaveData`.
+- **HomeScreenUI**, **ScoreDisplay** (TextUpdates.cs) - show high score / final score.
+- **SkinPreview** - skin select on the home screen, locked skins show as a flat silhouette with an outline. Saves the choice to PlayerPrefs `SelectedSkin`.
+- **IntroSceneManager** - Play button: zooms into the home screen UI, plays a short skippable slideshow, then loads the game scene.
+- **PauseManager** (Pausecontrol.cs) - pause/resume with `Time.timeScale` and `AudioListener.pause`.
+- **HelpManager** - one time help popup the first time each control shows up, remembered in PlayerPrefs. **HelpMenu** - swipeable help pages opened from the pause menu, opens on the page for the current control.
+- **ShareScore** - share the score (optionally with a screenshot) through Native Share. Only works in a real iOS/Android build.
+- **SceneButtonHandler** - generic button to load a scene (unfreezes time first) or toggle an object.
+- **SceneField** + `Editor/SceneFieldPropertyDrawer.cs` - lets you drag a scene asset into an inspector field instead of typing its name.
+- **PerformanceSettings** - runs automatically before the first scene loads. Sets frame rate and vsync, caps the max delta time, and turns off stack traces for `Debug.Log` in release builds.
 
 ## Conventions
 
-- Inspector-driven: prefabs, transforms, speeds, and lane positions are `[SerializeField]`/public fields set in the Editor, so the `.unity`/`.prefab`/`.meta` files carry as much behavior as the C#. Changing a serialized field's name or type can break existing scene wiring.
-- Never delete or rename `.meta` files or change GUIDs — it breaks asset references across scenes.
+- Most behavior is set up in the Inspector. Prefabs, speeds, lanes, panels and sprites are `[SerializeField]` fields, so the `.unity`, `.prefab` and `.meta` files matter as much as the C#. Renaming a serialized field or changing its type breaks the scene wiring. Use `[FormerlySerializedAs]` if a rename is really needed.
+- Scripts that listen to `ControlSwitcher` or `BackgroundReveal` subscribe in `OnEnable`, try again in `Start` as a safety net for init order, and unsubscribe in `OnDisable`. Follow the same pattern for new listeners. `OnControlChanged` does not fire for the first control, so apply the starting state yourself in `Start`.
+- Some comments and identifiers are in Dutch. That's fine, leave them unless asked.
+- Never delete or rename `.meta` files or change GUIDs, it breaks asset references across scenes.
+- Tags in use: `Entity` (anything that hurts the player on contact).
